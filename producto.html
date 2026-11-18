@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha de Producto | Comercializadora Valle Lindo</title>
+  <link rel="icon" type="image/jpeg" href="assets/branding/logo-valle-lindo.jpeg">
+
+  <!-- HEADERS DEFENSIVOS DE CIBERSEGURIDAD EMPRESARIAL -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com https://fonts.googleapis.com https://fonts.gstatic.com data: blob:; img-src 'self' data: https: blob:; media-src 'self' data: blob:; connect-src 'self' https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="//unpkg.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="security.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#F8F9FA] text-[#121212] font-sans antialiased overflow-x-hidden pb-16 md:pb-0">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-xs">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <button onclick="toggleMobileNav()" class="p-2 -ml-1 text-gray-700 hover:text-[#B71C1C] md:hidden rounded-lg focus:outline-none" aria-label="Abrir Menú">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+
+        <a href="index.html" class="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden bg-black p-0.5 border border-gray-200">
+            <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-full h-full object-cover rounded-lg" />
+          </div>
+          <div>
+            <span class="font-black text-base sm:text-lg tracking-tight block leading-none">VALLE LINDO</span>
+            <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#B71C1C]">Ficha de Producto B2B</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center space-x-1.5 sm:space-x-3">
+        <a href="catalogo.html" class="text-xs font-bold text-gray-700 hover:text-[#B71C1C] hidden xs:inline">
+          ← Catálogo
+        </a>
+        <a href="cliente.html" class="p-1.5 text-gray-600 hover:text-black rounded-full hover:bg-gray-100" title="Mi Cuenta">
+          <i data-lucide="user" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+        </a>
+        <button onclick="openCartDrawer()" class="flex items-center gap-1.5 sm:gap-2 bg-[#B71C1C] text-white px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-xs transition-all active:scale-95">
+          <div class="relative">
+            <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+            <span class="cart-count-badge absolute -top-2 -right-2 bg-emerald-500 text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border border-white" style="display: none;">0</span>
+          </div>
+          <span class="hidden xs:inline">Mi Carro</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENÚ LATERAL MÓVIL (DRAWER) -->
+  <div id="mobileNavDrawer" class="hidden fixed inset-0 z-50 overflow-hidden">
+    <div onclick="closeMobileNav()" class="absolute inset-0 bg-black/60 backdrop-blur-xs transition-opacity"></div>
+    <div class="fixed inset-y-0 left-0 max-w-full flex">
+      <div class="w-72 sm:w-80 bg-white shadow-2xl flex flex-col justify-between">
+        <div>
+          <div class="p-4 bg-[#121212] text-white flex justify-between items-center border-b-2 border-[#B71C1C]">
+            <div class="flex items-center gap-2.5">
+              <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-8 h-8 rounded-lg object-cover" />
+              <div>
+                <span class="font-black text-sm block leading-none">VALLE LINDO</span>
+                <span class="text-[9px] text-[#B71C1C] font-bold uppercase">Distribuidora Gastronómica</span>
+              </div>
+            </div>
+            <button onclick="closeMobileNav()" class="p-1.5 text-gray-400 hover:text-white rounded-lg">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+
+          <div class="p-4 space-y-1 text-sm font-semibold text-gray-800">
+            <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors">
+              <i data-lucide="home" class="w-4 h-4"></i> Inicio
+            </a>
+            <a href="catalogo.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors">
+              <i data-lucide="grid" class="w-4 h-4 text-[#B71C1C]"></i> Catálogo Completo
+            </a>
+            <a href="cotizacion.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors">
+              <i data-lucide="file-text" class="w-4 h-4 text-[#B71C1C]"></i> Cotizador Mayorista B2B
+            </a>
+            <a href="cliente.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors">
+              <i data-lucide="user" class="w-4 h-4 text-[#B71C1C]"></i> Mi Cuenta / Pedidos
+            </a>
+          </div>
+        </div>
+
+        <div class="p-4 bg-gray-50 border-t border-gray-200 space-y-2 text-xs">
+          <a href="https://wa.me/56987654321" target="_blank" class="w-full flex items-center justify-center gap-2 py-2.5 px-3 bg-[#2E7D32] text-white rounded-xl font-bold shadow-xs">
+            <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Mayorista
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENIDO DE PRODUCTO -->
+  <main class="max-w-7xl mx-auto px-4 py-8 space-y-10">
+    <div id="productDetailContainer">
+      <!-- Se inyecta con JS -->
+    </div>
+
+    <!-- PRODUCTOS RELACIONADOS -->
+    <section class="space-y-4 pt-6 border-t border-gray-200">
+      <div class="flex justify-between items-center">
+        <h3 class="text-base sm:text-xl font-black text-gray-900">Insumos Relacionados para tu Negocio</h3>
+        <a href="catalogo.html" class="text-xs font-bold text-[#B71C1C] hover:underline">Ver catálogo →</a>
+      </div>
+      <div id="relatedGrid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-5">
+        <!-- Inyectado por JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- DRAWER CARRITO -->
+  <div id="cartDrawer" class="hidden fixed inset-0 z-50 overflow-hidden">
+    <div onclick="closeCartDrawer()" class="absolute inset-0 bg-black/60 backdrop-blur-xs"></div>
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
+      <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+        <div class="p-4 bg-gray-900 text-white flex justify-between items-center">
+          <h3 class="font-bold text-sm">Tu Carro de Compras</h3>
+          <button onclick="closeCartDrawer()"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
+        <div id="freeShippingProgress" class="bg-emerald-50 p-3 text-xs border-b border-emerald-100"></div>
+        <div id="cartDrawerItems" class="flex-1 overflow-y-auto p-4 space-y-2"></div>
+        <div id="cartDrawerTotals" class="p-4 bg-gray-50 border-t border-gray-200"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <div class="fixed bottom-16 sm:bottom-6 right-3 sm:right-6 z-30">
+    <a href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20deseo%20informaci%C3%B3n%20sobre%20sus%20productos%20mayoristas" target="_blank" class="flex items-center gap-2 bg-[#2E7D32] hover:bg-[#1B5E20] text-white p-3 sm:px-4 sm:py-3.5 rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 border-2 border-white group" title="Atención Mayorista WhatsApp">
+      <div class="relative flex items-center justify-center">
+        <i data-lucide="message-circle" class="w-6 h-6 fill-white"></i>
+        <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full animate-ping"></span>
+        <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full"></span>
+      </div>
+      <span class="font-black text-xs hidden sm:inline tracking-wide">Atención Mayorista WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- BARRA DE NAVEGACIÓN INFERIOR PARA MÓVILES -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 py-1.5 px-2 flex justify-around items-center shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
+    <a href="index.html" class="flex flex-col items-center py-1 px-2 text-gray-600 hover:text-[#B71C1C]">
+      <i data-lucide="home" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Inicio</span>
+    </a>
+    <a href="catalogo.html" class="flex flex-col items-center py-1 px-2 text-[#B71C1C]">
+      <i data-lucide="grid" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Catálogo</span>
+    </a>
+    <a href="cotizacion.html" class="flex flex-col items-center py-1 px-2 text-gray-600 hover:text-[#B71C1C]">
+      <i data-lucide="file-text" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Cotizar</span>
+    </a>
+    <button onclick="openCartDrawer()" class="flex flex-col items-center py-1 px-2 text-gray-600 hover:text-[#B71C1C] relative">
+      <div class="relative">
+        <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+        <span class="cart-count-badge absolute -top-1.5 -right-2 bg-emerald-500 text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white" style="display: none;">0</span>
+      </div>
+      <span class="text-[10px] font-bold mt-0.5">Mi Carro</span>
+    </button>
+    <a href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20deseo%20atenci%C3%B3n%20para%20mi%20local" target="_blank" class="flex flex-col items-center py-1 px-2 text-emerald-600 hover:text-emerald-700">
+      <i data-lucide="message-circle" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">WhatsApp</span>
+    </a>
+  </nav>
+
+  <script src="app.js"></script>
+  <script>
+    let currentProduct = null;
+    let selectedQuantity = 1;
+
+    function getUnitPrice(p, qty) {
+      if (!p.wholesaleTiers || p.wholesaleTiers.length === 0) return p.price;
+      const sorted = [...p.wholesaleTiers].sort((a,b) => b.minQty - a.minQty);
+      for (const t of sorted) {
+        if (qty >= t.minQty) return t.price;
+      }
+      return p.price;
+    }
+
+    function updateQty(delta) {
+      selectedQuantity = Math.max(1, selectedQuantity + delta);
+      document.getElementById('qtyInput').value = selectedQuantity;
+      recalcPrices();
+    }
+
+    function setQtyDirect(val) {
+      selectedQuantity = Math.max(1, parseInt(val) || 1);
+      recalcPrices();
+    }
+
+    function recalcPrices() {
+      if (!currentProduct) return;
+      const unitP = getUnitPrice(currentProduct, selectedQuantity);
+      const total = unitP * selectedQuantity;
+      const savings = Math.max(0, (currentProduct.originalPrice - unitP) * selectedQuantity);
+
+      document.getElementById('calcTotal').textContent = formatCLP(total);
+      const savEl = document.getElementById('calcSavings');
+      if (savings > 0) {
+        savEl.textContent = `(Ahorras ${formatCLP(savings)})`;
+        savEl.classList.remove('hidden');
+      } else {
+        savEl.classList.add('hidden');
+      }
+
+      // Actualizar enlace WhatsApp con mensaje automático
+      const wspMsg = `Hola Comercializadora Valle Lindo! Deseo cotizar/comprar:\n\n*Producto:* ${currentProduct.name}\n*SKU:* ${currentProduct.sku}\n*Precio Base:* ${formatCLP(currentProduct.price)}\n*Cantidad deseada:* ${selectedQuantity} unidades\n*Total estimado:* ${formatCLP(total)}\n\n¿Tienen despacho disponible para mi local?`;
+      document.getElementById('wspBtn').href = `https://wa.me/56987654321?text=${encodeURIComponent(wspMsg)}`;
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-nav-btn').forEach(btn => {
+        btn.classList.remove('bg-[#B71C1C]', 'text-white');
+        btn.classList.add('text-gray-600');
+      });
+      document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+      event.target.classList.add('bg-[#B71C1C]', 'text-white');
+      event.target.classList.remove('text-gray-600');
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get('slug') || 'queso-palmita-rio-grande-10kg';
+      currentProduct = PRODUCTS_DATA.find(p => p.slug === slug) || PRODUCTS_DATA[0];
+
+      document.title = `${currentProduct.name} | Comercializadora Valle Lindo`;
+
+      const container = document.getElementById('productDetailContainer');
+      const tiersHtml = currentProduct.wholesaleTiers ? `
+        <div class="space-y-2 mt-4">
+          <label class="text-xs font-bold text-gray-800 uppercase tracking-wider block">
+            Tabla de Precios por Cantidad (Escala Mayorista):
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            ${currentProduct.wholesaleTiers.map(t => `
+              <div onclick="setQtyDirect(${t.minQty}); document.getElementById('qtyInput').value=${t.minQty};" class="p-3 rounded-xl border border-gray-200 bg-white hover:border-[#B71C1C] cursor-pointer transition-all">
+                <span class="text-[11px] text-gray-500 font-semibold block">${t.label}</span>
+                <span class="text-base font-black text-gray-900">${formatCLP(t.price)} <small class="text-[10px] text-gray-400 font-normal">c/u</small></span>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      ` : '';
+
+      container.innerHTML = `
+        <div class="bg-white rounded-3xl border border-gray-200 p-6 sm:p-8 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Columna Imagen -->
+          <div class="lg:col-span-5 space-y-4">
+            <div class="relative aspect-square w-full max-h-[380px] sm:max-h-[440px] rounded-2xl bg-gray-50 border border-gray-200 overflow-hidden flex items-center justify-center p-4 group">
+              <img id="mainProductImg" src="${currentProduct.image}" alt="${currentProduct.name}" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
+              ${currentProduct.discountPercent ? `<span class="absolute top-4 left-4 bg-[#2E7D32] text-white text-xs font-black px-3 py-1 rounded-full shadow">-${currentProduct.discountPercent}% OFF</span>` : ''}
+            </div>
+
+            <!-- Miniaturas -->
+            <div class="flex gap-2">
+              ${(currentProduct.gallery || [currentProduct.image]).map(img => `
+                <button onclick="document.getElementById('mainProductImg').src='${img}'" class="w-16 h-16 rounded-xl overflow-hidden border border-gray-200 bg-gray-50 p-1">
+                  <img src="${img}" class="w-full h-full object-cover rounded-lg" />
+                </button>
+              `).join("")}
+            </div>
+          </div>
+
+          <!-- Columna Detalles y Compra -->
+          <div class="lg:col-span-7 space-y-5">
+            <div>
+              <div class="flex items-center gap-2 text-xs text-gray-400 mb-1">
+                <span class="font-extrabold text-[#B71C1C] uppercase">${currentProduct.brand}</span>
+                <span>•</span>
+                <span class="font-mono bg-gray-100 px-2 py-0.5 rounded text-gray-700 font-bold">SKU: ${currentProduct.sku}</span>
+                <span>•</span>
+                <span class="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-full">✅ Stock Disponible</span>
+              </div>
+
+              <h1 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight leading-tight">
+                ${currentProduct.name}
+              </h1>
+
+              <div class="flex items-center gap-2 mt-2 text-xs">
+                <div class="flex text-amber-500">⭐⭐⭐⭐⭐ <strong class="text-gray-900 ml-1">${currentProduct.rating}</strong></div>
+                <span class="text-gray-400">(${currentProduct.reviewCount} opiniones de locales B2B)</span>
+              </div>
+            </div>
+
+            <!-- Ficha resumida -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 p-3 rounded-xl bg-gray-50 border border-gray-200 text-xs">
+              <div><span class="text-gray-400 block text-[10px] uppercase font-bold">Formato</span><strong class="text-gray-900">${currentProduct.unit}</strong></div>
+              <div><span class="text-gray-400 block text-[10px] uppercase font-bold">Peso Neto</span><strong class="text-gray-900">${currentProduct.weight}</strong></div>
+              <div><span class="text-gray-400 block text-[10px] uppercase font-bold">Origen</span><strong class="text-gray-900">${currentProduct.origin}</strong></div>
+              <div><span class="text-gray-400 block text-[10px] uppercase font-bold">Facturación</span><strong class="text-emerald-700 font-bold">Factura con RUT</strong></div>
+            </div>
+
+            <!-- Precios -->
+            <div class="p-4 rounded-2xl bg-red-50/50 border border-red-100 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Precio Unitario Base:</span>
+                <div class="flex items-baseline gap-3 mt-0.5">
+                  <span class="text-3xl font-black text-[#B71C1C]">${formatCLP(currentProduct.price)}</span>
+                  ${currentProduct.originalPrice > currentProduct.price ? `<span class="text-sm text-gray-400 line-through">${formatCLP(currentProduct.originalPrice)}</span>` : ''}
+                </div>
+              </div>
+              <div class="text-right text-xs">
+                <strong class="text-emerald-800 block">🚚 Despacho Inmediato</strong>
+                <span class="text-gray-500">24 a 48 hrs en todo Chile</span>
+              </div>
+            </div>
+
+            <!-- Tabla de Precios por Cantidad -->
+            ${tiersHtml}
+
+            <!-- Selector de Cantidad y Botones -->
+            <div class="space-y-3 pt-3 border-t border-gray-200">
+              <div class="flex justify-between items-center text-xs">
+                <span class="font-bold text-gray-700">Cantidad deseada:</span>
+                <div>
+                  <span class="text-gray-500">Total calculado: </span>
+                  <strong id="calcTotal" class="text-base text-gray-900 font-black">${formatCLP(currentProduct.price)}</strong>
+                  <span id="calcSavings" class="text-emerald-700 font-bold ml-1 hidden"></span>
+                </div>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-3">
+                <div class="flex items-center border border-gray-300 rounded-xl overflow-hidden bg-white shadow-xs self-start">
+                  <button onclick="updateQty(-1)" class="p-3 hover:bg-gray-100 text-gray-700 font-bold">-</button>
+                  <input id="qtyInput" type="number" min="1" value="1" oninput="setQtyDirect(this.value)" class="w-14 text-center font-black text-sm text-gray-900 focus:outline-none" />
+                  <button onclick="updateQty(1)" class="p-3 hover:bg-gray-100 text-gray-700 font-bold">+</button>
+                </div>
+
+                <button onclick="Cart.addItem('${currentProduct.id}', selectedQuantity)" class="flex-1 py-3 px-5 bg-[#B71C1C] hover:bg-[#8E0000] text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2">
+                  <i data-lucide="shopping-cart" class="w-4 h-4"></i> Añadir al Carrito
+                </button>
+
+                <button onclick="Cart.addItem('${currentProduct.id}', selectedQuantity); window.location.href='checkout.html';" class="py-3 px-5 bg-gray-900 hover:bg-black text-white font-extrabold text-xs sm:text-sm rounded-xl shadow transition-colors">
+                  Comprar Ahora
+                </button>
+              </div>
+
+              <!-- Botón WhatsApp Solicitado -->
+              <a id="wspBtn" href="#" target="_blank" class="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm rounded-xl shadow transition-all flex items-center justify-center gap-2">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>Cotizar por WhatsApp (SKU: ${currentProduct.sku} y Precio Automático)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABS DE INFORMACIÓN AMPLIADA (SCROLL HORIZONTAL EN MÓVILES) -->
+        <div class="bg-white rounded-3xl border border-gray-200 p-4 sm:p-8 shadow-sm mt-8">
+          <div class="flex overflow-x-auto no-scrollbar scroll-smooth whitespace-nowrap gap-2 border-b border-gray-200 pb-3 text-xs sm:text-sm font-bold">
+            <button onclick="switchTab('desc')" class="tab-nav-btn px-4 py-2 rounded-xl bg-[#B71C1C] text-white">Descripción</button>
+            <button onclick="switchTab('ing')" class="tab-nav-btn px-4 py-2 rounded-xl text-gray-600 hover:bg-gray-100">Ingredientes</button>
+            <button onclick="switchTab('cons')" class="tab-nav-btn px-4 py-2 rounded-xl text-gray-600 hover:bg-gray-100">Conservación</button>
+            <button onclick="switchTab('nut')" class="tab-nav-btn px-4 py-2 rounded-xl text-gray-600 hover:bg-gray-100">Información Nutricional</button>
+            <button onclick="switchTab('op')" class="tab-nav-btn px-4 py-2 rounded-xl text-gray-600 hover:bg-gray-100">Opiniones (${currentProduct.reviewCount})</button>
+          </div>
+
+          <div class="pt-6 text-xs sm:text-sm text-gray-700 leading-relaxed">
+            <div id="tab-desc" class="tab-content space-y-3">
+              <h4 class="font-bold text-gray-900 text-sm">Rendimiento y Calidad Gastronómica</h4>
+              <p>${currentProduct.description}</p>
+              <p>${currentProduct.shortDescription}</p>
+            </div>
+            <div id="tab-ing" class="tab-content hidden space-y-3">
+              <h4 class="font-bold text-gray-900 text-sm">Ficha Técnica e Ingredientes</h4>
+              <p class="font-mono bg-gray-50 p-3 rounded-xl border border-gray-200 text-xs">${currentProduct.ingredients || "Ingredientes seleccionados de máxima calidad alimentaria."}</p>
+            </div>
+            <div id="tab-cons" class="tab-content hidden space-y-3">
+              <h4 class="font-bold text-gray-900 text-sm">Normas de Conservación</h4>
+              <p class="bg-blue-50 p-3 rounded-xl border border-blue-200 text-blue-900 text-xs">${currentProduct.storage}</p>
+            </div>
+            <div id="tab-nut" class="tab-content hidden space-y-3">
+              <h4 class="font-bold text-gray-900 text-sm">Información Nutricional por 100g</h4>
+              <div class="max-w-xs border border-gray-200 rounded-xl divide-y divide-gray-100 text-xs">
+                <div class="flex justify-between p-2"><span>Calorías</span><strong>${currentProduct.nutrition?.calories || "320 kcal"}</strong></div>
+                <div class="flex justify-between p-2"><span>Proteínas</span><strong>${currentProduct.nutrition?.protein || "22g"}</strong></div>
+                <div class="flex justify-between p-2"><span>Grasas</span><strong>${currentProduct.nutrition?.fat || "25g"}</strong></div>
+                <div class="flex justify-between p-2"><span>Sodio</span><strong>${currentProduct.nutrition?.sodium || "580mg"}</strong></div>
+              </div>
+            </div>
+            <div id="tab-op" class="tab-content hidden space-y-3">
+              <div class="p-4 rounded-xl border border-gray-200 bg-white">
+                <div class="flex justify-between items-center text-xs">
+                  <strong class="text-gray-900">Pizzería Don Luigi</strong>
+                  <span class="text-gray-400">Hace 3 días</span>
+                </div>
+                <div class="text-amber-500 text-xs">⭐⭐⭐⭐⭐</div>
+                <p class="text-xs text-gray-600 mt-1">Excelente fundido y sabor. Entregas puntuales en nuestro local antes de las 11:00 am.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      recalcPrices();
+
+      // Renderizar relacionados
+      const related = PRODUCTS_DATA.filter(p => p.category === currentProduct.category && p.id !== currentProduct.id).slice(0, 4);
+      document.getElementById('relatedGrid').innerHTML = related.map(p => renderProductCard(p)).join("");
+
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

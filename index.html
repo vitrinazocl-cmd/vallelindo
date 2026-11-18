@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comercializadora Valle Lindo | Distribución Mayorista para Pizzerías, Carnes & Gastronomía</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Distribuidora mayorista y minorista de quesos para pizzerías (Mozzarella, Palmita Río Grande), carnes de vacuno, insumos gastronómicos y congelados en Chile. Despacho rápido.">
+  <meta name="keywords" content="queso mozzarella para pizza, insumos para pizzerías, distribuidora de quesos, carne al por mayor, ingredientes para pizza, distribuidor gastronómico chile, queso palmita rio grande">
+  <meta property="og:title" content="Comercializadora Valle Lindo | Distribuidor Gastronómico B2B">
+  <meta property="og:description" content="Precios mayoristas directos para pizzerías, restaurantes y locales de comida rápida. Despacho en 24/48 hrs en todo Chile.">
+  <meta property="og:image" content="assets/branding/logo-valle-lindo.jpeg">
+  <meta property="og:type" content="website">
+
+  <!-- HEADERS DEFENSIVOS DE CIBERSEGURIDAD EMPRESARIAL -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com https://fonts.googleapis.com https://fonts.gstatic.com data: blob:; img-src 'self' data: https: blob:; media-src 'self' data: blob:; connect-src 'self' https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/branding/logo-valle-lindo.jpeg">
+
+  <!-- Google Fonts: Inter & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://unpkg.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Custom Design System & Performance CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            valle: {
+              red: '#B71C1C',
+              redDark: '#7F0000',
+              redLight: '#D32F2F',
+              dark: '#121212',
+              green: '#2E7D32',
+              grayBg: '#F8F9FA'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WholesaleStore",
+    "name": "Comercializadora Valle Lindo",
+    "description": "Distribuidora mayorista de carnes, quesos para pizzerías, insumos gastronómicos y congelados en Chile.",
+    "telephone": "+56987654321",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santiago",
+      "addressRegion": "Región Metropolitana",
+      "addressCountry": "CL"
+    }
+  }
+  </script>
+</head>
+<body class="bg-[#F8F9FA] text-[#121212] font-sans antialiased overflow-x-hidden pb-16 md:pb-0">
+
+  <!-- TOP BAR B2B (RESPONSIVE) -->
+  <div class="bg-[#121212] text-white text-[11px] sm:text-xs py-1.5 sm:py-2 px-3 sm:px-4">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-2">
+      <div class="flex items-center space-x-2 text-center sm:text-left">
+        <span class="flex items-center gap-1 text-emerald-400 font-bold">
+          <i data-lucide="truck" class="w-3.5 h-3.5 shrink-0"></i> Despacho GRATIS sobre $75.000
+        </span>
+        <span class="hidden md:inline text-gray-500">|</span>
+        <span class="hidden md:inline text-gray-300">
+          🥩 Carnes & Quesos de Alto Rendimiento para Pizzerías & Gastronomía
+        </span>
+      </div>
+      <div class="flex items-center space-x-3 text-gray-300 text-[11px]">
+        <a href="catalogo_pizzerias_vallelindo.pdf" target="_blank" class="hover:text-white hidden xs:flex items-center gap-1 underline">
+          <i data-lucide="file-text" class="w-3 h-3 text-[#B71C1C]"></i> Catálogo Pizzerías
+        </a>
+        <a href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20deseo%20atenci%C3%B3n%20para%20mi%20local" target="_blank" class="hover:text-emerald-400 flex items-center gap-1 font-bold">
+          <i data-lucide="phone-call" class="w-3 h-3 text-emerald-400"></i> +56 9 8765 4321
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR PRINCIPAL -->
+  <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-xs">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Hamburger Menu Móvil & Logo -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="toggleMobileNav()" class="p-2 -ml-1 text-gray-700 hover:text-[#B71C1C] md:hidden rounded-lg focus:outline-none" aria-label="Abrir Menú">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+
+        <a href="index.html" class="flex items-center gap-2 sm:gap-3 shrink-0 group">
+          <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden bg-black border border-gray-200 shadow-sm flex items-center justify-center p-0.5">
+            <img src="assets/branding/logo-valle-lindo.jpeg" alt="Valle Lindo Logo" class="w-full h-full object-cover rounded-lg" />
+          </div>
+          <div>
+            <span class="font-black text-base sm:text-xl tracking-tight text-[#121212] group-hover:text-[#B71C1C] transition-colors leading-none block">
+              VALLE LINDO
+            </span>
+            <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#B71C1C] mt-0.5 block truncate max-w-[170px] sm:max-w-none">
+              Distribuidora Gastronómica
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Buscador Inteligente Desktop -->
+      <div class="relative flex-1 max-w-xl hidden md:block global-search-container">
+        <form onsubmit="event.preventDefault(); const q = this.querySelector('input').value; window.location.href='catalogo.html?q=' + encodeURIComponent(q);" class="relative flex items-center">
+          <input type="text" placeholder="Buscar queso mozzarella, carne lomo, pepperoni, papas..." class="global-search-input w-full pl-10 pr-24 py-2.5 text-xs rounded-xl border border-gray-300 focus:border-[#B71C1C] focus:ring-2 focus:ring-[#B71C1C]/20 outline-none transition-all shadow-inner bg-gray-50/70" />
+          <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3.5"></i>
+          <button type="submit" class="absolute right-1.5 px-4 py-1.5 bg-[#B71C1C] hover:bg-[#8E0000] text-white text-xs font-bold rounded-lg transition-colors">
+            Buscar
+          </button>
+        </form>
+        <div id="searchDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden z-50"></div>
+      </div>
+
+      <!-- Acciones de Usuario -->
+      <div class="flex items-center space-x-1.5 sm:space-x-3">
+        <a href="cotizacion.html" class="hidden lg:flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-gray-700 hover:text-[#B71C1C] border border-gray-300 hover:border-[#B71C1C] rounded-xl transition-colors">
+          <i data-lucide="file-text" class="w-4 h-4 text-[#B71C1C]"></i>
+          <span>Cotizador B2B</span>
+        </a>
+
+        <a href="cliente.html" class="p-2 text-gray-600 hover:text-black transition-colors rounded-full hover:bg-gray-100" title="Mi Cuenta">
+          <i data-lucide="user" class="w-5 h-5"></i>
+        </a>
+
+        <!-- Botón Carrito Lateral -->
+        <button onclick="openCartDrawer()" class="flex items-center gap-1.5 sm:gap-2 bg-[#B71C1C] hover:bg-[#8E0000] text-white px-3 sm:px-4 py-2 rounded-xl font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95">
+          <div class="relative">
+            <i data-lucide="shopping-cart" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+            <span class="cart-count-badge absolute -top-2 -right-2 bg-emerald-500 text-white text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-[#B71C1C]" style="display: none;">0</span>
+          </div>
+          <span class="hidden sm:inline">Mi Carro</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Buscador Integrado Móvil (visible solo en < md) -->
+    <div class="px-3 pb-2.5 pt-0.5 md:hidden">
+      <form onsubmit="event.preventDefault(); const q = this.querySelector('input').value; window.location.href='catalogo.html?q=' + encodeURIComponent(q);" class="relative flex items-center">
+        <input type="text" placeholder="Buscar mozzarella, vacuno, papas..." class="w-full pl-9 pr-20 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#B71C1C] focus:ring-1 focus:ring-[#B71C1C] outline-none shadow-xs bg-gray-50" />
+        <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3"></i>
+        <button type="submit" class="absolute right-1 px-3 py-1 bg-[#B71C1C] text-white text-[11px] font-bold rounded-lg shadow-xs">
+          Buscar
+        </button>
+      </form>
+    </div>
+
+    <!-- Sub-Navbar Categorías (Scroll horizontal suave en móviles) -->
+    <div class="bg-gray-50 border-t border-gray-200 overflow-x-auto no-scrollbar scroll-smooth">
+      <div class="max-w-7xl mx-auto px-3 sm:px-4 flex items-center justify-between text-xs font-semibold text-gray-700 py-1 gap-1">
+        <div class="flex items-center space-x-1 shrink-0 whitespace-nowrap">
+          <a href="catalogo.html" class="px-2.5 py-1.5 rounded-lg hover:bg-gray-200 text-[#B71C1C] font-bold flex items-center gap-1 text-[11px] sm:text-xs">
+            <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i> Todo el Catálogo
+          </a>
+          <a href="catalogo.html?cat=quesos" class="px-2.5 py-1.5 rounded-lg hover:bg-gray-200 text-[11px] sm:text-xs">🧀 Quesos</a>
+          <a href="catalogo.html?cat=carnes" class="px-2.5 py-1.5 rounded-lg hover:bg-gray-200 text-[11px] sm:text-xs">🥩 Carnes</a>
+          <a href="catalogo.html?cat=pizza" class="px-2.5 py-1.5 rounded-lg hover:bg-gray-200 text-[11px] sm:text-xs">🍕 Insumos Pizza</a>
+          <a href="catalogo.html?cat=congelados" class="px-2.5 py-1.5 rounded-lg hover:bg-gray-200 text-[11px] sm:text-xs">❄️ Congelados</a>
+          <a href="catalogo.html?cat=embutidos" class="px-2.5 py-1.5 rounded-lg hover:bg-gray-200 text-[11px] sm:text-xs">🌭 Embutidos</a>
+          <a href="catalogo.html?ofertas=true" class="px-2.5 py-1.5 rounded-lg text-[#2E7D32] font-bold hover:bg-emerald-50 flex items-center gap-1 text-[11px] sm:text-xs">
+            🔥 Ofertas B2B
+          </a>
+        </div>
+
+        <div class="hidden lg:flex items-center space-x-3 text-[11px] text-gray-500 shrink-0">
+          <a href="admin.html" class="hover:text-black whitespace-nowrap">Panel Admin</a>
+          <span>•</span>
+          <a href="cliente.html" class="hover:text-black whitespace-nowrap">Portal Cliente</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENÚ LATERAL MÓVIL (DRAWER DE NAVEGACIÓN COMPLETO) -->
+  <div id="mobileNavDrawer" class="hidden fixed inset-0 z-50 overflow-hidden">
+    <div onclick="closeMobileNav()" class="absolute inset-0 bg-black/60 backdrop-blur-xs transition-opacity"></div>
+    <div class="fixed inset-y-0 left-0 max-w-full flex">
+      <div class="w-72 sm:w-80 bg-white shadow-2xl flex flex-col justify-between">
+        <!-- Encabezado Drawer -->
+        <div>
+          <div class="p-4 bg-[#121212] text-white flex justify-between items-center border-b-2 border-[#B71C1C]">
+            <div class="flex items-center gap-2.5">
+              <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-8 h-8 rounded-lg object-cover" />
+              <div>
+                <span class="font-black text-sm block leading-none">VALLE LINDO</span>
+                <span class="text-[9px] text-[#B71C1C] font-bold uppercase">Distribuidora Gastronómica</span>
+              </div>
+            </div>
+            <button onclick="closeMobileNav()" class="p-1.5 text-gray-400 hover:text-white rounded-lg">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+
+          <!-- Enlaces de Navegación -->
+          <div class="p-4 space-y-1 text-sm font-semibold text-gray-800">
+            <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-red-50 text-[#B71C1C] font-bold">
+              <i data-lucide="home" class="w-4 h-4"></i> Inicio
+            </a>
+            <a href="catalogo.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors">
+              <i data-lucide="grid" class="w-4 h-4 text-[#B71C1C]"></i> Catálogo Completo
+            </a>
+            <a href="cotizacion.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors">
+              <i data-lucide="file-text" class="w-4 h-4 text-[#B71C1C]"></i> Cotizador Mayorista B2B
+            </a>
+            <a href="cliente.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors">
+              <i data-lucide="user" class="w-4 h-4 text-[#B71C1C]"></i> Mi Cuenta / Pedidos
+            </a>
+            <a href="admin.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors text-gray-600">
+              <i data-lucide="settings" class="w-4 h-4"></i> Panel Administrativo
+            </a>
+
+            <!-- Categorías en el Menú Móvil -->
+            <div class="pt-3 mt-3 border-t border-gray-100">
+              <span class="px-3 text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Categorías</span>
+              <div class="space-y-0.5 text-xs font-medium text-gray-700">
+                <a href="catalogo.html?cat=quesos" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-100">
+                  <span>🧀 Quesos para Pizzería</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-gray-400"></i>
+                </a>
+                <a href="catalogo.html?cat=carnes" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-100">
+                  <span>🥩 Carnes Vacuno & Cerdo</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-gray-400"></i>
+                </a>
+                <a href="catalogo.html?cat=pizza" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-100">
+                  <span>🍕 Insumos de Pizza</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-gray-400"></i>
+                </a>
+                <a href="catalogo.html?cat=congelados" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-100">
+                  <span>❄️ Papas & Congelados</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-gray-400"></i>
+                </a>
+                <a href="catalogo.html?cat=embutidos" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-100">
+                  <span>🌭 Embutidos & Cecinas</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-gray-400"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pie del Drawer con Contacto Directo y PDF -->
+        <div class="p-4 bg-gray-50 border-t border-gray-200 space-y-2 text-xs">
+          <a href="catalogo_pizzerias_vallelindo.pdf" target="_blank" class="w-full flex items-center justify-center gap-2 py-2.5 px-3 bg-white border border-gray-300 rounded-xl font-bold text-gray-800 shadow-xs">
+            <i data-lucide="download" class="w-4 h-4 text-[#B71C1C]"></i> Descargar Catálogo PDF
+          </a>
+          <a href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20deseo%20atenci%C3%B3n%20para%20mi%20local" target="_blank" class="w-full flex items-center justify-center gap-2 py-2.5 px-3 bg-[#2E7D32] text-white rounded-xl font-bold shadow-xs">
+            <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Mayorista
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. HERO PRINCIPAL FULLSCREEN IMPACTANTE -->
+  <section class="relative bg-gradient-to-br from-[#121212] via-[#1c1c1c] to-[#2b0808] text-white py-16 lg:py-24 border-b border-red-950 overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-[#B71C1C]/25 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <!-- Columna Textos Requeridos -->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-950/80 border border-red-800 text-red-300 text-xs font-bold tracking-wide">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span>Distribución Especializada • Venta Mayorista & Minorista</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white">
+          Distribución Mayorista para <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-[#B71C1C] to-amber-500">Pizzerías y Gastronomía</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-gray-300 max-w-2xl leading-relaxed">
+          Todo lo que tu negocio necesita en un solo lugar. Quesos, carnes, embutidos, congelados e insumos con despacho rápido.
+        </p>
+
+        <!-- Botones Solicitados -->
+        <div class="flex flex-col sm:flex-row gap-3.5 pt-2">
+          <a href="catalogo.html" class="px-8 py-4 bg-[#B71C1C] hover:bg-[#8E0000] text-white font-black text-sm sm:text-base rounded-xl shadow-xl transition-all flex items-center justify-center gap-2 group active:scale-95">
+            <span>Ver Catálogo</span>
+            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+
+          <a href="cotizacion.html" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/25 font-bold text-sm sm:text-base rounded-xl backdrop-blur-xs transition-all flex items-center justify-center gap-2 active:scale-95">
+            <i data-lucide="file-text" class="w-5 h-5 text-amber-400"></i>
+            <span>Solicitar Cotización</span>
+          </a>
+        </div>
+
+        <!-- Badges de Confianza -->
+        <div class="pt-4 flex flex-wrap items-center gap-6 text-xs text-gray-400 border-t border-gray-800">
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="truck" class="w-4 h-4 text-[#B71C1C]"></i>
+            <span>Despacho 24/48 hrs en Todo Chile</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+            <span>Resolución SEREMI de Salud</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+            <span>+500 Locales Clientes Activos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Banner Visual del Hero con Video Oferta Relámpago -->
+      <div class="lg:col-span-5">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-red-700/80 bg-[#1A1A1A] p-4 group">
+          <!-- Contenedor del Video -->
+          <div class="relative h-80 sm:h-[420px] w-full rounded-2xl overflow-hidden bg-black flex items-center justify-center shadow-inner">
+            <video
+              id="heroPromoVideo"
+              src="assets/videos/oferta-queso-llanero.mp4"
+              autoplay
+              loop
+              muted
+              playsinline
+              controls
+              class="w-full h-full object-cover sm:object-contain rounded-2xl cursor-pointer"
+              title="Oferta Relámpago Queso Llanero Valle Lindo"
+            ></video>
+
+            <!-- Badges Superiores Flotantes -->
+            <div class="absolute top-3 left-3 flex flex-col gap-1.5 pointer-events-none">
+              <span class="bg-[#B71C1C] text-white text-[11px] font-black px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 animate-pulse">
+                <span>🌩️ OFERTA RELÁMPAGO</span>
+              </span>
+              <span class="bg-amber-500 text-black text-[10px] font-black px-2.5 py-0.5 rounded-full shadow-md uppercase tracking-wider">
+                🔊 SOLO POR EL MES DE MARZO
+              </span>
+            </div>
+
+            <!-- Botón flotante para Alternar Sonido (Esquina superior derecha para no tapar controles) -->
+            <button
+              type="button"
+              onclick="toggleHeroAudio()"
+              id="heroAudioBtn"
+              class="absolute top-3 right-3 p-2 rounded-full bg-black/80 hover:bg-black text-white border border-white/20 shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center gap-1.5 text-xs font-bold z-10"
+              title="Activar / Desactivar Sonido"
+            >
+              <i data-lucide="volume-x" id="heroAudioIcon" class="w-3.5 h-3.5 text-amber-400"></i>
+              <span id="heroAudioText" class="text-[10px]">Audio</span>
+            </button>
+          </div>
+
+          <!-- Barra de Precio y Acción del Video -->
+          <div class="mt-4 p-4 rounded-xl bg-black/80 border border-gray-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-[10px] text-amber-400 font-extrabold uppercase tracking-wider">
+                  ¡Promoción Exclusiva Gastronomía!
+                </span>
+              </div>
+              <h3 class="text-sm font-black text-white leading-snug">
+                Queso Llanero Artesanal
+              </h3>
+              <div class="flex items-baseline gap-2 mt-0.5">
+                <span class="text-2xl font-black text-[#B71C1C]">$6.990</span>
+                <span class="text-xs text-gray-400 font-bold">el kilo</span>
+                <span class="text-xs text-gray-500 line-through">$8.490</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 w-full sm:w-auto">
+              <button
+                onclick="Cart.addItem('prod-llanero', 1)"
+                class="flex-1 sm:flex-none px-4 py-2.5 bg-[#B71C1C] hover:bg-[#8E0000] text-white text-xs font-black rounded-xl shadow-lg flex items-center justify-center gap-1.5 transition-all active:scale-95 whitespace-nowrap"
+              >
+                <i data-lucide="shopping-cart" class="w-4 h-4"></i> Añadir Kilo
+              </button>
+              <a
+                href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo!%20Deseo%20aprovechar%20la%20OFERTA%20REL%C3%81MPAGO%20del%20Queso%20Llanero%20a%20$6.990%20el%20kilo%20por%20el%20mes%20de%20marzo"
+                target="_blank"
+                class="p-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl shadow transition-colors flex items-center justify-center"
+                title="Pedir Oferta por WhatsApp"
+              >
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CATEGORÍAS DESTACADAS (TARJETAS VISUALES GRANDES) -->
+  <section class="max-w-7xl mx-auto px-4 py-14">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+      <div>
+        <div class="text-xs font-bold text-[#B71C1C] uppercase tracking-wider flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-[#B71C1C]"></span>
+          Especialidades Gastronómicas
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mt-1">Categorías Destacadas</h2>
+        <p class="text-xs sm:text-sm text-gray-500 mt-1">Encuentra los insumos exactos para tu cocina por rubro y volumen.</p>
+      </div>
+      <a href="catalogo.html" class="text-xs font-black text-[#B71C1C] hover:underline flex items-center gap-1">
+        Ver todo el catálogo <i data-lucide="chevron-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+    <!-- Grid Tarjetas Grandes de Categorías Solicitadas -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+      <!-- 🥩 Carnes -->
+      <a href="catalogo.html?cat=carnes" class="group bg-white rounded-2xl border border-neutral-200/90 p-3.5 sm:p-4 hover:border-[#B71C1C]/60 hover:shadow-[0_14px_30px_-8px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between">
+        <div class="relative aspect-square rounded-xl bg-gradient-to-b from-neutral-50 to-white overflow-hidden mb-3 border border-neutral-100 flex items-center justify-center p-2">
+          <img src="assets/products/named/lomo-vetado-vacuno-premium.jpeg" alt="Carnes" class="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500 ease-out" loading="lazy" decoding="async" />
+          <span class="absolute top-2 right-2 text-lg drop-shadow-xs">🥩</span>
+        </div>
+        <div>
+          <h3 class="text-xs sm:text-sm font-extrabold text-neutral-900 group-hover:text-[#B71C1C] transition-colors leading-tight">Carnes</h3>
+          <p class="text-[10px] sm:text-[11px] text-neutral-400 mt-0.5">Vacuno • Cerdo • Pollo</p>
+        </div>
+        <span class="mt-2.5 text-[10px] sm:text-[11px] font-bold text-neutral-600 group-hover:text-[#B71C1C] flex items-center justify-center transition-colors">
+          Ver Cortes <i data-lucide="chevron-right" class="w-3 h-3 ml-0.5"></i>
+        </span>
+      </a>
+
+      <!-- 🧀 Quesos -->
+      <a href="catalogo.html?cat=quesos" class="group bg-white rounded-2xl border border-neutral-200/90 p-3.5 sm:p-4 hover:border-[#B71C1C]/60 hover:shadow-[0_14px_30px_-8px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between">
+        <div class="relative aspect-square rounded-xl bg-gradient-to-b from-neutral-50 to-white overflow-hidden mb-3 border border-neutral-100 flex items-center justify-center p-2">
+          <img src="assets/products/named/queso-palmita-rio-grande-10kg.jpeg" alt="Quesos" class="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500 ease-out" loading="lazy" decoding="async" />
+          <span class="absolute top-2 right-2 text-lg drop-shadow-xs">🧀</span>
+        </div>
+        <div>
+          <h3 class="text-xs sm:text-sm font-extrabold text-neutral-900 group-hover:text-[#B71C1C] transition-colors leading-tight">Quesos</h3>
+          <p class="text-[10px] sm:text-[11px] text-neutral-400 mt-0.5">Mozzarella • Palmita • Gouda</p>
+        </div>
+        <span class="mt-2.5 text-[10px] sm:text-[11px] font-bold text-neutral-600 group-hover:text-[#B71C1C] flex items-center justify-center transition-colors">
+          Ver Quesos <i data-lucide="chevron-right" class="w-3 h-3 ml-0.5"></i>
+        </span>
+      </a>
+
+      <!-- 🍕 Insumos para Pizza -->
+      <a href="catalogo.html?cat=pizza" class="group bg-white rounded-2xl border border-neutral-200/90 p-3.5 sm:p-4 hover:border-[#B71C1C]/60 hover:shadow-[0_14px_30px_-8px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between">
+        <div class="relative aspect-square rounded-xl bg-gradient-to-b from-neutral-50 to-white overflow-hidden mb-3 border border-neutral-100 flex items-center justify-center p-2">
+          <img src="assets/products/named/salsa-tomate-pizza-sauce-3kg.jpeg" alt="Insumos Pizza" class="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500 ease-out" loading="lazy" decoding="async" />
+          <span class="absolute top-2 right-2 text-lg drop-shadow-xs">🍕</span>
+        </div>
+        <div>
+          <h3 class="text-xs sm:text-sm font-extrabold text-neutral-900 group-hover:text-[#B71C1C] transition-colors leading-tight">Insumos Pizza</h3>
+          <p class="text-[10px] sm:text-[11px] text-neutral-400 mt-0.5">Salsa • Pepperoni • Orégano</p>
+        </div>
+        <span class="mt-2.5 text-[10px] sm:text-[11px] font-bold text-neutral-600 group-hover:text-[#B71C1C] flex items-center justify-center transition-colors">
+          Ver Insumos <i data-lucide="chevron-right" class="w-3 h-3 ml-0.5"></i>
+        </span>
+      </a>
+
+      <!-- ❄️ Congelados -->
+      <a href="catalogo.html?cat=congelados" class="group bg-white rounded-2xl border border-neutral-200/90 p-3.5 sm:p-4 hover:border-[#B71C1C]/60 hover:shadow-[0_14px_30px_-8px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between">
+        <div class="relative aspect-square rounded-xl bg-gradient-to-b from-neutral-50 to-white overflow-hidden mb-3 border border-neutral-100 flex items-center justify-center p-2">
+          <img src="assets/products/named/papas-fritas-prefritas-2-5kg.jpeg" alt="Congelados" class="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500 ease-out" loading="lazy" decoding="async" />
+          <span class="absolute top-2 right-2 text-lg drop-shadow-xs">❄️</span>
+        </div>
+        <div>
+          <h3 class="text-xs sm:text-sm font-extrabold text-neutral-900 group-hover:text-[#B71C1C] transition-colors leading-tight">Congelados</h3>
+          <p class="text-[10px] sm:text-[11px] text-neutral-400 mt-0.5">Papas fritas • Nuggets</p>
+        </div>
+        <span class="mt-2.5 text-[10px] sm:text-[11px] font-bold text-neutral-600 group-hover:text-[#B71C1C] flex items-center justify-center transition-colors">
+          Ver Congelados <i data-lucide="chevron-right" class="w-3 h-3 ml-0.5"></i>
+        </span>
+      </a>
+
+      <!-- 🌭 Embutidos -->
+      <a href="catalogo.html?cat=embutidos" class="group bg-white rounded-2xl border border-neutral-200/90 p-3.5 sm:p-4 hover:border-[#B71C1C]/60 hover:shadow-[0_14px_30px_-8px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between">
+        <div class="relative aspect-square rounded-xl bg-gradient-to-b from-neutral-50 to-white overflow-hidden mb-3 border border-neutral-100 flex items-center justify-center p-2">
+          <img src="assets/products/named/salchicha-vienesa-tradicional-1kg.jpeg" alt="Embutidos" class="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500 ease-out" loading="lazy" decoding="async" />
+          <span class="absolute top-2 right-2 text-lg drop-shadow-xs">🌭</span>
+        </div>
+        <div>
+          <h3 class="text-xs sm:text-sm font-extrabold text-neutral-900 group-hover:text-[#B71C1C] transition-colors leading-tight">Embutidos</h3>
+          <p class="text-[10px] sm:text-[11px] text-neutral-400 mt-0.5">Vienesas • Longanizas</p>
+        </div>
+        <span class="mt-2.5 text-[10px] sm:text-[11px] font-bold text-neutral-600 group-hover:text-[#B71C1C] flex items-center justify-center transition-colors">
+          Ver Embutidos <i data-lucide="chevron-right" class="w-3 h-3 ml-0.5"></i>
+        </span>
+      </a>
+
+      <!-- 🥤 Bebidas -->
+      <a href="catalogo.html?cat=bebidas" class="group bg-white rounded-2xl border border-neutral-200/90 p-3.5 sm:p-4 hover:border-[#B71C1C]/60 hover:shadow-[0_14px_30px_-8px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between">
+        <div class="relative aspect-square rounded-xl bg-gradient-to-b from-neutral-50 to-white overflow-hidden mb-3 border border-neutral-100 flex items-center justify-center p-2">
+          <img src="assets/products/named/bebidas-gaseosas-jugos-distribucion.jpeg" alt="Bebidas & Complementos" class="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500 ease-out" loading="lazy" decoding="async" />
+          <span class="absolute top-2 right-2 text-lg drop-shadow-xs">🥤</span>
+        </div>
+        <div>
+          <h3 class="text-xs sm:text-sm font-extrabold text-neutral-900 group-hover:text-[#B71C1C] transition-colors leading-tight">Bebidas</h3>
+          <p class="text-[10px] sm:text-[11px] text-neutral-400 mt-0.5">Gaseosas • Jugos • Aguas</p>
+        </div>
+        <span class="mt-2.5 text-[10px] sm:text-[11px] font-bold text-neutral-600 group-hover:text-[#B71C1C] flex items-center justify-center transition-colors">
+          Ver Bebidas <i data-lucide="chevron-right" class="w-3 h-3 ml-0.5"></i>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 3. PRODUCTOS DESTACADOS (CUADRÍCULA MODERNA CON AGREGAR Y COMPRA RÁPIDA) -->
+  <section class="max-w-7xl mx-auto px-4 py-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div>
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full mb-1">
+          <i data-lucide="flame" class="w-3.5 h-3.5 text-orange-500"></i> Más Pedidos por Locales y Pizzerías
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-gray-900">Productos Destacados & Precios por Escala</h2>
+      </div>
+
+      <!-- Filtros rápidos -->
+      <div class="flex gap-2 text-xs font-bold">
+        <button onclick="renderFeatured('todos')" class="tab-btn px-3 py-1.5 rounded-xl bg-[#B71C1C] text-white">Todos</button>
+        <button onclick="renderFeatured('quesos')" class="tab-btn px-3 py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200">🧀 Quesos</button>
+        <button onclick="renderFeatured('carnes')" class="tab-btn px-3 py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200">🥩 Carnes</button>
+        <button onclick="renderFeatured('pizza')" class="tab-btn px-3 py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200">🍕 Pizza</button>
+      </div>
+    </div>
+
+    <!-- Contenedor dinámico de Productos Destacados (2 columnas en móviles para navegación ágil) -->
+    <div id="featuredGrid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-5">
+      <!-- Se inyecta con JS -->
+    </div>
+
+    <div class="mt-10 text-center">
+      <a href="catalogo.html" class="inline-flex items-center gap-2 px-8 py-3.5 bg-gray-900 hover:bg-black text-white text-xs sm:text-sm font-black rounded-xl shadow transition-all active:scale-95">
+        <span>Ver Catálogo Completo con Filtros y Buscador Predictivo</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- 4. VENTAJAS COMPETITIVAS (SECCIÓN CON ICONOS REQUERIDA) -->
+  <section class="bg-white py-16 border-y border-neutral-200/90 my-12 cv-auto">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-[#B71C1C] uppercase tracking-wider">Compromiso Logístico y Comercial</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mt-1">Ventajas Competitivas Valle Lindo</h2>
+        <p class="text-xs text-gray-500 mt-1">Garantizamos el abastecimiento continuo para que tu cocina nunca se detenga.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- ✅ Envíos a todo Chile -->
+        <div class="p-6 rounded-2xl bg-neutral-50/70 hover:bg-white border border-neutral-200/80 hover:border-[#B71C1C]/40 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-red-50 text-[#B71C1C] border border-red-100 group-hover:bg-[#B71C1C] group-hover:text-white group-hover:border-[#B71C1C] transition-all duration-300 flex items-center justify-center font-bold mb-4 shadow-xs">
+            <i data-lucide="truck" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-base font-black text-gray-900 mb-1">✅ Envíos a todo Chile</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Rutas refrigeradas diarias en Santiago y despachos especiales a regiones con control de cadena de frío.
+          </p>
+        </div>
+
+        <!-- ✅ Compra mayorista y minorista -->
+        <div class="p-6 rounded-2xl bg-neutral-50/70 hover:bg-white border border-neutral-200/80 hover:border-[#B71C1C]/40 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-red-50 text-[#B71C1C] border border-red-100 group-hover:bg-[#B71C1C] group-hover:text-white group-hover:border-[#B71C1C] transition-all duration-300 flex items-center justify-center font-bold mb-4 shadow-xs">
+            <i data-lucide="building-2" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-base font-black text-gray-900 mb-1">✅ Compra mayorista y minorista</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Precios por escala desde 1 unidad para pruebas de menú hasta cajas y pallets completos para cadenas.
+          </p>
+        </div>
+
+        <!-- ✅ Stock actualizado en tiempo real -->
+        <div class="p-6 rounded-2xl bg-neutral-50/70 hover:bg-white border border-neutral-200/80 hover:border-[#B71C1C]/40 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-red-50 text-[#B71C1C] border border-red-100 group-hover:bg-[#B71C1C] group-hover:text-white group-hover:border-[#B71C1C] transition-all duration-300 flex items-center justify-center font-bold mb-4 shadow-xs">
+            <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-base font-black text-gray-900 mb-1">✅ Stock actualizado en tiempo real</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Disponibilidad sincronizada con nuestros frigoríficos centrales para que nunca te falte mercadería.
+          </p>
+        </div>
+
+        <!-- ✅ Factura y boleta electrónica -->
+        <div class="p-6 rounded-2xl bg-neutral-50/70 hover:bg-white border border-neutral-200/80 hover:border-[#B71C1C]/40 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-red-50 text-[#B71C1C] border border-red-100 group-hover:bg-[#B71C1C] group-hover:text-white group-hover:border-[#B71C1C] transition-all duration-300 flex items-center justify-center font-bold mb-4 shadow-xs">
+            <i data-lucide="file-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-base font-black text-gray-900 mb-1">✅ Factura y boleta electrónica</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Emisión inmediata con RUT para deducir IVA empresarial y llevar la contabilidad al día.
+          </p>
+        </div>
+
+        <!-- ✅ Atención por WhatsApp -->
+        <div class="p-6 rounded-2xl bg-neutral-50/70 hover:bg-white border border-neutral-200/80 hover:border-[#B71C1C]/40 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-red-50 text-[#B71C1C] border border-red-100 group-hover:bg-[#B71C1C] group-hover:text-white group-hover:border-[#B71C1C] transition-all duration-300 flex items-center justify-center font-bold mb-4 shadow-xs">
+            <i data-lucide="message-circle" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-base font-black text-gray-900 mb-1">✅ Atención por WhatsApp</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Ejecutivo comercial asignado para pedidos recurrentes, cotizaciones rápidas y dudas de despacho.
+          </p>
+        </div>
+
+        <!-- ✅ Despacho rápido -->
+        <div class="p-6 rounded-2xl bg-neutral-50/70 hover:bg-white border border-neutral-200/80 hover:border-[#B71C1C]/40 hover:shadow-[0_12px_28px_-8px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-red-50 text-[#B71C1C] border border-red-100 group-hover:bg-[#B71C1C] group-hover:text-white group-hover:border-[#B71C1C] transition-all duration-300 flex items-center justify-center font-bold mb-4 shadow-xs">
+            <i data-lucide="zap" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-base font-black text-gray-900 mb-1">✅ Despacho rápido en 24/48 hrs</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Entregas programadas en horarios previos a la apertura de tu pizzería o local de comida.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SECCIÓN EMPRESAS (ORIENTADA A PIZZERÍAS, RESTAURANTES, CASINOS, FOOD TRUCKS) -->
+  <section class="max-w-7xl mx-auto px-4 py-8 cv-auto">
+    <div class="rounded-3xl bg-gradient-to-r from-gray-900 via-[#1E1E1E] to-[#2B0808] text-white p-8 sm:p-12 border border-gray-800 shadow-2xl relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-950 text-red-300 text-xs font-bold border border-red-800">
+            <i data-lucide="building-2" class="w-3.5 h-3.5"></i> Abastecimiento Gastronómico B2B
+          </span>
+
+          <h2 class="text-2xl sm:text-4xl font-black leading-tight">
+            Canal Especializado para Pizzerías, Restaurantes, Casinos y Food Trucks
+          </h2>
+
+          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+            Optimiza el costo por plato (food cost) con nuestros formatos industriales de Mozzarella, Queso Palmita Río Grande, cortes de carne vacuno premium y bolsas institucionales de papa frita y aderezos.
+          </p>
+
+          <div class="grid grid-cols-2 gap-3 pt-2 text-xs">
+            <div class="p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">
+              <strong class="text-amber-400 block text-[10px] uppercase">Pizzerías</strong>
+              <div class="font-bold text-white">Mozzarella & Palmita 10kg</div>
+              <div class="text-[11px] text-gray-300">Hasta 20% OFF por volumen</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">
+              <strong class="text-amber-400 block text-[10px] uppercase">Restaurantes</strong>
+              <div class="font-bold text-white">Lomo Vetado & Carnes</div>
+              <div class="text-[11px] text-gray-300">Caja cerrada pesaje exacto</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">
+              <strong class="text-amber-400 block text-[10px] uppercase">Casinos</strong>
+              <div class="font-bold text-white">Factura 30 Días</div>
+              <div class="text-[11px] text-gray-300">Previa evaluación comercial</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">
+              <strong class="text-amber-400 block text-[10px] uppercase">Food Trucks</strong>
+              <div class="font-bold text-white">Papas Prefritas & Vienesas</div>
+              <div class="text-[11px] text-gray-300">Despacho diario en Santiago</div>
+            </div>
+          </div>
+
+          <div class="pt-4 flex flex-col sm:flex-row gap-3">
+            <a href="cotizacion.html" class="px-7 py-3.5 bg-gradient-to-r from-[#B71C1C] to-[#991515] hover:brightness-110 text-white font-black text-xs sm:text-sm rounded-xl shadow-lg hover:shadow-red-900/30 transition-all flex items-center justify-center gap-2 active:scale-[0.98]">
+              <i data-lucide="file-text" class="w-4 h-4"></i>
+              <span>Solicitar precio mayorista</span>
+            </a>
+
+            <a href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20tengo%20un%20local%20gastron%C3%B3mico%20y%20deseo%20solicitar%20precios%20mayoristas" target="_blank" class="px-7 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg hover:shadow-emerald-900/30 transition-all flex items-center justify-center gap-2 active:scale-[0.98]">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>Hablar con Ejecutivo B2B</span>
+            </a>
+          </div>
+        </div>
+              <span>Solicitar precio mayorista</span>
+            </a>
+
+            <a href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20tengo%20un%20local%20gastron%C3%B3mico%20y%20deseo%20solicitar%20precios%20mayoristas" target="_blank" class="px-7 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow transition-colors flex items-center justify-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>Hablar con Ejecutivo B2B</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Descargas de Catálogo -->
+        <div class="lg:col-span-5 bg-black/70 rounded-2xl p-6 border border-white/10 space-y-4">
+          <h3 class="font-black text-base text-white flex items-center gap-2">
+            <i data-lucide="file-text" class="w-5 h-5 text-[#B71C1C]"></i>
+            Catálogos Oficiales Descargables
+          </h3>
+          <p class="text-xs text-gray-300">
+            Descarga los catálogos en PDF con gramajes, tablas de rendimiento y especificaciones sanitarias.
+          </p>
+
+          <div class="space-y-3">
+            <a href="catalogo_pizzerias_vallelindo.pdf" target="_blank" class="w-full p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-between text-xs font-bold transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-red-900/60 text-red-400 flex items-center justify-center font-mono">PDF</span>
+                <div>
+                  <div class="text-white">Catálogo Pizzerías Valle Lindo</div>
+                  <div class="text-[10px] text-gray-400 font-normal">10 páginas especializadas</div>
+                </div>
+              </div>
+              <i data-lucide="download" class="w-4 h-4 text-gray-400"></i>
+            </a>
+
+            <a href="Catálogo de productos 2026.pdf" target="_blank" class="w-full p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-between text-xs font-bold transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-red-900/60 text-red-400 flex items-center justify-center font-mono">PDF</span>
+                <div>
+                  <div class="text-white">Catálogo Carnes y General 2026</div>
+                  <div class="text-[10px] text-gray-400 font-normal">15 páginas con cortes y congelados</div>
+                </div>
+              </div>
+              <i data-lucide="download" class="w-4 h-4 text-gray-400"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARRITO LATERAL MODERNO (DRAWER) -->
+  <div id="cartDrawer" class="hidden fixed inset-0 z-50 overflow-hidden">
+    <div onclick="closeCartDrawer()" class="absolute inset-0 bg-black/60 backdrop-blur-xs transition-opacity"></div>
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
+      <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+        <!-- Header Carro -->
+        <div class="p-4 bg-gray-900 text-white flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i data-lucide="shopping-bag" class="w-5 h-5 text-[#B71C1C]"></i>
+            <h2 class="font-bold text-base">Tu Carro de Compras</h2>
+          </div>
+          <button onclick="closeCartDrawer()" class="p-1 rounded-full text-gray-400 hover:text-white">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Barra Envío Gratis -->
+        <div id="freeShippingProgress" class="bg-emerald-50 border-b border-emerald-100 p-3 text-xs"></div>
+
+        <!-- Items del Carro -->
+        <div id="cartDrawerItems" class="flex-1 overflow-y-auto p-4 space-y-2"></div>
+
+        <!-- Totales y Botones -->
+        <div id="cartDrawerTotals" class="p-4 bg-gray-50 border-t border-gray-200"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP (RESPONSIVE & COMPACTO EN MÓVILES PARA NO TAPAR CONTENIDO) -->
+  <div class="fixed bottom-16 sm:bottom-6 right-3 sm:right-6 z-30">
+    <a href="https://wa.me/56987654321?text=Hola%20Comercializadora%20Valle%20Lindo,%20deseo%20informaci%C3%B3n%20sobre%20sus%20productos%20mayoristas" target="_blank" class="flex items-center gap-2 bg-[#2E7D32] hover:bg-[#1B5E20] text-white p-3 sm:px-4 sm:py-3.5 rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 border-2 border-white group" title="Atención Mayorista WhatsApp">
+      <div class="relative flex items-center justify-center">
+        <i data-lucide="message-circle" class="w-6 h-6 fill-white"></i>
+        <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full animate-ping"></span>
+        <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full"></span>
+      </div>
+      <span class="font-black text-xs hidden sm:inline tracking-wide">Atención Mayorista WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- BARRA DE NAVEGACIÓN INFERIOR PARA MÓVILES (ESTILO APP NATIVA MERCADO LIBRE / SHOPIFY) -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 py-1.5 px-2 flex justify-around items-center shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
+    <a href="index.html" class="flex flex-col items-center py-1 px-2 text-[#B71C1C]">
+      <i data-lucide="home" class="w-5 h-5"></i>
+      <span class="text-[10px] font-black mt-0.5">Inicio</span>
+    </a>
+    <a href="catalogo.html" class="flex flex-col items-center py-1 px-2 text-gray-600 hover:text-[#B71C1C]">
+      <i data-lucide="grid" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Catálogo</span>
+    </a>
+    <a href="cotizacion.html" class="flex flex-col items-center py-1 px-2 text-gray-600 hover:text-[#B71C1C]">
+      <i data-lucide="file-text" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Cotizar</span>
+    </a>
+    <button onclick="openCartDrawer()" class="flex flex-col items-center py-1 px-2 text-gray-600 hover:text-[#B71C1C] relative">
+      <div class="relative">
+        <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+        <span class="cart-count-badge absolute -top-1.5 -right-2 bg-emerald-500 text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white" style="display: none;">0</span>
+      </div>
+      <span class="text-[10px] font-bold mt-0.5">Mi Carro</span>
+    </button>
+    <a href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20deseo%20atenci%C3%B3n%20para%20mi%20local" target="_blank" class="flex flex-col items-center py-1 px-2 text-emerald-600 hover:text-emerald-700">
+      <i data-lucide="message-circle" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">WhatsApp</span>
+    </a>
+  </nav>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#121212] text-white pt-12 pb-8 border-t-4 border-[#B71C1C] mt-16">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-800 text-xs">
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg overflow-hidden bg-black border border-gray-700">
+            <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <span class="font-black text-sm block">VALLE LINDO</span>
+            <span class="text-[10px] text-[#B71C1C] font-bold uppercase">Distribuidora Gastronómica</span>
+          </div>
+        </div>
+        <p class="text-gray-400">
+          Distribución mayorista y minorista de carnes, quesos para pizzerías e insumos gastronómicos con despacho rápido en todo Chile.
+        </p>
+      </div>
+
+      <div class="space-y-2 text-gray-400">
+        <h4 class="font-bold text-white uppercase text-xs text-[#B71C1C]">Categorías</h4>
+        <div><a href="catalogo.html?cat=quesos" class="hover:text-white">🧀 Queso Mozzarella y Palmita</a></div>
+        <div><a href="catalogo.html?cat=carnes" class="hover:text-white">🥩 Carnes al por Mayor</a></div>
+        <div><a href="catalogo.html?cat=pizza" class="hover:text-white">🍕 Insumos para Pizzerías</a></div>
+        <div><a href="catalogo.html?cat=congelados" class="hover:text-white">❄️ Papas Prefritas y Congelados</a></div>
+        <div><a href="catalogo.html?cat=embutidos" class="hover:text-white">🌭 Embutidos y Cecinas</a></div>
+      </div>
+
+      <div class="space-y-2 text-gray-400">
+        <h4 class="font-bold text-white uppercase text-xs text-[#B71C1C]">Acceso B2B</h4>
+        <div><a href="cotizacion.html" class="hover:text-white">📄 Solicitar Cotización</a></div>
+        <div><a href="cliente.html" class="hover:text-white">👤 Portal Cliente & Recompra</a></div>
+        <div><a href="admin.html" class="hover:text-white">⚙️ Panel Administrativo</a></div>
+        <div><a href="catalogo_pizzerias_vallelindo.pdf" target="_blank" class="hover:text-white">📥 Descargar Catálogo Pizzerías</a></div>
+      </div>
+
+      <div class="space-y-2 text-gray-400">
+        <h4 class="font-bold text-white uppercase text-xs text-[#B71C1C]">Contacto</h4>
+        <div>📍 Santiago de Chile, Región Metropolitana</div>
+        <div>📞 +56 9 8765 4321 / +56 2 2345 6789</div>
+        <div>✉️ ventas@comercializadoravallelindo.cl</div>
+        <div class="pt-2 text-[10px] text-gray-500">
+          Webpay • Mercado Pago • Transferencia • Contra Entrega
+        </div>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 pt-6 text-center text-[11px] text-gray-500">
+      © 2026 Comercializadora Valle Lindo SpA. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- SCRIPT ENGINE -->
+  <script src="security.js"></script>
+  <script src="app.js"></script>
+  <script>
+    function toggleHeroAudio() {
+      const vid = document.getElementById('heroPromoVideo');
+      const text = document.getElementById('heroAudioText');
+      const icon = document.getElementById('heroAudioIcon');
+      if (!vid) return;
+
+      if (vid.muted) {
+        vid.muted = false;
+        if (text) text.textContent = 'Silenciar';
+        if (icon) {
+          icon.setAttribute('data-lucide', 'volume-2');
+          icon.classList.remove('text-amber-400');
+          icon.classList.add('text-emerald-400');
+        }
+      } else {
+        vid.muted = true;
+        if (text) text.textContent = 'Activar Audio';
+        if (icon) {
+          icon.setAttribute('data-lucide', 'volume-x');
+          icon.classList.remove('text-emerald-400');
+          icon.classList.add('text-amber-400');
+        }
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function renderFeatured(cat = 'todos') {
+      const container = document.getElementById('featuredGrid');
+      if (!container) return;
+
+      const filtered = PRODUCTS_DATA.filter(p => {
+        if (cat === 'todos') return p.isFeatured;
+        return p.category === cat;
+      });
+
+      container.innerHTML = filtered.slice(0, 8).map(p => renderProductCard(p)).join("");
+      if (window.lucide) lucide.createIcons();
+
+      // Update tab styles
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-[#B71C1C]', 'text-white');
+        btn.classList.add('bg-gray-100', 'text-gray-700');
+      });
+      event?.target?.classList?.add('bg-[#B71C1C]', 'text-white');
+      event?.target?.classList?.remove('bg-gray-100', 'text-gray-700');
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderFeatured('todos');
+    });
+  </script>
+</body>
+</html>

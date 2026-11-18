@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Seguro | Comercializadora Valle Lindo</title>
+  <link rel="icon" type="image/jpeg" href="assets/branding/logo-valle-lindo.jpeg">
+
+  <!-- HEADERS DEFENSIVOS DE CIBERSEGURIDAD EMPRESARIAL -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com https://fonts.googleapis.com https://fonts.gstatic.com data: blob:; img-src 'self' data: https: blob:; media-src 'self' data: blob:; connect-src 'self' https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="//unpkg.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="security.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#F8F9FA] text-[#121212] font-sans antialiased overflow-x-hidden pb-16 md:pb-0">
+
+  <!-- NAVBAR COMPACTO CHECKOUT -->
+  <header class="bg-white border-b border-gray-200 py-3 sm:py-4 sticky top-0 z-30 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-3">
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl overflow-hidden bg-black p-0.5 border border-gray-200">
+          <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-full h-full object-cover rounded-lg" />
+        </div>
+        <span class="font-black text-base sm:text-lg tracking-tight">VALLE LINDO</span>
+      </a>
+      <div class="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-emerald-200">
+        <i data-lucide="lock" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i> Checkout Seguro SSL
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8">
+    <div id="checkoutContent">
+      <!-- Se inyecta con JS -->
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    let docType = 'factura';
+    let paymentMethod = 'webpay';
+
+    function setDoc(type) {
+      docType = type;
+      document.getElementById('btnFactura').className = type === 'factura' ? 'px-3 py-1 rounded bg-[#B71C1C] text-white shadow-xs font-bold' : 'px-3 py-1 text-gray-600 font-bold';
+      document.getElementById('btnBoleta').className = type === 'boleta' ? 'px-3 py-1 rounded bg-black text-white shadow-xs font-bold' : 'px-3 py-1 text-gray-600 font-bold';
+      document.getElementById('facturaFields').style.display = type === 'factura' ? 'block' : 'none';
+    }
+
+    function setPayment(method) {
+      paymentMethod = method;
+      document.querySelectorAll('.payment-option').forEach(el => el.classList.remove('ring-2', 'ring-red-200', 'border-[#B71C1C]', 'bg-red-50/50'));
+      document.getElementById(`pay-${method}`).classList.add('ring-2', 'ring-red-200', 'border-[#B71C1C]', 'bg-red-50/50');
+    }
+
+    function finishOrder(e) {
+      e.preventDefault();
+
+      // Control de Frecuencia Anti-Spam / Rate Limiting
+      if (typeof SecurityGuard !== 'undefined' && !SecurityGuard.checkRateLimit('CHECKOUT_FINISH', 3, 60000)) {
+        alert("Atención de Seguridad: Demasiados intentos de pedido consecutivos. Por favor espere 1 minuto.");
+        return;
+      }
+
+      const clientName = document.getElementById('inputNombre')?.value || '';
+      const clientPhone = document.getElementById('inputTel')?.value || '';
+      const clientAddress = document.getElementById('inputDir')?.value || '';
+      const clientEmailInput = document.querySelector('input[type="email"]');
+      const clientEmail = clientEmailInput ? clientEmailInput.value : '';
+
+      // Validación defensiva estricta
+      if (typeof SecurityGuard !== 'undefined') {
+        if (!SecurityGuard.validateEmail(clientEmail)) {
+          alert("Error: Ingrese un correo electrónico corporativo válido.");
+          return;
+        }
+        if (!SecurityGuard.validateChileanPhone(clientPhone)) {
+          alert("Error: Ingrese un teléfono chileno válido (ej: +56 9 1234 5678).");
+          return;
+        }
+      }
+
+      const orderNum = 'VL-' + Math.floor(100000 + Math.random() * 900000);
+      const { total } = Cart.getTotals();
+
+      // Sanitización completa anti-XSS previa a renderizado
+      const safeName = typeof SecurityGuard !== 'undefined' ? SecurityGuard.escapeHTML(clientName) : clientName;
+      const safePhone = typeof SecurityGuard !== 'undefined' ? SecurityGuard.escapeHTML(clientPhone) : clientPhone;
+      const safeAddress = typeof SecurityGuard !== 'undefined' ? SecurityGuard.escapeHTML(clientAddress) : clientAddress;
+      const safeOrderNum = typeof SecurityGuard !== 'undefined' ? SecurityGuard.escapeHTML(orderNum) : orderNum;
+      const safeDocType = typeof SecurityGuard !== 'undefined' ? SecurityGuard.escapeHTML(docType.toUpperCase()) : docType.toUpperCase();
+      const safePayment = typeof SecurityGuard !== 'undefined' ? SecurityGuard.escapeHTML(paymentMethod.toUpperCase()) : paymentMethod.toUpperCase();
+
+      // Registro en Bitácora SIEM de Seguridad
+      if (typeof SecurityGuard !== 'undefined') {
+        SecurityGuard.logAuditEvent('ORDER_PLACED_SUCCESS', 'INFO', {
+          orderNum: safeOrderNum,
+          total: total,
+          paymentMethod: safePayment,
+          docType: safeDocType
+        });
+      }
+
+      const wspUrl = `https://wa.me/56987654321?text=${encodeURIComponent(`Hola Valle Lindo! Acabo de registrar el pedido *#${orderNum}* por un total de ${formatCLP(total)}.\nCliente: ${clientName} (${clientPhone})\nDirección: ${clientAddress}\nMétodo: ${paymentMethod.toUpperCase()}.\nPor favor confirmar recepción y despacho.`)}`;
+
+      document.getElementById('checkoutContent').innerHTML = `
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl border border-gray-200 shadow-xl text-center space-y-6">
+          <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+            <i data-lucide="check-circle" class="w-10 h-10"></i>
+          </div>
+          <h2 class="text-2xl font-black text-gray-900">¡Pedido Recibido Exitosamente!</h2>
+          <p class="text-xs text-gray-600">Tu orden ha sido registrada con el código <strong class="font-mono text-black font-bold">#${safeOrderNum}</strong>.</p>
+          <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 text-left text-xs space-y-2">
+            <div><strong>Total a Pagar / Cancelado:</strong> <span class="text-[#B71C1C] font-black text-sm">${formatCLP(total)}</span></div>
+            <div><strong>Documento:</strong> ${safeDocType} Electrónica</div>
+            <div><strong>Método:</strong> ${safePayment}</div>
+            <div><strong>Despacho:</strong> En 24/48 hrs en ${safeAddress}</div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+            <a href="${wspUrl}" target="_blank" class="px-6 py-3 bg-emerald-600 text-white font-bold text-xs rounded-xl shadow flex items-center justify-center gap-1.5">
+              <i data-lucide="message-circle" class="w-4 h-4"></i> Confirmar Despacho por WhatsApp
+            </a>
+            <a href="index.html" class="px-6 py-3 bg-gray-900 text-white font-bold text-xs rounded-xl shadow">Volver al Inicio</a>
+          </div>
+        </div>
+      `;
+      Cart.clear();
+      if (window.lucide) lucide.createIcons();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const { count, subtotal, savings, shipping, total } = Cart.getTotals();
+      const container = document.getElementById('checkoutContent');
+
+      if (count === 0) {
+        container.innerHTML = `
+          <div class="max-w-md mx-auto text-center py-12 space-y-3">
+            <h3 class="text-lg font-bold">Tu carro está vacío</h3>
+            <a href="catalogo.html" class="inline-block px-4 py-2 bg-[#B71C1C] text-white text-xs font-bold rounded-lg">Ir al Catálogo</a>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = `
+        <form onsubmit="finishOrder(event)" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-7 space-y-6">
+            <!-- 1. Datos Cliente -->
+            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs space-y-4">
+              <div class="flex justify-between items-center">
+                <h3 class="font-black text-sm flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-[#B71C1C] text-white flex items-center justify-center text-xs">1</span>
+                  Datos del Cliente & Facturación
+                </h3>
+                <div class="flex bg-gray-100 p-0.5 rounded-lg text-xs">
+                  <button type="button" id="btnFactura" onclick="setDoc('factura')" class="px-3 py-1 rounded bg-[#B71C1C] text-white shadow-xs font-bold">Factura RUT</button>
+                  <button type="button" id="btnBoleta" onclick="setDoc('boleta')" class="px-3 py-1 text-gray-600 font-bold">Boleta</button>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div>
+                  <label class="block font-bold text-gray-700 mb-1">Nombre y Apellido *</label>
+                  <input id="inputNombre" type="text" required placeholder="Ej: Marcelo González" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#B71C1C]" />
+                </div>
+                <div>
+                  <label class="block font-bold text-gray-700 mb-1">Teléfono Móvil / WhatsApp *</label>
+                  <input id="inputTel" type="tel" required placeholder="+56 9 1234 5678" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#B71C1C]" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block font-bold text-gray-700 mb-1">Correo Electrónico *</label>
+                  <input type="email" required placeholder="contacto@pizzeria.cl" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#B71C1C]" />
+                </div>
+              </div>
+
+              <!-- Factura fields -->
+              <div id="facturaFields" class="p-3 bg-red-50/50 rounded-xl border border-red-100 space-y-2">
+                <span class="text-[10px] font-bold text-[#B71C1C] uppercase tracking-wider block">Datos de Facturación:</span>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+                  <input type="text" placeholder="RUT Empresa (76.xxx.xxx-x)" class="px-2 py-1.5 border border-gray-300 rounded-lg bg-white font-mono" />
+                  <input type="text" placeholder="Razón Social" class="px-2 py-1.5 border border-gray-300 rounded-lg bg-white" />
+                  <input type="text" placeholder="Giro Comercial" class="px-2 py-1.5 border border-gray-300 rounded-lg bg-white" />
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Dirección Despacho -->
+            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs space-y-4">
+              <h3 class="font-black text-sm flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-[#B71C1C] text-white flex items-center justify-center text-xs">2</span>
+                Dirección de Entrega
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div>
+                  <label class="block font-bold text-gray-700 mb-1">Región *</label>
+                  <select class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                    <option>Región Metropolitana de Santiago</option>
+                    <option>Región de Valparaíso</option>
+                    <option>Otras Regiones de Chile</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-bold text-gray-700 mb-1">Comuna *</label>
+                  <input type="text" required placeholder="Ej: Providencia, Santiago Centro..." class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block font-bold text-gray-700 mb-1">Calle y Número del Local *</label>
+                  <input id="inputDir" type="text" required placeholder="Av. Providencia 1450, Local 3" class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Métodos de Pago Solicitados -->
+            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs space-y-3">
+              <h3 class="font-black text-sm flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-[#B71C1C] text-white flex items-center justify-center text-xs">3</span>
+                Método de Pago
+              </h3>
+
+              <div id="pay-webpay" onclick="setPayment('webpay')" class="payment-option p-3 rounded-xl border border-[#B71C1C] ring-2 ring-red-200 bg-red-50/50 flex justify-between items-center cursor-pointer text-xs">
+                <div><strong>Webpay Plus</strong> (Tarjetas de Débito y Crédito)</div>
+                <span class="bg-gray-100 px-2 py-0.5 rounded text-[10px] font-bold">Transbank</span>
+              </div>
+
+              <div id="pay-mercadopago" onclick="setPayment('mercadopago')" class="payment-option p-3 rounded-xl border border-gray-200 flex justify-between items-center cursor-pointer text-xs">
+                <div><strong>Mercado Pago</strong> (Saldo o Cuotas)</div>
+                <span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-[10px] font-bold">Mercado Pago</span>
+              </div>
+
+              <div id="pay-transferencia" onclick="setPayment('transferencia')" class="payment-option p-3 rounded-xl border border-gray-200 flex justify-between items-center cursor-pointer text-xs">
+                <div><strong>Transferencia Bancaria B2B</strong> (Banco de Chile / BCI)</div>
+                <span class="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded text-[10px] font-bold">Transferencia</span>
+              </div>
+
+              <div id="pay-contraentrega" onclick="setPayment('contraentrega')" class="payment-option p-3 rounded-xl border border-gray-200 flex justify-between items-center cursor-pointer text-xs">
+                <div><strong>Pago Contra Entrega</strong> (Clientes B2B Habilitados)</div>
+                <span class="bg-gray-100 px-2 py-0.5 rounded text-[10px] font-bold">POS / Efectivo</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Resumen (Sticky solo en desktop) -->
+          <div class="lg:col-span-5 bg-white p-5 sm:p-6 rounded-2xl border border-gray-200 shadow-xs space-y-4 lg:sticky lg:top-24">
+            <h4 class="font-black text-sm pb-2 border-b border-gray-100">Resumen del Pedido (${count} productos)</h4>
+
+            <div class="space-y-2 text-xs divide-y divide-gray-100 max-h-56 overflow-y-auto">
+              ${Cart.cart.map(item => `
+                <div class="pt-2 first:pt-0 flex justify-between items-center">
+                  <div class="truncate mr-2"><strong>${item.quantity}x</strong> ${item.product.name}</div>
+                  <span class="font-black">${formatCLP(item.unitPrice * item.quantity)}</span>
+                </div>
+              `).join("")}
+            </div>
+
+            <div class="pt-3 border-t border-gray-200 space-y-1.5 text-xs text-gray-600">
+              <div class="flex justify-between"><span>Subtotal:</span><strong>${formatCLP(subtotal)}</strong></div>
+              ${savings > 0 ? `<div class="flex justify-between text-emerald-700 font-bold"><span>Ahorro Mayorista:</span><span>-${formatCLP(savings)}</span></div>` : ''}
+              <div class="flex justify-between"><span>Despacho:</span><strong>${shipping === 0 ? '<span class="text-emerald-700">GRATIS</span>' : formatCLP(shipping)}</strong></div>
+              <div class="flex justify-between text-base font-black text-gray-900 pt-2 border-t border-gray-200">
+                <span>Total a Pagar:</span>
+                <span class="text-[#B71C1C]">${formatCLP(total)}</span>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full py-4 bg-[#B71C1C] hover:bg-[#8E0000] text-white font-black text-sm rounded-xl shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2">
+              <i data-lucide="shield-check" class="w-5 h-5"></i> Confirmar y Finalizar Pedido
+            </button>
+          </div>
+        </form>
+      `;
+
+      const form = container.querySelector('form');
+      if (form && typeof SecurityGuard !== 'undefined') {
+        SecurityGuard.protectForm(form);
+      }
+
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Completo | Comercializadora Valle Lindo</title>
+  
+  <meta name="description" content="Catálogo mayorista de quesos para pizzería, carnes vacuno, cerdo, pollo, insumos gastronómicos y congelados en Chile.">
+  <link rel="icon" type="image/jpeg" href="assets/branding/logo-valle-lindo.jpeg">
+
+  <!-- HEADERS DEFENSIVOS DE CIBERSEGURIDAD EMPRESARIAL -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com https://fonts.googleapis.com https://fonts.gstatic.com data: blob:; img-src 'self' data: https: blob:; media-src 'self' data: blob:; connect-src 'self' https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="//unpkg.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="security.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#F8F9FA] text-[#121212] font-sans antialiased overflow-x-hidden pb-16 md:pb-0">
+
+  <!-- TOP BAR (RESPONSIVE) -->
+  <div class="bg-[#121212] text-white text-[11px] sm:text-xs py-1.5 sm:py-2 px-3 sm:px-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <span class="text-emerald-400 font-bold flex items-center gap-1">
+        🚚 Despacho GRATIS sobre $75.000
+      </span>
+      <div class="flex items-center space-x-3 text-gray-300 text-[11px]">
+        <a href="catalogo_pizzerias_vallelindo.pdf" target="_blank" class="hover:text-white hidden xs:inline underline">PDF Pizzerías</a>
+        <a href="https://wa.me/56987654321" target="_blank" class="hover:text-emerald-400 font-bold">+56 9 8765 4321</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-xs">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-4">
+      <div class="flex items-center gap-2">
+        <button onclick="toggleMobileNav()" class="p-2 -ml-1 text-gray-700 hover:text-[#B71C1C] md:hidden rounded-lg focus:outline-none" aria-label="Abrir Menú">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+
+        <a href="index.html" class="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden bg-black p-0.5 border border-gray-200">
+            <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-full h-full object-cover rounded-lg" />
+          </div>
+          <div>
+            <span class="font-black text-base sm:text-lg tracking-tight block leading-none">VALLE LINDO</span>
+            <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#B71C1C]">Catálogo Mayorista</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Searchbar en Header Desktop -->
+      <div class="relative flex-1 max-w-lg hidden md:block">
+        <input id="catalogSearchInput" type="text" placeholder="Buscar por nombre, SKU, marca..." class="w-full pl-9 pr-4 py-2 text-xs border border-gray-300 rounded-xl focus:outline-none focus:border-[#B71C1C] bg-gray-50/70" />
+        <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-2.5"></i>
+      </div>
+
+      <div class="flex items-center space-x-1.5 sm:space-x-3">
+        <a href="cotizacion.html" class="hidden sm:flex px-3 py-1.5 border border-gray-300 rounded-lg text-xs font-bold hover:border-[#B71C1C]">
+          Cotizador B2B
+        </a>
+        <a href="cliente.html" class="p-1.5 text-gray-600 hover:text-black rounded-full hover:bg-gray-100" title="Mi Cuenta">
+          <i data-lucide="user" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+        </a>
+        <button onclick="openCartDrawer()" class="flex items-center gap-1.5 sm:gap-2 bg-[#B71C1C] hover:bg-[#8E0000] text-white px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-xs transition-all active:scale-95">
+          <div class="relative">
+            <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+            <span class="cart-count-badge absolute -top-2 -right-2 bg-emerald-500 text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border border-white" style="display: none;">0</span>
+          </div>
+          <span class="hidden xs:inline">Carro</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Buscador Móvil -->
+    <div class="px-3 pb-2 md:hidden">
+      <div class="relative">
+        <input id="catalogSearchInputMobile" oninput="document.getElementById('catalogSearchInput').value = this.value; applyFilters();" type="text" placeholder="Buscar mozzarella, lomo, pepperoni..." class="w-full pl-8 pr-4 py-1.5 text-xs border border-gray-300 rounded-lg bg-gray-50" />
+        <i data-lucide="search" class="w-3.5 h-3.5 text-gray-400 absolute left-2.5 top-2"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENÚ LATERAL MÓVIL (DRAWER) -->
+  <div id="mobileNavDrawer" class="hidden fixed inset-0 z-50 overflow-hidden">
+    <div onclick="closeMobileNav()" class="absolute inset-0 bg-black/60 backdrop-blur-xs transition-opacity"></div>
+    <div class="fixed inset-y-0 left-0 max-w-full flex">
+      <div class="w-72 sm:w-80 bg-white shadow-2xl flex flex-col justify-between">
+        <div>
+          <div class="p-4 bg-[#121212] text-white flex justify-between items-center border-b-2 border-[#B71C1C]">
+            <div class="flex items-center gap-2.5">
+              <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-8 h-8 rounded-lg object-cover" />
+              <div>
+                <span class="font-black text-sm block leading-none">VALLE LINDO</span>
+                <span class="text-[9px] text-[#B71C1C] font-bold uppercase">Distribuidora Gastronómica</span>
+              </div>
+            </div>
+            <button onclick="closeMobileNav()" class="p-1.5 text-gray-400 hover:text-white rounded-lg">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+
+          <div class="p-4 space-y-1 text-sm font-semibold text-gray-800">
+            <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors">
+              <i data-lucide="home" class="w-4 h-4"></i> Inicio
+            </a>
+            <a href="catalogo.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-red-50 text-[#B71C1C] font-bold">
+              <i data-lucide="grid" class="w-4 h-4"></i> Catálogo Completo
+            </a>
+            <a href="cotizacion.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors">
+              <i data-lucide="file-text" class="w-4 h-4 text-[#B71C1C]"></i> Cotizador Mayorista B2B
+            </a>
+            <a href="cliente.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors">
+              <i data-lucide="user" class="w-4 h-4 text-[#B71C1C]"></i> Mi Cuenta / Pedidos
+            </a>
+            <a href="admin.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors text-gray-600">
+              <i data-lucide="settings" class="w-4 h-4"></i> Panel Administrativo
+            </a>
+          </div>
+        </div>
+
+        <div class="p-4 bg-gray-50 border-t border-gray-200 space-y-2 text-xs">
+          <a href="https://wa.me/56987654321" target="_blank" class="w-full flex items-center justify-center gap-2 py-2.5 px-3 bg-[#2E7D32] text-white rounded-xl font-bold shadow-xs">
+            <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Mayorista
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENIDO DEL CATÁLOGO -->
+  <main class="max-w-7xl mx-auto px-4 py-8 space-y-6">
+    <!-- Header Banner -->
+    <div class="bg-[#121212] text-white p-6 sm:p-8 rounded-3xl border border-gray-800 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+      <div>
+        <span class="text-xs font-bold text-red-400 bg-red-950 px-2.5 py-0.5 rounded-full border border-red-800">
+          Venta Mayorista & Detal
+        </span>
+        <h1 class="text-2xl sm:text-3xl font-black mt-2">Catálogo de Productos Gastronómicos</h1>
+        <p class="text-xs text-gray-400 mt-1">Precios unitarios y tablas de descuento por volumen para locales de comida rápida y pizzerías.</p>
+      </div>
+      <div class="flex gap-2">
+        <a href="catalogo_pizzerias_vallelindo.pdf" target="_blank" class="px-4 py-2 bg-red-900/60 hover:bg-red-800 text-white text-xs font-bold rounded-lg border border-red-700">
+          📥 PDF Pizzerías
+        </a>
+        <a href="Catálogo de productos 2026.pdf" target="_blank" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white text-xs font-bold rounded-lg border border-gray-700">
+          📥 PDF Carnes
+        </a>
+      </div>
+    </div>
+
+    <!-- Controles Superiores -->
+    <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-gray-500">
+        Mostrando <strong id="productCount" class="text-gray-900 font-bold">0</strong> productos
+      </div>
+
+      <div class="flex items-center gap-3 text-xs w-full sm:w-auto justify-end">
+        <div class="flex items-center gap-1.5">
+          <span class="text-gray-500 font-medium">Ordenar:</span>
+          <select id="sortSelect" onchange="applyFilters()" class="px-3 py-1.5 border border-gray-300 rounded-lg font-bold text-gray-800 focus:outline-none focus:border-[#B71C1C]">
+            <option value="featured">Destacados</option>
+            <option value="bestseller">Más Vendidos</option>
+            <option value="price_asc">Precio: Menor a Mayor</option>
+            <option value="price_desc">Precio: Mayor a Menor</option>
+          </select>
+        </div>
+
+        <div class="flex items-center border border-gray-300 rounded-lg p-0.5 bg-gray-50">
+          <button id="btnGrid" onclick="setViewMode('grid')" class="p-1 rounded bg-white shadow-xs text-[#B71C1C]">
+            <i data-lucide="grid" class="w-4 h-4"></i>
+          </button>
+          <button id="btnList" onclick="setViewMode('list')" class="p-1 rounded text-gray-400">
+            <i data-lucide="list" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón Móvil para Desplegar Filtros (solo visible en pantallas < lg) -->
+    <button onclick="toggleMobileFilters()" class="lg:hidden w-full py-2.5 px-4 bg-white border border-gray-300 rounded-xl font-bold text-xs text-gray-800 flex items-center justify-between shadow-xs transition-colors hover:border-[#B71C1C]">
+      <span class="flex items-center gap-2">
+        <i data-lucide="sliders-horizontal" id="mobileFilterIcon" class="w-4 h-4 text-[#B71C1C]"></i>
+        <span id="mobileFilterToggleText">Filtrar por Categoría y Precio</span>
+      </span>
+      <span class="text-[11px] text-[#B71C1C] font-extrabold flex items-center gap-1">
+        Filtros <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+      </span>
+    </button>
+
+    <!-- Filtros Laterales + Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+      <!-- Filtros (Colapsables en Móvil, Visibles en Desktop) -->
+      <aside id="catalogFilterSidebar" class="hidden lg:block bg-white p-5 rounded-2xl border border-gray-200 shadow-xs space-y-6">
+        <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+          <h3 class="font-black text-sm text-gray-900 flex items-center gap-2">
+            <i data-lucide="filter" class="w-4 h-4 text-[#B71C1C]"></i> Filtros de Catálogo
+          </h3>
+          <button onclick="resetFilters()" class="text-[11px] font-bold text-[#B71C1C] hover:underline">Limpiar</button>
+        </div>
+
+        <!-- Categorías -->
+        <div class="space-y-1.5">
+          <label class="text-xs font-bold text-gray-800 uppercase tracking-wider block">Categoría</label>
+          <div class="space-y-1 text-xs font-semibold">
+            <button onclick="setCategory('todos')" class="cat-filter-btn w-full text-left px-3 py-1.5 rounded-lg bg-[#B71C1C] text-white">Todas las Categorías</button>
+            <button onclick="setCategory('quesos')" class="cat-filter-btn w-full text-left px-3 py-1.5 rounded-lg text-gray-600 hover:bg-gray-100">🧀 Quesos Pizzería</button>
+            <button onclick="setCategory('carnes')" class="cat-filter-btn w-full text-left px-3 py-1.5 rounded-lg text-gray-600 hover:bg-gray-100">🥩 Carnes Mayorista</button>
+            <button onclick="setCategory('pizza')" class="cat-filter-btn w-full text-left px-3 py-1.5 rounded-lg text-gray-600 hover:bg-gray-100">🍕 Insumos Pizza</button>
+            <button onclick="setCategory('congelados')" class="cat-filter-btn w-full text-left px-3 py-1.5 rounded-lg text-gray-600 hover:bg-gray-100">❄️ Papas & Congelados</button>
+            <button onclick="setCategory('embutidos')" class="cat-filter-btn w-full text-left px-3 py-1.5 rounded-lg text-gray-600 hover:bg-gray-100">🌭 Embutidos & Cecinas</button>
+          </div>
+        </div>
+
+        <!-- Rango Precio -->
+        <div class="space-y-2 pt-2 border-t border-gray-100">
+          <div class="flex justify-between items-center text-xs">
+            <label class="font-bold text-gray-800 uppercase">Precio Máx:</label>
+            <span id="priceLabel" class="font-mono font-bold text-[#B71C1C]">$65.000</span>
+          </div>
+          <input id="priceRange" type="range" min="3000" max="65000" step="1000" value="65000" oninput="document.getElementById('priceLabel').textContent = formatCLP(this.value); applyFilters();" class="w-full accent-[#B71C1C] cursor-pointer" />
+        </div>
+
+        <!-- Checkboxes -->
+        <div class="space-y-2 pt-2 border-t border-gray-100 text-xs font-semibold text-gray-700">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input id="chkOffer" type="checkbox" onchange="applyFilters()" class="rounded text-[#B71C1C]" />
+            <span class="text-[#2E7D32]">🔥 Solo Productos en Oferta</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input id="chkBest" type="checkbox" onchange="applyFilters()" class="rounded text-[#B71C1C]" />
+            <span>⭐ Solo Más Vendidos</span>
+          </label>
+        </div>
+      </aside>
+
+      <!-- Lista de Productos (2 Columnas en móvil, 3 en desktop) -->
+      <section class="lg:col-span-3">
+        <div id="catalogGrid" class="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-2.5 sm:gap-5">
+          <!-- Inyectado por JS -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- DRAWER CARRITO -->
+  <div id="cartDrawer" class="hidden fixed inset-0 z-50 overflow-hidden">
+    <div onclick="closeCartDrawer()" class="absolute inset-0 bg-black/60 backdrop-blur-xs"></div>
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
+      <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+        <div class="p-4 bg-gray-900 text-white flex justify-between items-center">
+          <h3 class="font-bold text-sm">Tu Carro de Compras</h3>
+          <button onclick="closeCartDrawer()"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
+        <div id="freeShippingProgress" class="bg-emerald-50 p-3 text-xs border-b border-emerald-100"></div>
+        <div id="cartDrawerItems" class="flex-1 overflow-y-auto p-4 space-y-2"></div>
+        <div id="cartDrawerTotals" class="p-4 bg-gray-50 border-t border-gray-200"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <div class="fixed bottom-16 sm:bottom-6 right-3 sm:right-6 z-30">
+    <a href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20deseo%20informaci%C3%B3n%20sobre%20sus%20productos%20mayoristas" target="_blank" class="flex items-center gap-2 bg-[#2E7D32] hover:bg-[#1B5E20] text-white p-3 sm:px-4 sm:py-3.5 rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 border-2 border-white group" title="Atención Mayorista WhatsApp">
+      <div class="relative flex items-center justify-center">
+        <i data-lucide="message-circle" class="w-6 h-6 fill-white"></i>
+        <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full animate-ping"></span>
+        <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full"></span>
+      </div>
+      <span class="font-black text-xs hidden sm:inline tracking-wide">Atención Mayorista WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- BARRA DE NAVEGACIÓN INFERIOR PARA MÓVILES -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 py-1.5 px-2 flex justify-around items-center shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
+    <a href="index.html" class="flex flex-col items-center py-1 px-2 text-gray-600 hover:text-[#B71C1C]">
+      <i data-lucide="home" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Inicio</span>
+    </a>
+    <a href="catalogo.html" class="flex flex-col items-center py-1 px-2 text-[#B71C1C]">
+      <i data-lucide="grid" class="w-5 h-5"></i>
+      <span class="text-[10px] font-black mt-0.5">Catálogo</span>
+    </a>
+    <a href="cotizacion.html" class="flex flex-col items-center py-1 px-2 text-gray-600 hover:text-[#B71C1C]">
+      <i data-lucide="file-text" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Cotizar</span>
+    </a>
+    <button onclick="openCartDrawer()" class="flex flex-col items-center py-1 px-2 text-gray-600 hover:text-[#B71C1C] relative">
+      <div class="relative">
+        <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+        <span class="cart-count-badge absolute -top-1.5 -right-2 bg-emerald-500 text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white" style="display: none;">0</span>
+      </div>
+      <span class="text-[10px] font-bold mt-0.5">Mi Carro</span>
+    </button>
+    <a href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20deseo%20atenci%C3%B3n%20para%20mi%20local" target="_blank" class="flex flex-col items-center py-1 px-2 text-emerald-600 hover:text-emerald-700">
+      <i data-lucide="message-circle" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">WhatsApp</span>
+    </a>
+  </nav>
+
+  <script src="app.js"></script>
+  <script>
+    let activeCategory = 'todos';
+    let viewMode = 'grid';
+
+    function setViewMode(mode) {
+      viewMode = mode;
+      const grid = document.getElementById('catalogGrid');
+      if (mode === 'list') {
+        grid.className = 'space-y-4';
+        document.getElementById('btnList').className = 'p-1 rounded bg-white shadow-xs text-[#B71C1C]';
+        document.getElementById('btnGrid').className = 'p-1 rounded text-gray-400';
+      } else {
+        grid.className = 'grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-2.5 sm:gap-5';
+        document.getElementById('btnGrid').className = 'p-1 rounded bg-white shadow-xs text-[#B71C1C]';
+        document.getElementById('btnList').className = 'p-1 rounded text-gray-400';
+      }
+      applyFilters();
+    }
+
+    function setCategory(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('.cat-filter-btn').forEach(b => {
+        b.classList.remove('bg-[#B71C1C]', 'text-white');
+        b.classList.add('text-gray-600');
+      });
+      event.target.classList.add('bg-[#B71C1C]', 'text-white');
+      event.target.classList.remove('text-gray-600');
+      applyFilters();
+    }
+
+    function resetFilters() {
+      activeCategory = 'todos';
+      document.getElementById('priceRange').value = 65000;
+      document.getElementById('priceLabel').textContent = '$65.000';
+      document.getElementById('chkOffer').checked = false;
+      document.getElementById('chkBest').checked = false;
+      document.getElementById('catalogSearchInput').value = '';
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('catalogSearchInput')?.value.trim().toLowerCase() || '';
+      const maxPrice = Number(document.getElementById('priceRange')?.value || 65000);
+      const onlyOffer = document.getElementById('chkOffer')?.checked || false;
+      const onlyBest = document.getElementById('chkBest')?.checked || false;
+      const sortBy = document.getElementById('sortSelect')?.value || 'featured';
+
+      const filtered = PRODUCTS_DATA.filter(p => {
+        if (activeCategory !== 'todos' && p.category !== activeCategory) return false;
+        if (p.price > maxPrice) return false;
+        if (onlyOffer && !p.isOffer) return false;
+        if (onlyBest && !p.isBestSeller) return false;
+        if (q && !p.name.toLowerCase().includes(q) && !p.sku.toLowerCase().includes(q)) return false;
+        return true;
+      }).sort((a, b) => {
+        if (sortBy === 'price_asc') return a.price - b.price;
+        if (sortBy === 'price_desc') return b.price - a.price;
+        if (sortBy === 'bestseller') return (b.isBestSeller ? 1 : 0) - (a.isBestSeller ? 1 : 0);
+        return 0;
+      });
+
+      document.getElementById('productCount').textContent = filtered.length;
+      const container = document.getElementById('catalogGrid');
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full bg-white p-12 text-center rounded-2xl border border-gray-200">
+            <h4 class="font-bold text-gray-900">No encontramos productos con estos filtros</h4>
+            <button onclick="resetFilters()" class="mt-3 px-4 py-2 bg-[#B71C1C] text-white text-xs font-bold rounded-lg">Limpiar filtros</button>
+          </div>
+        `;
+      } else {
+        container.innerHTML = filtered.map(p => renderProductCard(p, viewMode === 'grid')).join("");
+      }
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Leer parámetro URL si existe
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('cat');
+      const qParam = urlParams.get('q');
+      if (catParam) activeCategory = catParam;
+      if (qParam) document.getElementById('catalogSearchInput').value = qParam;
+
+      applyFilters();
+
+      document.getElementById('catalogSearchInput')?.addEventListener('input', applyFilters);
+    });
+  </script>
+</body>
+</html>

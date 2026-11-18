@@ -1,0 +1,28 @@
+# Dependencias y compilación
+node_modules/
+valle-lindo-app/node_modules/
+valle-lindo-app/.next/
+valle-lindo-app/out/
+
+# Entornos y secretos
+.env
+.env.local
+.env.production
+.env*.local
+
+# Logs y temporales
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Scripts de auditoría interna
+audit_catalog.py
+compare_products.py
+audit_results.json
+audit_full_catalog.json
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini

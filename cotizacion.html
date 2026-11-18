@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cotizador Mayorista B2B | Comercializadora Valle Lindo</title>
+  <link rel="icon" type="image/jpeg" href="assets/branding/logo-valle-lindo.jpeg">
+
+  <!-- HEADERS DEFENSIVOS DE CIBERSEGURIDAD EMPRESARIAL -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com https://fonts.googleapis.com https://fonts.gstatic.com data: blob:; img-src 'self' data: https: blob:; media-src 'self' data: blob:; connect-src 'self' https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="//unpkg.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="security.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#F8F9FA] text-[#121212] font-sans antialiased overflow-x-hidden pb-16 md:pb-0">
+
+  <!-- NAVBAR -->
+  <header class="bg-white border-b border-gray-200 py-3 print:hidden sticky top-0 z-30 shadow-xs">
+    <div class="max-w-5xl mx-auto px-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="font-black text-base sm:text-lg text-[#B71C1C]">VALLE LINDO</span>
+        <span class="text-xs text-gray-500 font-bold hidden xs:inline">| Cotizador B2B</span>
+      </a>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="catalogo.html" class="text-xs font-bold text-gray-700 hover:text-[#B71C1C]">← Catálogo</a>
+        <button onclick="window.print()" class="px-2.5 sm:px-3 py-1.5 border border-gray-300 rounded-lg text-xs font-bold hover:bg-gray-100 flex items-center gap-1.5">
+          <i data-lucide="printer" class="w-3.5 h-3.5"></i> <span class="hidden xs:inline">Imprimir PDF</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    <div class="bg-white rounded-3xl border border-gray-200 p-6 sm:p-10 shadow-lg space-y-6 print:border-none print:shadow-none print:p-0">
+      <!-- Membrete -->
+      <div class="flex flex-col sm:flex-row justify-between items-start gap-4 pb-6 border-b-2 border-gray-100">
+        <div class="flex items-center gap-4">
+          <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-14 h-14 rounded-2xl object-cover bg-black" />
+          <div>
+            <h1 class="text-xl sm:text-2xl font-black text-gray-900 leading-tight">COMERCIALIZADORA VALLE LINDO SpA</h1>
+            <p class="text-xs text-gray-500">Distribución Mayorista para Pizzerías, Carnes & Gastronomía</p>
+            <div class="text-[11px] text-gray-400">RUT: 76.987.654-3 • Santiago, Chile • ventas@comercializadoravallelindo.cl</div>
+          </div>
+        </div>
+
+        <div class="bg-red-50 p-3 rounded-xl border border-red-100 text-xs text-left sm:text-right">
+          <span class="text-[#B71C1C] font-black uppercase tracking-wider block">COTIZACIÓN B2B</span>
+          <div class="font-mono font-bold text-gray-900">COT-2026-092</div>
+          <div class="text-gray-500 text-[11px]">Válida por 15 días hábiles</div>
+        </div>
+      </div>
+
+      <!-- Datos Cliente -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-200 text-xs">
+        <div>
+          <span class="font-bold text-gray-400 uppercase text-[10px] block mb-1">Empresa / Local:</span>
+          <input id="qEmpresa" type="text" value="Pizzería Don Luigi SpA" class="w-full font-bold text-gray-900 bg-transparent border-b border-gray-300 py-0.5 outline-none" />
+          <input id="qRut" type="text" value="76.842.193-K" class="w-full text-gray-600 bg-transparent border-b border-gray-300 py-0.5 outline-none font-mono text-[11px] mt-1" />
+          <input id="qDir" type="text" value="Av. Providencia 1450, Local 3, Providencia" class="w-full text-gray-600 bg-transparent border-b border-gray-300 py-0.5 outline-none text-xs mt-1" />
+        </div>
+        <div>
+          <span class="font-bold text-gray-400 uppercase text-[10px] block mb-1">Contacto Comercial:</span>
+          <input id="qNombre" type="text" value="Rodrigo Morales (Chef / Dueño)" class="w-full font-semibold text-gray-900 bg-transparent border-b border-gray-300 py-0.5 outline-none" />
+          <input id="qTel" type="text" value="+56 9 8888 7777" class="w-full text-gray-600 bg-transparent border-b border-gray-300 py-0.5 outline-none text-xs mt-1" />
+          <input id="qMail" type="email" value="contacto@donluigi.cl" class="w-full text-gray-600 bg-transparent border-b border-gray-300 py-0.5 outline-none text-xs mt-1" />
+        </div>
+      </div>
+
+      <!-- Agregar insumo -->
+      <div class="p-4 bg-red-50/40 rounded-2xl border border-red-100 flex flex-col sm:flex-row gap-2 print:hidden">
+        <select id="selectInsumo" class="flex-1 px-3 py-2 text-xs border border-gray-300 rounded-lg bg-white font-medium">
+          <!-- Opciones con JS -->
+        </select>
+        <div class="flex items-center gap-2">
+          <input id="addInsumoQty" type="number" min="1" value="5" class="w-20 px-2 py-2 text-xs border border-gray-300 rounded-lg text-center font-bold" />
+          <button onclick="addQuoteItem()" class="px-4 py-2 bg-[#B71C1C] hover:bg-[#8E0000] text-white text-xs font-bold rounded-lg shadow">
+            + Agregar Insumo
+          </button>
+        </div>
+      </div>
+
+      <!-- Tabla de Insumos -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border border-gray-200 rounded-xl overflow-hidden">
+          <thead class="bg-[#121212] text-white uppercase text-[10px] tracking-wider">
+            <tr>
+              <th class="p-3">SKU</th>
+              <th class="p-3">Insumo</th>
+              <th class="p-3">Formato</th>
+              <th class="p-3 text-center">Cant.</th>
+              <th class="p-3 text-right">Precio Tramo</th>
+              <th class="p-3 text-right">Total Neto</th>
+              <th class="p-3 text-center print:hidden">Acción</th>
+            </tr>
+          </thead>
+          <tbody id="quoteTableBody" class="divide-y divide-gray-200">
+            <!-- Inyectado por JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Totales -->
+      <div class="flex flex-col sm:flex-row justify-between items-start gap-4 pt-4 border-t border-gray-200 text-xs">
+        <div class="space-y-1 text-gray-500 text-[11px] max-w-sm">
+          <div>• Factura electrónica emitida al momento del despacho con RUT.</div>
+          <div>• Despacho sin costo por compras sobre $75.000 neto en RM.</div>
+          <div>• Cadena de frío certificada SEREMI de Salud.</div>
+        </div>
+
+        <div class="w-full sm:w-64 space-y-1.5 bg-gray-50 p-4 rounded-2xl border border-gray-200 text-xs">
+          <div class="flex justify-between"><span>Subtotal Neto:</span><strong id="qSubtotal" class="text-gray-900">$0</strong></div>
+          <div class="flex justify-between"><span>IVA (19%):</span><strong id="qIva" class="text-gray-900">$0</strong></div>
+          <div class="flex justify-between text-base font-black text-gray-900 pt-2 border-t border-gray-200">
+            <span>Total Cotizado:</span>
+            <span id="qTotal" class="text-[#B71C1C]">$0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botón WhatsApp -->
+      <div class="pt-4 flex justify-end print:hidden">
+        <button onclick="sendQuoteWhatsApp()" class="w-full sm:w-auto px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs sm:text-sm rounded-xl shadow-lg flex items-center justify-center gap-2 active:scale-95 transition-all">
+          <i data-lucide="message-circle" class="w-4 h-4"></i> Enviar Cotización a Ejecutivo B2B por WhatsApp
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    let quoteItems = [
+      { product: PRODUCTS_DATA[0], qty: 5 }, // Palmita 10kg
+      { product: PRODUCTS_DATA[1], qty: 8 }, // Mozzarella 3kg
+      { product: PRODUCTS_DATA[7], qty: 10 } // Pepperoni 1kg
+    ];
+
+    function renderQuote() {
+      const tbody = document.getElementById('quoteTableBody');
+      let subtotal = 0;
+
+      tbody.innerHTML = quoteItems.map((item, idx) => {
+        const unitP = Cart.calculateUnitPrice(item.product, item.qty);
+        const lineTotal = unitP * item.qty;
+        subtotal += lineTotal;
+
+        const safeSku = typeof SecurityGuard !== 'undefined' ? SecurityGuard.escapeHTML(item.product.sku) : item.product.sku;
+        const safeName = typeof SecurityGuard !== 'undefined' ? SecurityGuard.escapeHTML(item.product.name) : item.product.name;
+        const safeUnit = typeof SecurityGuard !== 'undefined' ? SecurityGuard.escapeHTML(item.product.unit) : item.product.unit;
+
+        return `
+          <tr class="hover:bg-gray-50">
+            <td class="p-3 font-mono font-bold text-gray-500">${safeSku}</td>
+            <td class="p-3 font-bold text-gray-900">${safeName}</td>
+            <td class="p-3 text-gray-500">${safeUnit}</td>
+            <td class="p-3 text-center font-bold">${item.qty}</td>
+            <td class="p-3 text-right font-semibold text-gray-700">${formatCLP(unitP)}</td>
+            <td class="p-3 text-right font-black text-gray-900">${formatCLP(lineTotal)}</td>
+            <td class="p-3 text-center print:hidden">
+              <button onclick="removeQuoteItem(${idx})" class="text-gray-400 hover:text-red-600 p-1">
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join("");
+
+      const iva = Math.round(subtotal * 0.19);
+      const total = subtotal + iva;
+
+      document.getElementById('qSubtotal').textContent = formatCLP(subtotal);
+      document.getElementById('qIva').textContent = formatCLP(iva);
+      document.getElementById('qTotal').textContent = formatCLP(total);
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function addQuoteItem() {
+      const pId = document.getElementById('selectInsumo').value;
+      const qty = parseInt(document.getElementById('addInsumoQty').value) || 1;
+      const p = PRODUCTS_DATA.find(x => x.id === pId);
+      if (!p) return;
+
+      const existing = quoteItems.find(x => x.product.id === p.id);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        quoteItems.push({ product: p, qty });
+      }
+      renderQuote();
+    }
+
+    function removeQuoteItem(idx) {
+      quoteItems.splice(idx, 1);
+      renderQuote();
+    }
+
+    function sendQuoteWhatsApp() {
+      if (typeof SecurityGuard !== 'undefined' && !SecurityGuard.checkRateLimit('QUOTE_SEND', 5, 60000)) {
+        alert("Atención de Seguridad: Límite de cotizaciones alcanzado. Por favor espere un momento.");
+        return;
+      }
+
+      const emp = document.getElementById('qEmpresa')?.value || '';
+      const rut = document.getElementById('qRut')?.value || '';
+      const nom = document.getElementById('qNombre')?.value || '';
+      const tel = document.getElementById('qTel')?.value || '';
+      const dir = document.getElementById('qDir')?.value || '';
+
+      if (rut && typeof SecurityGuard !== 'undefined' && !SecurityGuard.validateRUT(rut)) {
+        alert("Advertencia: El RUT ingresado no cumple con el algoritmo Módulo 11 de validación tributaria.");
+      }
+
+      if (typeof SecurityGuard !== 'undefined') {
+        SecurityGuard.logAuditEvent('QUOTE_GENERATED', 'INFO', {
+          empresa: SecurityGuard.escapeHTML(emp),
+          itemsCount: quoteItems.length
+        });
+      }
+
+      let msg = `Hola Comercializadora Valle Lindo! Deseo formalizar la siguiente Cotización B2B:\n\n`;
+      msg += `*Empresa:* ${emp} (RUT: ${rut})\n`;
+      msg += `*Contacto:* ${nom} (${tel})\n`;
+      msg += `*Dirección:* ${dir}\n\n`;
+      msg += `*Insumos Cotizados:*\n`;
+
+      let subtotal = 0;
+      quoteItems.forEach((item, idx) => {
+        const u = Cart.calculateUnitPrice(item.product, item.qty);
+        const l = u * item.qty;
+        subtotal += l;
+        msg += `${idx + 1}. ${item.product.name} (SKU: ${item.product.sku}) - ${item.qty} uds x ${formatCLP(u)}\n`;
+      });
+      const iva = Math.round(subtotal * 0.19);
+      const total = subtotal + iva;
+
+      msg += `\n*Subtotal Neto:* ${formatCLP(subtotal)}\n`;
+      msg += `*Total con IVA:* ${formatCLP(total)}\n\n`;
+      msg += `Quedo atento a la confirmación de stock y fecha de despacho. ¡Muchas gracias!`;
+
+      window.open(`https://wa.me/56987654321?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const select = document.getElementById('selectInsumo');
+      select.innerHTML = PRODUCTS_DATA.map(p => `
+        <option value="${p.id}">${p.name} (${p.unit}) - Base: ${formatCLP(p.price)}</option>
+      `).join("");
+
+      renderQuote();
+    });
+  </script>
+
+  <!-- BARRA DE NAVEGACIÓN INFERIOR PARA MÓVILES -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 py-1.5 px-2 flex justify-around items-center shadow-[0_-4px_16px_rgba(0,0,0,0.08)] print:hidden">
+    <a href="index.html" class="flex flex-col items-center py-1 px-2 text-gray-600 hover:text-[#B71C1C]">
+      <i data-lucide="home" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Inicio</span>
+    </a>
+    <a href="catalogo.html" class="flex flex-col items-center py-1 px-2 text-gray-600 hover:text-[#B71C1C]">
+      <i data-lucide="grid" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Catálogo</span>
+    </a>
+    <a href="cotizacion.html" class="flex flex-col items-center py-1 px-2 text-[#B71C1C]">
+      <i data-lucide="file-text" class="w-5 h-5"></i>
+      <span class="text-[10px] font-black mt-0.5">Cotizar</span>
+    </a>
+    <a href="index.html" class="flex flex-col items-center py-1 px-2 text-gray-600 hover:text-[#B71C1C]">
+      <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Mi Carro</span>
+    </a>
+    <a href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20deseo%20atenci%C3%B3n%20para%20mi%20local" target="_blank" class="flex flex-col items-center py-1 px-2 text-emerald-600 hover:text-emerald-700">
+      <i data-lucide="message-circle" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">WhatsApp</span>
+    </a>
+  </nav>
+</body>
+</html>

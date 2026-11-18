@@ -1,0 +1,115 @@
+/* ========================================================
+   COMERCIALIZADORA VALLE LINDO - DESIGN SYSTEM & PERFORMANCE
+   Senior UX/UI, Core Web Vitals & Accessibility Enhancements
+   ======================================================== */
+
+/* 1. Core Web Vitals & Font Rendering */
+@layer base {
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+}
+
+/* 2. Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f3f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B71C1C;
+}
+
+/* Hide scrollbar for clean horizontal scrolls */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 3. WCAG 2.1 AA+ Keyboard Focus Ring */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #B71C1C !important;
+  outline-offset: 2px !important;
+}
+
+/* 4. Touch Targets Accessibility */
+@media (max-width: 640px) {
+  button, 
+  a.touch-target, 
+  input[type="button"], 
+  input[type="submit"] {
+    min-height: 40px;
+  }
+}
+
+/* 5. Performance: Content Visibility (Below-the-fold render optimization) */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 480px;
+}
+
+/* 6. Hardware-Accelerated Micro-Interactions */
+.interactive-card {
+  will-change: transform, box-shadow;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+.interactive-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* 7. Glassmorphism Utilities */
+.glass-panel-dark {
+  background: rgba(22, 22, 22, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* 8. Pulsing Status Indicator */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+.pulse-subtle {
+  animation: softPulse 2.5s infinite ease-in-out;
+}
+
+/* 9. Image Anti-Layout-Shift and Smooth Zoom */
+img {
+  image-rendering: auto;
+}
+
+/* 10. Motion reduction preference support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

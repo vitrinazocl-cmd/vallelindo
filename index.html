@@ -337,15 +337,19 @@
           <div class="relative h-80 sm:h-[420px] w-full rounded-2xl overflow-hidden bg-black flex items-center justify-center shadow-inner">
             <video
               id="heroPromoVideo"
-              src="assets/videos/oferta-queso-llanero.mp4"
               autoplay
               loop
               muted
               playsinline
               controls
+              preload="auto"
+              poster="assets/products/named/queso-llanero-artesanal-bloque.jpeg"
               class="w-full h-full object-cover sm:object-contain rounded-2xl cursor-pointer"
               title="Oferta Relámpago Queso Llanero Valle Lindo"
-            ></video>
+            >
+              <source src="assets/videos/oferta-queso-llanero.mp4" type="video/mp4">
+              <p class="text-xs text-white p-4 text-center">Tu navegador no soporta reproducción de video MP4.</p>
+            </video>
 
             <!-- Badges Superiores Flotantes -->
             <div class="absolute top-3 left-3 flex flex-col gap-1.5 pointer-events-none">
@@ -901,6 +905,18 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       renderFeatured('todos');
+
+      // Inicialización y reproducción segura del video en navegadores móviles y desktop
+      const v = document.getElementById('heroPromoVideo');
+      if (v) {
+        v.muted = true;
+        const playPromise = v.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(err => {
+            console.log("Autoplay diferido por política de seguridad del navegador:", err);
+          });
+        }
+      }
     });
   </script>
 </body>

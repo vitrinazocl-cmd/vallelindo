@@ -114,15 +114,18 @@ export default function HomePage() {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-red-700/80 bg-[#1A1A1A] p-4 group">
               <div className="relative h-80 sm:h-[420px] w-full rounded-2xl overflow-hidden bg-black flex items-center justify-center">
                 <video
-                  src="/assets/videos/oferta-queso-llanero.mp4"
                   autoPlay
                   loop
                   muted
                   playsInline
                   controls
+                  preload="auto"
+                  poster="/assets/products/named/queso-llanero-artesanal-bloque.jpeg"
                   className="w-full h-full object-cover sm:object-contain rounded-2xl"
                   title="Oferta Relámpago Queso Llanero"
-                />
+                >
+                  <source src="/assets/videos/oferta-queso-llanero.mp4" type="video/mp4" />
+                </video>
                 <div className="absolute top-3 left-3 flex flex-col gap-1.5 pointer-events-none">
                   <span className="bg-[#B71C1C] text-white text-[11px] font-black px-3 py-1 rounded-full shadow-lg animate-pulse">
                     🌩️ OFERTA RELÁMPAGO

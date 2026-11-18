@@ -50,7 +50,7 @@
           <div>
             <h1 class="text-xl sm:text-2xl font-black text-gray-900 leading-tight">COMERCIALIZADORA VALLE LINDO SpA</h1>
             <p class="text-xs text-gray-500">Distribución Mayorista para Pizzerías, Carnes & Gastronomía</p>
-            <div class="text-[11px] text-gray-400">RUT: 76.987.654-3 • Santiago, Chile • ventas@comercializadoravallelindo.cl</div>
+            <div class="text-[11px] text-gray-400">RUT: 76.987.654-3 • Santiago, Chile • Vallelindocl@gmail.com</div>
           </div>
         </div>
 
@@ -248,7 +248,7 @@
       msg += `*Total con IVA:* ${formatCLP(total)}\n\n`;
       msg += `Quedo atento a la confirmación de stock y fecha de despacho. ¡Muchas gracias!`;
 
-      window.open(`https://wa.me/56987654321?text=${encodeURIComponent(msg)}`, '_blank');
+      window.open(`https://wa.me/56987907981?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -260,6 +260,18 @@
       renderQuote();
     });
   </script>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <div class="fixed bottom-16 sm:bottom-6 right-3 sm:right-6 z-30 print:hidden">
+    <a href="https://wa.me/56987907981?text=Hola%20Valle%20Lindo,%20deseo%20informaci%C3%B3n%20sobre%20sus%20productos%20mayoristas" target="_blank" class="flex items-center gap-2 bg-[#2E7D32] hover:bg-[#1B5E20] text-white p-3 sm:px-4 sm:py-3.5 rounded-full shadow-2xl transition-all hover:scale-105 active:scale-95 border-2 border-white group" title="Atención Mayorista WhatsApp">
+      <div class="relative flex items-center justify-center">
+        <i data-lucide="message-circle" class="w-6 h-6 fill-white"></i>
+        <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-300 rounded-full animate-ping"></span>
+        <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full"></span>
+      </div>
+      <span class="font-black text-xs hidden sm:inline tracking-wide">Atención Mayorista WhatsApp</span>
+    </a>
+  </div>
 
   <!-- BARRA DE NAVEGACIÓN INFERIOR PARA MÓVILES -->
   <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 py-1.5 px-2 flex justify-around items-center shadow-[0_-4px_16px_rgba(0,0,0,0.08)] print:hidden">
@@ -279,7 +291,7 @@
       <i data-lucide="shopping-cart" class="w-5 h-5"></i>
       <span class="text-[10px] font-bold mt-0.5">Mi Carro</span>
     </a>
-    <a href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20deseo%20atenci%C3%B3n%20para%20mi%20local" target="_blank" class="flex flex-col items-center py-1 px-2 text-emerald-600 hover:text-emerald-700">
+    <a href="https://wa.me/56987907981?text=Hola%20Valle%20Lindo,%20deseo%20atenci%C3%B3n%20para%20mi%20local" target="_blank" class="flex flex-col items-center py-1 px-2 text-emerald-600 hover:text-emerald-700">
       <i data-lucide="message-circle" class="w-5 h-5"></i>
       <span class="text-[10px] font-bold mt-0.5">WhatsApp</span>
     </a>

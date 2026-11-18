@@ -63,7 +63,7 @@ export default function RootLayout({
     "name": "Comercializadora Valle Lindo",
     "description": "Distribuidora mayorista de carnes, quesos para pizzerías, insumos gastronómicos y congelados en Chile.",
     "url": "https://comercializadoravallelindo.cl",
-    "telephone": "+56987654321",
+    "telephone": "+56987907981",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",

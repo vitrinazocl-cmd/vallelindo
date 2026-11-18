@@ -78,7 +78,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
   };
 
   // WhatsApp dinámico con SKU y Precio
-  const whatsappUrl = `https://wa.me/56987654321?text=${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/56987907981?text=${encodeURIComponent(
     `Hola Comercializadora Valle Lindo! Deseo cotizar/comprar:\n\n*Producto:* ${product.name}\n*SKU:* ${product.sku}\n*Precio Base:* $${product.price.toLocaleString("es-CL")}\n*Cantidad deseada:* ${quantity} unidades\n*Total estimado:* $${currentTotal.toLocaleString("es-CL")}\n\n¿Tienen despacho para mi comuna y factura inmediata?`
   )}`;
 

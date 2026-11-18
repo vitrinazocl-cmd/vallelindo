@@ -45,7 +45,7 @@ export default function ProductCard({ product, viewMode = "grid" }: ProductCardP
   };
 
   // WhatsApp link específico con SKU y precio prellenado
-  const whatsappProductUrl = `https://wa.me/56987654321?text=${encodeURIComponent(
+  const whatsappProductUrl = `https://wa.me/56987907981?text=${encodeURIComponent(
     `Hola Comercializadora Valle Lindo! Deseo consultar precio mayorista y disponibilidad de:\n\n*${product.name}*\nSKU: ${product.sku}\nPrecio publicado: $${product.price.toLocaleString("es-CL")}\n\n¿Tienen despacho para mi comuna?`
   )}`;
 

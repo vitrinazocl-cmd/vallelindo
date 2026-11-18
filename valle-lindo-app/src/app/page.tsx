@@ -154,7 +154,7 @@ export default function HomePage() {
                 </div>
 
                 <a
-                  href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo!%20Deseo%20aprovechar%20la%20OFERTA%20REL%C3%81MPAGO%20del%20Queso%20Llanero%20a%20$6.990%20el%20kilo%20por%20el%20mes%20de%20marzo"
+                  href="https://wa.me/56987907981?text=Hola%20Valle%20Lindo!%20Deseo%20aprovechar%20la%20OFERTA%20REL%C3%81MPAGO%20del%20Queso%20Llanero%20a%20$6.990%20el%20kilo%20por%20el%20mes%20de%20marzo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2.5 bg-[#B71C1C] hover:bg-[#8E0000] text-white text-xs font-black rounded-xl shadow transition-colors flex items-center gap-1.5"
@@ -383,7 +383,7 @@ export default function HomePage() {
                 </Link>
 
                 <a
-                  href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20tengo%20un%20local%20gastron%C3%B3mico%20y%20deseo%20solicitar%20precios%20mayoristas"
+                  href="https://wa.me/56987907981?text=Hola%20Valle%20Lindo,%20tengo%20un%20local%20gastron%C3%B3mico%20y%20deseo%20solicitar%20precios%20mayoristas"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow transition-colors flex items-center justify-center gap-2"

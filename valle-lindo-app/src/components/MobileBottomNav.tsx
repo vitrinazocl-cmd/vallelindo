@@ -58,7 +58,7 @@ export default function MobileBottomNav() {
       </button>
 
       <a
-        href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20deseo%20atenci%C3%B3n%20para%20mi%20local"
+        href="https://wa.me/56987907981?text=Hola%20Valle%20Lindo,%20deseo%20atenci%C3%B3n%20para%20mi%20local"
         target="_blank"
         rel="noopener noreferrer"
         className="flex flex-col items-center py-1 px-2 text-emerald-600 hover:text-emerald-700"

@@ -74,7 +74,7 @@ export default function CheckoutPage() {
 
   // Si la orden ya se completó, mostrar pantalla de confirmación exitosa
   if (orderCompleted) {
-    const whatsappConfirmation = `https://wa.me/56987654321?text=${encodeURIComponent(
+    const whatsappConfirmation = `https://wa.me/56987907981?text=${encodeURIComponent(
       `Hola Valle Lindo! Acabo de ingresar la orden *#${orderCompleted.orderNumber}* por un total de $${orderCompleted.total.toLocaleString("es-CL")}.\nCliente: ${orderCompleted.customer.nombre} (${orderCompleted.customer.telefono})\nMétodo: ${orderCompleted.paymentMethod.toUpperCase()}.\nPor favor confirmar recepción y despacho. ¡Gracias!`
     )}`;
 

@@ -29,7 +29,7 @@ export default function WhatsAppFloating() {
   const handleSendCustom = (e: React.FormEvent) => {
     e.preventDefault();
     if (customMsg.trim()) {
-      const url = `https://wa.me/56987654321?text=${encodeURIComponent(customMsg.trim())}`;
+      const url = `https://wa.me/56987907981?text=${encodeURIComponent(customMsg.trim())}`;
       window.open(url, "_blank");
       setCustomMsg("");
       setIsOpen(false);
@@ -37,7 +37,7 @@ export default function WhatsAppFloating() {
   };
 
   const handleSendOption = (text: string) => {
-    const url = `https://wa.me/56987654321?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/56987907981?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
     setIsOpen(false);
   };

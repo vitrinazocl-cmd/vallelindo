@@ -73,7 +73,7 @@ export default function CartDrawer() {
     }
     msg += `TOTAL: $${total.toLocaleString("es-CL")}\n\n`;
     msg += `Por favor coordinar facturación y fecha de entrega. ¡Gracias!`;
-    return `https://wa.me/56987654321?text=${encodeURIComponent(msg)}`;
+    return `https://wa.me/56987907981?text=${encodeURIComponent(msg)}`;
   };
 
   return (

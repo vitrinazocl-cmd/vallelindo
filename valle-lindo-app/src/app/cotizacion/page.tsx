@@ -104,7 +104,7 @@ export default function QuotePage() {
       msg += `Notas: ${companyInfo.notes}\n\n`;
     }
     msg += `Quedo atento a la confirmación de disponibilidad para emitir la Orden de Compra.`;
-    return `https://wa.me/56987654321?text=${encodeURIComponent(msg)}`;
+    return `https://wa.me/56987907981?text=${encodeURIComponent(msg)}`;
   };
 
   return (

@@ -101,12 +101,12 @@ export default function Navbar() {
               <FileText className="w-3 h-3 text-[#B71C1C]" /> Catálogo General PDF
             </Link>
             <a 
-              href="https://wa.me/56987654321?text=Hola%20Valle%20Lindo,%20deseo%20atenci%C3%B3n%20para%20mi%20local" 
+              href="https://wa.me/56987907981?text=Hola%20Valle%20Lindo,%20deseo%20atenci%C3%B3n%20para%20mi%20local" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:text-emerald-400 flex items-center gap-1 font-medium transition-colors"
             >
-              <PhoneCall className="w-3 h-3 text-emerald-400" /> WhatsApp Ventas: +56 9 8765 4321
+              <PhoneCall className="w-3 h-3 text-emerald-400" /> WhatsApp Ventas: +56 9 8790 7981
             </a>
           </div>
         </div>

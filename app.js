@@ -1005,7 +1005,7 @@ function getWhatsAppCartUrl() {
   msg += `Despacho: ${shipping === 0 ? "GRATIS" : formatCLP(shipping)}\n`;
   msg += `*TOTAL A PAGAR:* ${formatCLP(total)}\n\n`;
   msg += `Por favor coordinar emisión de factura y horario de entrega. ¡Gracias!`;
-  return `https://wa.me/56987654321?text=${encodeURIComponent(msg)}`;
+  return `https://wa.me/56987907981?text=${encodeURIComponent(msg)}`;
 }
 
 // Renderizar tarjeta de producto (Alta Jerarquía Visual, Accesibilidad y Rendimiento)
@@ -1105,7 +1105,7 @@ function renderProductCard(p, isGrid = true) {
               ⚡ <span class="hidden sm:inline">Compra </span>Rápida
             </button>
             <a 
-              href="https://wa.me/56987654321?text=${encodeURIComponent(`Hola Valle Lindo! Deseo consultar precio mayorista de: ${p.name} (SKU: ${p.sku})`)}" 
+              href="https://wa.me/56987907981?text=${encodeURIComponent(`Hola Valle Lindo! Deseo consultar precio mayorista de: ${p.name} (SKU: ${p.sku})`)}" 
               target="_blank" 
               rel="noopener noreferrer"
               class="py-1.5 px-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300/70 text-[10px] sm:text-[11px] font-bold rounded-lg flex items-center justify-center gap-0.5 truncate text-center transition-all active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-emerald-600" 

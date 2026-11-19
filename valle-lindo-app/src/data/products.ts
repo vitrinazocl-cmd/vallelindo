@@ -4,47 +4,29 @@ export interface TierPrice {
   label: string;
 }
 
-export interface Review {
-  id: string;
-  author: string;
-  businessName?: string;
-  rating: number;
-  date: string;
-  comment: string;
-  verifiedPurchase: boolean;
-}
-
 export interface Product {
   id: string;
   slug: string;
   name: string;
   brand: string;
   sku: string;
-  category: "carnes" | "quesos" | "pizza" | "congelados" | "embutidos" | "bebidas";
+  category: "carnes" | "quesos" | "pizzeria";
   categoryName: string;
   subCategory: string;
-  price: number; // Precio minorista o base
+  price: number;
   originalPrice: number;
   discountPercent?: number;
   stock: number;
   stockStatus: "in_stock" | "low_stock" | "out_of_stock";
-  unit: string; // ej: "Pieza 10 kg", "Barra 3 kg", "Caja 15 kg"
+  unit: string;
   weight: string;
-  origin: string; // ej: "Chile", "Venezuela", "Brasil", "Uruguay"
+  origin: string;
   rating: number;
   reviewCount: number;
   image: string;
-  galleryImages: string[];
-  description: string;
   shortDescription: string;
-  ingredients?: string;
+  description: string;
   storage: string;
-  nutrition?: {
-    calories: string;
-    protein: string;
-    fat: string;
-    sodium: string;
-  };
   wholesaleTiers: TierPrice[];
   isFeatured?: boolean;
   isBestSeller?: boolean;
@@ -57,814 +39,1996 @@ export const CATEGORIES = [
     id: "carnes",
     name: "Carnes",
     icon: "🥩",
-    description: "Vacuno, Cerdo y Pollo al por mayor",
-    count: 28,
-    image: "/assets/products/named/lomo-vetado-vacuno-premium.jpeg",
-    subcategories: ["Vacuno", "Cerdo", "Pollo", "Cortes Especiales"]
+    description: "Vacuno, Cerdo, Pollo y Combos Parrilleros"
   },
   {
     id: "quesos",
     name: "Quesos",
     icon: "🧀",
-    description: "Mozzarella, Palmita, Gouda y Mantecoso para pizzerías",
-    count: 34,
-    image: "/assets/products/named/queso-palmita-rio-grande-10kg.jpeg",
-    subcategories: ["Mozzarella", "Palmita", "Gouda", "Mantecoso", "Rallado"]
+    description: "Llanero, Guayanés, Mano, Gouda, Mantecoso y Lácteos"
   },
   {
-    id: "pizza",
-    name: "Insumos para Pizza",
+    id: "pizzeria",
+    name: "Productos para Pizzería",
     icon: "🍕",
-    description: "Salsas de tomate, Pepperoni, Jamón, Harinas y Especias",
-    count: 42,
-    image: "/assets/products/named/salsa-tomate-pizza-sauce-3kg.jpeg",
-    subcategories: ["Salsas de Tomate", "Pepperoni", "Jamón Cocido", "Orégano y Especias", "Harinas Especiales"]
-  },
-  {
-    id: "congelados",
-    name: "Congelados",
-    icon: "❄️",
-    description: "Papas prefritas, Nuggets, Empanadas y Snacks",
-    count: 19,
-    image: "/assets/products/named/papas-fritas-prefritas-2-5kg.jpeg",
-    subcategories: ["Papas Fritas", "Nuggets", "Empanadas", "Hamburguesas"]
-  },
-  {
-    id: "embutidos",
-    name: "Embutidos",
-    icon: "🌭",
-    description: "Vienesas, Longanizas y Chorizos parrilleros",
-    count: 23,
-    image: "/assets/products/named/salchicha-vienesa-tradicional-1kg.jpeg",
-    subcategories: ["Vienesas", "Longanizas", "Chorizos", "Tocino"]
-  },
-  {
-    id: "bebidas",
-    name: "Bebidas",
-    icon: "🥤",
-    description: "Gaseosas, Jugos, Aguas y energéticas",
-    count: 15,
-    image: "/assets/products/named/bebidas-gaseosas-jugos-distribucion.jpeg",
-    subcategories: ["Bebidas 1.5L", "Latas 350ml", "Aguas Minerales", "Jugos"]
+    description: "Mozzarella, Pepperoni, Salame, Granulado, Salsas y Orégano"
   }
 ];
 
-export const PRODUCTS: Product[] = [
+export const PRODUCTS_DATA: Product[] = [
   {
-    id: "prod-llanero",
-    slug: "queso-llanero-oferta-relampago-marzo",
-    name: "Queso Llanero Artesanal (Oferta Relámpago Marzo)",
-    brand: "Valle Lindo Especial",
-    sku: "Q-LLAN-MARZO",
-    category: "quesos",
-    categoryName: "Quesos",
-    subCategory: "Llanero",
-    price: 6990,
-    originalPrice: 8490,
-    discountPercent: 18,
-    stock: 350,
-    stockStatus: "in_stock",
-    unit: "Kilo (Venta por Kilo o Bloque)",
-    weight: "1 kg",
-    origin: "Venezuela / Chile",
-    rating: 5.0,
-    reviewCount: 142,
-    image: "/assets/products/named/queso-llanero-artesanal-bloque.jpeg",
-    galleryImages: [
-      "/assets/products/named/queso-llanero-artesanal-bloque.jpeg",
-      "/assets/products/named/queso-palmita-rio-grande-10kg.jpeg"
+    "id": "prod-combo-pura-carne",
+    "slug": "combo-pura-carne-valle-lindo",
+    "name": "Combo Pura Carne Vacuno Selección (4 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-PURA-4K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Vacuno",
+    "price": 48990,
+    "originalPrice": 56990,
+    "discountPercent": 14,
+    "stock": 45,
+    "stockStatus": "in_stock",
+    "unit": "Pack 4 kg surtido al vacío",
+    "weight": "4 kg",
+    "origin": "Chile / Selección Premium",
+    "rating": 5.0,
+    "reviewCount": 68,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.07 (3).jpeg",
+    "shortDescription": "Todo por $48.990. Incluye 1 kg Bistec carne magra, 1 kg Carne para mechar, 1 kg Carne para el horno o guisar y 1 kg Carne molida especial.",
+    "description": "La mejor selección de carnes para compartir en familia o con amigos. Carne 100% magra, fresca y garantizada, ideal para todas tus recetas cotidianas. Calidad asegurada con despacho refrigerado.",
+    "storage": "Mantener refrigerado entre 0°C y 4°C o congelado a -18°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 48990,
+        "label": "1 a 2 combos"
+      },
+      {
+        "minQty": 3,
+        "price": 46990,
+        "label": "3+ combos mayorista"
+      }
     ],
-    shortDescription: "¡OFERTA RELÁMPAGO SOLO POR MARZO! Auténtico queso llanero rallable y asable, consistencia firme, punto de sal ideal para tequeños, arepas y cachapas.",
-    description: "Promoción imperdible por el mes de marzo. Queso llanero tradicional con el punto de sal exacto, excelente rendimiento y consistencia perfecta para rallar o freír sin desarmarse.",
-    storage: "Refrigerado 2°C a 6°C.",
-    wholesaleTiers: [
-      { minQty: 1, price: 6990, label: "Por Kilo ($6.990)" },
-      { minQty: 5, price: 6490, label: "5 a 19 kg ($6.490 c/u)" },
-      { minQty: 20, price: 5990, label: "Bloque 20+ kg ($5.990 c/u)" }
-    ],
-    isFeatured: true,
-    isBestSeller: true,
-    isOffer: true,
-    tags: ["queso llanero", "oferta relampago", "marzo", "tequeños", "comida rapida"]
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": true,
+    "tags": [
+      "carnes",
+      "combo",
+      "pura carne",
+      "vacuno",
+      "bistec",
+      "molida",
+      "mechar"
+    ]
   },
   {
-    id: "prod-1",
-    slug: "queso-palmita-rio-grande-10kg",
-    name: "Queso Palmita Río Grande 10 kg (Original Mayorista)",
-    brand: "Río Grande",
-    sku: "Q-PALM-10K",
-    category: "quesos",
-    categoryName: "Quesos",
-    subCategory: "Palmita",
-    price: 54990,
-    originalPrice: 63990,
-    discountPercent: 14,
-    stock: 85,
-    stockStatus: "in_stock",
-    unit: "Pieza cilíndrica 10 kg aprox.",
-    weight: "10 kg",
-    origin: "Venezuela / Chile",
-    rating: 4.9,
-    reviewCount: 128,
-    image: "/assets/products/named/queso-palmita-rio-grande-10kg.jpeg",
-    galleryImages: [
-      "/assets/products/named/queso-palmita-rio-grande-10kg.jpeg",
-      "/assets/catalog/pizzerias/page_2.png",
-      "/assets/catalog/pizzerias/page_3.png"
+    "id": "prod-combo-medio-kilates",
+    "slug": "combo-medio-kilates-surtido",
+    "name": "Combo Medio Kilates Surtido Esencial (2.5 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-MEDIO-25K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Surtidos",
+    "price": 26990,
+    "originalPrice": 31990,
+    "discountPercent": 16,
+    "stock": 50,
+    "stockStatus": "in_stock",
+    "unit": "Pack 2.5 kg surtido",
+    "weight": "2.5 kg",
+    "origin": "Chile / Nacional",
+    "rating": 4.9,
+    "reviewCount": 54,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.07 (4).jpeg",
+    "shortDescription": "Todo por $26.990. Incluye 1/2 kg Bistec (Lomo Liso o Asiento), 1/2 kg Carne para mechar, 1/2 kg Carne molida especial, 1/2 kg Pechuga deshuesada y 1/2 kg Bistec de pulpa de cerdo.",
+    "description": "Todo lo que necesitas para disfrutar en familia o con amigos. Porciones perfectas de vacuno, ave y cerdo listas para la semana o una parrillada express con frescura inigualable.",
+    "storage": "Refrigerado 0°C a 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 26990,
+        "label": "Precio unitario"
+      },
+      {
+        "minQty": 4,
+        "price": 24990,
+        "label": "4+ combos"
+      }
     ],
-    shortDescription: "El auténtico queso Palmita Río Grande, ideal para locales gastronómicos, tequeñerías, cachaperas y pizzerías. Punto de sal equilibrado y textura inigualable.",
-    description: "Queso Palmita Río Grande seleccionado bajo los más estrictos estándares de calidad higiénica y alimentaria. Su textura compacta con pequeños agujeros (ojos) y su toque tradicional de sal lo convierten en el insumo preferido por restaurantes y negocios de comida rápida en todo Chile.",
-    ingredients: "Leche pasteurizada entera, fermentos lácticos seleccionados, cuajo natural, cloruro de sodio.",
-    storage: "Mantener refrigerado entre 2°C y 6°C. Consumir dentro de los 30 días posteriores a la apertura.",
-    nutrition: {
-      calories: "320 kcal por 100g",
-      protein: "22g",
-      fat: "25g",
-      sodium: "580mg"
-    },
-    wholesaleTiers: [
-      { minQty: 1, price: 54990, label: "1 a 2 unidades" },
-      { minQty: 3, price: 52990, label: "3 a 9 unidades (-4%)" },
-      { minQty: 10, price: 49990, label: "10+ unidades (-9%)" }
-    ],
-    isFeatured: true,
-    isBestSeller: true,
-    isOffer: true,
-    tags: ["queso palmita", "rio grande", "pizzerias", "mayorista", "oferta", "comida rapida"]
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "carnes",
+      "combo medio kilates",
+      "lomo liso",
+      "pollo",
+      "cerdo"
+    ]
   },
   {
-    id: "prod-2",
-    slug: "queso-mozzarella-barra-colun-3kg",
-    name: "Queso Mozzarella en Barra Especial Pizza 3 kg",
-    brand: "Valle Lindo Select / Colun",
-    sku: "Q-MOZZ-3K",
-    category: "quesos",
-    categoryName: "Quesos",
-    subCategory: "Mozzarella",
-    price: 19990,
-    originalPrice: 23500,
-    discountPercent: 15,
-    stock: 140,
-    stockStatus: "in_stock",
-    unit: "Barra sellada al vacío 3 kg",
-    weight: "3 kg",
-    origin: "Chile - Sur de Chile",
-    rating: 4.9,
-    reviewCount: 94,
-    image: "/assets/products/named/queso-mozzarella-barra-colun-3kg.jpeg",
-    galleryImages: [
-      "/assets/products/named/queso-mozzarella-barra-colun-3kg.jpeg",
-      "/assets/catalog/pizzerias/page_4.png"
+    "id": "prod-super-combo-parrillero",
+    "slug": "super-combo-parrillero-valle-lindo",
+    "name": "Súper Combo Parrillero Premium (6 kg + Prietas)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-PARR-SUP",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Parrilleros",
+    "price": 53990,
+    "originalPrice": 62990,
+    "discountPercent": 14,
+    "stock": 40,
+    "stockStatus": "in_stock",
+    "unit": "Pack parrillero familiar 6 kg aprox.",
+    "weight": "6 kg",
+    "origin": "Chile / Selección Parrillera",
+    "rating": 5.0,
+    "reviewCount": 92,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (1).jpeg",
+    "shortDescription": "Todo por $53.990. Incluye 2 kg Lomo Liso o Vetado, 1 kg Trutro de pollo, 1 kg Costillar de cerdo, 1 kg Chorizo de la casa y 1 paquete Morcilla / Prieta.",
+    "description": "El combo definitivo para los amantes del asado. Cortes nobles seleccionados para lograr la máxima terneza y jugosidad al carbón o leña. Calidad, frescura y sabor incomparables.",
+    "storage": "Refrigerado 0°C a 4°C o congelado -18°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 53990,
+        "label": "Por combo"
+      },
+      {
+        "minQty": 3,
+        "price": 50990,
+        "label": "3+ combos asado"
+      }
     ],
-    shortDescription: "Mozzarella de alto rendimiento para hornos a leña, gas o eléctricos. Fundido elástico parejo, dorado crocante y cero desprendimiento de grasa.",
-    description: "Diseñado especialmente para maestros pizzeros. Posee la humedad exacta para no humedecer la masa de pizza, logrando una hebra larga y un gratinado brillante uniforme.",
-    ingredients: "Leche pasteurizada de vaca, cultivos lácticos, enzimas coagulantes, sal.",
-    storage: "Refrigerar de 2° a 4°C.",
-    nutrition: {
-      calories: "295 kcal por 100g",
-      protein: "24g",
-      fat: "21g",
-      sodium: "460mg"
-    },
-    wholesaleTiers: [
-      { minQty: 1, price: 19990, label: "1 a 3 barras" },
-      { minQty: 4, price: 18490, label: "4 a 11 barras (Caja)" },
-      { minQty: 12, price: 16990, label: "12+ barras (-15%)" }
-    ],
-    isFeatured: true,
-    isBestSeller: true,
-    isOffer: true,
-    tags: ["mozzarella", "queso pizza", "horno", "gratinado", "mayorista"]
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": true,
+    "tags": [
+      "carnes",
+      "combo parrillero",
+      "lomo vetado",
+      "costillar",
+      "chorizo",
+      "prietas"
+    ]
   },
   {
-    id: "prod-3",
-    slug: "queso-mozzarella-rallado-pizza-2-5kg",
-    name: "Queso Mozzarella Rallado Hebra Fina 2.5 kg IQF",
-    brand: "Pizzeria Pro",
-    sku: "Q-MOZZ-RALL-25",
-    category: "quesos",
-    categoryName: "Quesos",
-    subCategory: "Rallado",
-    price: 17490,
-    originalPrice: 20990,
-    discountPercent: 17,
-    stock: 90,
-    stockStatus: "in_stock",
-    unit: "Bolsa 2.5 kg",
-    weight: "2.5 kg",
-    origin: "Chile",
-    rating: 4.8,
-    reviewCount: 76,
-    image: "/assets/products/named/queso-mozzarella-rallado-pizza-2-5kg.jpeg",
-    galleryImages: [
-      "/assets/products/named/queso-mozzarella-rallado-pizza-2-5kg.jpeg",
-      "/assets/catalog/pizzerias/page_5.png"
+    "id": "prod-combo-fitness",
+    "slug": "combo-fitness-proteina-limpia",
+    "name": "Combo Fitness Proteico Saludable (5.5 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-FIT-55K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Saludables",
+    "price": 34990,
+    "originalPrice": 41990,
+    "discountPercent": 17,
+    "stock": 35,
+    "stockStatus": "in_stock",
+    "unit": "Pack 5.5 kg magro al vacío",
+    "weight": "5.5 kg",
+    "origin": "Chile / Selección Magra",
+    "rating": 4.9,
+    "reviewCount": 47,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (2).jpeg",
+    "shortDescription": "Todo por $34.990. Incluye 1/2 kg Carne molida especial magra, 2 kg Trutro entero sin piel, 2 kg Pechuga deshuesada y 1 kg Pollo molido.",
+    "description": "Todo lo que necesitas para tu mejor versión. Máxima proteína magra con bajo contenido graso, ideal para atletas, deportistas y alimentación balanceada familiar.",
+    "storage": "Refrigerado 0°C a 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 34990,
+        "label": "Precio normal"
+      },
+      {
+        "minQty": 3,
+        "price": 32990,
+        "label": "3+ unidades"
+      }
     ],
-    shortDescription: "Ahorra tiempo y mermas en tu cocina. Mozzarella rallada en hebras sueltas, lista para colocar en la pizza sin apelmazar.",
-    description: "Producto con tecnología IQF antiaglomerante libre de féculas excesivas. Facilita el porcionado rápido en turnos de alta demanda.",
-    storage: "Mantener a -18°C congelado o 4°C descongelado para uso inmediato.",
-    wholesaleTiers: [
-      { minQty: 1, price: 17490, label: "1 a 3 bolsas" },
-      { minQty: 4, price: 15990, label: "4 a 9 bolsas" },
-      { minQty: 10, price: 14490, label: "10+ bolsas (-17%)" }
-    ],
-    isFeatured: true,
-    isBestSeller: false,
-    tags: ["queso rallado", "mozzarella pizza", "ahorro tiempo", "pizzeria"]
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "carnes",
+      "combo fitness",
+      "pechuga deshuesada",
+      "trutro",
+      "proteina"
+    ]
   },
   {
-    id: "prod-4",
-    slug: "lomo-vetado-vacuno-premium",
-    name: "Lomo Vetado Vacuno Premium Importado (Venta por Kilo)",
-    brand: "Frigorífico Valle Lindo",
-    sku: "C-LOM-VET-KG",
-    category: "carnes",
-    categoryName: "Carnes",
-    subCategory: "Vacuno",
-    price: 11990,
-    originalPrice: 13990,
-    discountPercent: 14,
-    stock: 220,
-    stockStatus: "in_stock",
-    unit: "Pieza al vacío ~ 2.5 kg - 3.5 kg",
-    weight: "1 kg (Pesaje exacto al despachar)",
-    origin: "Paraguay / Brasil Calidad Premium",
-    rating: 5.0,
-    reviewCount: 162,
-    image: "/assets/products/named/lomo-vetado-vacuno-premium.jpeg",
-    galleryImages: [
-      "/assets/products/named/lomo-vetado-vacuno-premium.jpeg",
-      "/assets/catalog/general/page_2.png",
-      "/assets/catalog/general/page_3.png"
+    "id": "prod-combo-familiar-mega",
+    "slug": "combo-familiar-mega-seleccion",
+    "name": "Combo Familiar Mega Selección Completa (7 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-FAM-7K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Familiares",
+    "price": 62990,
+    "originalPrice": 72990,
+    "discountPercent": 14,
+    "stock": 30,
+    "stockStatus": "in_stock",
+    "unit": "Mega Pack 7 kg surtido",
+    "weight": "7 kg",
+    "origin": "Chile",
+    "rating": 5.0,
+    "reviewCount": 61,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (3).jpeg",
+    "shortDescription": "Todo por $62.990. Incluye 1 kg Molida especial, 1 kg Bistec, 1 kg Carne picada o para mechar, 1 kg Chuleta centro, 1 kg Chuleta ahumada, 1 kg Truto entero y 1 kg Pechuga deshuesada.",
+    "description": "El pack más completo para toda la familia. 7 kilos de carnes seleccionadas que resuelven los almuerzos y cenas de todo el mes con cortes premium y frescura absoluta.",
+    "storage": "Mantener refrigerado entre 0°C y 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 62990,
+        "label": "Por combo"
+      },
+      {
+        "minQty": 2,
+        "price": 59990,
+        "label": "2+ combos familiares"
+      }
     ],
-    shortDescription: "Corte noble con infiltración de grasa perfecta que otorga terneza, jugosidad y sabor superior. Ideal para restaurantes y parrilladas.",
-    description: "Lomo vetado madurado, seleccionado de animales criados bajo pastoreo natural. Envasado al vacío en origen para garantizar máxima vida útil y frescura organoléptica.",
-    ingredients: "Carne bovina 100% natural, sin inyecciones de salmuera.",
-    storage: "Refrigerado 0°C a 2°C o congelar a -18°C.",
-    nutrition: {
-      calories: "245 kcal por 100g",
-      protein: "21g",
-      fat: "18g",
-      sodium: "65mg"
-    },
-    wholesaleTiers: [
-      { minQty: 1, price: 11990, label: "Precio por kilo (Pieza)" },
-      { minQty: 15, price: 10990, label: "Caja cerrada (+15 kg)" },
-      { minQty: 50, price: 9990, label: "Volumen Restaurante (+50 kg)" }
-    ],
-    isFeatured: true,
-    isBestSeller: true,
-    isOffer: true,
-    tags: ["carne vacuno", "lomo vetado", "parrilla", "restaurante", "mayorista"]
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": false,
+    "tags": [
+      "carnes",
+      "combo familiar",
+      "chuleta centro",
+      "bistec",
+      "pechuga"
+    ]
   },
   {
-    id: "prod-5",
-    slug: "lomo-liso-vacuno-seleccionado",
-    name: "Lomo Liso Vacuno Selección Gastronómica",
-    brand: "Frigorífico Valle Lindo",
-    sku: "C-LOM-LIS-KG",
-    category: "carnes",
-    categoryName: "Carnes",
-    subCategory: "Vacuno",
-    price: 10490,
-    originalPrice: 12200,
-    discountPercent: 14,
-    stock: 180,
-    stockStatus: "in_stock",
-    unit: "Pieza al vacío ~ 3 kg",
-    weight: "1 kg",
-    origin: "Uruguay / Chile",
-    rating: 4.8,
-    reviewCount: 88,
-    image: "/assets/products/named/lomo-liso-vacuno-seleccionado.jpeg",
-    galleryImages: [
-      "/assets/products/named/lomo-liso-vacuno-seleccionado.jpeg",
-      "/assets/catalog/general/page_4.png"
+    "id": "prod-combo-familiar-20",
+    "slug": "combo-familiar-2-0-economico",
+    "name": "Combo Familiar 2.0 Ahorro Inteligente (5.5 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-FAM2-55K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Familiares",
+    "price": 54990,
+    "originalPrice": 61990,
+    "discountPercent": 11,
+    "stock": 38,
+    "stockStatus": "in_stock",
+    "unit": "Pack 5.5 kg cortes nobles",
+    "weight": "5.5 kg",
+    "origin": "Chile",
+    "rating": 4.9,
+    "reviewCount": 39,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (4).jpeg",
+    "shortDescription": "Todo por $54.990. Incluye 1 kg Molida especial, 1/2 kg Carne picada, 1/2 kg Carne para mechar, 1 kg Lomo liso bistec, 1.5 kg Pechuga deshuesada y 1 kg Truto entero.",
+    "description": "Excelente balance entre carnes rojas y blancas de primera calidad. Variedad para guisar, asar a la plancha o preparar al horno con rendimiento superior.",
+    "storage": "Refrigerado 0°C a 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 54990,
+        "label": "Precio normal"
+      },
+      {
+        "minQty": 3,
+        "price": 51990,
+        "label": "3+ combos"
+      }
     ],
-    shortDescription: "Corte magro y parejo con tapa de grasa blanca protectora. Excelente rendimiento en porciones gastronómicas para churrascos y bifes.",
-    description: "Carne tierna y con excelente estandarización de corte para controlar el costo por plato en casinos y restaurantes.",
-    storage: "0°C a 2°C.",
-    wholesaleTiers: [
-      { minQty: 1, price: 10490, label: "Precio x kg" },
-      { minQty: 20, price: 9690, label: "Caja (+20 kg)" },
-      { minQty: 60, price: 8990, label: "Mayorista (+60 kg)" }
-    ],
-    isFeatured: false,
-    isBestSeller: true,
-    tags: ["lomo liso", "vacuno", "churrasco", "restaurante"]
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "carnes",
+      "combo familiar 2.0",
+      "lomo liso",
+      "mechar",
+      "pechuga"
+    ]
   },
   {
-    id: "prod-6",
-    slug: "costillar-cerdo-super-cerdo",
-    name: "Costillar de Cerdo Carnicero Extra Carne",
-    brand: "Super Cerdo / Valle Lindo",
-    sku: "C-COST-CRD",
-    category: "carnes",
-    categoryName: "Carnes",
-    subCategory: "Cerdo",
-    price: 6990,
-    originalPrice: 8490,
-    discountPercent: 18,
-    stock: 95,
-    stockStatus: "in_stock",
-    unit: "Pieza ~ 1.8 kg a 2.5 kg",
-    weight: "1 kg",
-    origin: "Chile",
-    rating: 4.9,
-    reviewCount: 71,
-    image: "/assets/products/named/costillar-cerdo-super-cerdo.jpeg",
-    galleryImages: [
-      "/assets/products/named/costillar-cerdo-super-cerdo.jpeg"
+    "id": "prod-combo-parrillero-clasico",
+    "slug": "combo-parrillero-clasico-4-5kg",
+    "name": "Combo Parrillero Clásico Fin de Semana (4.5 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-PARR-45K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Parrilleros",
+    "price": 39990,
+    "originalPrice": 46990,
+    "discountPercent": 15,
+    "stock": 42,
+    "stockStatus": "in_stock",
+    "unit": "Pack 4.5 kg para asado",
+    "weight": "4.5 kg",
+    "origin": "Chile",
+    "rating": 4.8,
+    "reviewCount": 41,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (5).jpeg",
+    "shortDescription": "Todo por $39.990. Incluye 1.5 kg Lomo liso, 1 kg Chuleta parrillera de cerdo, 1 kg Truto entero y 1 kg Chorizo artesanal de la casa.",
+    "description": "El asado perfecto en un solo paquete. Cortes seleccionados listos para la parrilla con sabor criollo tradicional.",
+    "storage": "Refrigerado 0°C a 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 39990,
+        "label": "Precio normal"
+      },
+      {
+        "minQty": 3,
+        "price": 37990,
+        "label": "3+ combos"
+      }
     ],
-    shortDescription: "Costillas de cerdo anchas con abundante cobertura de carne magra. Ideal para asados y platos al horno.",
-    description: "Seleccionado con hueso parejo para un asado homogéneo y presentación estética en mesa.",
-    storage: "-18°C o refrigerado 4°C.",
-    wholesaleTiers: [
-      { minQty: 1, price: 6990, label: "Por kilo" },
-      { minQty: 10, price: 6290, label: "Caja 10 kg" },
-      { minQty: 30, price: 5790, label: "Mayorista 30+ kg" }
-    ],
-    isFeatured: true,
-    tags: ["cerdo", "costillar", "carnicero", "parrilla"]
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "carnes",
+      "combo parrillero",
+      "lomo liso",
+      "chuleta",
+      "chorizo"
+    ]
   },
   {
-    id: "prod-7",
-    slug: "pechuga-pollo-deshuesada-iqf",
-    name: "Pechuga de Pollo Deshuesada Fileteada IQF Caja 15 kg",
-    brand: "Agrosuper / Valle Lindo",
-    sku: "C-PECH-POL-15K",
-    category: "carnes",
-    categoryName: "Carnes",
-    subCategory: "Pollo",
-    price: 54900,
-    originalPrice: 62500,
-    discountPercent: 12,
-    stock: 120,
-    stockStatus: "in_stock",
-    unit: "Caja 15 kg (3 bolsas de 5 kg)",
-    weight: "15 kg",
-    origin: "Chile",
-    rating: 4.9,
-    reviewCount: 110,
-    image: "/assets/products/named/pechuga-pollo-deshuesada-iqf.jpeg",
-    galleryImages: [
-      "/assets/products/named/pechuga-pollo-deshuesada-iqf.jpeg"
+    "id": "prod-combo-kilate-completo",
+    "slug": "combo-kilate-completo-5kg",
+    "name": "Combo Kilate Completo Multicortes (5 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-KIL-5K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Surtidos",
+    "price": 52990,
+    "originalPrice": 59990,
+    "discountPercent": 12,
+    "stock": 35,
+    "stockStatus": "in_stock",
+    "unit": "Pack 5 kg surtido al vacío",
+    "weight": "5 kg",
+    "origin": "Chile",
+    "rating": 4.9,
+    "reviewCount": 58,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08.jpeg",
+    "shortDescription": "Todo por $52.990. Incluye 1 kg Bistec (Lomo Liso o Asiento), 1 kg Carne para mechar, 1 kg Carne molida especial, 1 kg Pechuga deshuesada y 1 kg Bistec de pulpa de cerdo.",
+    "description": "5 kilos de carne de primera calidad. Todo lo necesario para disfrutar en familia o abastecer el menú semanal con terneza y rendimiento garantizados.",
+    "storage": "Refrigerado 0°C a 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 52990,
+        "label": "Precio normal"
+      },
+      {
+        "minQty": 3,
+        "price": 49990,
+        "label": "3+ combos mayorista"
+      }
     ],
-    shortDescription: "Pechuga 100% limpia sin piel ni hueso, congelada individualmente IQF. Saca sólo las que necesitas sin descongelar el bloque completo.",
-    description: "Cero merma. Perfecta para locales de sushi, pizzerías (pollo bbq), sándwiches y empanadas.",
-    storage: "Mantener congelado a -18°C.",
-    wholesaleTiers: [
-      { minQty: 1, price: 54900, label: "1 a 2 cajas" },
-      { minQty: 3, price: 51900, label: "3 a 9 cajas" },
-      { minQty: 10, price: 47900, label: "10+ cajas (-13%)" }
-    ],
-    isFeatured: true,
-    isBestSeller: true,
-    tags: ["pollo", "pechuga deshuesada", "iqf", "cero merma", "mayorista"]
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "carnes",
+      "combo kilate",
+      "bistec",
+      "asiento",
+      "pulpa de cerdo"
+    ]
   },
   {
-    id: "prod-8",
-    slug: "pepperoni-laminado-pizza-1kg",
-    name: "Pepperoni Laminado Curado Especial Horno 1 kg",
-    brand: "Gourmet Pizza / Valle Lindo",
-    sku: "P-PEPP-1K",
-    category: "pizza",
-    categoryName: "Insumos para Pizza",
-    subCategory: "Pepperoni",
-    price: 8990,
-    originalPrice: 10990,
-    discountPercent: 18,
-    stock: 310,
-    stockStatus: "in_stock",
-    unit: "Paquete al vacío 1 kg (~ 120 lonchas)",
-    weight: "1 kg",
-    origin: "Chile",
-    rating: 4.9,
-    reviewCount: 145,
-    image: "/assets/products/named/pepperoni-laminado-pizza-1kg.jpeg",
-    galleryImages: [
-      "/assets/products/named/pepperoni-laminado-pizza-1kg.jpeg",
-      "/assets/catalog/pizzerias/page_6.png"
+    "id": "prod-chuleta-ahumada-premium",
+    "slug": "chuleta-ahumada-premium-cerdo",
+    "name": "Chuleta Ahumada Premium de Cerdo Seleccionada (Por Kilo)",
+    "brand": "Valle Lindo Ahumados",
+    "sku": "CAR-CHUL-AHUM-KG",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Ahumados",
+    "price": 5990,
+    "originalPrice": 6990,
+    "discountPercent": 14,
+    "stock": 120,
+    "stockStatus": "in_stock",
+    "unit": "Kilo (Con Hueso $5.990 / Sin Hueso $6.390)",
+    "weight": "1 kg",
+    "origin": "Chile",
+    "rating": 4.9,
+    "reviewCount": 73,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.16.39.jpeg",
+    "shortDescription": "Ahumado natural a leña. Con hueso $5.990 el kilo | Sin hueso $6.390 el kilo. 100% carne de cerdo seleccionada con sabor único que realza cada momento.",
+    "description": "Chuletas de cerdo seleccionadas ahumadas lentamente al calor de maderas nobles. Jugosas, tiernas y con el punto justo de sal, ideales para asar, hornear o sellar a la plancha.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 5990,
+        "label": "Con Hueso ($5.990/kg)"
+      },
+      {
+        "minQty": 10,
+        "price": 5690,
+        "label": "10+ kg Con Hueso ($5.690/kg)"
+      },
+      {
+        "minQty": 1,
+        "price": 6390,
+        "label": "Sin Hueso ($6.390/kg)"
+      },
+      {
+        "minQty": 10,
+        "price": 5990,
+        "label": "10+ kg Sin Hueso ($5.990/kg)"
+      }
     ],
-    shortDescription: "Láminas uniformes con el clásico 'cupping' (borde ondeado crocante) al hornearse. Sabor especiado auténtico con pimentón ahumado.",
-    description: "No se quema en altas temperaturas de hornos napolitanos. Rendimiento estandarizado de 12 a 15 pizzas medianas por paquete.",
-    storage: "Refrigerar entre 2°C y 5°C.",
-    wholesaleTiers: [
-      { minQty: 1, price: 8990, label: "1 a 4 paquetes" },
-      { minQty: 5, price: 7990, label: "5 a 19 paquetes" },
-      { minQty: 20, price: 7190, label: "Caja 20 kg (-20%)" }
-    ],
-    isFeatured: true,
-    isBestSeller: true,
-    isOffer: true,
-    tags: ["pepperoni", "topping pizza", "horno leña", "insumos gastronomicos"]
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": true,
+    "tags": [
+      "carnes",
+      "chuleta ahumada",
+      "cerdo",
+      "ahumados",
+      "parrilla"
+    ]
   },
   {
-    id: "prod-9",
-    slug: "salsa-tomate-pizza-sauce-3kg",
-    name: "Salsa de Tomate Pizza Sauce Italiana Pouch 3 kg",
-    brand: "Pomi / Valle Lindo Special",
-    sku: "P-SALS-3K",
-    category: "pizza",
-    categoryName: "Insumos para Pizza",
-    subCategory: "Salsas de Tomate",
-    price: 6490,
-    originalPrice: 7990,
-    discountPercent: 19,
-    stock: 260,
-    stockStatus: "in_stock",
-    unit: "Pouch institucional 3 kg",
-    weight: "3 kg",
-    origin: "Italia / Chile",
-    rating: 4.8,
-    reviewCount: 89,
-    image: "/assets/products/named/salsa-tomate-pizza-sauce-3kg.jpeg",
-    galleryImages: [
-      "/assets/products/named/salsa-tomate-pizza-sauce-3kg.jpeg",
-      "/assets/catalog/pizzerias/page_7.png"
+    "id": "prod-tocino-ahumado-laminado",
+    "slug": "tocino-ahumado-laminado-premium",
+    "name": "Tocino Ahumado Laminado Selección Premium (Por Kilo)",
+    "brand": "Santa Bárbara / Valle Lindo",
+    "sku": "CAR-TOC-LAM-KG",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Ahumados",
+    "price": 8990,
+    "originalPrice": 9990,
+    "discountPercent": 10,
+    "stock": 80,
+    "stockStatus": "in_stock",
+    "unit": "Kilo laminado al vacío",
+    "weight": "1 kg",
+    "origin": "Chile / Venezuela",
+    "rating": 5.0,
+    "reviewCount": 65,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.17.15.jpeg",
+    "shortDescription": "Ahumado lentamente para un sabor único e irresistible. $8.990 el kilo. 100% carne de cerdo premium seleccionada.",
+    "description": "Tocino de panceta curada y ahumada con maderas seleccionadas. Láminas homogéneas de dorado crujiente y aroma inconfundible, indispensables en hamburguesas, desayunos y platos gourmet.",
+    "storage": "Mantener refrigerado entre 2°C y 5°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 8990,
+        "label": "1 a 4 kg ($8.990)"
+      },
+      {
+        "minQty": 5,
+        "price": 8490,
+        "label": "5+ kg ($8.490)"
+      }
     ],
-    shortDescription: "Tomates maduros triturados con orégano y albahaca fresca. Espesor justo para esparcir sin humedecer la masa.",
-    description: "Fórmula profesional sin exceso de agua ni acidez agresiva. Ahorra horas de cocción y preparación en la pizzería.",
-    storage: "Lugar fresco y seco. Refrigerar una vez abierto.",
-    wholesaleTiers: [
-      { minQty: 1, price: 6490, label: "1 a 3 unidades" },
-      { minQty: 4, price: 5790, label: "Caja de 4 pouches" },
-      { minQty: 12, price: 5190, label: "3+ cajas (-20%)" }
-    ],
-    isFeatured: true,
-    isBestSeller: false,
-    isOffer: true,
-    tags: ["salsa pizza", "tomate italiano", "pouch institucional", "base pizza"]
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "carnes",
+      "tocino ahumado",
+      "panceta",
+      "bacon",
+      "ahumados"
+    ]
   },
   {
-    id: "prod-10",
-    slug: "jamon-sandwich-barra-3kg",
-    name: "Jamón Sandwich y Cocido en Barra 3 kg",
-    brand: "San Jorge / Valle Lindo",
-    sku: "P-JAM-SND-3K",
-    category: "pizza",
-    categoryName: "Insumos para Pizza",
-    subCategory: "Jamón Cocido",
-    price: 11490,
-    originalPrice: 13200,
-    discountPercent: 13,
-    stock: 115,
-    stockStatus: "in_stock",
-    unit: "Barra 3 kg al vacío",
-    weight: "3 kg",
-    origin: "Chile",
-    rating: 4.7,
-    reviewCount: 65,
-    image: "/assets/products/named/jamon-sandwich-barra-3kg.jpeg",
-    galleryImages: [
-      "/assets/products/named/jamon-sandwich-barra-3kg.jpeg"
+    "id": "prod-tocino-ahumado-tipo-molde-kg",
+    "slug": "tocino-ahumado-tipo-molde-barra",
+    "name": "Tocino Ahumado Tipo Molde en Bloque / Barra (Por Kilo)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "CAR-TOC-MOLDE-KG",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Ahumados",
+    "price": 6990,
+    "originalPrice": 7990,
+    "discountPercent": 13,
+    "stock": 95,
+    "stockStatus": "in_stock",
+    "unit": "Bloque / Kilo ($6.990 el kilo)",
+    "weight": "1 kg",
+    "origin": "Chile / Venezuela",
+    "rating": 4.9,
+    "reviewCount": 42,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.18.28.jpeg",
+    "shortDescription": "Precio por kilo $6.990 | A partir de 20 kilos $6.390 el kilo. Ahumado natural lentamente para un sabor único y rendimiento profesional.",
+    "description": "Tocino tipo molde con alto rendimiento en máquina rebanadora o para corte en cubos. Perfecto para restaurantes, locales de comida rápida y cecinas.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 6990,
+        "label": "1 a 19 kg ($6.990/kg)"
+      },
+      {
+        "minQty": 20,
+        "price": 6390,
+        "label": "Desde 20 kg ($6.390/kg)"
+      }
     ],
-    shortDescription: "Fácil de fiambrar y laminar. Excelente porcentaje de humedad para pizza de jamón y champiñón o sándwiches calientes.",
-    description: "Corte rectangular perfecto para cortadoras de fiambre sin desperdicio de esquinas.",
-    storage: "Refrigerar 2° a 4°C.",
-    wholesaleTiers: [
-      { minQty: 1, price: 11490, label: "1 a 2 barras" },
-      { minQty: 3, price: 10490, label: "3 a 7 barras" },
-      { minQty: 8, price: 9590, label: "Caja (+8 barras)" }
-    ],
-    isFeatured: false,
-    tags: ["jamon", "sandwich", "pizza jamon", "fiambreria"]
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "carnes",
+      "tocino",
+      "tipo molde",
+      "ahumado",
+      "mayorista"
+    ]
   },
   {
-    id: "prod-11",
-    slug: "oregano-seleccionado-bolsa-1kg",
-    name: "Orégano Entero Seleccionado Especias Valle Lindo 1 kg",
-    brand: "Valle Lindo Especias",
-    sku: "P-OREG-1K",
-    category: "pizza",
-    categoryName: "Insumos para Pizza",
-    subCategory: "Orégano y Especias",
-    price: 5990,
-    originalPrice: 7500,
-    discountPercent: 20,
-    stock: 350,
-    stockStatus: "in_stock",
-    unit: "Bolsa sellada 1 kg",
-    weight: "1 kg",
-    origin: "Chile - Arica",
-    rating: 5.0,
-    reviewCount: 112,
-    image: "/assets/products/named/oregano-seleccionado-bolsa-1kg.jpeg",
-    galleryImages: [
-      "/assets/products/named/oregano-seleccionado-bolsa-1kg.jpeg"
+    "id": "prod-combos-familia-personalizado",
+    "slug": "pack-combos-familia-carnes-seleccionadas",
+    "name": "Pack Selección Carnes Familiares & Asesoría a Medida",
+    "brand": "Valle Lindo Especial",
+    "sku": "CAR-PACK-CUSTOM",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Especiales",
+    "price": 45990,
+    "originalPrice": 52990,
+    "discountPercent": 13,
+    "stock": 25,
+    "stockStatus": "in_stock",
+    "unit": "Pack personalizado según requerimiento",
+    "weight": "4 a 6 kg",
+    "origin": "Chile",
+    "rating": 5.0,
+    "reviewCount": 33,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.22.26.jpeg",
+    "shortDescription": "Prácticos, completos y económicos. Combos de carne pensados para tu familia con calidad premium y compras por volumen garantizadas.",
+    "description": "Arma el combo a la medida de tu hogar o negocio con nuestros maestros carniceros. Cotiza vacuno, cerdo y ave con el mejor precio por kilo y despacho a domicilio.",
+    "storage": "Refrigerado 0°C a 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 45990,
+        "label": "Pack estándar sugerido"
+      },
+      {
+        "minQty": 5,
+        "price": 42990,
+        "label": "5+ packs a medida"
+      }
     ],
-    shortDescription: "Hojas secas limpias y de aroma intenso. Máxima concentración de aceites esenciales sin tallos ni polvo.",
-    description: "Indispensable para el toque final de pizzas, salsas rojas, carnes y empanadas.",
-    storage: "Almacenar en lugar seco y oscuro.",
-    wholesaleTiers: [
-      { minQty: 1, price: 5990, label: "1 bolsa" },
-      { minQty: 5, price: 4990, label: "5 bolsas" },
-      { minQty: 20, price: 4290, label: "Saco 20 kg (-28%)" }
-    ],
-    isFeatured: false,
-    tags: ["oregano", "especias", "aroma", "pizzerias"]
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "carnes",
+      "combos de carne",
+      "familia",
+      "ahorro",
+      "personalizado"
+    ]
   },
   {
-    id: "prod-12",
-    slug: "papas-fritas-prefritas-2-5kg",
-    name: "Papas Fritas Prefritas Corte Tradicional 9x9 mm Bolsa 2.5 kg",
-    brand: "Lutosa / Lamb Weston",
-    sku: "CG-PAP-25",
-    category: "congelados",
-    categoryName: "Productos Congelados",
-    subCategory: "Papas Fritas",
-    price: 4990,
-    originalPrice: 6200,
-    discountPercent: 20,
-    stock: 400,
-    stockStatus: "in_stock",
-    unit: "Bolsa 2.5 kg (Caja contiene 4 bolsas = 10 kg)",
-    weight: "2.5 kg",
-    origin: "Bélgica / Holanda",
-    rating: 4.9,
-    reviewCount: 205,
-    image: "/assets/products/named/papas-fritas-prefritas-2-5kg.jpeg",
-    galleryImages: [
-      "/assets/products/named/papas-fritas-prefritas-2-5kg.jpeg",
-      "/assets/catalog/general/page_6.png"
+    "id": "prod-catalogo-general-muestrario",
+    "slug": "catalogo-oficial-valle-lindo-muestrario",
+    "name": "Catálogo General Valle Lindo & Degustación Mayorista",
+    "brand": "Valle Lindo Comercializadora",
+    "sku": "CAT-OFICIAL-VL",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Institucional",
+    "price": 0,
+    "originalPrice": 0,
+    "discountPercent": 0,
+    "stock": 999,
+    "stockStatus": "in_stock",
+    "unit": "Catálogo digital & Muestrario comercial B2B",
+    "weight": "Digital / Físico",
+    "origin": "Chile / Venezuela",
+    "rating": 5.0,
+    "reviewCount": 115,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.02.40.jpeg",
+    "shortDescription": "¡Calidad que se siente, sabor que se recuerda! Carnes de primera calidad, quesos seleccionados y ahumados con despachos rápidos y confiables a todo Chile.",
+    "description": "Accede a la lista de precios mayoristas completa y solicita asesoría comercial personalizada para tu negocio, restaurante, pizzería o tequeñería.",
+    "storage": "Disponible en línea o vía WhatsApp.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 0,
+        "label": "Cotización Gratuita"
+      }
     ],
-    shortDescription: "Papas ultra crocantes por fuera y suaves por dentro. Bajo consumo de aceite al freír y excelente tiempo de retención de calor.",
-    description: "El estándar preferido por food trucks, hamburgueserías y locales de comida rápida en Chile.",
-    storage: "Mantener a -18°C.",
-    wholesaleTiers: [
-      { minQty: 1, price: 4990, label: "1 a 3 bolsas" },
-      { minQty: 4, price: 4390, label: "Caja de 4 bolsas (10 kg)" },
-      { minQty: 20, price: 3890, label: "5+ cajas (50 kg -22%)" }
-    ],
-    isFeatured: true,
-    isBestSeller: true,
-    isOffer: true,
-    tags: ["papas fritas", "congelados", "food truck", "snack", "crocante"]
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "catalogo",
+      "valle lindo",
+      "mayorista",
+      "degustacion",
+      "precios"
+    ]
   },
   {
-    id: "prod-13",
-    slug: "nuggets-pollo-crujientes-1kg",
-    name: "Nuggets de Pollo Rebozado Crujiente Bolsa 1 kg",
-    brand: "Super Pollo / Valle Lindo",
-    sku: "CG-NUG-1K",
-    category: "congelados",
-    categoryName: "Productos Congelados",
-    subCategory: "Nuggets",
-    price: 4690,
-    originalPrice: 5800,
-    discountPercent: 19,
-    stock: 210,
-    stockStatus: "in_stock",
-    unit: "Bolsa 1 kg (~ 45 a 50 unidades)",
-    weight: "1 kg",
-    origin: "Chile",
-    rating: 4.8,
-    reviewCount: 68,
-    image: "/assets/products/named/nuggets-pollo-crujientes-1kg.jpeg",
-    galleryImages: [
-      "/assets/products/named/nuggets-pollo-crujientes-1kg.jpeg"
+    "id": "prod-queso-llanero-barra",
+    "slug": "queso-llanero-por-barra-santa-barbara",
+    "name": "Queso Llanero Artesanal por Barra (Santa Bárbara R&C)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "QUE-LLAN-BARRA",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Llanero",
+    "price": 7990,
+    "originalPrice": 8990,
+    "discountPercent": 11,
+    "stock": 250,
+    "stockStatus": "in_stock",
+    "unit": "Barra sellada (Precio por Kilo)",
+    "weight": "Por Kilo",
+    "origin": "Venezuela / Elaboración Certificada",
+    "rating": 5.0,
+    "reviewCount": 184,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.03.29.jpeg",
+    "shortDescription": "Precio por barra $7.990/kg | Desde 20 kg $7.690/kg | Desde 60 kg $7.390/kg. 100% Leche bovina, sabor auténtico que hace la diferencia.",
+    "description": "Auténtico queso llanero blanco tradicional, con consistencia firme, textura ideal para rallar fino o freír en la plancha sin desarmarse. Excelente punto de sal para tequeños, empanadas, arepas y cachapas.",
+    "storage": "Mantener refrigerado entre 2°C y 5°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 7990,
+        "label": "1 a 19 kg ($7.990/kg)"
+      },
+      {
+        "minQty": 20,
+        "price": 7690,
+        "label": "20 a 59 kg ($7.690/kg)"
+      },
+      {
+        "minQty": 60,
+        "price": 7390,
+        "label": "Desde 60 kg ($7.390/kg)"
+      }
     ],
-    shortDescription: "Elaborados con carne de pechuga de pollo y rebozado dorado crocante. Cocción en freidora en solo 3 minutos.",
-    description: "Ideal para menús infantiles, promociones combinadas y platos de picoteo.",
-    storage: "Congelado a -18°C.",
-    wholesaleTiers: [
-      { minQty: 1, price: 4690, label: "1 a 4 bolsas" },
-      { minQty: 5, price: 4190, label: "5 a 14 bolsas" },
-      { minQty: 15, price: 3690, label: "Caja 15 kg (-21%)" }
-    ],
-    isFeatured: false,
-    tags: ["nuggets", "pollo", "frituras", "menu ninos"]
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": true,
+    "tags": [
+      "quesos",
+      "queso llanero",
+      "santa barbara",
+      "arepas",
+      "tequeños",
+      "mayorista"
+    ]
   },
   {
-    id: "prod-14",
-    slug: "empanadas-queso-coctel-congeladas",
-    name: "Empanadas de Queso Tamaño Cóctel (Bolsa 50 unidades)",
-    brand: "Tradición Valle Lindo",
-    sku: "CG-EMP-50U",
-    category: "congelados",
-    categoryName: "Productos Congelados",
-    subCategory: "Empanadas",
-    price: 10990,
-    originalPrice: 13500,
-    discountPercent: 19,
-    stock: 130,
-    stockStatus: "in_stock",
-    unit: "Bolsa 50 unidades prearmadas",
-    weight: "1.5 kg",
-    origin: "Chile",
-    rating: 4.9,
-    reviewCount: 52,
-    image: "/assets/products/named/empanadas-queso-coctel-congeladas.jpeg",
-    galleryImages: [
-      "/assets/products/named/empanadas-queso-coctel-congeladas.jpeg"
+    "id": "prod-queso-llanero-kilo",
+    "slug": "queso-llanero-presentacion-kilo-santa-barbara",
+    "name": "Queso Llanero Formato Kilo Sellado (Santa Bárbara R&C)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "QUE-LLAN-1K",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Llanero",
+    "price": 7990,
+    "originalPrice": 8990,
+    "discountPercent": 11,
+    "stock": 200,
+    "stockStatus": "in_stock",
+    "unit": "Pieza sellada al vacío 1 kg",
+    "weight": "1 kg",
+    "origin": "Venezuela / Santa Bárbara",
+    "rating": 4.9,
+    "reviewCount": 97,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.04.08.jpeg",
+    "shortDescription": "Desde 1 caja $7.990 el kilo | Desde 2 cajas $7.590 el kilo. 100% Leche Bovina. Ingredientes: Leche de vaca pasteurizada, sal, cuajo, cloruro de calcio.",
+    "description": "Presentación individual de 1 kilo envasado higiénicamente al vacío. Perfecto para negocios gastronómicos que requieren control exacto de porciones y rotación continua.",
+    "storage": "Conservar refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 7990,
+        "label": "1 caja ($7.990/kg)"
+      },
+      {
+        "minQty": 2,
+        "price": 7590,
+        "label": "2+ cajas ($7.590/kg)"
+      }
     ],
-    shortDescription: "Masa hojaldrada que no revienta en el aceite caliente. Relleno cremoso de queso fundente de primera calidad.",
-    description: "Solución express para eventos de banquetería, catering, bares y restaurantes.",
-    storage: "-18°C.",
-    wholesaleTiers: [
-      { minQty: 1, price: 10990, label: "1 a 2 bolsas" },
-      { minQty: 3, price: 9990, label: "3 a 9 bolsas" },
-      { minQty: 10, price: 8990, label: "10+ bolsas (500 uds)" }
-    ],
-    isFeatured: false,
-    tags: ["empanadas", "coctel", "queso", "catering", "eventos"]
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": false,
+    "tags": [
+      "quesos",
+      "queso llanero",
+      "formato kilo",
+      "caja",
+      "santa barbara"
+    ]
   },
   {
-    id: "prod-15",
-    slug: "salchicha-vienesa-tradicional-1kg",
-    name: "Salchichas Vienesas Tradicionales Sureñas Paquete 1 kg",
-    brand: "Llanquihue / Valle Lindo",
-    sku: "E-VIEN-1K",
-    category: "embutidos",
-    categoryName: "Embutidos",
-    subCategory: "Vienesas",
-    price: 3990,
-    originalPrice: 4890,
-    discountPercent: 18,
-    stock: 280,
-    stockStatus: "in_stock",
-    unit: "Paquete al vacío 1 kg (20 vienesas)",
-    weight: "1 kg",
-    origin: "Chile",
-    rating: 4.8,
-    reviewCount: 92,
-    image: "/assets/products/named/salchicha-vienesa-tradicional-1kg.jpeg",
-    galleryImages: [
-      "/assets/products/named/salchicha-vienesa-tradicional-1kg.jpeg"
+    "id": "prod-queso-guayanes",
+    "slug": "queso-guayanes-artesanal-santa-barbara",
+    "name": "Queso Guayanés Artesanal Cremoso (Santa Bárbara R&C)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "QUE-GUAY-KG",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Guayanés",
+    "price": 7590,
+    "originalPrice": 8590,
+    "discountPercent": 12,
+    "stock": 110,
+    "stockStatus": "in_stock",
+    "unit": "Por Kilo",
+    "weight": "1 kg",
+    "origin": "Venezuela",
+    "rating": 5.0,
+    "reviewCount": 112,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.04.55.jpeg",
+    "shortDescription": "100% Leche bovina. $7.590 el kilo. Sabor auténtico que hace la diferencia, textura suave y untuosa inigualable.",
+    "description": "El tradicional queso Guayanés venezolano, de textura elástica, blanda y cremosa, con un suave toque salino. Se derrite sutilmente con el calor de la cachapa o la arepa recién salida del budare.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 7590,
+        "label": "1 a 9 kg ($7.590)"
+      },
+      {
+        "minQty": 10,
+        "price": 7190,
+        "label": "10+ kg ($7.190)"
+      }
     ],
-    shortDescription: "Vienesas de receta sureña con piel crujiente. Calidad insuperable para completos italianos y carritos de comida rápida.",
-    description: "Sabor ahumado suave que respeta las normas sanitarias y entrega la mejor rentabilidad a las fuentes de soda.",
-    storage: "Refrigerar de 0° a 5°C.",
-    wholesaleTiers: [
-      { minQty: 1, price: 3990, label: "1 a 4 paquetes" },
-      { minQty: 5, price: 3490, label: "5 a 19 paquetes" },
-      { minQty: 20, price: 3090, label: "Caja 20 kg (-22%)" }
-    ],
-    isFeatured: true,
-    isBestSeller: true,
-    tags: ["vienesa", "completos", "fuente de soda", "embutidos"]
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "quesos",
+      "queso guayanes",
+      "cachapas",
+      "arepas",
+      "santa barbara"
+    ]
   },
   {
-    id: "prod-16",
-    slug: "longaniza-artesanal-parrillera-1kg",
-    name: "Longaniza Artesanal Estilo Chillán 1 kg",
-    brand: "Cecinas Chillán / Valle Lindo",
-    sku: "E-LONG-1K",
-    category: "embutidos",
-    categoryName: "Embutidos",
-    subCategory: "Longanizas",
-    price: 6490,
-    originalPrice: 7890,
-    discountPercent: 17,
-    stock: 160,
-    stockStatus: "in_stock",
-    unit: "Tira 1 kg",
-    weight: "1 kg",
-    origin: "Chile - Chillán",
-    rating: 5.0,
-    reviewCount: 138,
-    image: "/assets/products/named/longaniza-artesanal-parrillera-1kg.jpeg",
-    galleryImages: [
-      "/assets/products/named/longaniza-artesanal-parrillera-1kg.jpeg"
+    "id": "prod-queso-mano-arepero",
+    "slug": "queso-de-mano-arepero-santa-barbara",
+    "name": "Queso de Mano Arepero Artesanal (Santa Bárbara R&C)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "QUE-MANO-AREP",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Queso de Mano",
+    "price": 7590,
+    "originalPrice": 8590,
+    "discountPercent": 12,
+    "stock": 90,
+    "stockStatus": "in_stock",
+    "unit": "Por Kilo (Ruedas tamaño arepa)",
+    "weight": "1 kg",
+    "origin": "Venezuela",
+    "rating": 4.9,
+    "reviewCount": 84,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.05.48.jpeg",
+    "shortDescription": "100% Leche bovina. Libre de gluten. $7.590 el kilo. Tamaño perfecto para rellenar arepas con capas suaves e hiladas.",
+    "description": "Queso hilado en capas concéntricas con la técnica ancestral de los llanos. Textura jugosa que al morder desprende toda la frescura de la leche entera pasteurizada.",
+    "storage": "Conservar refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 7590,
+        "label": "1 a 9 kg ($7.590)"
+      },
+      {
+        "minQty": 10,
+        "price": 7190,
+        "label": "10+ kg mayorista"
+      }
     ],
-    shortDescription: "Carne de cerdo 100% magra aliñada con comino, ajo chilote y orégano. Tripa natural y ahumado tradicional en maderas nativas.",
-    description: "El sabor auténtico de la tradición campesina chilena para parrillas, choripanes y guisos.",
-    storage: "0° a 4°C.",
-    wholesaleTiers: [
-      { minQty: 1, price: 6490, label: "1 a 4 kg" },
-      { minQty: 5, price: 5890, label: "5 a 14 kg" },
-      { minQty: 15, price: 5290, label: "Caja 15 kg (-18%)" }
-    ],
-    isFeatured: true,
-    isBestSeller: true,
-    tags: ["longaniza", "chillan", "choripan", "parrilla"]
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "quesos",
+      "queso de mano",
+      "arepero",
+      "venezolano",
+      "hilado"
+    ]
   },
   {
-    id: "prod-17",
-    slug: "queso-gouda-bloque-cal-5kg",
-    name: "Queso Gouda Bloque Gastronómico 5 kg",
-    brand: "Calo / Soprole Food Professionals",
-    sku: "Q-GOUD-5K",
-    category: "quesos",
-    categoryName: "Quesos",
-    subCategory: "Gouda",
-    price: 31990,
-    originalPrice: 36990,
-    discountPercent: 13,
-    stock: 80,
-    stockStatus: "in_stock",
-    unit: "Bloque 5 kg",
-    weight: "5 kg",
-    origin: "Chile",
-    rating: 4.8,
-    reviewCount: 64,
-    image: "/assets/products/named/queso-gouda-bloque-cal-5kg.jpeg",
-    galleryImages: [
-      "/assets/products/named/queso-gouda-bloque-cal-5kg.jpeg"
+    "id": "prod-queso-mano-cachapero",
+    "slug": "queso-de-mano-cachapero-santa-barbara",
+    "name": "Queso de Mano Cachapero Rueda Grande (Santa Bárbara R&C)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "QUE-MANO-CACH",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Queso de Mano",
+    "price": 7590,
+    "originalPrice": 8590,
+    "discountPercent": 12,
+    "stock": 95,
+    "stockStatus": "in_stock",
+    "unit": "Por Kilo (Ruedas grandes para cachapas)",
+    "weight": "1 kg",
+    "origin": "Venezuela",
+    "rating": 5.0,
+    "reviewCount": 105,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.07.02.jpeg",
+    "shortDescription": "100% Leche bovina natural. $7.590 el kilo. Diámetro amplio especial para abrazar la cachapa con fundido suave.",
+    "description": "La estrella de las cachaperas. Ruedas grandes de queso hilado artesanal que cubren por completo la cachapa caliente. Sabor lácteo fresco y punto de sal exacto.",
+    "storage": "Conservar refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 7590,
+        "label": "1 a 9 kg ($7.590)"
+      },
+      {
+        "minQty": 10,
+        "price": 7190,
+        "label": "10+ kg mayorista"
+      }
     ],
-    shortDescription: "Queso de pasta semidura, textura suave y maduración controlada. Ideal para fundir en sándwiches calientes, quesadillas y hamburguesas.",
-    description: "Excelente corte tanto en máquina laminadora como en cubos para picoteo.",
-    storage: "Refrigerar de 2° a 6°C.",
-    wholesaleTiers: [
-      { minQty: 1, price: 31990, label: "1 a 2 bloques" },
-      { minQty: 3, price: 29990, label: "3 a 5 bloques" },
-      { minQty: 6, price: 27990, label: "6+ bloques (-12%)" }
-    ],
-    isFeatured: false,
-    tags: ["gouda", "sandwich", "hamburgueseria", "quesos"]
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": false,
+    "tags": [
+      "quesos",
+      "queso de mano",
+      "cachapero",
+      "cachapas",
+      "rueda grande"
+    ]
   },
   {
-    id: "prod-18",
-    slug: "queso-mantecoso-valdivia-bloque",
-    name: "Queso Mantecoso Tradicional del Sur Pieza 4 kg",
-    brand: "Lácteos del Sur / Valle Lindo",
-    sku: "Q-MANT-4K",
-    category: "quesos",
-    categoryName: "Quesos",
-    subCategory: "Mantecoso",
-    price: 27990,
-    originalPrice: 32500,
-    discountPercent: 14,
-    stock: 75,
-    stockStatus: "in_stock",
-    unit: "Pieza 4 kg",
-    weight: "4 kg",
-    origin: "Chile - Valdivia",
-    rating: 4.9,
-    reviewCount: 82,
-    image: "/assets/products/named/queso-mantecoso-valdivia-bloque.jpeg",
-    galleryImages: [
-      "/assets/products/named/queso-mantecoso-valdivia-bloque.jpeg"
+    "id": "prod-queso-de-ano",
+    "slug": "queso-de-ano-madurado-santa-barbara",
+    "name": "Queso de Año Madurado Intenso (Santa Bárbara R&C)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "QUE-ANO-MAD",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Madurados",
+    "price": 2790,
+    "originalPrice": 3290,
+    "discountPercent": 15,
+    "stock": 140,
+    "stockStatus": "in_stock",
+    "unit": "200g ($2.790) / 400g ($4.290)",
+    "weight": "200g / 400g",
+    "origin": "Venezuela",
+    "rating": 4.9,
+    "reviewCount": 78,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.07.54.jpeg",
+    "shortDescription": "Presentación 200g $2.790 | Presentación 400g $4.290. 100% natural, sabor fuerte, seco y salado ideal para rallar sobre arepas y pastas.",
+    "description": "Queso madurado por meses hasta alcanzar una pasta dura, seca y quebradiza. Su sabor punzante y aromático rinde el doble al rallarse en hebras finas.",
+    "storage": "Refrigerado 2°C a 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 2790,
+        "label": "Formato 200g ($2.790)"
+      },
+      {
+        "minQty": 1,
+        "price": 4290,
+        "label": "Formato 400g ($4.290)"
+      },
+      {
+        "minQty": 10,
+        "price": 3890,
+        "label": "10+ unidades 400g ($3.890 c/u)"
+      }
     ],
-    shortDescription: "Cremosidad absoluta y sabor láctico profundo. El clásico queso mantecoso chileno para empanadas fritas y tablas gourmet.",
-    description: "Funde a menor temperatura aportando una suavidad mantecosa inconfundible.",
-    storage: "2° a 6°C.",
-    wholesaleTiers: [
-      { minQty: 1, price: 27990, label: "1 a 2 piezas" },
-      { minQty: 3, price: 25990, label: "3 a 5 piezas" },
-      { minQty: 6, price: 23990, label: "6+ piezas (-14%)" }
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "quesos",
+      "queso de año",
+      "rallar",
+      "madurado",
+      "arepas"
+    ]
+  },
+  {
+    "id": "prod-queso-madurado-premium",
+    "slug": "queso-madurado-premium-santa-barbara",
+    "name": "Queso Madurado Selección Especial (Santa Bárbara R&C)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "QUE-MAD-ESP-KG",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Madurados",
+    "price": 8490,
+    "originalPrice": 9490,
+    "discountPercent": 11,
+    "stock": 75,
+    "stockStatus": "in_stock",
+    "unit": "Por Kilo",
+    "weight": "1 kg",
+    "origin": "Venezuela",
+    "rating": 5.0,
+    "reviewCount": 62,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.08.56.jpeg",
+    "shortDescription": "Precio por kilo $8.490. 100% Leche bovina. Maduración premium, sabor intenso y consistencia firme perfecta para picar o rallar.",
+    "description": "Queso de curación controlada con textura firme y notas lácteas concentradas. Ideal para tablas de degustación, acompañamiento con vinos o recetas de alta gastronomía.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 8490,
+        "label": "1 a 9 kg ($8.490)"
+      },
+      {
+        "minQty": 10,
+        "price": 7990,
+        "label": "10+ kg mayorista"
+      }
     ],
-    isFeatured: false,
-    tags: ["mantecoso", "sur de chile", "empanadas", "cremoso"]
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "quesos",
+      "queso madurado",
+      "tabla de quesos",
+      "santa barbara"
+    ]
+  },
+  {
+    "id": "prod-queso-gouda-santa-barbara",
+    "slug": "queso-gouda-barra-santa-barbara",
+    "name": "Queso Gouda Barra Tradicional (Santa Bárbara R&C)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "QUE-GOUDA-BARRA",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Gouda",
+    "price": 7290,
+    "originalPrice": 8190,
+    "discountPercent": 11,
+    "stock": 130,
+    "stockStatus": "in_stock",
+    "unit": "Kilo (Caja de 20 kg aprox)",
+    "weight": "Por Kilo",
+    "origin": "Venezuela / Chile",
+    "rating": 4.9,
+    "reviewCount": 77,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.09.43.jpeg",
+    "shortDescription": "Desde 1 caja $7.290 el kilo | Desde 60 kilos $6.990 el kilo. Sabor suave y cremoso, 100% leche bovina sin gluten, ideal para toda ocasión.",
+    "description": "Queso Gouda madurado con ojos pequeños y pasta semidura dorada. Se funde con facilidad sin quemarse, brindando excelente color y sabor en sándwiches, hamburguesas y gratinados.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 7290,
+        "label": "Caja 20 kg ($7.290/kg)"
+      },
+      {
+        "minQty": 60,
+        "price": 6990,
+        "label": "Desde 60 kg ($6.990/kg)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "quesos",
+      "queso gouda",
+      "gouda barra",
+      "sandwiches",
+      "gratinar"
+    ]
+  },
+  {
+    "id": "prod-queso-mantecoso-valdivia",
+    "slug": "queso-mantecoso-el-orgullo-de-valdivia",
+    "name": "Queso Mantecoso Tradicional (El Orgullo de Valdivia)",
+    "brand": "El Orgullo de Valdivia",
+    "sku": "QUE-MANT-VALD",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Mantecoso",
+    "price": 8790,
+    "originalPrice": 9690,
+    "discountPercent": 9,
+    "stock": 115,
+    "stockStatus": "in_stock",
+    "unit": "Kilo (Caja 20 kg aprox)",
+    "weight": "Por Kilo",
+    "origin": "Chile - Valdivia",
+    "rating": 5.0,
+    "reviewCount": 134,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.10.28.jpeg",
+    "shortDescription": "Desde 1 caja $8.790 el kilo | Desde 60 kilos $8.290 el kilo. Sabor suave y cremoso que nos representa, libre de gluten.",
+    "description": "El auténtico queso mantecoso del sur de Chile. Textura tierna, elástica y cremosa que se funde en boca con notas a mantequilla fresca. El favorito para empanadas de queso, sándwiches de campo y picoteos.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 8790,
+        "label": "Caja 20 kg ($8.790/kg)"
+      },
+      {
+        "minQty": 60,
+        "price": 8290,
+        "label": "Desde 60 kg ($8.290/kg)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": false,
+    "tags": [
+      "quesos",
+      "queso mantecoso",
+      "valdivia",
+      "sur de chile",
+      "empanadas"
+    ]
+  },
+  {
+    "id": "prod-queso-mozzarella-barra-pampa",
+    "slug": "queso-mozzarella-barra-pampa-cheese-kg",
+    "name": "Queso Mozzarella en Barra Pampa Cheese (Por Kilo)",
+    "brand": "Pampa Cheese",
+    "sku": "QUE-MOZZ-PAMPA-KG",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Mozzarella",
+    "price": 6790,
+    "originalPrice": 7590,
+    "discountPercent": 11,
+    "stock": 160,
+    "stockStatus": "in_stock",
+    "unit": "Kilo (Caja 20 kg aprox)",
+    "weight": "Por Kilo",
+    "origin": "Chile / Argentina",
+    "rating": 4.9,
+    "reviewCount": 89,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.11.11.jpeg",
+    "shortDescription": "Desde 1 caja $6.790 el kilo | Desde 60 kilos $6.490 el kilo. Sabor suave y elástico, fundido uniforme ideal para derretir.",
+    "description": "Mozzarella de primera calidad gastronómica. Hebra elástica larga, dorado perfecto sin aceitar y aroma lácteo suave que realza cualquier preparación caliente.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 6790,
+        "label": "Caja 20 kg ($6.790/kg)"
+      },
+      {
+        "minQty": 60,
+        "price": 6490,
+        "label": "Desde 60 kg ($6.490/kg)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": true,
+    "tags": [
+      "quesos",
+      "mozzarella",
+      "pampa cheese",
+      "barra",
+      "fundido"
+    ]
+  },
+  {
+    "id": "prod-queso-mozzarella-barra-1k",
+    "slug": "queso-mozzarella-barra-1kg-sellada",
+    "name": "Queso Mozzarella Barra Formato 1 kg (Caja 4 kg)",
+    "brand": "Valle Lindo Select",
+    "sku": "QUE-MOZZ-1K-CJ4",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Mozzarella",
+    "price": 7990,
+    "originalPrice": 8890,
+    "discountPercent": 10,
+    "stock": 120,
+    "stockStatus": "in_stock",
+    "unit": "Pieza 1 kg ($7.990) / Caja 4 kg ($31.160)",
+    "weight": "1 kg / 4 kg",
+    "origin": "Chile / 100% Leche Bovina",
+    "rating": 4.8,
+    "reviewCount": 64,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.12.04.jpeg",
+    "shortDescription": "Desde 1 kilo $7.990 | Caja de 4 kilos por $31.160 ($7.790/kg). 100% Leche bovina, libre de gluten, elasticidad superior.",
+    "description": "Formato práctico de 1 kilo diseñado para rotación rápida sin mermas. Ideal para cafeterías, restaurantes medianos y preparaciones caseras de alto nivel.",
+    "storage": "Refrigerado 2°C a 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 7990,
+        "label": "1 Kilo ($7.990)"
+      },
+      {
+        "minQty": 4,
+        "price": 7790,
+        "label": "Caja 4 kg ($31.160 total)"
+      }
+    ],
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "quesos",
+      "mozzarella 1kg",
+      "caja 4kg",
+      "derretir",
+      "pizzas"
+    ]
+  },
+  {
+    "id": "prod-queso-granulado-2k",
+    "slug": "queso-granulado-pampa-cheese-bolsa-2kg",
+    "name": "Queso Granulado Hebras Bolsa 2 kg (Pampa Cheese)",
+    "brand": "Pampa Cheese",
+    "sku": "QUE-GRAN-2K",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Mozzarella",
+    "price": 6690,
+    "originalPrice": 7490,
+    "discountPercent": 11,
+    "stock": 140,
+    "stockStatus": "in_stock",
+    "unit": "Kilo (Bolsa de 2 kg a $13.380)",
+    "weight": "2 kg",
+    "origin": "Chile / Argentina",
+    "rating": 5.0,
+    "reviewCount": 96,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.12.53.jpeg",
+    "shortDescription": "Por bolsa 2 kg: $6.690/kg | Caja 20 kg: $5.990/kg | Desde 80 kg: $5.690/kg. Más sabor y mejor rendimiento para hornos.",
+    "description": "Queso granulado suelto IQF. Ahorra mano de obra y tiempo en cocina: se esparce de forma pareja sobre pizzas, lasañas y gratinados sin aglomerarse.",
+    "storage": "Mantener refrigerado o congelado.",
+    "wholesaleTiers": [
+      {
+        "minQty": 2,
+        "price": 6690,
+        "label": "Bolsa 2 kg ($6.690/kg)"
+      },
+      {
+        "minQty": 20,
+        "price": 5990,
+        "label": "Caja 20 kg (10 bolsas a $5.990/kg)"
+      },
+      {
+        "minQty": 80,
+        "price": 5690,
+        "label": "Desde 4 cajas / 80 kg ($5.690/kg)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": true,
+    "tags": [
+      "quesos",
+      "granulado",
+      "rallado",
+      "pizzas",
+      "pampa cheese"
+    ]
+  },
+  {
+    "id": "prod-queso-gouda-sucedaneo-barra",
+    "slug": "queso-gouda-sucedaneo-la-gogaive-barra",
+    "name": "Queso Gouda Sucedáneo Económico (La Gogaive Barra 3.2 kg)",
+    "brand": "La Gogaive",
+    "sku": "QUE-GOUDA-SUC-32K",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Sucedáneos",
+    "price": 5490,
+    "originalPrice": 6290,
+    "discountPercent": 13,
+    "stock": 110,
+    "stockStatus": "in_stock",
+    "unit": "Kilo (Barra aprox 3.2 kg)",
+    "weight": "3.2 kg aprox.",
+    "origin": "Chile",
+    "rating": 4.8,
+    "reviewCount": 51,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.13.51.jpeg",
+    "shortDescription": "Precio desde 1 kilo $5.490 el kilo. Barra de aprox 3.2 kg. Sabor suave y cremoso, sin colorantes artificiales, ideal para maximizar margen.",
+    "description": "Producto lácteo sabor Gouda de óptimo rendimiento culinario. Funde rápido y homogéneo con un costo por kilo sumamente competitivo para locales de alto volumen.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 5490,
+        "label": "Por Kilo ($5.490)"
+      },
+      {
+        "minQty": 20,
+        "price": 5190,
+        "label": "20+ kg ($5.190)"
+      }
+    ],
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "quesos",
+      "gouda sucedaneo",
+      "economico",
+      "la gogaive",
+      "barra"
+    ]
+  },
+  {
+    "id": "prod-natillas-santa-barbara",
+    "slug": "natillas-cremosas-dulce-santa-barbara",
+    "name": "Natillas Tradicionales Venezolanas (Santa Bárbara R&C)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "LAC-NAT-SB",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Lácteos Dulces",
+    "price": 1990,
+    "originalPrice": 2490,
+    "discountPercent": 20,
+    "stock": 160,
+    "stockStatus": "in_stock",
+    "unit": "250g ($1.990) / 500g ($3.190)",
+    "weight": "250g / 500g",
+    "origin": "Venezuela",
+    "rating": 5.0,
+    "reviewCount": 82,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.14.39.jpeg",
+    "shortDescription": "Presentación 250g $1.990 | Presentación 500g $3.190. 100% Leche bovina, suave, cremosa y deliciosa, libre de gluten. ¡El postre que todos aman!",
+    "description": "Postre lácteo artesanal tradicional elaborado con pura leche entera de vaca. Su textura aterciopelada y sabor dulce natural lo convierten en el complemento favorito de niños y adultos.",
+    "storage": "Mantener refrigerado 2°C a 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 1990,
+        "label": "Pote 250g ($1.990)"
+      },
+      {
+        "minQty": 1,
+        "price": 3190,
+        "label": "Pote 500g ($3.190)"
+      },
+      {
+        "minQty": 12,
+        "price": 2890,
+        "label": "Docena 500g ($2.890 c/u)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "lacteos",
+      "natillas",
+      "postre",
+      "venezolano",
+      "dulce de leche"
+    ]
+  },
+  {
+    "id": "prod-suero-criollo-santa-barbara",
+    "slug": "suero-criollo-cremoso-santa-barbara",
+    "name": "Suero Criollo Cremoso Llanero (Santa Bárbara R&C 500ml)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "LAC-SUERO-500",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Sueros",
+    "price": 2190,
+    "originalPrice": 2690,
+    "discountPercent": 19,
+    "stock": 180,
+    "stockStatus": "in_stock",
+    "unit": "Normal 500ml ($2.190) / Picante 500ml ($2.390)",
+    "weight": "500 ml",
+    "origin": "Venezuela",
+    "rating": 5.0,
+    "reviewCount": 129,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.15.05.jpeg",
+    "shortDescription": "Suero Normal Cremoso 500ml: $2.190 | Suero Picante Cremoso 500ml: $2.390. 100% leche bovina, libre de gluten, textura cremosa ideal para arepas.",
+    "description": "El auténtico suero de leche llanero pasteurizado. De acidez equilibrada y cuerpo espeso, perfecto para acompañar arepas calientes, empanadas, yuca frita y tostones.",
+    "storage": "Conservar refrigerado 2°C a 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 2190,
+        "label": "Normal 500ml ($2.190)"
+      },
+      {
+        "minQty": 1,
+        "price": 2390,
+        "label": "Picante 500ml ($2.390)"
+      },
+      {
+        "minQty": 12,
+        "price": 1950,
+        "label": "Caja 12 un. ($1.950 c/u)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": false,
+    "tags": [
+      "lacteos",
+      "suero",
+      "suero criollo",
+      "picante",
+      "arepas"
+    ]
+  },
+  {
+    "id": "prod-mantequilla-santa-barbara",
+    "slug": "mantequilla-con-sal-100-leche-santa-barbara",
+    "name": "Mantequilla con Sal 100% Leche Bovina (Santa Bárbara 250g)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "LAC-MANT-250",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Lácteos",
+    "price": 2390,
+    "originalPrice": 2890,
+    "discountPercent": 17,
+    "stock": 150,
+    "stockStatus": "in_stock",
+    "unit": "Pote 250g ($2.390 la unidad)",
+    "weight": "250g",
+    "origin": "Venezuela / Santa Bárbara",
+    "rating": 4.9,
+    "reviewCount": 71,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.15.36.jpeg",
+    "shortDescription": "Presentación 250 gramos $2.390 la unidad. 100% leche bovina, con sal, libre de gluten. Sabor auténtico que realza cada receta.",
+    "description": "Mantequilla cremosa pura de leche entera con el toque exacto de sal. Textura suavemente untable a temperatura ambiente y aroma lácteo inigualable para panes, arepas y repostería.",
+    "storage": "Mantener refrigerado 2°C a 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 2390,
+        "label": "Unidad 250g ($2.390)"
+      },
+      {
+        "minQty": 12,
+        "price": 2100,
+        "label": "Pack 12 un. ($2.100 c/u)"
+      }
+    ],
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "lacteos",
+      "mantequilla",
+      "con sal",
+      "santa barbara",
+      "untable"
+    ]
+  },
+  {
+    "id": "prod-tequenos-artesanales-20u",
+    "slug": "tequenos-queso-artesanales-20-unidades",
+    "name": "Tequeños Artesanales de Queso (Bandeja 20 Unidades)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "QUE-TEQ-20U",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Tequeños",
+    "price": 6890,
+    "originalPrice": 7990,
+    "discountPercent": 14,
+    "stock": 130,
+    "stockStatus": "in_stock",
+    "unit": "Paquete 20 unidades congeladas",
+    "weight": "700g aprox.",
+    "origin": "Venezuela / Chile",
+    "rating": 5.0,
+    "reviewCount": 160,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.20.20.jpeg",
+    "shortDescription": "Presentación 20 unidades por $6.890 el paquete. Crujientes por fuera, cremosos por dentro con generoso relleno de queso llanero. Listos para freír u hornear.",
+    "description": "Los auténticos tequeños venezolanos elaborados con masa fina hojaldrada y un bloque entero de queso llanero fundente. Ideales para fiestas, cócteles, eventos y venta rápida en locales gastronómicos.",
+    "storage": "Mantener congelado a -18°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 6890,
+        "label": "1 a 4 paquetes ($6.890)"
+      },
+      {
+        "minQty": 5,
+        "price": 6490,
+        "label": "5 a 19 paq. ($6.490 c/u)"
+      },
+      {
+        "minQty": 20,
+        "price": 5990,
+        "label": "20+ paq. mayorista ($5.990 c/u)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": true,
+    "tags": [
+      "tequeños",
+      "pasapalos",
+      "queso llanero",
+      "congelados",
+      "fiesta"
+    ]
+  },
+  {
+    "id": "prod-convenio-comercial-spa",
+    "slug": "convenio-comercial-b2b-distribucion",
+    "name": "Convenio Comercial B2B & Despacho a Todo Chile SpA",
+    "brand": "Comercializadora Valle Lindo SpA",
+    "sku": "B2B-CONVENIO-NAC",
+    "category": "quesos",
+    "categoryName": "Quesos",
+    "subCategory": "Institucional",
+    "price": 0,
+    "originalPrice": 0,
+    "discountPercent": 0,
+    "stock": 999,
+    "stockStatus": "in_stock",
+    "unit": "Línea de crédito mayorista y factura electrónica",
+    "weight": "Servicio Corporativo",
+    "origin": "Chile / Banco Santander SpA",
+    "rating": 5.0,
+    "reviewCount": 95,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.31.56.jpeg",
+    "shortDescription": "Comercializadora Valle Lindo SpA (RUT 77.891.571-5). Cuenta corriente Banco Santander, facturación inmediata y logística refrigerada con envíos a todo Chile.",
+    "description": "Inscribe tu empresa, restaurante o minimarket para obtener tarifas preferenciales por volumen, convenios de pago y abastecimiento calendarizado semanal.",
+    "storage": "Atención personalizada vía WhatsApp +56 9 8790 7981.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 0,
+        "label": "Apertura Gratuita"
+      }
+    ],
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "b2b",
+      "facturacion",
+      "convenio",
+      "valle lindo spa",
+      "santander"
+    ]
+  },
+  {
+    "id": "prod-salame-preferida-16k",
+    "slug": "salame-premium-la-preferida-1-6kg",
+    "name": "Salame Premium Curación Natural (La Preferida 1.6 kg)",
+    "brand": "La Preferida",
+    "sku": "PIZ-SALAME-16K",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Fiambres Pizza",
+    "price": 15990,
+    "originalPrice": 17990,
+    "discountPercent": 11,
+    "stock": 70,
+    "stockStatus": "in_stock",
+    "unit": "Paquete 1.6 kg ($15.990 c/u)",
+    "weight": "1.6 kg",
+    "origin": "Chile / La Preferida",
+    "rating": 5.0,
+    "reviewCount": 59,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.19.03.jpeg",
+    "shortDescription": "Presentación 1.6 kilos $15.990 el paquete | Desde 5 paquetes $15.490 c/u. Carne de cerdo seleccionada con curación natural, sabor intenso y especiado.",
+    "description": "Salame madurado de perfil gourmet. Su condimentación tradicional y textura compacta permiten un laminado perfecto sin roturas, otorgando un aroma cautivador en pizzas horneadas.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 15990,
+        "label": "1 a 4 paquetes ($15.990)"
+      },
+      {
+        "minQty": 5,
+        "price": 15490,
+        "label": "5+ paquetes ($15.490 c/u)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "pizzeria",
+      "salame",
+      "la preferida",
+      "embutidos",
+      "pizza gourmet"
+    ]
+  },
+  {
+    "id": "prod-pepperoni-premium-850g",
+    "slug": "pepperoni-artesanal-madurado-850g",
+    "name": "Pepperoni Maduro Artesanal Pizza Especial (850 g)",
+    "brand": "Valle Lindo Select",
+    "sku": "PIZ-PEPP-ART-850",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Fiambres Pizza",
+    "price": 10990,
+    "originalPrice": 12490,
+    "discountPercent": 12,
+    "stock": 85,
+    "stockStatus": "in_stock",
+    "unit": "Bolsa 850 gramos",
+    "weight": "850 g",
+    "origin": "Chile",
+    "rating": 4.9,
+    "reviewCount": 77,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.19.42.jpeg",
+    "shortDescription": "Presentación 850 gramos $10.990 el paquete. Carne de cerdo premium seleccionada, naturalmente madurado con sabor intenso y ligeramente picante.",
+    "description": "El ingrediente insignia para pizzerías americanas y artesanales. Al hornearse forma el clásico tostado en los bordes con un desprendimiento controlado de aceites aromáticos.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 10990,
+        "label": "1 a 2 bolsas ($10.990)"
+      },
+      {
+        "minQty": 3,
+        "price": 10290,
+        "label": "Desde 3 bolsas ($10.290)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": false,
+    "tags": [
+      "pizzeria",
+      "pepperoni",
+      "pizza",
+      "insumos pizza",
+      "picante"
+    ]
+  },
+  {
+    "id": "prod-kit-pizzerias-asesoria",
+    "slug": "kit-especial-abastecimiento-pizzerias",
+    "name": "Catálogo & Asesoría Especial para Pizzerías y Emprendedores",
+    "brand": "Valle Lindo Pizzerías",
+    "sku": "PIZ-KIT-ASESOR",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Institucional",
+    "price": 0,
+    "originalPrice": 0,
+    "discountPercent": 0,
+    "stock": 999,
+    "stockStatus": "in_stock",
+    "unit": "Catálogo especializado pizzerías & degustación técnica",
+    "weight": "Digital / Presencial",
+    "origin": "Chile",
+    "rating": 5.0,
+    "reviewCount": 88,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.27.04.jpeg",
+    "shortDescription": "¡Los mejores ingredientes para el sabor que tus clientes merecen! Distribución especializada para pizzerías, restaurantes y emprendedores con abastecimiento confiable.",
+    "description": "Solicita cotizaciones por volumen de queso mozzarella, salsas base, harinas, fiambres y condimentos con despacho programado directo a tu local.",
+    "storage": "Contacto directo vía WhatsApp +56 9 8790 7981.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 0,
+        "label": "Asesoría Gratuita"
+      }
+    ],
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "pizzeria",
+      "asesoria",
+      "abastecimiento",
+      "mozzarella",
+      "restaurantes"
+    ]
+  },
+  {
+    "id": "prod-mozzarella-pampa-cheese-pizza",
+    "slug": "queso-mozzarella-pampa-cheese-especial-pizza",
+    "name": "Queso Mozzarella Pampa Cheese Especial Pizzería (Por Kilo)",
+    "brand": "Pampa Cheese",
+    "sku": "PIZ-MOZZ-PAMPA",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Quesos Pizza",
+    "price": 6790,
+    "originalPrice": 7590,
+    "discountPercent": 11,
+    "stock": 220,
+    "stockStatus": "in_stock",
+    "unit": "Kilo (Precio por kilo en barra)",
+    "weight": "Por Kilo",
+    "origin": "Chile / Formato Gastronómico",
+    "rating": 5.0,
+    "reviewCount": 145,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.27.39.jpeg",
+    "shortDescription": "Precio por kilo $6.790 | Desde 40 kilos $6.490/kg. Excelente fundido, sabor suave y textura elástica ideal para pizzas artesanales.",
+    "description": "La mozzarella preferida por maestros pizzeros. Logra un hilo elástico largo y continuo, soporta temperaturas sobre 350°C en hornos a leña o piedra y dora de manera uniforme sin quemarse ni secarse.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 6790,
+        "label": "1 a 39 kg ($6.790/kg)"
+      },
+      {
+        "minQty": 40,
+        "price": 6490,
+        "label": "Desde 40 kg ($6.490/kg)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": true,
+    "tags": [
+      "pizzeria",
+      "mozzarella pizza",
+      "pampa cheese",
+      "fundido",
+      "horno leña"
+    ]
+  },
+  {
+    "id": "prod-mozzarella-president-pizza",
+    "slug": "queso-mozzarella-president-gourmet-pizza",
+    "name": "Queso Mozzarella Président Gourmet Especial Pizzería (Por Kilo)",
+    "brand": "Président",
+    "sku": "PIZ-MOZZ-PRESID",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Quesos Pizza",
+    "price": 6980,
+    "originalPrice": 7790,
+    "discountPercent": 10,
+    "stock": 190,
+    "stockStatus": "in_stock",
+    "unit": "Kilo en barra gastronómica",
+    "weight": "Por Kilo",
+    "origin": "Lactalis / Francia - Chile",
+    "rating": 5.0,
+    "reviewCount": 118,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.28.08.jpeg",
+    "shortDescription": "Precio por kilo $6.980 | Desde 40 kilos $6.680/kg. Calidad europea superior, fundido cremoso de elasticidad legendaria para pizzas gourmet.",
+    "description": "Elaborada bajo estándares internacionales de Président. Proporciona una cobertura lechosa sedosa con un dorado apetitoso y cero desprendimiento acuoso sobre la masa.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 6980,
+        "label": "1 a 39 kg ($6.980/kg)"
+      },
+      {
+        "minQty": 40,
+        "price": 6680,
+        "label": "Desde 40 kg ($6.680/kg)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": false,
+    "tags": [
+      "pizzeria",
+      "mozzarella president",
+      "president",
+      "gourmet",
+      "pizzas artesanales"
+    ]
+  },
+  {
+    "id": "prod-queso-granulado-pizza-2k",
+    "slug": "queso-granulado-especial-pizza-bolsa-2kg",
+    "name": "Queso Granulado Especial Pizzería (Bolsa 2 kg / Caja 20 kg)",
+    "brand": "Valle Lindo Select",
+    "sku": "PIZ-GRAN-2K",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Quesos Pizza",
+    "price": 6690,
+    "originalPrice": 7490,
+    "discountPercent": 11,
+    "stock": 170,
+    "stockStatus": "in_stock",
+    "unit": "Kilo (Bolsa 2 kg a $13.380)",
+    "weight": "2 kg",
+    "origin": "Chile",
+    "rating": 4.9,
+    "reviewCount": 94,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.28.32.jpeg",
+    "shortDescription": "Por bolsa 2 kg: $6.690/kg | Caja 20 kg (10 bolsas de 2 kg): $5.990/kg | Desde 80 kg (4 cajas): $5.690/kg. Formato gastronómico de máximo rendimiento.",
+    "description": "Granulado fino libre de apelmazamiento. Agiliza el armado de pizzas en hora punta garantizando una distribución exacta por porción y reduciendo drásticamente las mermas.",
+    "storage": "Mantener refrigerado 2°C a 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 2,
+        "price": 6690,
+        "label": "Bolsa 2 kg ($6.690/kg)"
+      },
+      {
+        "minQty": 20,
+        "price": 5990,
+        "label": "Caja 20 kg (10 bolsas a $5.990/kg)"
+      },
+      {
+        "minQty": 80,
+        "price": 5690,
+        "label": "Desde 80 kg / 4 cajas ($5.690/kg)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": true,
+    "tags": [
+      "pizzeria",
+      "granulado",
+      "queso pizza",
+      "escala mayorista",
+      "2kg"
+    ]
+  },
+  {
+    "id": "prod-gouda-sucedaneo-pizzeria",
+    "slug": "queso-gouda-sucedaneo-especial-pizzerias",
+    "name": "Queso Gouda Sucedáneo Especial Pizzerías (La Gogaive)",
+    "brand": "La Gogaive",
+    "sku": "PIZ-GOUDA-SUC",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Quesos Pizza",
+    "price": 5490,
+    "originalPrice": 6190,
+    "discountPercent": 11,
+    "stock": 130,
+    "stockStatus": "in_stock",
+    "unit": "Por Kilo",
+    "weight": "1 kg",
+    "origin": "Chile",
+    "rating": 4.8,
+    "reviewCount": 44,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.28.58.jpeg",
+    "shortDescription": "Precio por kilo $5.490. Excelente rendimiento para pizzas económicas, empanadas y preparaciones de alto flujo gastronómico.",
+    "description": "Alternativa de alta rentabilidad que asegura una textura fundida atractiva y buen dorado con el precio más accesible del mercado.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 5490,
+        "label": "1 a 19 kg ($5.490)"
+      },
+      {
+        "minQty": 20,
+        "price": 5190,
+        "label": "20+ kg ($5.190)"
+      }
+    ],
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "pizzeria",
+      "gouda sucedaneo",
+      "pizza economica",
+      "la gogaive"
+    ]
+  },
+  {
+    "id": "prod-pepperoni-pf-850g",
+    "slug": "pepperoni-pf-laminado-pizzeria-850g",
+    "name": "Pepperoni Laminado Pizza Sabor Intenso (PF 850 g)",
+    "brand": "PF Alimentos",
+    "sku": "PIZ-PEPP-PF-850",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Fiambres Pizza",
+    "price": 10990,
+    "originalPrice": 12490,
+    "discountPercent": 12,
+    "stock": 115,
+    "stockStatus": "in_stock",
+    "unit": "Bolsa 850 gramos sellada",
+    "weight": "850 g",
+    "origin": "Chile / PF Alimentos",
+    "rating": 5.0,
+    "reviewCount": 132,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.29.35.jpeg",
+    "shortDescription": "Precio por bolsa $10.990 | Desde 3 bolsas precio especial. Sabor ahumado irresistible, textura perfecta para pizzas gourmet.",
+    "description": "El pepperoni más vendido en Chile de la marca PF. Rodajas calibradas listas para aplicar sobre el queso. No se encoge en exceso ni despide exceso de grasa.",
+    "storage": "Mantener refrigerado 2°C a 5°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 10990,
+        "label": "1 a 2 bolsas ($10.990)"
+      },
+      {
+        "minQty": 3,
+        "price": 10490,
+        "label": "Desde 3 bolsas ($10.490 c/u)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": true,
+    "tags": [
+      "pizzeria",
+      "pepperoni pf",
+      "pf alimentos",
+      "pizza pepperoni",
+      "850g"
+    ]
+  },
+  {
+    "id": "prod-tocino-ahumado-molde-pizza",
+    "slug": "tocino-ahumado-tipo-molde-pizzeria-kg",
+    "name": "Tocino Ahumado Tipo Molde para Pizzería (Por Kilo)",
+    "brand": "Valle Lindo Ahumados",
+    "sku": "PIZ-TOC-MOLDE",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Fiambres Pizza",
+    "price": 6990,
+    "originalPrice": 7990,
+    "discountPercent": 13,
+    "stock": 105,
+    "stockStatus": "in_stock",
+    "unit": "Kilo en barra molde ($6.990 el kilo)",
+    "weight": "Por Kilo",
+    "origin": "Chile",
+    "rating": 4.9,
+    "reviewCount": 68,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.30.10.jpeg",
+    "shortDescription": "Precio por kilo $6.990 | A partir de 5 kilos $6.590/kg. Ahumado natural, sabor intenso y delicioso, ideal para pizzas carbonara, fugazzetas y calzones.",
+    "description": "Tocino de estructura compacta que rinde al máximo cortado en bastones o cuadritos crocantes sobre la masa. Alto contenido cárnico.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 6990,
+        "label": "1 a 4 kg ($6.990/kg)"
+      },
+      {
+        "minQty": 5,
+        "price": 6590,
+        "label": "Desde 5 kg ($6.590/kg)"
+      }
+    ],
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "pizzeria",
+      "tocino pizza",
+      "ahumado",
+      "tipo molde",
+      "topping"
+    ]
+  },
+  {
+    "id": "prod-salsa-tomate-pomarola-pizza",
+    "slug": "salsa-tomate-pomarola-pizza-sauce-3kg-1kg",
+    "name": "Salsa de Tomate Pomarola Pizza Sauce Lista (1 kg / 3 kg)",
+    "brand": "Pomarola / Carozzi",
+    "sku": "PIZ-SALSA-POM",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Salsas Pizza",
+    "price": 2990,
+    "originalPrice": 3490,
+    "discountPercent": 14,
+    "stock": 210,
+    "stockStatus": "in_stock",
+    "unit": "Bolsa 1 kg ($2.990) / Bolsa 3 kg ($6.690)",
+    "weight": "1 kg / 3 kg",
+    "origin": "Chile / Carozzi",
+    "rating": 5.0,
+    "reviewCount": 160,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.30.56.jpeg",
+    "shortDescription": "Bolsa 1 kg: $2.990 | Bolsa 3 kg: $6.690 ($2.230/kg). Sabor casero y natural, lista para usar, textura y acidez calibrada para pizzas artesanales.",
+    "description": "Salsa espesa elaborada con tomates maduros seleccionados, sin exceso de agua para evitar humedecer la masa en el horno. Se esparce con una sola pasada de cucharón.",
+    "storage": "Conservar en lugar fresco y seco; una vez abierto, refrigerar.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 2990,
+        "label": "Bolsa 1 kg ($2.990)"
+      },
+      {
+        "minQty": 1,
+        "price": 6690,
+        "label": "Bolsa 3 kg ($6.690 total / $2.230/kg)"
+      },
+      {
+        "minQty": 5,
+        "price": 6290,
+        "label": "5+ bolsas 3 kg ($6.290 c/u)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": true,
+    "tags": [
+      "pizzeria",
+      "salsa de tomate",
+      "pomarola",
+      "pizza sauce",
+      "3kg"
+    ]
+  },
+  {
+    "id": "prod-oregano-premium-bolsa",
+    "slug": "oregano-seleccionado-premium-pizzerias",
+    "name": "Orégano Seleccionado Premium Aromático (500 g / 1 kg)",
+    "brand": "Valle Lindo Especias",
+    "sku": "PIZ-OREG-PREM",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Especias Pizza",
+    "price": 3990,
+    "originalPrice": 4690,
+    "discountPercent": 15,
+    "stock": 175,
+    "stockStatus": "in_stock",
+    "unit": "Bolsa 500g ($3.990) / Bolsa 1 kg ($6.990)",
+    "weight": "500g / 1 kg",
+    "origin": "Chile - Norte / Arica",
+    "rating": 5.0,
+    "reviewCount": 85,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.31.19.jpeg",
+    "shortDescription": "Presentación 500 gramos: $3.990 | Presentación 1 Kilo: $6.990. 100% natural, sin aditivos ni conservantes, calidad premium e intenso aroma.",
+    "description": "Hojas seleccionadas secadas a la sombra para preservar sus aceites esenciales volátiles. Un aroma potente que despierta al contacto con el queso caliente de la pizza.",
+    "storage": "Almacenar en lugar seco y oscuro bien cerrado.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 3990,
+        "label": "Bolsa 500g ($3.990)"
+      },
+      {
+        "minQty": 1,
+        "price": 6990,
+        "label": "Bolsa 1 kg ($6.990)"
+      },
+      {
+        "minQty": 5,
+        "price": 6490,
+        "label": "5+ kg ($6.490 c/u)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": true,
+    "tags": [
+      "pizzeria",
+      "oregano",
+      "especias",
+      "aromatico",
+      "100% natural"
+    ]
   }
 ];
-
-export const WHOLESALE_BENEFITS = [
-  {
-    icon: "Truck",
-    title: "Envíos a Todo Chile",
-    description: "Despacho express en Santiago y envíos refrigerados a regiones con seguimiento."
-  },
-  {
-    icon: "Building2",
-    title: "Compra Mayorista y Minorista",
-    description: "Precios escalonados por volumen desde 1 unidad hasta pallets completos."
-  },
-  {
-    icon: "RefreshCw",
-    title: "Stock en Tiempo Real",
-    description: "Inventario garantizado con fechas de caducidad óptimas para tu negocio."
-  },
-  {
-    icon: "FileCheck",
-    title: "Factura y Boleta Electrónica",
-    description: "Emisión inmediata con RUT para deducir IVA empresarial de forma automática."
-  },
-  {
-    icon: "MessageCircle",
-    title: "Atención Ejecutiva WhatsApp",
-    description: "Ejecutivo B2B asignado para cotizaciones personalizadas y pedidos recurrentes."
-  },
-  {
-    icon: "Zap",
-    title: "Despacho Rápido en 24/48 hrs",
-    description: "Rutas diarias refrigeradas para que tu cocina nunca se quede sin insumos."
-  }
-];
-
-export const CLIENT_SEGMENTS = [
-  {
-    title: "Pizzerías y Trattorías",
-    description: "Mozzarella fundente, salsa italiana, pepperoni, harinas 00 y cajas de entrega.",
-    badge: "Especialidad Valle Lindo",
-    discount: "Hasta 25% OFF por volumen"
-  },
-  {
-    title: "Restaurantes y Parrilladas",
-    description: "Cortes de vacuno seleccionados, lomo vetado, costillares y guarniciones.",
-    badge: "Carnes Premium",
-    discount: "Precios especiales por caja"
-  },
-  {
-    title: "Casinos e Instituciones",
-    description: "Insumos por kilo y cajas cerradas con factura inmediata y crédito 30 días previa evaluación.",
-    badge: "B2B Corporativo",
-    discount: "Cotización a medida"
-  },
-  {
-    title: "Food Trucks y Fuentes de Soda",
-    description: "Papas prefritas congeladas, vienesas, quesos en barra y salsas institucionales.",
-    badge: "Comida Rápida",
-    discount: "Stock permanente"
-  }
-];
+export const PRODUCTS: Product[] = PRODUCTS_DATA;

@@ -237,7 +237,7 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       const urlParams = new URLSearchParams(window.location.search);
-      const slug = urlParams.get('slug') || 'queso-palmita-rio-grande-10kg';
+      const slug = urlParams.get('slug') || (PRODUCTS_DATA[0] && PRODUCTS_DATA[0].slug) || 'combo-pura-carne-valle-lindo';
       currentProduct = PRODUCTS_DATA.find(p => p.slug === slug) || PRODUCTS_DATA[0];
 
       document.title = `${currentProduct.name} | Comercializadora Valle Lindo`;

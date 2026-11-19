@@ -165,9 +165,8 @@
     }
 
     function reorderFast() {
-      Cart.addItem('prod-1', 2);
-      Cart.addItem('prod-9', 2);
-      Cart.addItem('prod-8', 1);
+      if (PRODUCTS_DATA.length > 0) Cart.addItem(PRODUCTS_DATA[0].id, 1);
+      if (PRODUCTS_DATA.length > 1) Cart.addItem(PRODUCTS_DATA[1].id, 1);
       openCartDrawer();
     }
   </script>

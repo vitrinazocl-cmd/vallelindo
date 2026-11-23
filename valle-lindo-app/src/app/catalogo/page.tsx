@@ -51,7 +51,8 @@ function CatalogContent() {
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter((product) => {
       // Categoría
-      if (selectedCategory !== "todos" && product.category !== selectedCategory) {
+      const prodCategories = product.categories || [product.category];
+      if (selectedCategory !== "todos" && !prodCategories.includes(selectedCategory)) {
         return false;
       }
       // Subcategoría

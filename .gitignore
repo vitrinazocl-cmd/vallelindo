@@ -16,11 +16,14 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Scripts de auditoría interna
-audit_catalog.py
-compare_products.py
+# Scripts de auditoría interna y scripts temporales
+*.py
+*.pyc
+__pycache__/
 audit_results.json
 audit_full_catalog.json
+extracted_pdf_raw/
+extracted_raw_images/
 
 # Archivos de sistema operativo
 .DS_Store

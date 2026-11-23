@@ -123,12 +123,22 @@ export default function ProductCard({ product, viewMode = "grid" }: ProductCardP
         {/* Precios y Botones */}
         <div className="w-full md:w-56 shrink-0 flex flex-col justify-between items-end border-t md:border-t-0 md:border-l border-gray-100 pt-3 md:pt-0 md:pl-5">
           <div className="w-full text-left md:text-right">
-            <div className="text-2xl font-black text-[#B71C1C]">
-              ${product.price.toLocaleString("es-CL")}
+            <div className="flex items-baseline md:justify-end gap-1">
+              <span className="text-2xl font-black text-[#B71C1C]">
+                ${product.price.toLocaleString("es-CL")}
+              </span>
+              {product.pricePerUnitLabel && (
+                <span className="text-xs font-bold text-gray-500">{product.pricePerUnitLabel}</span>
+              )}
             </div>
             {product.originalPrice > product.price && (
               <div className="text-xs text-gray-400 line-through">
                 Antes: ${product.originalPrice.toLocaleString("es-CL")}
+              </div>
+            )}
+            {product.piecePrice && product.pieceWeightKg && product.pieceWeightKg > 1 && (
+              <div className="mt-1 text-[11px] font-bold text-amber-900 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 inline-block">
+                🧀 Pieza ({product.pieceWeight}): ${product.piecePrice.toLocaleString("es-CL")}
               </div>
             )}
             <div className="text-[11px] text-gray-500 mt-0.5">IVA Incluido • Facturable</div>
@@ -248,12 +258,25 @@ export default function ProductCard({ product, viewMode = "grid" }: ProductCardP
               <span className="text-base sm:text-2xl font-black text-[#B71C1C]">
                 ${product.price.toLocaleString("es-CL")}
               </span>
+              {product.pricePerUnitLabel && (
+                <span className="text-[11px] font-bold text-gray-500">{product.pricePerUnitLabel}</span>
+              )}
               {product.originalPrice > product.price && (
                 <span className="text-[10px] sm:text-xs text-gray-400 line-through">
                   ${product.originalPrice.toLocaleString("es-CL")}
                 </span>
               )}
             </div>
+
+            {/* Precio por pieza completa de quesos enteros */}
+            {product.piecePrice && product.pieceWeightKg && product.pieceWeightKg > 1 && (
+              <div className="mt-1 text-[10px] sm:text-[11px] font-semibold text-amber-950 bg-amber-50/95 px-2 py-0.5 rounded border border-amber-200 flex items-center justify-between">
+                <span className="truncate">🧀 Pieza ({product.pieceWeight}):</span>
+                <strong className="text-[#B71C1C] ml-1 shrink-0 font-black">
+                  ${product.piecePrice.toLocaleString("es-CL")}
+                </strong>
+              </div>
+            )}
 
             {/* Escala mayorista rápida */}
             {product.wholesaleTiers && product.wholesaleTiers.length > 1 && (

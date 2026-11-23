@@ -40,7 +40,7 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": true,
     "isBestSeller": true,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "carnes",
       "combo",
@@ -49,6 +49,9 @@ const PRODUCTS_DATA = [
       "bistec",
       "molida",
       "mechar"
+    ],
+    "categories": [
+      "carnes"
     ]
   },
   {
@@ -88,13 +91,16 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": true,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "carnes",
       "combo medio kilates",
       "lomo liso",
       "pollo",
       "cerdo"
+    ],
+    "categories": [
+      "carnes"
     ]
   },
   {
@@ -134,7 +140,7 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": true,
     "isBestSeller": true,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "carnes",
       "combo parrillero",
@@ -142,6 +148,9 @@ const PRODUCTS_DATA = [
       "costillar",
       "chorizo",
       "prietas"
+    ],
+    "categories": [
+      "carnes"
     ]
   },
   {
@@ -181,13 +190,16 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": true,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "carnes",
       "combo fitness",
       "pechuga deshuesada",
       "trutro",
       "proteina"
+    ],
+    "categories": [
+      "carnes"
     ]
   },
   {
@@ -234,6 +246,9 @@ const PRODUCTS_DATA = [
       "chuleta centro",
       "bistec",
       "pechuga"
+    ],
+    "categories": [
+      "carnes"
     ]
   },
   {
@@ -273,13 +288,16 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": false,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "carnes",
       "combo familiar 2.0",
       "lomo liso",
       "mechar",
       "pechuga"
+    ],
+    "categories": [
+      "carnes"
     ]
   },
   {
@@ -319,13 +337,16 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": false,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "carnes",
       "combo parrillero",
       "lomo liso",
       "chuleta",
       "chorizo"
+    ],
+    "categories": [
+      "carnes"
     ]
   },
   {
@@ -365,13 +386,16 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": true,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "carnes",
       "combo kilate",
       "bistec",
       "asiento",
       "pulpa de cerdo"
+    ],
+    "categories": [
+      "carnes"
     ]
   },
   {
@@ -421,13 +445,16 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": true,
     "isBestSeller": true,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "carnes",
       "chuleta ahumada",
       "cerdo",
       "ahumados",
       "parrilla"
+    ],
+    "categories": [
+      "carnes"
     ]
   },
   {
@@ -474,6 +501,9 @@ const PRODUCTS_DATA = [
       "panceta",
       "bacon",
       "ahumados"
+    ],
+    "categories": [
+      "carnes"
     ]
   },
   {
@@ -512,14 +542,21 @@ const PRODUCTS_DATA = [
       }
     ],
     "isFeatured": false,
-    "isBestSeller": false,
+    "isBestSeller": true,
     "isOffer": true,
     "tags": [
-      "carnes",
-      "tocino",
-      "tipo molde",
+      "pizzeria",
       "ahumado",
+      "tipo molde",
+      "pizza",
+      "tocino",
+      "carnes",
+      "tocino pizza",
       "mayorista"
+    ],
+    "categories": [
+      "carnes",
+      "pizzeria"
     ]
   },
   {
@@ -559,13 +596,16 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": false,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "carnes",
       "combos de carne",
       "familia",
       "ahorro",
       "personalizado"
+    ],
+    "categories": [
+      "carnes"
     ]
   },
   {
@@ -587,7 +627,7 @@ const PRODUCTS_DATA = [
     "origin": "Chile / Venezuela",
     "rating": 5.0,
     "reviewCount": 115,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.02.40.jpeg",
+    "image": "assets/products/clean/prod-catalogo-general-muestrario.jpg",
     "shortDescription": "¡Calidad que se siente, sabor que se recuerda! Carnes de primera calidad, quesos seleccionados y ahumados con despachos rápidos y confiables a todo Chile.",
     "description": "Accede a la lista de precios mayoristas completa y solicita asesoría comercial personalizada para tu negocio, restaurante, pizzería o tequeñería.",
     "storage": "Disponible en línea o vía WhatsApp.",
@@ -607,6 +647,9 @@ const PRODUCTS_DATA = [
       "mayorista",
       "degustacion",
       "precios"
+    ],
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -628,8 +671,8 @@ const PRODUCTS_DATA = [
     "origin": "Venezuela / Elaboración Certificada",
     "rating": 5.0,
     "reviewCount": 184,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.03.29.jpeg",
-    "shortDescription": "Precio por barra $7.990/kg | Desde 20 kg $7.690/kg | Desde 60 kg $7.390/kg. 100% Leche bovina, sabor auténtico que hace la diferencia.",
+    "image": "assets/products/clean/prod-queso-llanero-barra.jpg",
+    "shortDescription": "Precio por kilo: $7.990/kg | Pieza completa en barra (~5 kg): $39.950 aprox. Precio por barra $7.990/kg | Desde 20 kg $7.690/kg | Desde 60 kg $7.390/kg. 100% Leche bovina, sabor auténtico que hace la diferencia.",
     "description": "Auténtico queso llanero blanco tradicional, con consistencia firme, textura ideal para rallar fino o freír en la plancha sin desarmarse. Excelente punto de sal para tequeños, empanadas, arepas y cachapas.",
     "storage": "Mantener refrigerado entre 2°C y 5°C.",
     "wholesaleTiers": [
@@ -659,6 +702,14 @@ const PRODUCTS_DATA = [
       "arepas",
       "tequeños",
       "mayorista"
+    ],
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 5,
+    "pieceWeight": "~5 kg",
+    "piecePrice": 39950,
+    "pieceLabel": "Pieza completa (~5 kg): $39.950",
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -680,8 +731,8 @@ const PRODUCTS_DATA = [
     "origin": "Venezuela / Santa Bárbara",
     "rating": 4.9,
     "reviewCount": 97,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.04.08.jpeg",
-    "shortDescription": "Desde 1 caja $7.990 el kilo | Desde 2 cajas $7.590 el kilo. 100% Leche Bovina. Ingredientes: Leche de vaca pasteurizada, sal, cuajo, cloruro de calcio.",
+    "image": "assets/products/clean/prod-queso-llanero-kilo.jpg",
+    "shortDescription": "Precio pieza 1 kg sellada: $7.990 | Desde 2 cajas: $7.590/kg. Desde 1 caja $7.990 el kilo | Desde 2 cajas $7.590 el kilo. 100% Leche Bovina. Ingredientes: Leche de vaca pasteurizada, sal, cuajo, cloruro de calcio.",
     "description": "Presentación individual de 1 kilo envasado higiénicamente al vacío. Perfecto para negocios gastronómicos que requieren control exacto de porciones y rotación continua.",
     "storage": "Conservar refrigerado entre 2°C y 6°C.",
     "wholesaleTiers": [
@@ -705,6 +756,14 @@ const PRODUCTS_DATA = [
       "formato kilo",
       "caja",
       "santa barbara"
+    ],
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 1,
+    "pieceWeight": "Pieza 1 kg",
+    "piecePrice": 7990,
+    "pieceLabel": "Pieza completa (1 kg): $7.990",
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -726,8 +785,8 @@ const PRODUCTS_DATA = [
     "origin": "Venezuela",
     "rating": 5.0,
     "reviewCount": 112,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.04.55.jpeg",
-    "shortDescription": "100% Leche bovina. $7.590 el kilo. Sabor auténtico que hace la diferencia, textura suave y untuosa inigualable.",
+    "image": "assets/products/clean/prod-queso-guayanes.jpg",
+    "shortDescription": "Precio por kilo / formato 1 kg: $7.590. 100% Leche bovina. $7.590 el kilo. Sabor auténtico que hace la diferencia, textura suave y untuosa inigualable.",
     "description": "El tradicional queso Guayanés venezolano, de textura elástica, blanda y cremosa, con un suave toque salino. Se derrite sutilmente con el calor de la cachapa o la arepa recién salida del budare.",
     "storage": "Mantener refrigerado entre 2°C y 6°C.",
     "wholesaleTiers": [
@@ -744,13 +803,21 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": true,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "quesos",
       "queso guayanes",
       "cachapas",
       "arepas",
       "santa barbara"
+    ],
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 1,
+    "pieceWeight": "Formato 1 kg",
+    "piecePrice": 7590,
+    "pieceLabel": "Pieza cuña (1 kg): $7.590",
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -772,8 +839,8 @@ const PRODUCTS_DATA = [
     "origin": "Venezuela",
     "rating": 4.9,
     "reviewCount": 84,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.05.48.jpeg",
-    "shortDescription": "100% Leche bovina. Libre de gluten. $7.590 el kilo. Tamaño perfecto para rellenar arepas con capas suaves e hiladas.",
+    "image": "assets/products/clean/prod-queso-mano-arepero.jpg",
+    "shortDescription": "Precio por kilo (paquete ruedas tamaño arepa): $7.590. 100% Leche bovina. Libre de gluten. $7.590 el kilo. Tamaño perfecto para rellenar arepas con capas suaves e hiladas.",
     "description": "Queso hilado en capas concéntricas con la técnica ancestral de los llanos. Textura jugosa que al morder desprende toda la frescura de la leche entera pasteurizada.",
     "storage": "Conservar refrigerado entre 2°C y 6°C.",
     "wholesaleTiers": [
@@ -797,6 +864,14 @@ const PRODUCTS_DATA = [
       "arepero",
       "venezolano",
       "hilado"
+    ],
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 1,
+    "pieceWeight": "Paquete 1 kg",
+    "piecePrice": 7590,
+    "pieceLabel": "Paquete ruedas (1 kg): $7.590",
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -818,8 +893,8 @@ const PRODUCTS_DATA = [
     "origin": "Venezuela",
     "rating": 5.0,
     "reviewCount": 105,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.07.02.jpeg",
-    "shortDescription": "100% Leche bovina natural. $7.590 el kilo. Diámetro amplio especial para abrazar la cachapa con fundido suave.",
+    "image": "assets/products/clean/prod-queso-mano-cachapero.jpg",
+    "shortDescription": "Precio por kilo (rueda grande tamaño cachapa): $7.590. 100% Leche bovina natural. $7.590 el kilo. Diámetro amplio especial para abrazar la cachapa con fundido suave.",
     "description": "La estrella de las cachaperas. Ruedas grandes de queso hilado artesanal que cubren por completo la cachapa caliente. Sabor lácteo fresco y punto de sal exacto.",
     "storage": "Conservar refrigerado entre 2°C y 6°C.",
     "wholesaleTiers": [
@@ -843,6 +918,14 @@ const PRODUCTS_DATA = [
       "cachapero",
       "cachapas",
       "rueda grande"
+    ],
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 1,
+    "pieceWeight": "Rueda 1 kg",
+    "piecePrice": 7590,
+    "pieceLabel": "Rueda grande (1 kg): $7.590",
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -864,7 +947,7 @@ const PRODUCTS_DATA = [
     "origin": "Venezuela",
     "rating": 4.9,
     "reviewCount": 78,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.07.54.jpeg",
+    "image": "assets/products/clean/prod-queso-de-ano.jpg",
     "shortDescription": "Presentación 200g $2.790 | Presentación 400g $4.290. 100% natural, sabor fuerte, seco y salado ideal para rallar sobre arepas y pastas.",
     "description": "Queso madurado por meses hasta alcanzar una pasta dura, seca y quebradiza. Su sabor punzante y aromático rinde el doble al rallarse en hebras finas.",
     "storage": "Refrigerado 2°C a 6°C.",
@@ -887,13 +970,16 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": false,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "quesos",
       "queso de año",
       "rallar",
       "madurado",
       "arepas"
+    ],
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -915,8 +1001,8 @@ const PRODUCTS_DATA = [
     "origin": "Venezuela",
     "rating": 5.0,
     "reviewCount": 62,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.08.56.jpeg",
-    "shortDescription": "Precio por kilo $8.490. 100% Leche bovina. Maduración premium, sabor intenso y consistencia firme perfecta para picar o rallar.",
+    "image": "assets/products/clean/prod-queso-madurado-premium.jpg",
+    "shortDescription": "Precio por kilo: $8.490/kg | Pieza completa en bloque (~5 kg): $42.450 aprox. Precio por kilo $8.490. 100% Leche bovina. Maduración premium, sabor intenso y consistencia firme perfecta para picar o rallar.",
     "description": "Queso de curación controlada con textura firme y notas lácteas concentradas. Ideal para tablas de degustación, acompañamiento con vinos o recetas de alta gastronomía.",
     "storage": "Mantener refrigerado entre 2°C y 6°C.",
     "wholesaleTiers": [
@@ -939,6 +1025,14 @@ const PRODUCTS_DATA = [
       "queso madurado",
       "tabla de quesos",
       "santa barbara"
+    ],
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 5,
+    "pieceWeight": "~5 kg",
+    "piecePrice": 42450,
+    "pieceLabel": "Pieza completa (~5 kg): $42.450",
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -960,8 +1054,8 @@ const PRODUCTS_DATA = [
     "origin": "Venezuela / Chile",
     "rating": 4.9,
     "reviewCount": 77,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.09.43.jpeg",
-    "shortDescription": "Desde 1 caja $7.290 el kilo | Desde 60 kilos $6.990 el kilo. Sabor suave y cremoso, 100% leche bovina sin gluten, ideal para toda ocasión.",
+    "image": "assets/products/clean/prod-queso-gouda-santa-barbara.jpg",
+    "shortDescription": "Precio por kilo: $7.290/kg | Pieza completa en barra (~5 kg): $36.450 aprox. Desde 1 caja $7.290 el kilo | Desde 60 kilos $6.990 el kilo. Sabor suave y cremoso, 100% leche bovina sin gluten, ideal para toda ocasión.",
     "description": "Queso Gouda madurado con ojos pequeños y pasta semidura dorada. Se funde con facilidad sin quemarse, brindando excelente color y sabor en sándwiches, hamburguesas y gratinados.",
     "storage": "Mantener refrigerado entre 2°C y 6°C.",
     "wholesaleTiers": [
@@ -978,13 +1072,21 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": true,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "quesos",
       "queso gouda",
       "gouda barra",
       "sandwiches",
       "gratinar"
+    ],
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 5,
+    "pieceWeight": "~5 kg",
+    "piecePrice": 36450,
+    "pieceLabel": "Pieza completa (~5 kg): $36.450",
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -1006,8 +1108,8 @@ const PRODUCTS_DATA = [
     "origin": "Chile - Valdivia",
     "rating": 5.0,
     "reviewCount": 134,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.10.28.jpeg",
-    "shortDescription": "Desde 1 caja $8.790 el kilo | Desde 60 kilos $8.290 el kilo. Sabor suave y cremoso que nos representa, libre de gluten.",
+    "image": "assets/products/clean/prod-queso-mantecoso-valdivia.jpg",
+    "shortDescription": "Precio por kilo: $8.790/kg | Pieza completa en barra (~5 kg): $43.950 aprox. Desde 1 caja $8.790 el kilo | Desde 60 kilos $8.290 el kilo. Sabor suave y cremoso que nos representa, libre de gluten.",
     "description": "El auténtico queso mantecoso del sur de Chile. Textura tierna, elástica y cremosa que se funde en boca con notas a mantequilla fresca. El favorito para empanadas de queso, sándwiches de campo y picoteos.",
     "storage": "Mantener refrigerado entre 2°C y 6°C.",
     "wholesaleTiers": [
@@ -1031,6 +1133,14 @@ const PRODUCTS_DATA = [
       "valdivia",
       "sur de chile",
       "empanadas"
+    ],
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 5,
+    "pieceWeight": "~5 kg",
+    "piecePrice": 43950,
+    "pieceLabel": "Pieza completa (~5 kg): $43.950",
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -1041,7 +1151,7 @@ const PRODUCTS_DATA = [
     "sku": "QUE-MOZZ-PAMPA-KG",
     "category": "quesos",
     "categoryName": "Quesos",
-    "subCategory": "Mozzarella",
+    "subCategory": "Mozzarella & Pizzería",
     "price": 6790,
     "originalPrice": 7590,
     "discountPercent": 11,
@@ -1052,8 +1162,8 @@ const PRODUCTS_DATA = [
     "origin": "Chile / Argentina",
     "rating": 4.9,
     "reviewCount": 89,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.11.11.jpeg",
-    "shortDescription": "Desde 1 caja $6.790 el kilo | Desde 60 kilos $6.490 el kilo. Sabor suave y elástico, fundido uniforme ideal para derretir.",
+    "image": "assets/products/clean/prod-queso-mozzarella-barra-pampa.jpg",
+    "shortDescription": "Precio por kilo: $6.790/kg | Pieza completa en barra (~5 kg): $33.950 aprox. Desde 1 caja $6.790 el kilo | Desde 60 kilos $6.490 el kilo. Sabor suave y elástico, fundido uniforme ideal para derretir.",
     "description": "Mozzarella de primera calidad gastronómica. Hebra elástica larga, dorado perfecto sin aceitar y aroma lácteo suave que realza cualquier preparación caliente.",
     "storage": "Mantener refrigerado entre 2°C y 6°C.",
     "wholesaleTiers": [
@@ -1072,11 +1182,23 @@ const PRODUCTS_DATA = [
     "isBestSeller": true,
     "isOffer": true,
     "tags": [
-      "quesos",
-      "mozzarella",
       "pampa cheese",
+      "pizzeria",
+      "quesos",
       "barra",
-      "fundido"
+      "queso pizza",
+      "pizza",
+      "fundido",
+      "mozzarella"
+    ],
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 5,
+    "pieceWeight": "~5 kg",
+    "piecePrice": 33950,
+    "pieceLabel": "Pieza completa (~5 kg): $33.950",
+    "categories": [
+      "quesos",
+      "pizzeria"
     ]
   },
   {
@@ -1098,8 +1220,8 @@ const PRODUCTS_DATA = [
     "origin": "Chile / 100% Leche Bovina",
     "rating": 4.8,
     "reviewCount": 64,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.12.04.jpeg",
-    "shortDescription": "Desde 1 kilo $7.990 | Caja de 4 kilos por $31.160 ($7.790/kg). 100% Leche bovina, libre de gluten, elasticidad superior.",
+    "image": "assets/products/clean/prod-queso-mozzarella-barra-1k.jpg",
+    "shortDescription": "Barra sellada 1 kg: $7.990 | Caja 4 kg (4 barras): $31.160 ($7.790/kg). Desde 1 kilo $7.990 | Caja de 4 kilos por $31.160 ($7.790/kg). 100% Leche bovina, libre de gluten, elasticidad superior.",
     "description": "Formato práctico de 1 kilo diseñado para rotación rápida sin mermas. Ideal para cafeterías, restaurantes medianos y preparaciones caseras de alto nivel.",
     "storage": "Refrigerado 2°C a 6°C.",
     "wholesaleTiers": [
@@ -1123,6 +1245,14 @@ const PRODUCTS_DATA = [
       "caja 4kg",
       "derretir",
       "pizzas"
+    ],
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 1,
+    "pieceWeight": "Barra 1 kg",
+    "piecePrice": 7990,
+    "pieceLabel": "Pieza barra (1 kg): $7.990",
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -1144,8 +1274,8 @@ const PRODUCTS_DATA = [
     "origin": "Chile / Argentina",
     "rating": 5.0,
     "reviewCount": 96,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.12.53.jpeg",
-    "shortDescription": "Por bolsa 2 kg: $6.690/kg | Caja 20 kg: $5.990/kg | Desde 80 kg: $5.690/kg. Más sabor y mejor rendimiento para hornos.",
+    "image": "assets/products/clean/prod-queso-granulado-2k.jpg",
+    "shortDescription": "Precio por kilo: $6.690/kg | Bolsa completa 2 kg: $13.380. Por bolsa 2 kg: $6.690/kg | Caja 20 kg: $5.990/kg | Desde 80 kg: $5.690/kg. Más sabor y mejor rendimiento para hornos.",
     "description": "Queso granulado suelto IQF. Ahorra mano de obra y tiempo en cocina: se esparce de forma pareja sobre pizzas, lasañas y gratinados sin aglomerarse.",
     "storage": "Mantener refrigerado o congelado.",
     "wholesaleTiers": [
@@ -1174,6 +1304,14 @@ const PRODUCTS_DATA = [
       "rallado",
       "pizzas",
       "pampa cheese"
+    ],
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 2,
+    "pieceWeight": "Bolsa 2 kg",
+    "piecePrice": 13380,
+    "pieceLabel": "Bolsa completa (2 kg): $13.380",
+    "categories": [
+      "pizzeria"
     ]
   },
   {
@@ -1195,8 +1333,8 @@ const PRODUCTS_DATA = [
     "origin": "Chile",
     "rating": 4.8,
     "reviewCount": 51,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.13.51.jpeg",
-    "shortDescription": "Precio desde 1 kilo $5.490 el kilo. Barra de aprox 3.2 kg. Sabor suave y cremoso, sin colorantes artificiales, ideal para maximizar margen.",
+    "image": "assets/products/clean/prod-queso-gouda-sucedaneo-barra.jpg",
+    "shortDescription": "Precio por kilo: $5.490/kg | Barra completa (~3.2 kg): $17.568 aprox. Precio desde 1 kilo $5.490 el kilo. Barra de aprox 3.2 kg. Sabor suave y cremoso, sin colorantes artificiales, ideal para maximizar margen.",
     "description": "Producto lácteo sabor Gouda de óptimo rendimiento culinario. Funde rápido y homogéneo con un costo por kilo sumamente competitivo para locales de alto volumen.",
     "storage": "Mantener refrigerado entre 2°C y 6°C.",
     "wholesaleTiers": [
@@ -1213,13 +1351,24 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": false,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
+      "pizzeria",
       "quesos",
-      "gouda sucedaneo",
+      "barra",
       "economico",
-      "la gogaive",
-      "barra"
+      "pizza",
+      "gouda sucedaneo",
+      "la gogaive"
+    ],
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 3.2,
+    "pieceWeight": "~3.2 kg",
+    "piecePrice": 17568,
+    "pieceLabel": "Pieza completa (~3.2 kg): $17.568",
+    "categories": [
+      "quesos",
+      "pizzeria"
     ]
   },
   {
@@ -1241,7 +1390,7 @@ const PRODUCTS_DATA = [
     "origin": "Venezuela",
     "rating": 5.0,
     "reviewCount": 82,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.14.39.jpeg",
+    "image": "assets/products/clean/prod-natillas-santa-barbara.jpg",
     "shortDescription": "Presentación 250g $1.990 | Presentación 500g $3.190. 100% Leche bovina, suave, cremosa y deliciosa, libre de gluten. ¡El postre que todos aman!",
     "description": "Postre lácteo artesanal tradicional elaborado con pura leche entera de vaca. Su textura aterciopelada y sabor dulce natural lo convierten en el complemento favorito de niños y adultos.",
     "storage": "Mantener refrigerado 2°C a 6°C.",
@@ -1264,13 +1413,16 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": true,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "lacteos",
       "natillas",
       "postre",
       "venezolano",
       "dulce de leche"
+    ],
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -1292,7 +1444,7 @@ const PRODUCTS_DATA = [
     "origin": "Venezuela",
     "rating": 5.0,
     "reviewCount": 129,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.15.05.jpeg",
+    "image": "assets/products/clean/prod-suero-criollo-santa-barbara.jpg",
     "shortDescription": "Suero Normal Cremoso 500ml: $2.190 | Suero Picante Cremoso 500ml: $2.390. 100% leche bovina, libre de gluten, textura cremosa ideal para arepas.",
     "description": "El auténtico suero de leche llanero pasteurizado. De acidez equilibrada y cuerpo espeso, perfecto para acompañar arepas calientes, empanadas, yuca frita y tostones.",
     "storage": "Conservar refrigerado 2°C a 6°C.",
@@ -1322,6 +1474,9 @@ const PRODUCTS_DATA = [
       "suero criollo",
       "picante",
       "arepas"
+    ],
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -1343,7 +1498,7 @@ const PRODUCTS_DATA = [
     "origin": "Venezuela / Santa Bárbara",
     "rating": 4.9,
     "reviewCount": 71,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.15.36.jpeg",
+    "image": "assets/products/clean/prod-mantequilla-santa-barbara.jpg",
     "shortDescription": "Presentación 250 gramos $2.390 la unidad. 100% leche bovina, con sal, libre de gluten. Sabor auténtico que realza cada receta.",
     "description": "Mantequilla cremosa pura de leche entera con el toque exacto de sal. Textura suavemente untable a temperatura ambiente y aroma lácteo inigualable para panes, arepas y repostería.",
     "storage": "Mantener refrigerado 2°C a 6°C.",
@@ -1361,13 +1516,16 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": false,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "lacteos",
       "mantequilla",
       "con sal",
       "santa barbara",
       "untable"
+    ],
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -1389,7 +1547,7 @@ const PRODUCTS_DATA = [
     "origin": "Venezuela / Chile",
     "rating": 5.0,
     "reviewCount": 160,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.20.20.jpeg",
+    "image": "assets/products/clean/prod-tequenos-artesanales-20u.jpg",
     "shortDescription": "Presentación 20 unidades por $6.890 el paquete. Crujientes por fuera, cremosos por dentro con generoso relleno de queso llanero. Listos para freír u hornear.",
     "description": "Los auténticos tequeños venezolanos elaborados con masa fina hojaldrada y un bloque entero de queso llanero fundente. Ideales para fiestas, cócteles, eventos y venta rápida en locales gastronómicos.",
     "storage": "Mantener congelado a -18°C.",
@@ -1412,54 +1570,16 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": true,
     "isBestSeller": true,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "tequeños",
       "pasapalos",
       "queso llanero",
       "congelados",
       "fiesta"
-    ]
-  },
-  {
-    "id": "prod-convenio-comercial-spa",
-    "slug": "convenio-comercial-b2b-distribucion",
-    "name": "Convenio Comercial B2B & Despacho a Todo Chile SpA",
-    "brand": "Comercializadora Valle Lindo SpA",
-    "sku": "B2B-CONVENIO-NAC",
-    "category": "quesos",
-    "categoryName": "Quesos",
-    "subCategory": "Institucional",
-    "price": 0,
-    "originalPrice": 0,
-    "discountPercent": 0,
-    "stock": 999,
-    "stockStatus": "in_stock",
-    "unit": "Línea de crédito mayorista y factura electrónica",
-    "weight": "Servicio Corporativo",
-    "origin": "Chile / Banco Santander SpA",
-    "rating": 5.0,
-    "reviewCount": 95,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.31.56.jpeg",
-    "shortDescription": "Comercializadora Valle Lindo SpA (RUT 77.891.571-5). Cuenta corriente Banco Santander, facturación inmediata y logística refrigerada con envíos a todo Chile.",
-    "description": "Inscribe tu empresa, restaurante o minimarket para obtener tarifas preferenciales por volumen, convenios de pago y abastecimiento calendarizado semanal.",
-    "storage": "Atención personalizada vía WhatsApp +56 9 8790 7981.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 0,
-        "label": "Apertura Gratuita"
-      }
     ],
-    "isFeatured": false,
-    "isBestSeller": false,
-    "isOffer": false,
-    "tags": [
-      "b2b",
-      "facturacion",
-      "convenio",
-      "valle lindo spa",
-      "santander"
+    "categories": [
+      "quesos"
     ]
   },
   {
@@ -1481,7 +1601,7 @@ const PRODUCTS_DATA = [
     "origin": "Chile / La Preferida",
     "rating": 5.0,
     "reviewCount": 59,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.19.03.jpeg",
+    "image": "assets/products/clean/prod-salame-preferida-16k.jpg",
     "shortDescription": "Presentación 1.6 kilos $15.990 el paquete | Desde 5 paquetes $15.490 c/u. Carne de cerdo seleccionada con curación natural, sabor intenso y especiado.",
     "description": "Salame madurado de perfil gourmet. Su condimentación tradicional y textura compacta permiten un laminado perfecto sin roturas, otorgando un aroma cautivador en pizzas horneadas.",
     "storage": "Mantener refrigerado entre 2°C y 6°C.",
@@ -1499,59 +1619,16 @@ const PRODUCTS_DATA = [
     ],
     "isFeatured": true,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "pizzeria",
       "salame",
       "la preferida",
       "embutidos",
       "pizza gourmet"
-    ]
-  },
-  {
-    "id": "prod-pepperoni-premium-850g",
-    "slug": "pepperoni-artesanal-madurado-850g",
-    "name": "Pepperoni Maduro Artesanal Pizza Especial (850 g)",
-    "brand": "Valle Lindo Select",
-    "sku": "PIZ-PEPP-ART-850",
-    "category": "pizzeria",
-    "categoryName": "Productos para Pizzería",
-    "subCategory": "Fiambres Pizza",
-    "price": 10990,
-    "originalPrice": 12490,
-    "discountPercent": 12,
-    "stock": 85,
-    "stockStatus": "in_stock",
-    "unit": "Bolsa 850 gramos",
-    "weight": "850 g",
-    "origin": "Chile",
-    "rating": 4.9,
-    "reviewCount": 77,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.19.42.jpeg",
-    "shortDescription": "Presentación 850 gramos $10.990 el paquete. Carne de cerdo premium seleccionada, naturalmente madurado con sabor intenso y ligeramente picante.",
-    "description": "El ingrediente insignia para pizzerías americanas y artesanales. Al hornearse forma el clásico tostado en los bordes con un desprendimiento controlado de aceites aromáticos.",
-    "storage": "Mantener refrigerado entre 2°C y 6°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 10990,
-        "label": "1 a 2 bolsas ($10.990)"
-      },
-      {
-        "minQty": 3,
-        "price": 10290,
-        "label": "Desde 3 bolsas ($10.290)"
-      }
     ],
-    "isFeatured": true,
-    "isBestSeller": true,
-    "isOffer": false,
-    "tags": [
-      "pizzeria",
-      "pepperoni",
-      "pizza",
-      "insumos pizza",
-      "picante"
+    "categories": [
+      "pizzeria"
     ]
   },
   {
@@ -1573,7 +1650,7 @@ const PRODUCTS_DATA = [
     "origin": "Chile",
     "rating": 5.0,
     "reviewCount": 88,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.27.04.jpeg",
+    "image": "assets/products/clean/prod-kit-pizzerias-asesoria.jpg",
     "shortDescription": "¡Los mejores ingredientes para el sabor que tus clientes merecen! Distribución especializada para pizzerías, restaurantes y emprendedores con abastecimiento confiable.",
     "description": "Solicita cotizaciones por volumen de queso mozzarella, salsas base, harinas, fiambres y condimentos con despacho programado directo a tu local.",
     "storage": "Contacto directo vía WhatsApp +56 9 8790 7981.",
@@ -1593,52 +1670,9 @@ const PRODUCTS_DATA = [
       "abastecimiento",
       "mozzarella",
       "restaurantes"
-    ]
-  },
-  {
-    "id": "prod-mozzarella-pampa-cheese-pizza",
-    "slug": "queso-mozzarella-pampa-cheese-especial-pizza",
-    "name": "Queso Mozzarella Pampa Cheese Especial Pizzería (Por Kilo)",
-    "brand": "Pampa Cheese",
-    "sku": "PIZ-MOZZ-PAMPA",
-    "category": "pizzeria",
-    "categoryName": "Productos para Pizzería",
-    "subCategory": "Quesos Pizza",
-    "price": 6790,
-    "originalPrice": 7590,
-    "discountPercent": 11,
-    "stock": 220,
-    "stockStatus": "in_stock",
-    "unit": "Kilo (Precio por kilo en barra)",
-    "weight": "Por Kilo",
-    "origin": "Chile / Formato Gastronómico",
-    "rating": 5.0,
-    "reviewCount": 145,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.27.39.jpeg",
-    "shortDescription": "Precio por kilo $6.790 | Desde 40 kilos $6.490/kg. Excelente fundido, sabor suave y textura elástica ideal para pizzas artesanales.",
-    "description": "La mozzarella preferida por maestros pizzeros. Logra un hilo elástico largo y continuo, soporta temperaturas sobre 350°C en hornos a leña o piedra y dora de manera uniforme sin quemarse ni secarse.",
-    "storage": "Mantener refrigerado entre 2°C y 6°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 6790,
-        "label": "1 a 39 kg ($6.790/kg)"
-      },
-      {
-        "minQty": 40,
-        "price": 6490,
-        "label": "Desde 40 kg ($6.490/kg)"
-      }
     ],
-    "isFeatured": true,
-    "isBestSeller": true,
-    "isOffer": true,
-    "tags": [
-      "pizzeria",
-      "mozzarella pizza",
-      "pampa cheese",
-      "fundido",
-      "horno leña"
+    "categories": [
+      "pizzeria"
     ]
   },
   {
@@ -1660,8 +1694,8 @@ const PRODUCTS_DATA = [
     "origin": "Lactalis / Francia - Chile",
     "rating": 5.0,
     "reviewCount": 118,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.28.08.jpeg",
-    "shortDescription": "Precio por kilo $6.980 | Desde 40 kilos $6.680/kg. Calidad europea superior, fundido cremoso de elasticidad legendaria para pizzas gourmet.",
+    "image": "assets/products/clean/prod-mozzarella-president-pizza.jpg",
+    "shortDescription": "Precio por kilo: $6.980/kg | Pieza completa en barra gastronómica (~5 kg): $34.900 aprox. Precio por kilo $6.980 | Desde 40 kilos $6.680/kg. Calidad europea superior, fundido cremoso de elasticidad legendaria para pizzas gourmet.",
     "description": "Elaborada bajo estándares internacionales de Président. Proporciona una cobertura lechosa sedosa con un dorado apetitoso y cero desprendimiento acuoso sobre la masa.",
     "storage": "Mantener refrigerado entre 2°C y 6°C.",
     "wholesaleTiers": [
@@ -1685,102 +1719,14 @@ const PRODUCTS_DATA = [
       "president",
       "gourmet",
       "pizzas artesanales"
-    ]
-  },
-  {
-    "id": "prod-queso-granulado-pizza-2k",
-    "slug": "queso-granulado-especial-pizza-bolsa-2kg",
-    "name": "Queso Granulado Especial Pizzería (Bolsa 2 kg / Caja 20 kg)",
-    "brand": "Valle Lindo Select",
-    "sku": "PIZ-GRAN-2K",
-    "category": "pizzeria",
-    "categoryName": "Productos para Pizzería",
-    "subCategory": "Quesos Pizza",
-    "price": 6690,
-    "originalPrice": 7490,
-    "discountPercent": 11,
-    "stock": 170,
-    "stockStatus": "in_stock",
-    "unit": "Kilo (Bolsa 2 kg a $13.380)",
-    "weight": "2 kg",
-    "origin": "Chile",
-    "rating": 4.9,
-    "reviewCount": 94,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.28.32.jpeg",
-    "shortDescription": "Por bolsa 2 kg: $6.690/kg | Caja 20 kg (10 bolsas de 2 kg): $5.990/kg | Desde 80 kg (4 cajas): $5.690/kg. Formato gastronómico de máximo rendimiento.",
-    "description": "Granulado fino libre de apelmazamiento. Agiliza el armado de pizzas en hora punta garantizando una distribución exacta por porción y reduciendo drásticamente las mermas.",
-    "storage": "Mantener refrigerado 2°C a 6°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 2,
-        "price": 6690,
-        "label": "Bolsa 2 kg ($6.690/kg)"
-      },
-      {
-        "minQty": 20,
-        "price": 5990,
-        "label": "Caja 20 kg (10 bolsas a $5.990/kg)"
-      },
-      {
-        "minQty": 80,
-        "price": 5690,
-        "label": "Desde 80 kg / 4 cajas ($5.690/kg)"
-      }
     ],
-    "isFeatured": true,
-    "isBestSeller": true,
-    "isOffer": true,
-    "tags": [
-      "pizzeria",
-      "granulado",
-      "queso pizza",
-      "escala mayorista",
-      "2kg"
-    ]
-  },
-  {
-    "id": "prod-gouda-sucedaneo-pizzeria",
-    "slug": "queso-gouda-sucedaneo-especial-pizzerias",
-    "name": "Queso Gouda Sucedáneo Especial Pizzerías (La Gogaive)",
-    "brand": "La Gogaive",
-    "sku": "PIZ-GOUDA-SUC",
-    "category": "pizzeria",
-    "categoryName": "Productos para Pizzería",
-    "subCategory": "Quesos Pizza",
-    "price": 5490,
-    "originalPrice": 6190,
-    "discountPercent": 11,
-    "stock": 130,
-    "stockStatus": "in_stock",
-    "unit": "Por Kilo",
-    "weight": "1 kg",
-    "origin": "Chile",
-    "rating": 4.8,
-    "reviewCount": 44,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.28.58.jpeg",
-    "shortDescription": "Precio por kilo $5.490. Excelente rendimiento para pizzas económicas, empanadas y preparaciones de alto flujo gastronómico.",
-    "description": "Alternativa de alta rentabilidad que asegura una textura fundida atractiva y buen dorado con el precio más accesible del mercado.",
-    "storage": "Mantener refrigerado entre 2°C y 6°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 5490,
-        "label": "1 a 19 kg ($5.490)"
-      },
-      {
-        "minQty": 20,
-        "price": 5190,
-        "label": "20+ kg ($5.190)"
-      }
-    ],
-    "isFeatured": false,
-    "isBestSeller": false,
-    "isOffer": true,
-    "tags": [
-      "pizzeria",
-      "gouda sucedaneo",
-      "pizza economica",
-      "la gogaive"
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 5,
+    "pieceWeight": "~5 kg",
+    "piecePrice": 34900,
+    "pieceLabel": "Pieza completa (~5 kg): $34.900",
+    "categories": [
+      "pizzeria"
     ]
   },
   {
@@ -1802,7 +1748,7 @@ const PRODUCTS_DATA = [
     "origin": "Chile / PF Alimentos",
     "rating": 5.0,
     "reviewCount": 132,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.29.35.jpeg",
+    "image": "assets/products/clean/prod-pepperoni-pf-850g.jpg",
     "shortDescription": "Precio por bolsa $10.990 | Desde 3 bolsas precio especial. Sabor ahumado irresistible, textura perfecta para pizzas gourmet.",
     "description": "El pepperoni más vendido en Chile de la marca PF. Rodajas calibradas listas para aplicar sobre el queso. No se encoge en exceso ni despide exceso de grasa.",
     "storage": "Mantener refrigerado 2°C a 5°C.",
@@ -1814,8 +1760,8 @@ const PRODUCTS_DATA = [
       },
       {
         "minQty": 3,
-        "price": 10490,
-        "label": "Desde 3 bolsas ($10.490 c/u)"
+        "price": 9990,
+        "label": "Desde 3 bolsas ($9.990 c/u)"
       }
     ],
     "isFeatured": true,
@@ -1827,158 +1773,215 @@ const PRODUCTS_DATA = [
       "pf alimentos",
       "pizza pepperoni",
       "850g"
-    ]
-  },
-  {
-    "id": "prod-tocino-ahumado-molde-pizza",
-    "slug": "tocino-ahumado-tipo-molde-pizzeria-kg",
-    "name": "Tocino Ahumado Tipo Molde para Pizzería (Por Kilo)",
-    "brand": "Valle Lindo Ahumados",
-    "sku": "PIZ-TOC-MOLDE",
-    "category": "pizzeria",
-    "categoryName": "Productos para Pizzería",
-    "subCategory": "Fiambres Pizza",
-    "price": 6990,
-    "originalPrice": 7990,
-    "discountPercent": 13,
-    "stock": 105,
-    "stockStatus": "in_stock",
-    "unit": "Kilo en barra molde ($6.990 el kilo)",
-    "weight": "Por Kilo",
-    "origin": "Chile",
-    "rating": 4.9,
-    "reviewCount": 68,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.30.10.jpeg",
-    "shortDescription": "Precio por kilo $6.990 | A partir de 5 kilos $6.590/kg. Ahumado natural, sabor intenso y delicioso, ideal para pizzas carbonara, fugazzetas y calzones.",
-    "description": "Tocino de estructura compacta que rinde al máximo cortado en bastones o cuadritos crocantes sobre la masa. Alto contenido cárnico.",
-    "storage": "Mantener refrigerado entre 2°C y 6°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 6990,
-        "label": "1 a 4 kg ($6.990/kg)"
-      },
-      {
-        "minQty": 5,
-        "price": 6590,
-        "label": "Desde 5 kg ($6.590/kg)"
-      }
     ],
-    "isFeatured": false,
-    "isBestSeller": false,
-    "isOffer": true,
-    "tags": [
-      "pizzeria",
-      "tocino pizza",
-      "ahumado",
-      "tipo molde",
-      "topping"
+    "categories": [
+      "pizzeria"
     ]
   },
   {
-    "id": "prod-salsa-tomate-pomarola-pizza",
-    "slug": "salsa-tomate-pomarola-pizza-sauce-3kg-1kg",
-    "name": "Salsa de Tomate Pomarola Pizza Sauce Lista (1 kg / 3 kg)",
+    "id": "prod-salsa-tomate-pomarola-1k",
+    "slug": "salsa-tomate-pomarola-pizza-sauce-1kg",
+    "name": "Salsa de Tomate Pomarola Pizza Sauce (1 kg)",
     "brand": "Pomarola / Carozzi",
-    "sku": "PIZ-SALSA-POM",
+    "sku": "PIZ-SALSA-1K",
     "category": "pizzeria",
     "categoryName": "Productos para Pizzería",
     "subCategory": "Salsas Pizza",
     "price": 2990,
     "originalPrice": 3490,
     "discountPercent": 14,
-    "stock": 210,
+    "stock": 150,
     "stockStatus": "in_stock",
-    "unit": "Bolsa 1 kg ($2.990) / Bolsa 3 kg ($6.690)",
-    "weight": "1 kg / 3 kg",
+    "unit": "Bolsa 1 kg sellada",
+    "weight": "1 kg",
     "origin": "Chile / Carozzi",
     "rating": 5.0,
-    "reviewCount": 160,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.30.56.jpeg",
-    "shortDescription": "Bolsa 1 kg: $2.990 | Bolsa 3 kg: $6.690 ($2.230/kg). Sabor casero y natural, lista para usar, textura y acidez calibrada para pizzas artesanales.",
-    "description": "Salsa espesa elaborada con tomates maduros seleccionados, sin exceso de agua para evitar humedecer la masa en el horno. Se esparce con una sola pasada de cucharón.",
-    "storage": "Conservar en lugar fresco y seco; una vez abierto, refrigerar.",
+    "reviewCount": 112,
+    "image": "assets/products/clean/prod-salsa-tomate-pomarola-1k.jpg",
+    "shortDescription": "Formato 1 Kilo: $2.990. Sabor casero y natural, lista para usar, textura espesa y acidez calibrada para pizzas artesanales.",
+    "description": "Salsa espesa lista para usar elaborada con tomates maduros seleccionados. Sin exceso de agua para evitar humedecer la masa en el horno napolitano o a la piedra. Rinde de 8 a 10 pizzas medianas por bolsa.",
+    "storage": "Conservar en lugar fresco y seco; una vez abierto, mantener refrigerado.",
     "wholesaleTiers": [
       {
         "minQty": 1,
         "price": 2990,
-        "label": "Bolsa 1 kg ($2.990)"
-      },
-      {
-        "minQty": 1,
-        "price": 6690,
-        "label": "Bolsa 3 kg ($6.690 total / $2.230/kg)"
+        "label": "1 a 4 bolsas ($2.990 c/u)"
       },
       {
         "minQty": 5,
-        "price": 6290,
-        "label": "5+ bolsas 3 kg ($6.290 c/u)"
+        "price": 2790,
+        "label": "Desde 5 bolsas ($2.790 c/u)"
       }
     ],
     "isFeatured": true,
     "isBestSeller": true,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "pizzeria",
       "salsa de tomate",
       "pomarola",
       "pizza sauce",
-      "3kg"
+      "1kg",
+      "carozzi"
+    ],
+    "categories": [
+      "pizzeria"
     ]
   },
   {
-    "id": "prod-oregano-premium-bolsa",
-    "slug": "oregano-seleccionado-premium-pizzerias",
-    "name": "Orégano Seleccionado Premium Aromático (500 g / 1 kg)",
+    "id": "prod-salsa-tomate-pomarola-3k",
+    "slug": "salsa-tomate-pomarola-pizza-sauce-3kg",
+    "name": "Salsa de Tomate Pomarola Pizza Sauce Grande (3 kg)",
+    "brand": "Pomarola / Carozzi",
+    "sku": "PIZ-SALSA-3K",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Salsas Pizza",
+    "price": 6690,
+    "originalPrice": 7490,
+    "discountPercent": 11,
+    "stock": 210,
+    "stockStatus": "in_stock",
+    "unit": "Bolsa 3 kg gastronómica",
+    "weight": "3 kg",
+    "pricePerUnitLabel": "/ 3 kg ($2.230/kg)",
+    "origin": "Chile / Carozzi",
+    "rating": 5.0,
+    "reviewCount": 185,
+    "image": "assets/products/clean/prod-salsa-tomate-pomarola-3k.jpg",
+    "shortDescription": "Presentación Mayorista 3 Kilos: $6.690 ($2.230 el kilo). Alto rendimiento y máximo ahorro para pizzerías de alto flujo.",
+    "description": "Presentación institucional de 3 kilos ideal para cadenas y pizzerías de alta producción. Salsa espesa con consistencia pareja, color rojo intenso y condimentación equilibrada. Rinde entre 25 y 30 pizzas familiares por envase.",
+    "storage": "Conservar en lugar fresco y seco; una vez abierto, refrigerar.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 6690,
+        "label": "1 a 4 bolsas ($6.690 c/u)"
+      },
+      {
+        "minQty": 5,
+        "price": 6290,
+        "label": "Desde 5 bolsas ($6.290 c/u)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": false,
+    "tags": [
+      "pizzeria",
+      "salsa de tomate",
+      "pomarola",
+      "pizza sauce",
+      "3kg",
+      "institucional",
+      "carozzi"
+    ],
+    "categories": [
+      "pizzeria"
+    ]
+  },
+  {
+    "id": "prod-oregano-premium-500g",
+    "slug": "oregano-seleccionado-premium-500g",
+    "name": "Orégano Seleccionado Premium Aromático (500 g)",
     "brand": "Valle Lindo Especias",
-    "sku": "PIZ-OREG-PREM",
+    "sku": "PIZ-OREG-500G",
     "category": "pizzeria",
     "categoryName": "Productos para Pizzería",
     "subCategory": "Especias Pizza",
     "price": 3990,
     "originalPrice": 4690,
     "discountPercent": 15,
-    "stock": 175,
+    "stock": 120,
     "stockStatus": "in_stock",
-    "unit": "Bolsa 500g ($3.990) / Bolsa 1 kg ($6.990)",
-    "weight": "500g / 1 kg",
-    "origin": "Chile - Norte / Arica",
+    "unit": "Bolsa 500 gramos",
+    "weight": "500 g",
+    "origin": "Chile - Arica / Valle de Azapa",
     "rating": 5.0,
-    "reviewCount": 85,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.31.19.jpeg",
-    "shortDescription": "Presentación 500 gramos: $3.990 | Presentación 1 Kilo: $6.990. 100% natural, sin aditivos ni conservantes, calidad premium e intenso aroma.",
-    "description": "Hojas seleccionadas secadas a la sombra para preservar sus aceites esenciales volátiles. Un aroma potente que despierta al contacto con el queso caliente de la pizza.",
-    "storage": "Almacenar en lugar seco y oscuro bien cerrado.",
+    "reviewCount": 64,
+    "image": "assets/products/clean/prod-oregano-premium-500g.jpg",
+    "shortDescription": "Presentación 500 gramos: $3.990. 100% natural, sin aditivos ni conservantes, calidad premium e intenso aroma que realza tus pizzas.",
+    "description": "Hojas enteras seleccionadas de orégano chileno secadas a la sombra para preservar sus aceites esenciales volátiles (timol y carvacrol). Aroma fresco y potente al contacto con el queso fundido.",
+    "storage": "Almacenar en lugar fresco, seco y oscuro bien cerrado.",
     "wholesaleTiers": [
       {
         "minQty": 1,
         "price": 3990,
-        "label": "Bolsa 500g ($3.990)"
-      },
-      {
-        "minQty": 1,
-        "price": 6990,
-        "label": "Bolsa 1 kg ($6.990)"
+        "label": "1 a 4 bolsas ($3.990 c/u)"
       },
       {
         "minQty": 5,
-        "price": 6490,
-        "label": "5+ kg ($6.490 c/u)"
+        "price": 3690,
+        "label": "Desde 5 bolsas ($3.690 c/u)"
       }
     ],
     "isFeatured": true,
     "isBestSeller": false,
-    "isOffer": true,
+    "isOffer": false,
     "tags": [
       "pizzeria",
       "oregano",
       "especias",
       "aromatico",
+      "500g",
       "100% natural"
+    ],
+    "categories": [
+      "pizzeria"
+    ]
+  },
+  {
+    "id": "prod-oregano-premium-1k",
+    "slug": "oregano-seleccionado-premium-1kg",
+    "name": "Orégano Seleccionado Premium Aromático Grande (1 kg)",
+    "brand": "Valle Lindo Especias",
+    "sku": "PIZ-OREG-1K",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Especias Pizza",
+    "price": 6990,
+    "originalPrice": 7990,
+    "discountPercent": 13,
+    "stock": 175,
+    "stockStatus": "in_stock",
+    "unit": "Bolsa 1 Kilo Mayorista",
+    "weight": "1 kg",
+    "origin": "Chile - Arica / Valle de Azapa",
+    "rating": 5.0,
+    "reviewCount": 118,
+    "image": "assets/products/clean/prod-oregano-premium-1k.jpg",
+    "shortDescription": "Presentación Mayorista 1 Kilo: $6.990. Máximo rendimiento y aroma superior para cocinas y pizzerías de alto volumen.",
+    "description": "Envase mayorista de 1 Kilo pensado para el uso intensivo en pizzerías, panaderías y fábricas de empanadas. Orégano calibrado, libre de polvo o ramas, con fragancia penetrante y color verde oliva natural.",
+    "storage": "Almacenar en lugar seco y oscuro bien cerrado.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 6990,
+        "label": "1 a 4 kg ($6.990 c/u)"
+      },
+      {
+        "minQty": 5,
+        "price": 6490,
+        "label": "Desde 5 kg ($6.490 c/u)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": false,
+    "tags": [
+      "pizzeria",
+      "oregano",
+      "especias",
+      "aromatico",
+      "1kg",
+      "mayorista",
+      "100% natural"
+    ],
+    "categories": [
+      "pizzeria"
     ]
   }
 ];
-
 // ========================================================
 // SISTEMA DE ESTADO GLOBAL (LOCALSTORAGE SYNCHRONIZED)
 // ========================================================
@@ -1992,6 +1995,7 @@ class CartManager {
       ? SecurityGuard.validateCoupon(this.coupon)
       : (this.coupon === "BIENVENIDAB2B" ? { valid: true, discount: 0.10 } : { valid: false, discount: 0 });
     this.discountRate = validated.valid ? validated.discount : 0;
+    this.shippingType = localStorage.getItem("valle_shipping_type") || "radio_8km";
   }
 
   loadCart() {
@@ -2154,6 +2158,12 @@ class CartManager {
     this.saveCart();
   }
 
+  setShippingType(type) {
+    this.shippingType = (type === "mas_8km") ? "mas_8km" : "radio_8km";
+    localStorage.setItem("valle_shipping_type", this.shippingType);
+    this.notify();
+  }
+
   getTotals() {
     const count = this.cart.reduce((sum, i) => sum + i.quantity, 0);
     const rawSubtotal = this.cart.reduce((sum, i) => sum + i.unitPrice * i.quantity, 0);
@@ -2161,10 +2171,47 @@ class CartManager {
     const subtotal = Math.max(0, rawSubtotal - discountAmt);
     const originalTotal = this.cart.reduce((sum, i) => sum + (i.product.originalPrice || i.unitPrice) * i.quantity, 0);
     const savings = Math.max(0, originalTotal - subtotal);
-    const shipping = subtotal >= 75000 || subtotal === 0 ? 0 : 4990;
-    const total = subtotal + shipping;
 
-    return { count, subtotal, savings, shipping, total, discountAmt, coupon: this.coupon };
+    // Reglas Comerciales de Despacho Valle Lindo:
+    // Pedido mínimo: $50.000
+    // Despacho GRATIS: Sobre $299.990
+    // Pedidos entre $50.000 y $299.990:
+    // - En un radio de 8 km: $3.000
+    // - Si es más de 8 km: $4.000
+    const minOrder = 50000;
+    const freeThreshold = 299990;
+
+    let shipping = 0;
+    if (subtotal === 0) {
+      shipping = 0;
+    } else if (subtotal > freeThreshold) {
+      shipping = 0;
+    } else {
+      shipping = (this.shippingType === "mas_8km") ? 4000 : 3000;
+    }
+
+    const total = subtotal + shipping;
+    const isFreeShipping = subtotal > freeThreshold;
+    const isMinOrderMet = subtotal >= minOrder;
+    const missingForMin = Math.max(0, minOrder - subtotal);
+    const missingForFree = Math.max(0, (freeThreshold + 1) - subtotal);
+
+    return { 
+      count, 
+      subtotal, 
+      savings, 
+      shipping, 
+      total, 
+      discountAmt, 
+      coupon: this.coupon,
+      shippingType: this.shippingType,
+      minOrder,
+      freeThreshold,
+      isMinOrderMet,
+      isFreeShipping,
+      missingForMin,
+      missingForFree
+    };
   }
 
   notify() {
@@ -2218,26 +2265,46 @@ function renderCartDrawer() {
   const totalsContainer = document.getElementById("cartDrawerTotals");
   if (!container || !totalsContainer) return;
 
-  const { count, subtotal, savings, shipping, total, coupon } = Cart.getTotals();
+  const { 
+    count, 
+    subtotal, 
+    savings, 
+    shipping, 
+    total, 
+    coupon, 
+    shippingType, 
+    minOrder, 
+    freeThreshold, 
+    isMinOrderMet, 
+    isFreeShipping, 
+    missingForMin, 
+    missingForFree 
+  } = Cart.getTotals();
 
-  // Envío Gratis Progress
-  const freeThreshold = 75000;
+  // Envío Gratis Progress (Sobre $299.990)
   const progress = Math.min(100, Math.round((subtotal / freeThreshold) * 100));
-  const missing = Math.max(0, freeThreshold - subtotal);
 
   const progContainer = document.getElementById("freeShippingProgress");
   if (progContainer) {
     progContainer.innerHTML = `
-      <div class="flex items-center justify-between font-semibold text-emerald-900 mb-1.5 text-xs">
-        <span class="flex items-center gap-1.5">
-          ${missing === 0 
-            ? '<strong class="text-emerald-700 font-bold">¡Felicidades! Tienes Despacho GRATIS 🚚</strong>' 
-            : `Te faltan <strong class="text-emerald-700">${formatCLP(missing)}</strong> para Despacho Gratis`}
-        </span>
-        <span class="font-mono text-emerald-700 font-bold">${progress}%</span>
-      </div>
-      <div class="w-full bg-emerald-200 h-2 rounded-full overflow-hidden">
-        <div class="bg-emerald-600 h-full rounded-full transition-all duration-300" style="width: ${progress}%"></div>
+      <div class="space-y-1.5">
+        <div class="flex items-center justify-between font-semibold text-xs">
+          <span class="flex items-center gap-1.5 text-emerald-900">
+            ${isFreeShipping 
+              ? '<strong class="text-emerald-700 font-bold">¡Felicidades! Tienes Despacho GRATIS 🚚</strong>' 
+              : `Te faltan <strong class="text-emerald-700 font-bold">${formatCLP(missingForFree)}</strong> para Despacho Gratis`}
+          </span>
+          <span class="font-mono text-emerald-700 font-bold">${progress}%</span>
+        </div>
+        <div class="w-full bg-emerald-200 h-2 rounded-full overflow-hidden">
+          <div class="bg-emerald-600 h-full rounded-full transition-all duration-300" style="width: ${progress}%"></div>
+        </div>
+        ${!isMinOrderMet && subtotal > 0 ? `
+          <div class="flex items-center gap-1.5 text-[11px] text-amber-900 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-md font-semibold mt-1">
+            <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-amber-700 shrink-0"></i>
+            <span>Pedido mínimo: <strong>$50.000</strong> (Faltan <strong>${formatCLP(missingForMin)}</strong>)</span>
+          </div>
+        ` : ''}
       </div>
     `;
   }
@@ -2290,10 +2357,39 @@ function renderCartDrawer() {
 
   // Totales
   totalsContainer.innerHTML = `
-    <div class="space-y-1.5 text-xs text-gray-600 pt-2 border-t border-gray-200">
+    <!-- Selector de Radio / Distancia de Despacho -->
+    <div class="mb-2.5 pb-2.5 border-b border-gray-200">
+      <div class="flex justify-between items-center mb-1.5 text-[11px] font-bold text-gray-700">
+        <span>Distancia de Despacho:</span>
+        ${isFreeShipping 
+          ? '<span class="text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-extrabold text-[10px]">¡Despacho GRATIS aplicado!</span>' 
+          : '<span class="text-gray-500 text-[10px]">Radio vs Más de 8 km</span>'}
+      </div>
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <button type="button" onclick="Cart.setShippingType('radio_8km')" class="px-2.5 py-1.5 rounded-lg border text-left transition-all ${shippingType === 'radio_8km' ? 'border-[#B71C1C] bg-red-50 text-[#B71C1C] font-bold shadow-xs' : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'}">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]">Hasta 8 km</span>
+            <span class="font-extrabold ${isFreeShipping ? 'text-emerald-700 line-through text-[10px]' : ''}">$3.000</span>
+          </div>
+          ${isFreeShipping ? '<span class="text-[10px] text-emerald-700 font-bold block">GRATIS</span>' : ''}
+        </button>
+        <button type="button" onclick="Cart.setShippingType('mas_8km')" class="px-2.5 py-1.5 rounded-lg border text-left transition-all ${shippingType === 'mas_8km' ? 'border-[#B71C1C] bg-red-50 text-[#B71C1C] font-bold shadow-xs' : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'}">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]">Más de 8 km</span>
+            <span class="font-extrabold ${isFreeShipping ? 'text-emerald-700 line-through text-[10px]' : ''}">$4.000</span>
+          </div>
+          ${isFreeShipping ? '<span class="text-[10px] text-emerald-700 font-bold block">GRATIS</span>' : ''}
+        </button>
+      </div>
+    </div>
+
+    <div class="space-y-1.5 text-xs text-gray-600">
       <div class="flex justify-between"><span>Subtotal:</span><strong class="text-gray-900 font-bold">${formatCLP(subtotal)}</strong></div>
       ${savings > 0 ? `<div class="flex justify-between text-emerald-700 font-bold"><span>Ahorro Mayorista:</span><span>-${formatCLP(savings)}</span></div>` : ''}
-      <div class="flex justify-between"><span>Despacho:</span><strong>${shipping === 0 ? '<span class="text-emerald-700">GRATIS</span>' : formatCLP(shipping)}</strong></div>
+      <div class="flex justify-between items-center">
+        <span>Despacho (${shippingType === 'mas_8km' ? 'Más de 8 km' : 'Hasta 8 km'}):</span>
+        <strong>${shipping === 0 ? '<span class="text-emerald-700 font-bold">GRATIS</span>' : formatCLP(shipping)}</strong>
+      </div>
       <div class="flex justify-between text-sm font-black text-gray-900 pt-2 border-t border-gray-200">
         <span>Total IVA Incluido:</span>
         <span class="text-[#B71C1C] text-base">${formatCLP(total)}</span>
@@ -2317,10 +2413,17 @@ function renderCartDrawer() {
 
     <!-- Botones Checkout -->
     <div class="mt-4 space-y-2">
-      <a href="checkout.html" class="w-full flex items-center justify-center gap-2 py-3 bg-[#B71C1C] hover:bg-[#8E0000] text-white font-black text-xs rounded-xl shadow-lg transition-all">
-        <span>Ir al Checkout de 1 Paso</span>
-        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-      </a>
+      ${!isMinOrderMet ? `
+        <button onclick="alert('El pedido mínimo para despacho es de $50.000. Te faltan ${formatCLP(missingForMin)} para completar tu compra.');" class="w-full flex items-center justify-center gap-2 py-3 bg-gray-400 hover:bg-gray-500 text-white font-black text-xs rounded-xl shadow transition-all cursor-pointer">
+          <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+          <span>Pedido Mínimo $50.000 (Faltan ${formatCLP(missingForMin)})</span>
+        </button>
+      ` : `
+        <a href="checkout.html" class="w-full flex items-center justify-center gap-2 py-3 bg-[#B71C1C] hover:bg-[#8E0000] text-white font-black text-xs rounded-xl shadow-lg transition-all">
+          <span>Ir al Checkout de 1 Paso</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      `}
       <a href="${getWhatsAppCartUrl()}" target="_blank" class="w-full flex items-center justify-center gap-2 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow transition-colors">
         <i data-lucide="message-circle" class="w-4 h-4"></i>
         <span>Pedir y Facturar vía WhatsApp</span>
@@ -2332,13 +2435,16 @@ function renderCartDrawer() {
 }
 
 function getWhatsAppCartUrl() {
-  const { subtotal, shipping, total } = Cart.getTotals();
+  const { subtotal, shipping, total, shippingType, isFreeShipping } = Cart.getTotals();
   let msg = `Hola Comercializadora Valle Lindo! Deseo confirmar el siguiente pedido mayorista:\n\n`;
   Cart.cart.forEach((i, idx) => {
     msg += `${idx + 1}. ${i.product.name} (SKU: ${i.product.sku}) - Cantidad: ${i.quantity} x ${formatCLP(i.unitPrice)}\n`;
   });
   msg += `\nSubtotal: ${formatCLP(subtotal)}\n`;
-  msg += `Despacho: ${shipping === 0 ? "GRATIS" : formatCLP(shipping)}\n`;
+  const shipText = isFreeShipping 
+    ? "GRATIS (Pedido sobre $299.990)" 
+    : `${formatCLP(shipping)} (${shippingType === 'mas_8km' ? 'Más de 8 km' : 'Radio hasta 8 km'})`;
+  msg += `Despacho: ${shipText}\n`;
   msg += `*TOTAL A PAGAR:* ${formatCLP(total)}\n\n`;
   msg += `Por favor coordinar emisión de factura y horario de entrega. ¡Gracias!`;
   return `https://wa.me/56987907981?text=${encodeURIComponent(msg)}`;
@@ -2416,15 +2522,22 @@ function renderProductCard(p, isGrid = true) {
           </div>
 
           <div class="mt-2.5 pt-2 border-t border-neutral-100">
-            <div class="flex items-baseline gap-2 flex-wrap">
+            <div class="flex items-baseline gap-1.5 flex-wrap">
               ${isFreeOrQuote ? `
                 <span class="text-base sm:text-xl font-black text-emerald-700 tracking-tight">Cotización Mayorista</span>
                 <span class="text-[10px] text-gray-400 font-semibold">Atención B2B</span>
               ` : `
                 <span class="text-lg sm:text-2xl font-black text-[#B71C1C] tracking-tight">${formatCLP(p.price)}</span>
+                ${p.pricePerUnitLabel ? `<span class="text-xs font-bold text-gray-500">${p.pricePerUnitLabel}</span>` : ''}
                 ${p.originalPrice > p.price ? `<span class="text-[11px] sm:text-xs text-neutral-400 line-through font-semibold">${formatCLP(p.originalPrice)}</span>` : ''}
               `}
             </div>
+            ${p.piecePrice && p.pieceWeightKg && p.pieceWeightKg > 1 ? `
+              <div class="mt-1.5 text-[9px] xs:text-[10px] sm:text-[11px] text-amber-950 bg-amber-50/95 px-1.5 sm:px-2 py-1 rounded-lg border border-amber-200 flex items-center justify-between font-semibold shadow-2xs">
+                <span class="truncate">🧀 Pieza (${p.pieceWeight}):</span>
+                <strong class="text-[#B71C1C] ml-1 shrink-0 font-black">${formatCLP(p.piecePrice)}</strong>
+              </div>
+            ` : ''}
             ${tiersText}
           </div>
         </div>

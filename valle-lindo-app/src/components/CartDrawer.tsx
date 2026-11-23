@@ -15,6 +15,7 @@ import {
   Tag, 
   Check, 
   MessageCircle, 
+  AlertCircle,
   ShieldCheck 
 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
@@ -30,6 +31,9 @@ export default function CartDrawer() {
     savingsTotal,
     shippingCost,
     freeShippingThreshold,
+    minOrderAmount,
+    shippingType,
+    setShippingType,
     total,
     couponCode,
     applyCoupon,
@@ -66,11 +70,10 @@ export default function CartDrawer() {
       msg += `${idx + 1}. ${item.product.name} (SKU: ${item.product.sku}) - Cantidad: ${item.quantity} x $${item.unitPrice.toLocaleString("es-CL")}\n`;
     });
     msg += `\nSubtotal: $${subtotal.toLocaleString("es-CL")}\n`;
-    if (shippingCost === 0) {
-      msg += `Despacho: GRATIS\n`;
-    } else {
-      msg += `Despacho: $${shippingCost.toLocaleString("es-CL")}\n`;
-    }
+    const shipLabel = subtotal > freeShippingThreshold 
+      ? "GRATIS (Pedido sobre $299.990)" 
+      : `$${shippingCost.toLocaleString("es-CL")} (${shippingType === 'mas_8km' ? 'Más de 8 km' : 'Radio hasta 8 km'})`;
+    msg += `Despacho: ${shipLabel}\n`;
     msg += `TOTAL: $${total.toLocaleString("es-CL")}\n\n`;
     msg += `Por favor coordinar facturación y fecha de entrega. ¡Gracias!`;
     return `https://wa.me/56987907981?text=${encodeURIComponent(msg)}`;
@@ -124,6 +127,12 @@ export default function CartDrawer() {
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
+            {subtotal > 0 && subtotal < minOrderAmount && (
+              <div className="flex items-center gap-1.5 text-[11px] text-amber-900 bg-amber-50 border border-amber-200 px-2 py-1 rounded-md font-semibold mt-2">
+                <AlertCircle className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+                <span>Pedido mínimo: <strong>$50.000</strong> (Faltan <strong>${(minOrderAmount - subtotal).toLocaleString("es-CL")}</strong>)</span>
+              </div>
+            )}
           </div>
 
           {/* Lista de Productos en el Carro */}
@@ -269,8 +278,60 @@ export default function CartDrawer() {
                   </div>
                 )}
 
+                {/* Selector de distancia de despacho */}
+                <div className="py-2 border-y border-gray-200">
+                  <div className="flex justify-between items-center text-[11px] font-bold text-gray-700 mb-1.5">
+                    <span>Distancia de Despacho:</span>
+                    {subtotal > freeShippingThreshold && (
+                      <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded">
+                        ¡Despacho GRATIS!
+                      </span>
+                    )}
+                  </div>
+                  <div className="grid grid-cols-2 gap-1.5 text-xs">
+                    <button
+                      type="button"
+                      onClick={() => setShippingType('radio_8km')}
+                      className={`p-1.5 rounded-lg border text-left transition-all ${
+                        shippingType === 'radio_8km'
+                          ? 'border-[#B71C1C] bg-red-50 text-[#B71C1C] font-bold'
+                          : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-[11px]">Hasta 8 km</span>
+                        <span className={`font-bold ${subtotal > freeShippingThreshold ? 'text-emerald-700 line-through text-[10px]' : ''}`}>
+                          $3.000
+                        </span>
+                      </div>
+                      {subtotal > freeShippingThreshold && (
+                        <span className="text-[10px] text-emerald-700 font-bold block">GRATIS</span>
+                      )}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShippingType('mas_8km')}
+                      className={`p-1.5 rounded-lg border text-left transition-all ${
+                        shippingType === 'mas_8km'
+                          ? 'border-[#B71C1C] bg-red-50 text-[#B71C1C] font-bold'
+                          : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-[11px]">Más de 8 km</span>
+                        <span className={`font-bold ${subtotal > freeShippingThreshold ? 'text-emerald-700 line-through text-[10px]' : ''}`}>
+                          $4.000
+                        </span>
+                      </div>
+                      {subtotal > freeShippingThreshold && (
+                        <span className="text-[10px] text-emerald-700 font-bold block">GRATIS</span>
+                      )}
+                    </button>
+                  </div>
+                </div>
+
                 <div className="flex justify-between">
-                  <span>Despacho:</span>
+                  <span>Despacho ({shippingType === 'mas_8km' ? 'Más de 8 km' : 'Hasta 8 km'}):</span>
                   <span>
                     {shippingCost === 0 ? (
                       <strong className="text-emerald-700 font-bold">GRATIS</strong>
@@ -288,14 +349,25 @@ export default function CartDrawer() {
 
               {/* Botones de acción */}
               <div className="space-y-2 pt-1">
-                <Link
-                  href="/checkout"
-                  onClick={() => setIsCartOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 py-3 bg-[#B71C1C] hover:bg-[#8E0000] text-white font-extrabold text-sm rounded-xl shadow-lg transition-all active:scale-[0.99]"
-                >
-                  <span>Continuar al Checkout</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                {subtotal < minOrderAmount ? (
+                  <button
+                    type="button"
+                    onClick={() => alert(`El pedido mínimo para despacho es de $50.000. Te faltan $${(minOrderAmount - subtotal).toLocaleString("es-CL")} para completar tu pedido.`)}
+                    className="w-full flex items-center justify-center gap-2 py-3 bg-gray-400 hover:bg-gray-500 text-white font-extrabold text-xs rounded-xl shadow cursor-pointer transition-colors"
+                  >
+                    <AlertCircle className="w-4 h-4" />
+                    <span>Pedido Mínimo $50.000 (Faltan ${(minOrderAmount - subtotal).toLocaleString("es-CL")})</span>
+                  </button>
+                ) : (
+                  <Link
+                    href="/checkout"
+                    onClick={() => setIsCartOpen(false)}
+                    className="w-full flex items-center justify-center gap-2 py-3 bg-[#B71C1C] hover:bg-[#8E0000] text-white font-extrabold text-sm rounded-xl shadow-lg transition-all active:scale-[0.99]"
+                  >
+                    <span>Continuar al Checkout</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                )}
 
                 <a
                   href={generateWhatsAppOrderLink()}

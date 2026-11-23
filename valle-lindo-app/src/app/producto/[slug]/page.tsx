@@ -235,12 +235,15 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
           <div className="p-4 rounded-2xl bg-red-50/50 border border-red-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">
-                Precio Unitario Base (1 unidad):
+                {product.pricePerUnitLabel ? "Precio por Kilo:" : "Precio Unitario Base (1 unidad):"}
               </div>
-              <div className="flex items-baseline gap-3 mt-0.5">
+              <div className="flex items-baseline gap-2 mt-0.5">
                 <span className="text-3xl font-black text-[#B71C1C]">
                   ${product.price.toLocaleString("es-CL")}
                 </span>
+                {product.pricePerUnitLabel && (
+                  <span className="text-sm font-bold text-gray-600">{product.pricePerUnitLabel}</span>
+                )}
                 {product.originalPrice > product.price && (
                   <span className="text-sm text-gray-400 line-through">
                     ${product.originalPrice.toLocaleString("es-CL")}
@@ -257,14 +260,28 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
               </span>
             </div>
 
-            <div className="text-right sm:border-l sm:border-red-200 sm:pl-4">
-              <span className="text-[11px] font-bold text-emerald-800 block">
-                🚚 Despacho Inmediato
-              </span>
-              <span className="text-[11px] text-gray-600">
-                Entrega en 24 a 48 hrs en RM y Regiones
-              </span>
-            </div>
+            {product.piecePrice && product.pieceWeightKg && product.pieceWeightKg > 1 ? (
+              <div className="sm:border-l sm:border-red-200 sm:pl-4 bg-amber-50/90 p-3 rounded-xl border border-amber-200 text-left sm:text-right">
+                <span className="text-[10px] font-black text-amber-900 uppercase tracking-wider block">
+                  🧀 Pieza Completa ({product.pieceWeight}):
+                </span>
+                <div className="text-2xl font-black text-[#B71C1C] mt-0.5">
+                  ${product.piecePrice.toLocaleString("es-CL")}
+                </div>
+                <span className="text-[10px] text-gray-500 block">
+                  Cálculo: {product.pieceWeightKg} kg × ${product.price.toLocaleString("es-CL")}/kg
+                </span>
+              </div>
+            ) : (
+              <div className="text-right sm:border-l sm:border-red-200 sm:pl-4">
+                <span className="text-[11px] font-bold text-emerald-800 block">
+                  🚚 Despacho Inmediato
+                </span>
+                <span className="text-[11px] text-gray-600">
+                  Entrega en 24 a 48 hrs en RM y Regiones
+                </span>
+              </div>
+            )}
           </div>
 
           {/* TABLA DE PRECIOS POR CANTIDAD (ESCALA MAYORISTA SOLICITADA) */}

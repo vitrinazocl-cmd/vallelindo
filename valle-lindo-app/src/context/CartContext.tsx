@@ -21,6 +21,9 @@ interface CartContextType {
   savingsTotal: number;
   shippingCost: number;
   freeShippingThreshold: number;
+  minOrderAmount: number;
+  shippingType: 'radio_8km' | 'mas_8km';
+  setShippingType: (type: 'radio_8km' | 'mas_8km') => void;
   total: number;
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
@@ -43,6 +46,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [wishlist, setWishlist] = useState<string[]>([]);
   const [couponCode, setCouponCode] = useState("");
   const [discountRate, setDiscountRate] = useState(0);
+  const [shippingType, setShippingTypeState] = useState<'radio_8km' | 'mas_8km'>('radio_8km');
 
   // Cargar de localStorage
   useEffect(() => {
@@ -52,10 +56,24 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
       const savedWishlist = localStorage.getItem("valle_lindo_wishlist");
       if (savedWishlist) setWishlist(JSON.parse(savedWishlist));
+
+      const savedShipping = localStorage.getItem("valle_shipping_type");
+      if (savedShipping === 'mas_8km' || savedShipping === 'radio_8km') {
+        setShippingTypeState(savedShipping);
+      }
     } catch (e) {
       console.error("Error loading cart from storage", e);
     }
   }, []);
+
+  const setShippingType = (type: 'radio_8km' | 'mas_8km') => {
+    setShippingTypeState(type);
+    try {
+      localStorage.setItem("valle_shipping_type", type);
+    } catch (e) {
+      console.error("Error saving shipping type", e);
+    }
+  };
 
   // Guardar en localStorage
   useEffect(() => {
@@ -196,8 +214,17 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   );
   const savingsTotal = Math.max(0, rawOriginalTotal - subtotal);
 
-  const freeShippingThreshold = 75000;
-  const shippingCost = subtotal >= freeShippingThreshold || subtotal === 0 ? 0 : 4990;
+  const freeShippingThreshold = 299990;
+  const minOrderAmount = 50000;
+
+  let shippingCost = 0;
+  if (subtotal === 0) {
+    shippingCost = 0;
+  } else if (subtotal > freeShippingThreshold) {
+    shippingCost = 0;
+  } else {
+    shippingCost = shippingType === 'mas_8km' ? 4000 : 3000;
+  }
 
   const total = subtotal + shippingCost;
 
@@ -214,6 +241,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         savingsTotal,
         shippingCost,
         freeShippingThreshold,
+        minOrderAmount,
+        shippingType,
+        setShippingType,
         total,
         isCartOpen,
         setIsCartOpen,

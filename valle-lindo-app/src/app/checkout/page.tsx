@@ -18,7 +18,7 @@ import {
 import { useCart } from "@/context/CartContext";
 
 export default function CheckoutPage() {
-  const { cart, subtotal, savingsTotal, shippingCost, total, clearCart } = useCart();
+  const { cart, subtotal, savingsTotal, shippingCost, total, clearCart, shippingType, setShippingType, minOrderAmount, freeShippingThreshold } = useCart();
 
   // Tipo de documento tributario
   const [docType, setDocType] = useState<"boleta" | "factura">("factura");
@@ -74,8 +74,12 @@ export default function CheckoutPage() {
 
   // Si la orden ya se completó, mostrar pantalla de confirmación exitosa
   if (orderCompleted) {
+    const shipLabel = subtotal > freeShippingThreshold 
+      ? "GRATIS (Sobre $299.990)" 
+      : `$${shippingCost.toLocaleString("es-CL")} (${shippingType === 'mas_8km' ? 'Más de 8 km' : 'Radio hasta 8 km'})`;
+
     const whatsappConfirmation = `https://wa.me/56987907981?text=${encodeURIComponent(
-      `Hola Valle Lindo! Acabo de ingresar la orden *#${orderCompleted.orderNumber}* por un total de $${orderCompleted.total.toLocaleString("es-CL")}.\nCliente: ${orderCompleted.customer.nombre} (${orderCompleted.customer.telefono})\nMétodo: ${orderCompleted.paymentMethod.toUpperCase()}.\nPor favor confirmar recepción y despacho. ¡Gracias!`
+      `Hola Valle Lindo! Acabo de ingresar la orden *#${orderCompleted.orderNumber}* por un total de $${orderCompleted.total.toLocaleString("es-CL")}.\nCliente: ${orderCompleted.customer.nombre} (${orderCompleted.customer.telefono})\nDespacho: ${shipLabel}\nMétodo: ${orderCompleted.paymentMethod.toUpperCase()}.\nPor favor confirmar recepción y despacho. ¡Gracias!`
     )}`;
 
     return (
@@ -164,6 +168,28 @@ export default function CheckoutPage() {
           className="inline-block mt-4 px-6 py-3 bg-[#B71C1C] text-white font-bold text-xs rounded-xl shadow"
         >
           Ir al Catálogo
+        </Link>
+      </div>
+    );
+  }
+
+  // Validación de Pedido Mínimo ($50.000)
+  if (subtotal < minOrderAmount) {
+    return (
+      <div className="max-w-md mx-auto px-4 py-16 text-center space-y-4">
+        <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto shadow-sm">
+          <AlertCircle className="w-8 h-8" />
+        </div>
+        <h2 className="text-xl font-black text-gray-900">Pedido Mínimo: $50.000</h2>
+        <p className="text-xs text-gray-600 leading-relaxed">
+          El subtotal actual de tus productos es de <strong>${subtotal.toLocaleString("es-CL")}</strong>.<br />
+          Te faltan <strong className="text-[#B71C1C]">${(minOrderAmount - subtotal).toLocaleString("es-CL")}</strong> para alcanzar el mínimo requerido de compra para despacho.
+        </p>
+        <Link
+          href="/catalogo"
+          className="inline-block mt-4 px-6 py-3 bg-[#B71C1C] hover:bg-[#8E0000] text-white font-bold text-xs rounded-xl shadow"
+        >
+          Ir al Catálogo a Completar Pedido
         </Link>
       </div>
     );
@@ -325,8 +351,90 @@ export default function CheckoutPage() {
               <span className="w-6 h-6 rounded-full bg-[#B71C1C] text-white flex items-center justify-center text-xs">
                 2
               </span>
-              Dirección de Despacho
+              Dirección de Despacho & Tarifa por Distancia
             </h2>
+
+            {/* Selector de distancia / zona de despacho */}
+            <div className="bg-gray-50 p-3.5 rounded-xl border border-gray-200 space-y-2">
+              <div className="flex justify-between items-center">
+                <span className="text-xs font-bold text-gray-800 flex items-center gap-1.5">
+                  <Truck className="w-4 h-4 text-[#B71C1C]" />
+                  Tarifa según Zona / Distancia:
+                </span>
+                {subtotal > freeShippingThreshold ? (
+                  <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">
+                    ¡Despacho GRATIS aplicado!
+                  </span>
+                ) : (
+                  <span className="text-[10px] text-gray-500 font-semibold">
+                    Despacho sobre $299.990 es GRATIS
+                  </span>
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <label 
+                  onClick={() => setShippingType('radio_8km')}
+                  className={`cursor-pointer border rounded-xl p-3 flex items-start gap-2.5 transition-all bg-white ${
+                    shippingType === 'radio_8km' ? 'border-[#B71C1C] ring-2 ring-red-200' : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="shipping_type"
+                    checked={shippingType === 'radio_8km'}
+                    onChange={() => setShippingType('radio_8km')}
+                    className="mt-0.5 text-[#B71C1C] focus:ring-[#B71C1C]"
+                  />
+                  <div className="flex-1">
+                    <div className="font-bold text-gray-900 flex justify-between items-center">
+                      <span>Hasta 8 km</span>
+                      <strong className={subtotal > freeShippingThreshold ? 'text-emerald-700 line-through text-[11px]' : 'text-[#B71C1C]'}>
+                        $3.000
+                      </strong>
+                    </div>
+                    {subtotal > freeShippingThreshold ? (
+                      <span className="text-[10px] text-emerald-700 font-bold block">GRATIS</span>
+                    ) : (
+                      <span className="text-[10px] text-gray-500 block mt-0.5">Entorno local / comunas cercanas</span>
+                    )}
+                  </div>
+                </label>
+
+                <label 
+                  onClick={() => setShippingType('mas_8km')}
+                  className={`cursor-pointer border rounded-xl p-3 flex items-start gap-2.5 transition-all bg-white ${
+                    shippingType === 'mas_8km' ? 'border-[#B71C1C] ring-2 ring-red-200' : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="shipping_type"
+                    checked={shippingType === 'mas_8km'}
+                    onChange={() => setShippingType('mas_8km')}
+                    className="mt-0.5 text-[#B71C1C] focus:ring-[#B71C1C]"
+                  />
+                  <div className="flex-1">
+                    <div className="font-bold text-gray-900 flex justify-between items-center">
+                      <span>Más de 8 km</span>
+                      <strong className={subtotal > freeShippingThreshold ? 'text-emerald-700 line-through text-[11px]' : 'text-[#B71C1C]'}>
+                        $4.000
+                      </strong>
+                    </div>
+                    {subtotal > freeShippingThreshold ? (
+                      <span className="text-[10px] text-emerald-700 font-bold block">GRATIS</span>
+                    ) : (
+                      <span className="text-[10px] text-gray-500 block mt-0.5">Santiago extendido y periférico</span>
+                    )}
+                  </div>
+                </label>
+              </div>
+
+              <div className="text-[11px] text-gray-600 flex flex-col sm:flex-row justify-between gap-1 pt-1 border-t border-gray-200">
+                <span>• Despacho <strong>GRATIS</strong> en compras sobre <strong>$299.990</strong>.</span>
+                <span>• Pedido mínimo de compra: <strong>$50.000</strong>.</span>
+              </div>
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
               <div>
@@ -568,7 +676,7 @@ export default function CheckoutPage() {
               )}
 
               <div className="flex justify-between">
-                <span>Costo de Despacho:</span>
+                <span>Costo de Despacho ({shippingType === 'mas_8km' ? 'Más de 8 km' : 'Hasta 8 km'}):</span>
                 <span>
                   {shippingCost === 0 ? (
                     <strong className="text-emerald-700 font-bold">GRATIS</strong>

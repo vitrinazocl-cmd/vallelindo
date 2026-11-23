@@ -2,7 +2,7 @@
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>Panel Administrativo B2B | Comercializadora Valle Lindo</title>
   <link rel="icon" type="image/jpeg" href="assets/branding/logo-valle-lindo.jpeg">
 
@@ -28,8 +28,8 @@
   <!-- DIÁLOGO DE AUTENTICACIÓN ZERO-TRUST (OWASP ASVS LEVEL 2) -->
   <div id="adminAuthModal" class="fixed inset-0 z-50 bg-[#121212]/95 backdrop-blur-md flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl border border-gray-100 text-center space-y-6">
-      <div class="w-16 h-16 rounded-2xl bg-red-50 text-[#B71C1C] flex items-center justify-center mx-auto shadow-inner">
-        <i data-lucide="shield-alert" class="w-8 h-8"></i>
+      <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-black p-0.5 border border-gray-200 mx-auto shadow-md flex items-center justify-center">
+        <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-full h-full object-cover rounded-xl scale-110" />
       </div>
       <div>
         <span class="text-[10px] font-black tracking-widest text-[#B71C1C] uppercase bg-red-50 px-2.5 py-1 rounded-full border border-red-200">Zero-Trust Access Gate</span>
@@ -73,9 +73,14 @@
   <!-- NAVBAR ADMIN -->
   <header class="bg-gray-900 text-white py-3 border-b border-gray-800 sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <span class="font-black text-lg text-[#B71C1C]">VALLE LINDO ADMIN</span>
-        <span class="text-xs bg-red-950 text-red-400 font-bold px-2 py-0.5 rounded border border-red-800">B2B ERP v2.4 (Secured)</span>
+      <div class="flex items-center gap-3.5">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden bg-black p-0.5 border border-gray-700 shrink-0 flex items-center justify-center">
+          <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-full h-full object-cover rounded-xl scale-110" />
+        </div>
+        <div>
+          <span class="font-black text-lg sm:text-xl text-[#B71C1C] block leading-none">VALLE LINDO ADMIN</span>
+          <span class="text-[10px] bg-red-950 text-red-400 font-bold px-1.5 py-0.5 rounded border border-red-800 mt-0.5 inline-block">B2B ERP v2.4 (Secured)</span>
+        </div>
       </div>
       <div class="flex items-center space-x-3 text-xs">
         <div id="sessionIndicator" class="hidden sm:flex items-center gap-1.5 bg-emerald-950 text-emerald-400 border border-emerald-800 px-2.5 py-0.5 rounded-full text-[11px] font-mono">
@@ -321,7 +326,7 @@
   </script>
 
   <!-- BARRA DE NAVEGACIÓN INFERIOR PARA MÓVILES -->
-  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 py-1.5 px-2 flex justify-around items-center shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
+  <nav class="mobile-bottom-nav md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 py-1.5 px-2 flex justify-around items-center shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
     <a href="index.html" class="flex flex-col items-center py-1 px-2 text-gray-600 hover:text-[#B71C1C]">
       <i data-lucide="home" class="w-5 h-5"></i>
       <span class="text-[10px] font-bold mt-0.5">Tienda</span>

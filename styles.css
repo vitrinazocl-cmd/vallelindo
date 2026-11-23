@@ -11,13 +11,20 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 320px;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
 /* 2. Custom Sleek Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #f1f3f5;
@@ -31,7 +38,7 @@
   background: #B71C1C;
 }
 
-/* Hide scrollbar for clean horizontal scrolls */
+/* Hide scrollbar for clean horizontal mobile scrolls */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -40,7 +47,7 @@
   scrollbar-width: none;
 }
 
-/* 3. WCAG 2.1 AA+ Keyboard Focus Ring */
+/* 3. WCAG Keyboard Focus Ring */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -50,13 +57,26 @@ textarea:focus-visible {
   outline-offset: 2px !important;
 }
 
-/* 4. Touch Targets Accessibility */
+/* Soporte para iPhone Notch / Safe Area Inset */
+@supports (padding: max(0px)) {
+  body {
+    padding-bottom: max(4.5rem, calc(4rem + env(safe-area-inset-bottom)));
+  }
+  .mobile-bottom-nav {
+    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Touch responsiveness utilities */
 @media (max-width: 640px) {
   button, 
   a.touch-target, 
   input[type="button"], 
   input[type="submit"] {
-    min-height: 40px;
+    min-height: 42px;
+  }
+  input, select, textarea {
+    font-size: 16px !important; /* Previene auto-zoom molesto en Safari iOS al enfocar campos */
   }
 }
 

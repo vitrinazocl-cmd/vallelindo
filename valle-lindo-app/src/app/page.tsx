@@ -30,7 +30,7 @@ export default function HomePage() {
   // Filtrar productos según tab
   const featuredProducts = PRODUCTS.filter((p) => {
     if (activeTab === "todos") return p.isFeatured;
-    return p.category === activeTab;
+    return (p.categories || [p.category]).includes(activeTab);
   });
 
   return (
@@ -130,9 +130,6 @@ export default function HomePage() {
                   <span className="bg-[#B71C1C] text-white text-[11px] font-black px-3 py-1 rounded-full shadow-lg animate-pulse">
                     🌩️ OFERTA RELÁMPAGO
                   </span>
-                  <span className="bg-amber-500 text-black text-[10px] font-black px-2.5 py-0.5 rounded-full shadow-md uppercase tracking-wider">
-                    🔊 SOLO POR EL MES DE MARZO
-                  </span>
                 </div>
               </div>
 
@@ -147,17 +144,20 @@ export default function HomePage() {
                   </h3>
                   <div className="flex items-baseline gap-2 mt-0.5">
                     <span className="text-2xl font-black text-[#B71C1C]">
-                      $6.990
+                      $7.990
                     </span>
                     <span className="text-xs text-gray-400 font-bold">el kilo</span>
                     <span className="text-xs text-gray-500 line-through">
-                      $8.490
+                      $8.990
                     </span>
+                  </div>
+                  <div className="text-[11px] font-black text-amber-300 mt-0.5">
+                    🧀 Pieza completa barra (~5 kg): $39.950
                   </div>
                 </div>
 
                 <a
-                  href="https://wa.me/56987907981?text=Hola%20Valle%20Lindo!%20Deseo%20aprovechar%20la%20OFERTA%20REL%C3%81MPAGO%20del%20Queso%20Llanero%20a%20$6.990%20el%20kilo%20por%20el%20mes%20de%20marzo"
+                  href="https://wa.me/56987907981?text=Hola%20Valle%20Lindo!%20Deseo%20aprovechar%20la%20OFERTA%20REL%C3%81MPAGO%20del%20Queso%20Llanero%20a%20$7.990%20el%20kilo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2.5 bg-[#B71C1C] hover:bg-[#8E0000] text-white text-xs font-black rounded-xl shadow transition-colors flex items-center gap-1.5"

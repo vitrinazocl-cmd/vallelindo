@@ -2,7 +2,7 @@
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>Checkout Seguro | Comercializadora Valle Lindo</title>
   <link rel="icon" type="image/jpeg" href="assets/branding/logo-valle-lindo.jpeg">
 
@@ -28,11 +28,11 @@
   <!-- NAVBAR COMPACTO CHECKOUT -->
   <header class="bg-white border-b border-gray-200 py-3 sm:py-4 sticky top-0 z-30 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2 sm:gap-3">
-        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl overflow-hidden bg-black p-0.5 border border-gray-200">
-          <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-full h-full object-cover rounded-lg" />
+      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3.5 group">
+        <div class="w-14 h-14 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-2xl overflow-hidden bg-black p-0.5 border border-gray-200 shadow-sm shrink-0 transition-transform group-hover:scale-105 flex items-center justify-center">
+          <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-full h-full object-cover rounded-xl scale-110" />
         </div>
-        <span class="font-black text-base sm:text-lg tracking-tight">VALLE LINDO</span>
+        <span class="font-black text-lg sm:text-2xl tracking-tight group-hover:text-[#B71C1C] transition-colors">VALLE LINDO</span>
       </a>
       <div class="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-emerald-200">
         <i data-lucide="lock" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i> Checkout Seguro SSL
@@ -64,6 +64,41 @@
       document.getElementById(`pay-${method}`).classList.add('ring-2', 'ring-red-200', 'border-[#B71C1C]', 'bg-red-50/50');
     }
 
+    function setCheckoutShipping(type) {
+      Cart.setShippingType(type);
+      updateCheckoutTotals();
+    }
+
+    function updateCheckoutTotals() {
+      const { subtotal, savings, shipping, total, shippingType, isFreeShipping } = Cart.getTotals();
+      const totalsContainer = document.getElementById('checkoutOrderTotals');
+      if (totalsContainer) {
+        totalsContainer.innerHTML = `
+          <div class="flex justify-between"><span>Subtotal:</span><strong>${formatCLP(subtotal)}</strong></div>
+          ${savings > 0 ? `<div class="flex justify-between text-emerald-700 font-bold"><span>Ahorro Mayorista:</span><span>-${formatCLP(savings)}</span></div>` : ''}
+          <div class="flex justify-between items-center">
+            <span>Despacho (${shippingType === 'mas_8km' ? 'Más de 8 km' : 'Hasta 8 km'}):</span>
+            <strong>${shipping === 0 ? '<span class="text-emerald-700 font-bold">GRATIS</span>' : formatCLP(shipping)}</strong>
+          </div>
+          <div class="flex justify-between text-base font-black text-gray-900 pt-2 border-t border-gray-200">
+            <span>Total a Pagar:</span>
+            <span class="text-[#B71C1C]">${formatCLP(total)}</span>
+          </div>
+        `;
+      }
+      const opt8 = document.getElementById('chk-shipping-8km');
+      const optMore = document.getElementById('chk-shipping-more8km');
+      if (opt8 && optMore) {
+        if (shippingType === 'radio_8km') {
+          opt8.className = "cursor-pointer border rounded-xl p-3 flex items-start gap-2.5 transition-all bg-white border-[#B71C1C] ring-2 ring-red-200";
+          optMore.className = "cursor-pointer border rounded-xl p-3 flex items-start gap-2.5 transition-all bg-white border-gray-200 hover:border-gray-300";
+        } else {
+          optMore.className = "cursor-pointer border rounded-xl p-3 flex items-start gap-2.5 transition-all bg-white border-[#B71C1C] ring-2 ring-red-200";
+          opt8.className = "cursor-pointer border rounded-xl p-3 flex items-start gap-2.5 transition-all bg-white border-gray-200 hover:border-gray-300";
+        }
+      }
+    }
+
     function finishOrder(e) {
       e.preventDefault();
 
@@ -79,6 +114,13 @@
       const clientEmailInput = document.querySelector('input[type="email"]');
       const clientEmail = clientEmailInput ? clientEmailInput.value : '';
 
+      // Validación de Pedido Mínimo ($50.000)
+      const { subtotal, total, shipping, shippingType, isFreeShipping } = Cart.getTotals();
+      if (subtotal < 50000) {
+        alert(`El pedido mínimo para despacho es de $50.000. Tu total actual es de ${formatCLP(subtotal)}. Por favor agrega más productos a tu carro.`);
+        return;
+      }
+
       // Validación defensiva estricta
       if (typeof SecurityGuard !== 'undefined') {
         if (!SecurityGuard.validateEmail(clientEmail)) {
@@ -92,7 +134,6 @@
       }
 
       const orderNum = 'VL-' + Math.floor(100000 + Math.random() * 900000);
-      const { total } = Cart.getTotals();
 
       // Sanitización completa anti-XSS previa a renderizado
       const safeName = typeof SecurityGuard !== 'undefined' ? SecurityGuard.escapeHTML(clientName) : clientName;
@@ -101,6 +142,9 @@
       const safeOrderNum = typeof SecurityGuard !== 'undefined' ? SecurityGuard.escapeHTML(orderNum) : orderNum;
       const safeDocType = typeof SecurityGuard !== 'undefined' ? SecurityGuard.escapeHTML(docType.toUpperCase()) : docType.toUpperCase();
       const safePayment = typeof SecurityGuard !== 'undefined' ? SecurityGuard.escapeHTML(paymentMethod.toUpperCase()) : paymentMethod.toUpperCase();
+      const shipDetail = isFreeShipping 
+        ? "GRATIS (Pedido sobre $299.990)" 
+        : `${formatCLP(shipping)} (${shippingType === 'mas_8km' ? 'Más de 8 km' : 'Radio hasta 8 km'})`;
 
       // Registro en Bitácora SIEM de Seguridad
       if (typeof SecurityGuard !== 'undefined') {
@@ -108,11 +152,12 @@
           orderNum: safeOrderNum,
           total: total,
           paymentMethod: safePayment,
-          docType: safeDocType
+          docType: safeDocType,
+          shipping: shipDetail
         });
       }
 
-      const wspUrl = `https://wa.me/56987907981?text=${encodeURIComponent(`Hola Valle Lindo! Acabo de registrar el pedido *#${orderNum}* por un total de ${formatCLP(total)}.\nCliente: ${clientName} (${clientPhone})\nDirección: ${clientAddress}\nMétodo: ${paymentMethod.toUpperCase()}.\nPor favor confirmar recepción y despacho.`)}`;
+      const wspUrl = `https://wa.me/56987907981?text=${encodeURIComponent(`Hola Valle Lindo! Acabo de registrar el pedido *#${orderNum}* por un total de ${formatCLP(total)}.\nCliente: ${clientName} (${clientPhone})\nDirección: ${clientAddress}\nDespacho: ${shipDetail}\nMétodo: ${paymentMethod.toUpperCase()}.\nPor favor confirmar recepción y despacho.`)}`;
 
       document.getElementById('checkoutContent').innerHTML = `
         <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl border border-gray-200 shadow-xl text-center space-y-6">
@@ -125,7 +170,7 @@
             <div><strong>Total a Pagar / Cancelado:</strong> <span class="text-[#B71C1C] font-black text-sm">${formatCLP(total)}</span></div>
             <div><strong>Documento:</strong> ${safeDocType} Electrónica</div>
             <div><strong>Método:</strong> ${safePayment}</div>
-            <div><strong>Despacho:</strong> En 24/48 hrs en ${safeAddress}</div>
+            <div><strong>Despacho:</strong> ${shipDetail} en ${safeAddress}</div>
           </div>
           <div class="flex flex-col sm:flex-row gap-3 justify-center pt-2">
             <a href="${wspUrl}" target="_blank" class="px-6 py-3 bg-emerald-600 text-white font-bold text-xs rounded-xl shadow flex items-center justify-center gap-1.5">
@@ -140,7 +185,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      const { count, subtotal, savings, shipping, total } = Cart.getTotals();
+      const { count, subtotal, savings, shipping, total, shippingType, isFreeShipping, isMinOrderMet, missingForMin } = Cart.getTotals();
       const container = document.getElementById('checkoutContent');
 
       if (count === 0) {
@@ -150,6 +195,28 @@
             <a href="catalogo.html" class="inline-block px-4 py-2 bg-[#B71C1C] text-white text-xs font-bold rounded-lg">Ir al Catálogo</a>
           </div>
         `;
+        return;
+      }
+
+      if (subtotal < 50000) {
+        container.innerHTML = `
+          <div class="max-w-md mx-auto text-center py-12 px-6 bg-white rounded-3xl border border-gray-200 shadow-md space-y-4">
+            <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto">
+              <i data-lucide="alert-triangle" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Pedido Mínimo: $50.000</h3>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              El total actual de tus productos es de <strong>${formatCLP(subtotal)}</strong>.<br>
+              Te faltan <strong class="text-[#B71C1C] font-bold">${formatCLP(missingForMin)}</strong> para alcanzar el monto mínimo requerido para despacho.
+            </p>
+            <div class="pt-2">
+              <a href="catalogo.html" class="inline-flex items-center gap-2 px-6 py-3 bg-[#B71C1C] hover:bg-[#8E0000] text-white text-xs font-bold rounded-xl shadow-lg transition-colors">
+                <i data-lucide="shopping-bag" class="w-4 h-4"></i> Ir al Catálogo a Completar Pedido
+              </a>
+            </div>
+          </div>
+        `;
+        if (window.lucide) lucide.createIcons();
         return;
       }
 
@@ -199,8 +266,51 @@
             <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs space-y-4">
               <h3 class="font-black text-sm flex items-center gap-2">
                 <span class="w-6 h-6 rounded-full bg-[#B71C1C] text-white flex items-center justify-center text-xs">2</span>
-                Dirección de Entrega
+                Dirección de Entrega & Tarifa de Despacho
               </h3>
+
+              <!-- Tarifa según Distancia -->
+              <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-2.5">
+                <div class="flex justify-between items-center">
+                  <span class="text-xs font-bold text-gray-800 flex items-center gap-1.5">
+                    <i data-lucide="truck" class="w-4 h-4 text-[#B71C1C]"></i>
+                    Tarifa según Zona / Distancia:
+                  </span>
+                  ${isFreeShipping 
+                    ? '<span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">¡Despacho GRATIS aplicado!</span>' 
+                    : '<span class="text-[10px] text-gray-500 font-semibold">Despacho sobre $299.990 es GRATIS</span>'}
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                  <label id="chk-shipping-8km" onclick="setCheckoutShipping('radio_8km')" class="cursor-pointer border rounded-xl p-3 flex items-start gap-2.5 transition-all bg-white ${shippingType === 'radio_8km' ? 'border-[#B71C1C] ring-2 ring-red-200' : 'border-gray-200 hover:border-gray-300'}">
+                    <input type="radio" name="checkout_shipping_dist" value="radio_8km" ${shippingType === 'radio_8km' ? 'checked' : ''} class="mt-0.5 text-[#B71C1C] focus:ring-[#B71C1C]" />
+                    <div class="flex-1">
+                      <div class="font-bold text-gray-900 flex justify-between items-center">
+                        <span>En un radio de 8 km</span>
+                        <strong class="${isFreeShipping ? 'text-emerald-700 line-through text-[11px]' : 'text-[#B71C1C]'}">$3.000</strong>
+                      </div>
+                      ${isFreeShipping ? '<span class="text-[10px] text-emerald-700 font-bold block">GRATIS</span>' : '<span class="text-[10px] text-gray-500 block mt-0.5">Entorno local / comunas cercanas</span>'}
+                    </div>
+                  </label>
+
+                  <label id="chk-shipping-more8km" onclick="setCheckoutShipping('mas_8km')" class="cursor-pointer border rounded-xl p-3 flex items-start gap-2.5 transition-all bg-white ${shippingType === 'mas_8km' ? 'border-[#B71C1C] ring-2 ring-red-200' : 'border-gray-200 hover:border-gray-300'}">
+                    <input type="radio" name="checkout_shipping_dist" value="mas_8km" ${shippingType === 'mas_8km' ? 'checked' : ''} class="mt-0.5 text-[#B71C1C] focus:ring-[#B71C1C]" />
+                    <div class="flex-1">
+                      <div class="font-bold text-gray-900 flex justify-between items-center">
+                        <span>Más de 8 km</span>
+                        <strong class="${isFreeShipping ? 'text-emerald-700 line-through text-[11px]' : 'text-[#B71C1C]'}">$4.000</strong>
+                      </div>
+                      ${isFreeShipping ? '<span class="text-[10px] text-emerald-700 font-bold block">GRATIS</span>' : '<span class="text-[10px] text-gray-500 block mt-0.5">Santiago extendido y comunas lejanas</span>'}
+                    </div>
+                  </label>
+                </div>
+
+                <div class="text-[11px] text-gray-600 flex flex-col sm:flex-row justify-between gap-1 pt-1 border-t border-gray-200">
+                  <span>• Despacho <strong>GRATIS</strong> en compras sobre <strong>$299.990</strong>.</span>
+                  <span>• Pedido mínimo de compra: <strong>$50.000</strong>.</span>
+                </div>
+              </div>
+
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div>
                   <label class="block font-bold text-gray-700 mb-1">Región *</label>
@@ -263,10 +373,13 @@
               `).join("")}
             </div>
 
-            <div class="pt-3 border-t border-gray-200 space-y-1.5 text-xs text-gray-600">
+            <div id="checkoutOrderTotals" class="pt-3 border-t border-gray-200 space-y-1.5 text-xs text-gray-600">
               <div class="flex justify-between"><span>Subtotal:</span><strong>${formatCLP(subtotal)}</strong></div>
               ${savings > 0 ? `<div class="flex justify-between text-emerald-700 font-bold"><span>Ahorro Mayorista:</span><span>-${formatCLP(savings)}</span></div>` : ''}
-              <div class="flex justify-between"><span>Despacho:</span><strong>${shipping === 0 ? '<span class="text-emerald-700">GRATIS</span>' : formatCLP(shipping)}</strong></div>
+              <div class="flex justify-between items-center">
+                <span>Despacho (${shippingType === 'mas_8km' ? 'Más de 8 km' : 'Hasta 8 km'}):</span>
+                <strong>${shipping === 0 ? '<span class="text-emerald-700 font-bold">GRATIS</span>' : formatCLP(shipping)}</strong>
+              </div>
               <div class="flex justify-between text-base font-black text-gray-900 pt-2 border-t border-gray-200">
                 <span>Total a Pagar:</span>
                 <span class="text-[#B71C1C]">${formatCLP(total)}</span>

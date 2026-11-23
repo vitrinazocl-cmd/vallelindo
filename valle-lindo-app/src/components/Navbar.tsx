@@ -77,7 +77,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
           <div className="flex items-center space-x-4">
             <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
-              <Truck className="w-3.5 h-3.5" /> Despacho GRATIS sobre $75.000 en Santiago
+              <Truck className="w-3.5 h-3.5" /> Despacho GRATIS sobre $299.990 | Pedido Mínimo $50.000
             </span>
             <span className="hidden lg:inline text-gray-400">|</span>
             <span className="hidden lg:inline text-gray-300">
@@ -115,22 +115,22 @@ export default function Navbar() {
       {/* Main Header */}
       <div className="max-w-7xl mx-auto px-4 py-3.5 flex items-center justify-between gap-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 shrink-0 group">
-          <div className="relative w-11 h-11 rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-black flex items-center justify-center">
+        <Link href="/" className="flex items-center gap-3 sm:gap-3.5 shrink-0 group">
+          <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-22 md:h-22 rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-black flex items-center justify-center p-0.5 shrink-0 transition-transform group-hover:scale-105">
             <Image
               src="/assets/branding/logo-valle-lindo.jpeg"
               alt="Comercializadora Valle Lindo Logo"
-              width={44}
-              height={44}
-              className="object-cover"
+              width={88}
+              height={88}
+              className="object-cover rounded-xl scale-110 w-full h-full"
               priority
             />
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold text-xl tracking-tight text-[#121212] group-hover:text-[#B71C1C] transition-colors leading-none">
+            <span className="font-extrabold text-lg sm:text-2xl md:text-3xl tracking-tight text-[#121212] group-hover:text-[#B71C1C] transition-colors leading-none">
               VALLE LINDO
             </span>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#B71C1C] mt-0.5">
+            <span className="text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-wider text-[#B71C1C] mt-1">
               Distribuidora Gastronómica & Carnes
             </span>
           </div>

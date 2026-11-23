@@ -126,13 +126,13 @@ export default function QuotePage() {
         {/* Encabezado Membretado */}
         <div className="flex flex-col sm:flex-row justify-between items-start gap-4 pb-6 border-b-2 border-gray-100">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-black overflow-hidden border border-gray-200 shadow-sm shrink-0">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl bg-black overflow-hidden border border-gray-200 shadow-sm shrink-0 flex items-center justify-center p-0.5">
               <Image
                 src="/assets/branding/logo-valle-lindo.jpeg"
                 alt="Valle Lindo Logo"
-                width={56}
-                height={56}
-                className="object-cover"
+                width={112}
+                height={112}
+                className="object-cover rounded-xl scale-110 w-full h-full"
               />
             </div>
             <div>
@@ -311,7 +311,8 @@ export default function QuotePage() {
           <div className="space-y-2 max-w-sm">
             <span className="font-bold text-gray-900 block">Condiciones Generales de Abastecimiento:</span>
             <ul className="list-disc pl-4 space-y-1 text-gray-500 text-[11px]">
-              <li>Despacho sin costo en pedidos superiores a $75.000 neto dentro de la Región Metropolitana.</li>
+              <li>Despacho sin costo en pedidos superiores a $299.990.</li>
+              <li>Pedido mínimo $50.000 (Despacho: $3.000 hasta 8 km | $4.000 más de 8 km).</li>
               <li>Cadena de frío controlada con certificados SEREMI.</li>
               <li>Factura electrónica emitida al momento del despacho.</li>
             </ul>

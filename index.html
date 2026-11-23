@@ -2,7 +2,7 @@
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>Comercializadora Valle Lindo | Distribución Mayorista para Pizzerías, Carnes & Gastronomía</title>
   
   <!-- SEO Meta Tags -->
@@ -85,7 +85,7 @@
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-2">
       <div class="flex items-center space-x-2 text-center sm:text-left">
         <span class="flex items-center gap-1 text-emerald-400 font-bold">
-          <i data-lucide="truck" class="w-3.5 h-3.5 shrink-0"></i> Despacho GRATIS sobre $75.000
+          <i data-lucide="truck" class="w-3.5 h-3.5 shrink-0"></i> Despacho GRATIS sobre $299.990 | Pedido Mínimo $50.000
         </span>
         <span class="hidden md:inline text-gray-500">|</span>
         <span class="hidden md:inline text-gray-300">
@@ -113,15 +113,15 @@
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
 
-        <a href="index.html" class="flex items-center gap-2 sm:gap-3 shrink-0 group">
-          <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden bg-black border border-gray-200 shadow-sm flex items-center justify-center p-0.5">
-            <img src="assets/branding/logo-valle-lindo.jpeg" alt="Valle Lindo Logo" class="w-full h-full object-cover rounded-lg" />
+        <a href="index.html" class="flex items-center gap-2 sm:gap-3.5 shrink-0 group">
+          <div class="w-14 h-14 sm:w-20 sm:h-20 md:w-22 md:h-22 rounded-2xl overflow-hidden bg-black border border-gray-200 shadow-sm flex items-center justify-center p-0.5 shrink-0 transition-transform group-hover:scale-105">
+            <img src="assets/branding/logo-valle-lindo.jpeg" alt="Valle Lindo Logo" class="w-full h-full object-cover rounded-xl scale-110" />
           </div>
           <div>
-            <span class="font-black text-base sm:text-xl tracking-tight text-[#121212] group-hover:text-[#B71C1C] transition-colors leading-none block">
+            <span class="font-black text-base sm:text-2xl md:text-3xl tracking-tight text-[#121212] group-hover:text-[#B71C1C] transition-colors leading-none block">
               VALLE LINDO
             </span>
-            <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#B71C1C] mt-0.5 block truncate max-w-[170px] sm:max-w-none">
+            <span class="text-[9px] sm:text-xs md:text-sm font-bold uppercase tracking-wider text-[#B71C1C] mt-0.5 sm:mt-1 block truncate max-w-[135px] sm:max-w-none">
               Distribuidora Gastronómica
             </span>
           </div>
@@ -205,11 +205,13 @@
         <!-- Encabezado Drawer -->
         <div>
           <div class="p-4 bg-[#121212] text-white flex justify-between items-center border-b-2 border-[#B71C1C]">
-            <div class="flex items-center gap-2.5">
-              <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-8 h-8 rounded-lg object-cover" />
+            <div class="flex items-center gap-3">
+              <div class="w-16 h-16 rounded-2xl overflow-hidden bg-black border border-gray-700 p-0.5 shrink-0">
+                <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-full h-full object-cover rounded-lg scale-110" />
+              </div>
               <div>
-                <span class="font-black text-sm block leading-none">VALLE LINDO</span>
-                <span class="text-[9px] text-[#B71C1C] font-bold uppercase">Distribuidora Gastronómica</span>
+                <span class="font-black text-lg sm:text-xl block leading-none">VALLE LINDO</span>
+                <span class="text-xs text-[#B71C1C] font-bold uppercase mt-1 block">Distribuidora Gastronómica</span>
               </div>
             </div>
             <button onclick="closeMobileNav()" class="p-1.5 text-gray-400 hover:text-white rounded-lg">
@@ -346,9 +348,6 @@
               <span class="bg-[#B71C1C] text-white text-[11px] font-black px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 animate-pulse">
                 <span>🌩️ OFERTA RELÁMPAGO</span>
               </span>
-              <span class="bg-amber-500 text-black text-[10px] font-black px-2.5 py-0.5 rounded-full shadow-md uppercase tracking-wider">
-                🔊 SOLO POR EL MES DE MARZO
-              </span>
             </div>
 
             <!-- Botón flotante para Alternar Sonido (Esquina superior derecha para no tapar controles) -->
@@ -376,21 +375,31 @@
                 Queso Llanero Artesanal
               </h3>
               <div class="flex items-baseline gap-2 mt-0.5">
-                <span class="text-2xl font-black text-[#B71C1C]">$6.990</span>
+                <span class="text-2xl font-black text-[#B71C1C]">$7.990</span>
                 <span class="text-xs text-gray-400 font-bold">el kilo</span>
-                <span class="text-xs text-gray-500 line-through">$8.490</span>
+                <span class="text-xs text-gray-500 line-through">$8.990</span>
+              </div>
+              <div class="text-[11px] font-black text-amber-300 mt-0.5">
+                🧀 Pieza completa barra (~5 kg): $39.950
               </div>
             </div>
 
             <div class="flex items-center gap-2 w-full sm:w-auto">
               <button
-                onclick="Cart.addItem('prod-llanero', 1)"
-                class="flex-1 sm:flex-none px-4 py-2.5 bg-[#B71C1C] hover:bg-[#8E0000] text-white text-xs font-black rounded-xl shadow-lg flex items-center justify-center gap-1.5 transition-all active:scale-95 whitespace-nowrap"
+                onclick="Cart.addItem('prod-queso-llanero-barra', 5)"
+                class="flex-1 sm:flex-none px-4 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-neutral-950 text-xs font-black rounded-xl shadow-lg flex items-center justify-center gap-1.5 transition-all active:scale-95 whitespace-nowrap"
+                title="Añadir 1 Pieza Completa (5 kg)"
               >
-                <i data-lucide="shopping-cart" class="w-4 h-4"></i> Añadir Kilo
+                <i data-lucide="package" class="w-4 h-4"></i> Añadir Pieza (5 kg)
+              </button>
+              <button
+                onclick="Cart.addItem('prod-queso-llanero-barra', 1)"
+                class="flex-1 sm:flex-none px-3.5 py-2.5 bg-[#B71C1C] hover:bg-[#8E0000] text-white text-xs font-black rounded-xl shadow-lg flex items-center justify-center gap-1.5 transition-all active:scale-95 whitespace-nowrap"
+              >
+                <i data-lucide="shopping-cart" class="w-4 h-4"></i> 1 Kilo
               </button>
               <a
-                href="https://wa.me/56987907981?text=Hola%20Valle%20Lindo!%20Deseo%20aprovechar%20la%20OFERTA%20REL%C3%81MPAGO%20del%20Queso%20Llanero%20a%20$6.990%20el%20kilo%20por%20el%20mes%20de%20marzo"
+                href="https://wa.me/56987907981?text=Hola%20Valle%20Lindo!%20Deseo%20aprovechar%20la%20OFERTA%20REL%C3%81MPAGO%20del%20Queso%20Llanero%20a%20$7.990%20el%20kilo"
                 target="_blank"
                 class="p-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl shadow transition-colors flex items-center justify-center"
                 title="Pedir Oferta por WhatsApp"
@@ -455,13 +464,14 @@
         </div>
       </div>
 
-      <!-- Filtros rápidos para el Slider -->
-      <div class="flex flex-wrap items-center gap-2 pt-4 text-xs font-bold border-t border-amber-600/30">
-        <span class="text-neutral-900 font-extrabold text-[11px] uppercase tracking-wider mr-1">Filtrar Vitrina:</span>
-        <button onclick="filterSlider('todos', this)" class="slider-cat-btn px-3.5 py-1.5 rounded-xl bg-[#B71C1C] text-white shadow-md transition-all cursor-pointer">Todos los Productos (42)</button>
-        <button onclick="filterSlider('carnes', this)" class="slider-cat-btn px-3.5 py-1.5 rounded-xl bg-white/90 hover:bg-white text-neutral-900 border border-amber-300 shadow-xs transition-all cursor-pointer">🥩 Carnes (12)</button>
-        <button onclick="filterSlider('quesos', this)" class="slider-cat-btn px-3.5 py-1.5 rounded-xl bg-white/90 hover:bg-white text-neutral-900 border border-amber-300 shadow-xs transition-all cursor-pointer">🧀 Quesos (18)</button>
-        <button onclick="filterSlider('pizzeria', this)" class="slider-cat-btn px-3.5 py-1.5 rounded-xl bg-white/90 hover:bg-white text-neutral-900 border border-amber-300 shadow-xs transition-all cursor-pointer">🍕 Productos para Pizzería (12)</button>
+      <!-- Filtros rápidos para el Slider (Scroll horizontal táctil fluido en móviles) -->
+      <div class="flex overflow-x-auto no-scrollbar scroll-smooth items-center gap-2 pt-4 pb-1 text-xs font-bold border-t border-amber-600/30 whitespace-nowrap">
+        <span class="text-neutral-900 font-extrabold text-[11px] uppercase tracking-wider mr-1 shrink-0">Filtrar:</span>
+        <button onclick="filterSlider('todos', this)" class="slider-cat-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-[#B71C1C] text-white shadow-md transition-all cursor-pointer">Todos los Productos (38)</button>
+        <button onclick="filterSlider('ofertas', this)" class="slider-cat-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-white/90 hover:bg-white text-emerald-800 font-extrabold border border-emerald-400 shadow-xs transition-all cursor-pointer">🔥 Ofertas Más Vendidas (5)</button>
+        <button onclick="filterSlider('carnes', this)" class="slider-cat-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-white/90 hover:bg-white text-neutral-900 border border-amber-300 shadow-xs transition-all cursor-pointer">🥩 Carnes (12)</button>
+        <button onclick="filterSlider('quesos', this)" class="slider-cat-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-white/90 hover:bg-white text-neutral-900 border border-amber-300 shadow-xs transition-all cursor-pointer">🧀 Quesos (17)</button>
+        <button onclick="filterSlider('pizzeria', this)" class="slider-cat-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-white/90 hover:bg-white text-neutral-900 border border-amber-300 shadow-xs transition-all cursor-pointer">🍕 Productos para Pizzería (12)</button>
       </div>
     </div>
 
@@ -566,12 +576,13 @@
         <h2 class="text-2xl sm:text-3xl font-black text-gray-900">Nuestros Productos</h2>
       </div>
 
-      <!-- Filtros rápidos -->
-      <div class="flex flex-wrap gap-2 text-xs font-bold">
-        <button onclick="renderFeatured('todos', this)" class="tab-btn px-3.5 py-1.5 rounded-xl bg-[#B71C1C] text-white transition-all cursor-pointer">Todos (42)</button>
-        <button onclick="renderFeatured('carnes', this)" class="tab-btn px-3.5 py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all cursor-pointer">🥩 Carnes (12)</button>
-        <button onclick="renderFeatured('quesos', this)" class="tab-btn px-3.5 py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all cursor-pointer">🧀 Quesos (18)</button>
-        <button onclick="renderFeatured('pizzeria', this)" class="tab-btn px-3.5 py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all cursor-pointer">🍕 Productos para Pizzería (12)</button>
+      <!-- Filtros rápidos (Scroll horizontal táctil en móvil, flex-wrap en desktop) -->
+      <div class="flex overflow-x-auto no-scrollbar scroll-smooth items-center gap-2 pb-2 sm:pb-0 sm:flex-wrap text-xs font-bold whitespace-nowrap">
+        <button onclick="renderFeatured('todos', this)" class="tab-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-[#B71C1C] text-white transition-all cursor-pointer">Todos (38)</button>
+        <button onclick="renderFeatured('ofertas', this)" class="tab-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-gray-100 text-[#2E7D32] font-extrabold hover:bg-emerald-50 transition-all cursor-pointer">🔥 Ofertas Más Vendidas (5)</button>
+        <button onclick="renderFeatured('carnes', this)" class="tab-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all cursor-pointer">🥩 Carnes (12)</button>
+        <button onclick="renderFeatured('quesos', this)" class="tab-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all cursor-pointer">🧀 Quesos (17)</button>
+        <button onclick="renderFeatured('pizzeria', this)" class="tab-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all cursor-pointer">🍕 Productos para Pizzería (12)</button>
       </div>
     </div>
 
@@ -603,9 +614,9 @@
           <div class="w-12 h-12 rounded-xl bg-red-50 text-[#B71C1C] border border-red-100 group-hover:bg-[#B71C1C] group-hover:text-white group-hover:border-[#B71C1C] transition-all duration-300 flex items-center justify-center font-bold mb-4 shadow-xs">
             <i data-lucide="truck" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-base font-black text-gray-900 mb-1">✅ Envíos a todo Chile</h3>
+          <h3 class="text-base font-black text-gray-900 mb-1">✅ Despachos & Tarifas Transparentes</h3>
           <p class="text-xs text-gray-600 leading-relaxed">
-            Rutas refrigeradas diarias en Santiago y despachos especiales a regiones con control de cadena de frío.
+            Despacho <strong>GRATIS</strong> sobre $299.990. Para pedidos entre $50.000 y $299.990: $3.000 (radio hasta 8 km) y $4.000 (más de 8 km). Pedido mínimo $50.000.
           </p>
         </div>
 
@@ -808,7 +819,7 @@
   </div>
 
   <!-- BARRA DE NAVEGACIÓN INFERIOR PARA MÓVILES (ESTILO APP NATIVA MERCADO LIBRE / SHOPIFY) -->
-  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 py-1.5 px-2 flex justify-around items-center shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
+  <nav class="mobile-bottom-nav md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 py-1.5 px-2 flex justify-around items-center shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
     <a href="index.html" class="flex flex-col items-center py-1 px-2 text-[#B71C1C]">
       <i data-lucide="home" class="w-5 h-5"></i>
       <span class="text-[10px] font-black mt-0.5">Inicio</span>
@@ -838,13 +849,13 @@
   <footer class="bg-[#121212] text-white pt-12 pb-8 border-t-4 border-[#B71C1C] mt-16">
     <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-800 text-xs">
       <div class="space-y-3">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg overflow-hidden bg-black border border-gray-700">
-            <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-full h-full object-cover" />
+        <div class="flex items-center gap-3.5">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-black border border-gray-700 p-0.5 shrink-0">
+            <img src="assets/branding/logo-valle-lindo.jpeg" alt="Logo" class="w-full h-full object-cover rounded-xl scale-110" />
           </div>
           <div>
-            <span class="font-black text-sm block">VALLE LINDO</span>
-            <span class="text-[10px] text-[#B71C1C] font-bold uppercase">Distribuidora Gastronómica</span>
+            <span class="font-black text-lg sm:text-2xl block leading-tight">VALLE LINDO</span>
+            <span class="text-[10px] sm:text-xs text-[#B71C1C] font-bold uppercase mt-1 block">Distribuidora Gastronómica</span>
           </div>
         </div>
         <p class="text-gray-400">
@@ -874,6 +885,68 @@
         <div>✉️ Vallelindocl@gmail.com</div>
         <div class="pt-2 text-[10px] text-gray-500">
           Webpay • Mercado Pago • Transferencia • Contra Entrega
+        </div>
+      </div>
+    </div>
+
+    <!-- CAJA OFICIAL DE DATOS PARA TRANSFERENCIA BANCARIA B2B -->
+    <div class="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-gray-800">
+      <div class="bg-gradient-to-r from-neutral-900 via-[#181818] to-neutral-900 border border-neutral-700/80 rounded-2xl p-5 sm:p-6 shadow-2xl">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 pb-4 border-b border-neutral-800">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-xl bg-[#B71C1C]/20 border border-[#B71C1C]/50 flex items-center justify-center text-[#B71C1C] shrink-0">
+              <i data-lucide="landmark" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="text-[10px] font-black tracking-widest text-[#B71C1C] uppercase block">Medio de Pago Oficial B2B</span>
+              <h4 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
+                <span>Datos para Transferencia Bancaria</span>
+                <span class="text-[10px] bg-emerald-950 text-emerald-400 font-bold px-2 py-0.5 rounded-full border border-emerald-800 hidden sm:inline-block">Facturación Inmediata</span>
+              </h4>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 text-xs text-amber-400 font-semibold bg-amber-950/40 px-3 py-1.5 rounded-xl border border-amber-800/60">
+            <i data-lucide="truck" class="w-4 h-4 shrink-0 text-amber-400"></i>
+            <span>¡Despachos a todo Chile!</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-4 text-xs">
+          <div class="bg-black/50 rounded-xl p-3.5 border border-neutral-800/90 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] text-gray-400 uppercase font-bold tracking-wider block mb-1">Razón Social & RUT</span>
+              <strong class="text-white font-extrabold text-xs sm:text-sm block leading-snug">Comercializadora Valle Lindo SpA</strong>
+            </div>
+            <div class="mt-2 text-amber-400 font-mono font-bold text-xs">RUT: 77.891.571-5</div>
+          </div>
+
+          <div class="bg-black/50 rounded-xl p-3.5 border border-neutral-800/90 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] text-gray-400 uppercase font-bold tracking-wider block mb-1">Banco & Tipo de Cuenta</span>
+              <strong class="text-white font-extrabold text-xs sm:text-sm block leading-snug">Banco Santander</strong>
+            </div>
+            <div class="mt-2 text-gray-300 font-semibold text-xs">Cuenta Corriente</div>
+          </div>
+
+          <div class="bg-black/50 rounded-xl p-3.5 border border-neutral-800/90 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] text-gray-400 uppercase font-bold tracking-wider block mb-1">Número de Cuenta</span>
+              <strong class="text-emerald-400 font-mono font-black text-sm sm:text-base tracking-wide block">0-000-9363038-6</strong>
+            </div>
+            <div class="mt-2 text-gray-400 text-[10px]">o versión corta: 93630386</div>
+          </div>
+
+          <div class="bg-black/50 rounded-xl p-3.5 border border-neutral-800/90 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] text-gray-400 uppercase font-bold tracking-wider block mb-1">Envío de Comprobantes</span>
+              <a href="mailto:vallelindocl@gmail.com" class="text-white hover:text-amber-400 font-bold text-xs sm:text-sm block truncate transition-colors">vallelindocl@gmail.com</a>
+            </div>
+            <div class="mt-2 flex items-center justify-between text-[11px]">
+              <a href="https://wa.me/56987907981" target="_blank" class="text-emerald-400 font-bold hover:underline flex items-center gap-1">
+                <span>WhatsApp: +56 9 8790 7981</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -923,7 +996,9 @@
 
       const filtered = currentSliderCategory === 'todos'
         ? PRODUCTS_DATA
-        : PRODUCTS_DATA.filter(p => p.category === currentSliderCategory);
+        : currentSliderCategory === 'ofertas'
+        ? PRODUCTS_DATA.filter(p => p.isOffer)
+        : PRODUCTS_DATA.filter(p => (p.categories || [p.category]).includes(currentSliderCategory));
 
       // Duplicamos items para permitir scroll infinito continuo
       const displayItems = filtered.length > 0 ? [...filtered, ...filtered] : PRODUCTS_DATA;
@@ -1061,9 +1136,11 @@
       if (!container) return;
 
       const filtered = PRODUCTS_DATA.filter(p => {
+        if (cat === 'ofertas') return p.isOffer;
         if (cat === 'todos') return true;
-        if (cat === 'pizzeria' || cat === 'pizza') return p.category === 'pizzeria' || p.category === 'pizza';
-        return p.category === cat;
+        const pCats = p.categories || [p.category];
+        if (cat === 'pizzeria' || cat === 'pizza') return pCats.includes('pizzeria') || pCats.includes('pizza');
+        return pCats.includes(cat);
       });
 
       container.innerHTML = filtered.map(p => renderProductCard(p)).join("");

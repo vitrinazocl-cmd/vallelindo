@@ -267,16 +267,6 @@ export default function HomePage() {
               🧀 Quesos Pizzería
             </button>
             <button
-              onClick={() => setActiveTab("carnes")}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
-                activeTab === "carnes"
-                  ? "bg-[#B71C1C] text-white shadow-xs"
-                  : "text-gray-600 hover:text-black"
-              }`}
-            >
-              🥩 Carnes
-            </button>
-            <button
               onClick={() => setActiveTab("pizza")}
               className={`px-3 py-1.5 rounded-lg transition-all ${
                 activeTab === "pizza"
@@ -285,6 +275,16 @@ export default function HomePage() {
               }`}
             >
               🍕 Insumos Pizza
+            </button>
+            <button
+              onClick={() => setActiveTab("carnes")}
+              className={`px-3 py-1.5 rounded-lg transition-all ${
+                activeTab === "carnes"
+                  ? "bg-[#B71C1C] text-white shadow-xs"
+                  : "text-gray-600 hover:text-black"
+              }`}
+            >
+              🥩 Carnes
             </button>
           </div>
         </div>

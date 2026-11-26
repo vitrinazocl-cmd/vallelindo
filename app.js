@@ -4,611 +4,6 @@
 
 const PRODUCTS_DATA = [
   {
-    "id": "prod-combo-pura-carne",
-    "slug": "combo-pura-carne-valle-lindo",
-    "name": "Combo Pura Carne Vacuno Selección (4 kg)",
-    "brand": "Valle Lindo Carnes",
-    "sku": "CAR-COMBO-PURA-4K",
-    "category": "carnes",
-    "categoryName": "Carnes",
-    "subCategory": "Combos Vacuno",
-    "price": 48990,
-    "originalPrice": 56990,
-    "discountPercent": 14,
-    "stock": 45,
-    "stockStatus": "in_stock",
-    "unit": "Pack 4 kg surtido al vacío",
-    "weight": "4 kg",
-    "origin": "Chile / Selección Premium",
-    "rating": 5.0,
-    "reviewCount": 68,
-    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.07 (3).jpeg",
-    "shortDescription": "Todo por $48.990. Incluye 1 kg Bistec carne magra, 1 kg Carne para mechar, 1 kg Carne para el horno o guisar y 1 kg Carne molida especial.",
-    "description": "La mejor selección de carnes para compartir en familia o con amigos. Carne 100% magra, fresca y garantizada, ideal para todas tus recetas cotidianas. Calidad asegurada con despacho refrigerado.",
-    "storage": "Mantener refrigerado entre 0°C y 4°C o congelado a -18°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 48990,
-        "label": "1 a 2 combos"
-      },
-      {
-        "minQty": 3,
-        "price": 46990,
-        "label": "3+ combos mayorista"
-      }
-    ],
-    "isFeatured": true,
-    "isBestSeller": true,
-    "isOffer": false,
-    "tags": [
-      "carnes",
-      "combo",
-      "pura carne",
-      "vacuno",
-      "bistec",
-      "molida",
-      "mechar"
-    ],
-    "categories": [
-      "carnes"
-    ]
-  },
-  {
-    "id": "prod-combo-medio-kilates",
-    "slug": "combo-medio-kilates-surtido",
-    "name": "Combo Medio Kilates Surtido Esencial (2.5 kg)",
-    "brand": "Valle Lindo Carnes",
-    "sku": "CAR-COMBO-MEDIO-25K",
-    "category": "carnes",
-    "categoryName": "Carnes",
-    "subCategory": "Combos Surtidos",
-    "price": 26990,
-    "originalPrice": 31990,
-    "discountPercent": 16,
-    "stock": 50,
-    "stockStatus": "in_stock",
-    "unit": "Pack 2.5 kg surtido",
-    "weight": "2.5 kg",
-    "origin": "Chile / Nacional",
-    "rating": 4.9,
-    "reviewCount": 54,
-    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.07 (4).jpeg",
-    "shortDescription": "Todo por $26.990. Incluye 1/2 kg Bistec (Lomo Liso o Asiento), 1/2 kg Carne para mechar, 1/2 kg Carne molida especial, 1/2 kg Pechuga deshuesada y 1/2 kg Bistec de pulpa de cerdo.",
-    "description": "Todo lo que necesitas para disfrutar en familia o con amigos. Porciones perfectas de vacuno, ave y cerdo listas para la semana o una parrillada express con frescura inigualable.",
-    "storage": "Refrigerado 0°C a 4°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 26990,
-        "label": "Precio unitario"
-      },
-      {
-        "minQty": 4,
-        "price": 24990,
-        "label": "4+ combos"
-      }
-    ],
-    "isFeatured": true,
-    "isBestSeller": false,
-    "isOffer": false,
-    "tags": [
-      "carnes",
-      "combo medio kilates",
-      "lomo liso",
-      "pollo",
-      "cerdo"
-    ],
-    "categories": [
-      "carnes"
-    ]
-  },
-  {
-    "id": "prod-super-combo-parrillero",
-    "slug": "super-combo-parrillero-valle-lindo",
-    "name": "Súper Combo Parrillero Premium (6 kg + Prietas)",
-    "brand": "Valle Lindo Carnes",
-    "sku": "CAR-COMBO-PARR-SUP",
-    "category": "carnes",
-    "categoryName": "Carnes",
-    "subCategory": "Combos Parrilleros",
-    "price": 53990,
-    "originalPrice": 62990,
-    "discountPercent": 14,
-    "stock": 40,
-    "stockStatus": "in_stock",
-    "unit": "Pack parrillero familiar 6 kg aprox.",
-    "weight": "6 kg",
-    "origin": "Chile / Selección Parrillera",
-    "rating": 5.0,
-    "reviewCount": 92,
-    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (1).jpeg",
-    "shortDescription": "Todo por $53.990. Incluye 2 kg Lomo Liso o Vetado, 1 kg Trutro de pollo, 1 kg Costillar de cerdo, 1 kg Chorizo de la casa y 1 paquete Morcilla / Prieta.",
-    "description": "El combo definitivo para los amantes del asado. Cortes nobles seleccionados para lograr la máxima terneza y jugosidad al carbón o leña. Calidad, frescura y sabor incomparables.",
-    "storage": "Refrigerado 0°C a 4°C o congelado -18°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 53990,
-        "label": "Por combo"
-      },
-      {
-        "minQty": 3,
-        "price": 50990,
-        "label": "3+ combos asado"
-      }
-    ],
-    "isFeatured": true,
-    "isBestSeller": true,
-    "isOffer": false,
-    "tags": [
-      "carnes",
-      "combo parrillero",
-      "lomo vetado",
-      "costillar",
-      "chorizo",
-      "prietas"
-    ],
-    "categories": [
-      "carnes"
-    ]
-  },
-  {
-    "id": "prod-combo-fitness",
-    "slug": "combo-fitness-proteina-limpia",
-    "name": "Combo Fitness Proteico Saludable (5.5 kg)",
-    "brand": "Valle Lindo Carnes",
-    "sku": "CAR-COMBO-FIT-55K",
-    "category": "carnes",
-    "categoryName": "Carnes",
-    "subCategory": "Combos Saludables",
-    "price": 34990,
-    "originalPrice": 41990,
-    "discountPercent": 17,
-    "stock": 35,
-    "stockStatus": "in_stock",
-    "unit": "Pack 5.5 kg magro al vacío",
-    "weight": "5.5 kg",
-    "origin": "Chile / Selección Magra",
-    "rating": 4.9,
-    "reviewCount": 47,
-    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (2).jpeg",
-    "shortDescription": "Todo por $34.990. Incluye 1/2 kg Carne molida especial magra, 2 kg Trutro entero sin piel, 2 kg Pechuga deshuesada y 1 kg Pollo molido.",
-    "description": "Todo lo que necesitas para tu mejor versión. Máxima proteína magra con bajo contenido graso, ideal para atletas, deportistas y alimentación balanceada familiar.",
-    "storage": "Refrigerado 0°C a 4°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 34990,
-        "label": "Precio normal"
-      },
-      {
-        "minQty": 3,
-        "price": 32990,
-        "label": "3+ unidades"
-      }
-    ],
-    "isFeatured": true,
-    "isBestSeller": false,
-    "isOffer": false,
-    "tags": [
-      "carnes",
-      "combo fitness",
-      "pechuga deshuesada",
-      "trutro",
-      "proteina"
-    ],
-    "categories": [
-      "carnes"
-    ]
-  },
-  {
-    "id": "prod-combo-familiar-mega",
-    "slug": "combo-familiar-mega-seleccion",
-    "name": "Combo Familiar Mega Selección Completa (7 kg)",
-    "brand": "Valle Lindo Carnes",
-    "sku": "CAR-COMBO-FAM-7K",
-    "category": "carnes",
-    "categoryName": "Carnes",
-    "subCategory": "Combos Familiares",
-    "price": 62990,
-    "originalPrice": 72990,
-    "discountPercent": 14,
-    "stock": 30,
-    "stockStatus": "in_stock",
-    "unit": "Mega Pack 7 kg surtido",
-    "weight": "7 kg",
-    "origin": "Chile",
-    "rating": 5.0,
-    "reviewCount": 61,
-    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (3).jpeg",
-    "shortDescription": "Todo por $62.990. Incluye 1 kg Molida especial, 1 kg Bistec, 1 kg Carne picada o para mechar, 1 kg Chuleta centro, 1 kg Chuleta ahumada, 1 kg Truto entero y 1 kg Pechuga deshuesada.",
-    "description": "El pack más completo para toda la familia. 7 kilos de carnes seleccionadas que resuelven los almuerzos y cenas de todo el mes con cortes premium y frescura absoluta.",
-    "storage": "Mantener refrigerado entre 0°C y 4°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 62990,
-        "label": "Por combo"
-      },
-      {
-        "minQty": 2,
-        "price": 59990,
-        "label": "2+ combos familiares"
-      }
-    ],
-    "isFeatured": true,
-    "isBestSeller": true,
-    "isOffer": false,
-    "tags": [
-      "carnes",
-      "combo familiar",
-      "chuleta centro",
-      "bistec",
-      "pechuga"
-    ],
-    "categories": [
-      "carnes"
-    ]
-  },
-  {
-    "id": "prod-combo-familiar-20",
-    "slug": "combo-familiar-2-0-economico",
-    "name": "Combo Familiar 2.0 Ahorro Inteligente (5.5 kg)",
-    "brand": "Valle Lindo Carnes",
-    "sku": "CAR-COMBO-FAM2-55K",
-    "category": "carnes",
-    "categoryName": "Carnes",
-    "subCategory": "Combos Familiares",
-    "price": 54990,
-    "originalPrice": 61990,
-    "discountPercent": 11,
-    "stock": 38,
-    "stockStatus": "in_stock",
-    "unit": "Pack 5.5 kg cortes nobles",
-    "weight": "5.5 kg",
-    "origin": "Chile",
-    "rating": 4.9,
-    "reviewCount": 39,
-    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (4).jpeg",
-    "shortDescription": "Todo por $54.990. Incluye 1 kg Molida especial, 1/2 kg Carne picada, 1/2 kg Carne para mechar, 1 kg Lomo liso bistec, 1.5 kg Pechuga deshuesada y 1 kg Truto entero.",
-    "description": "Excelente balance entre carnes rojas y blancas de primera calidad. Variedad para guisar, asar a la plancha o preparar al horno con rendimiento superior.",
-    "storage": "Refrigerado 0°C a 4°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 54990,
-        "label": "Precio normal"
-      },
-      {
-        "minQty": 3,
-        "price": 51990,
-        "label": "3+ combos"
-      }
-    ],
-    "isFeatured": false,
-    "isBestSeller": false,
-    "isOffer": false,
-    "tags": [
-      "carnes",
-      "combo familiar 2.0",
-      "lomo liso",
-      "mechar",
-      "pechuga"
-    ],
-    "categories": [
-      "carnes"
-    ]
-  },
-  {
-    "id": "prod-combo-parrillero-clasico",
-    "slug": "combo-parrillero-clasico-4-5kg",
-    "name": "Combo Parrillero Clásico Fin de Semana (4.5 kg)",
-    "brand": "Valle Lindo Carnes",
-    "sku": "CAR-COMBO-PARR-45K",
-    "category": "carnes",
-    "categoryName": "Carnes",
-    "subCategory": "Combos Parrilleros",
-    "price": 39990,
-    "originalPrice": 46990,
-    "discountPercent": 15,
-    "stock": 42,
-    "stockStatus": "in_stock",
-    "unit": "Pack 4.5 kg para asado",
-    "weight": "4.5 kg",
-    "origin": "Chile",
-    "rating": 4.8,
-    "reviewCount": 41,
-    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (5).jpeg",
-    "shortDescription": "Todo por $39.990. Incluye 1.5 kg Lomo liso, 1 kg Chuleta parrillera de cerdo, 1 kg Truto entero y 1 kg Chorizo artesanal de la casa.",
-    "description": "El asado perfecto en un solo paquete. Cortes seleccionados listos para la parrilla con sabor criollo tradicional.",
-    "storage": "Refrigerado 0°C a 4°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 39990,
-        "label": "Precio normal"
-      },
-      {
-        "minQty": 3,
-        "price": 37990,
-        "label": "3+ combos"
-      }
-    ],
-    "isFeatured": false,
-    "isBestSeller": false,
-    "isOffer": false,
-    "tags": [
-      "carnes",
-      "combo parrillero",
-      "lomo liso",
-      "chuleta",
-      "chorizo"
-    ],
-    "categories": [
-      "carnes"
-    ]
-  },
-  {
-    "id": "prod-combo-kilate-completo",
-    "slug": "combo-kilate-completo-5kg",
-    "name": "Combo Kilate Completo Multicortes (5 kg)",
-    "brand": "Valle Lindo Carnes",
-    "sku": "CAR-COMBO-KIL-5K",
-    "category": "carnes",
-    "categoryName": "Carnes",
-    "subCategory": "Combos Surtidos",
-    "price": 52990,
-    "originalPrice": 59990,
-    "discountPercent": 12,
-    "stock": 35,
-    "stockStatus": "in_stock",
-    "unit": "Pack 5 kg surtido al vacío",
-    "weight": "5 kg",
-    "origin": "Chile",
-    "rating": 4.9,
-    "reviewCount": 58,
-    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08.jpeg",
-    "shortDescription": "Todo por $52.990. Incluye 1 kg Bistec (Lomo Liso o Asiento), 1 kg Carne para mechar, 1 kg Carne molida especial, 1 kg Pechuga deshuesada y 1 kg Bistec de pulpa de cerdo.",
-    "description": "5 kilos de carne de primera calidad. Todo lo necesario para disfrutar en familia o abastecer el menú semanal con terneza y rendimiento garantizados.",
-    "storage": "Refrigerado 0°C a 4°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 52990,
-        "label": "Precio normal"
-      },
-      {
-        "minQty": 3,
-        "price": 49990,
-        "label": "3+ combos mayorista"
-      }
-    ],
-    "isFeatured": true,
-    "isBestSeller": false,
-    "isOffer": false,
-    "tags": [
-      "carnes",
-      "combo kilate",
-      "bistec",
-      "asiento",
-      "pulpa de cerdo"
-    ],
-    "categories": [
-      "carnes"
-    ]
-  },
-  {
-    "id": "prod-chuleta-ahumada-premium",
-    "slug": "chuleta-ahumada-premium-cerdo",
-    "name": "Chuleta Ahumada Premium de Cerdo Seleccionada (Por Kilo)",
-    "brand": "Valle Lindo Ahumados",
-    "sku": "CAR-CHUL-AHUM-KG",
-    "category": "carnes",
-    "categoryName": "Carnes",
-    "subCategory": "Ahumados",
-    "price": 5990,
-    "originalPrice": 6990,
-    "discountPercent": 14,
-    "stock": 120,
-    "stockStatus": "in_stock",
-    "unit": "Kilo (Con Hueso $5.990 / Sin Hueso $6.390)",
-    "weight": "1 kg",
-    "origin": "Chile",
-    "rating": 4.9,
-    "reviewCount": 73,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.16.39.jpeg",
-    "shortDescription": "Ahumado natural a leña. Con hueso $5.990 el kilo | Sin hueso $6.390 el kilo. 100% carne de cerdo seleccionada con sabor único que realza cada momento.",
-    "description": "Chuletas de cerdo seleccionadas ahumadas lentamente al calor de maderas nobles. Jugosas, tiernas y con el punto justo de sal, ideales para asar, hornear o sellar a la plancha.",
-    "storage": "Mantener refrigerado entre 2°C y 6°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 5990,
-        "label": "Con Hueso ($5.990/kg)"
-      },
-      {
-        "minQty": 10,
-        "price": 5690,
-        "label": "10+ kg Con Hueso ($5.690/kg)"
-      },
-      {
-        "minQty": 1,
-        "price": 6390,
-        "label": "Sin Hueso ($6.390/kg)"
-      },
-      {
-        "minQty": 10,
-        "price": 5990,
-        "label": "10+ kg Sin Hueso ($5.990/kg)"
-      }
-    ],
-    "isFeatured": true,
-    "isBestSeller": true,
-    "isOffer": false,
-    "tags": [
-      "carnes",
-      "chuleta ahumada",
-      "cerdo",
-      "ahumados",
-      "parrilla"
-    ],
-    "categories": [
-      "carnes"
-    ]
-  },
-  {
-    "id": "prod-tocino-ahumado-laminado",
-    "slug": "tocino-ahumado-laminado-premium",
-    "name": "Tocino Ahumado Laminado Selección Premium (Por Kilo)",
-    "brand": "Santa Bárbara / Valle Lindo",
-    "sku": "CAR-TOC-LAM-KG",
-    "category": "carnes",
-    "categoryName": "Carnes",
-    "subCategory": "Ahumados",
-    "price": 8990,
-    "originalPrice": 9990,
-    "discountPercent": 10,
-    "stock": 80,
-    "stockStatus": "in_stock",
-    "unit": "Kilo laminado al vacío",
-    "weight": "1 kg",
-    "origin": "Chile / Venezuela",
-    "rating": 5.0,
-    "reviewCount": 65,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.17.15.jpeg",
-    "shortDescription": "Ahumado lentamente para un sabor único e irresistible. $8.990 el kilo. 100% carne de cerdo premium seleccionada.",
-    "description": "Tocino de panceta curada y ahumada con maderas seleccionadas. Láminas homogéneas de dorado crujiente y aroma inconfundible, indispensables en hamburguesas, desayunos y platos gourmet.",
-    "storage": "Mantener refrigerado entre 2°C y 5°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 8990,
-        "label": "1 a 4 kg ($8.990)"
-      },
-      {
-        "minQty": 5,
-        "price": 8490,
-        "label": "5+ kg ($8.490)"
-      }
-    ],
-    "isFeatured": true,
-    "isBestSeller": false,
-    "isOffer": false,
-    "tags": [
-      "carnes",
-      "tocino ahumado",
-      "panceta",
-      "bacon",
-      "ahumados"
-    ],
-    "categories": [
-      "carnes"
-    ]
-  },
-  {
-    "id": "prod-tocino-ahumado-tipo-molde-kg",
-    "slug": "tocino-ahumado-tipo-molde-barra",
-    "name": "Tocino Ahumado Tipo Molde en Bloque / Barra (Por Kilo)",
-    "brand": "Santa Bárbara R&C",
-    "sku": "CAR-TOC-MOLDE-KG",
-    "category": "carnes",
-    "categoryName": "Carnes",
-    "subCategory": "Ahumados",
-    "price": 6990,
-    "originalPrice": 7990,
-    "discountPercent": 13,
-    "stock": 95,
-    "stockStatus": "in_stock",
-    "unit": "Bloque / Kilo ($6.990 el kilo)",
-    "weight": "1 kg",
-    "origin": "Chile / Venezuela",
-    "rating": 4.9,
-    "reviewCount": 42,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.18.28.jpeg",
-    "shortDescription": "Precio por kilo $6.990 | A partir de 20 kilos $6.390 el kilo. Ahumado natural lentamente para un sabor único y rendimiento profesional.",
-    "description": "Tocino tipo molde con alto rendimiento en máquina rebanadora o para corte en cubos. Perfecto para restaurantes, locales de comida rápida y cecinas.",
-    "storage": "Mantener refrigerado entre 2°C y 6°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 6990,
-        "label": "1 a 19 kg ($6.990/kg)"
-      },
-      {
-        "minQty": 20,
-        "price": 6390,
-        "label": "Desde 20 kg ($6.390/kg)"
-      }
-    ],
-    "isFeatured": false,
-    "isBestSeller": true,
-    "isOffer": true,
-    "tags": [
-      "pizzeria",
-      "ahumado",
-      "tipo molde",
-      "pizza",
-      "tocino",
-      "carnes",
-      "tocino pizza",
-      "mayorista"
-    ],
-    "categories": [
-      "carnes",
-      "pizzeria"
-    ]
-  },
-  {
-    "id": "prod-combos-familia-personalizado",
-    "slug": "pack-combos-familia-carnes-seleccionadas",
-    "name": "Pack Selección Carnes Familiares & Asesoría a Medida",
-    "brand": "Valle Lindo Especial",
-    "sku": "CAR-PACK-CUSTOM",
-    "category": "carnes",
-    "categoryName": "Carnes",
-    "subCategory": "Combos Especiales",
-    "price": 45990,
-    "originalPrice": 52990,
-    "discountPercent": 13,
-    "stock": 25,
-    "stockStatus": "in_stock",
-    "unit": "Pack personalizado según requerimiento",
-    "weight": "4 a 6 kg",
-    "origin": "Chile",
-    "rating": 5.0,
-    "reviewCount": 33,
-    "image": "productos/WhatsApp Image 2026-11-19 at 09.22.26.jpeg",
-    "shortDescription": "Prácticos, completos y económicos. Combos de carne pensados para tu familia con calidad premium y compras por volumen garantizadas.",
-    "description": "Arma el combo a la medida de tu hogar o negocio con nuestros maestros carniceros. Cotiza vacuno, cerdo y ave con el mejor precio por kilo y despacho a domicilio.",
-    "storage": "Refrigerado 0°C a 4°C.",
-    "wholesaleTiers": [
-      {
-        "minQty": 1,
-        "price": 45990,
-        "label": "Pack estándar sugerido"
-      },
-      {
-        "minQty": 5,
-        "price": 42990,
-        "label": "5+ packs a medida"
-      }
-    ],
-    "isFeatured": false,
-    "isBestSeller": false,
-    "isOffer": false,
-    "tags": [
-      "carnes",
-      "combos de carne",
-      "familia",
-      "ahorro",
-      "personalizado"
-    ],
-    "categories": [
-      "carnes"
-    ]
-  },
-  {
     "id": "prod-catalogo-general-muestrario",
     "slug": "catalogo-oficial-valle-lindo-muestrario",
     "name": "Catálogo General Valle Lindo & Degustación Mayorista",
@@ -1256,65 +651,6 @@ const PRODUCTS_DATA = [
     ]
   },
   {
-    "id": "prod-queso-granulado-2k",
-    "slug": "queso-granulado-pampa-cheese-bolsa-2kg",
-    "name": "Queso Granulado Hebras Bolsa 2 kg (Pampa Cheese)",
-    "brand": "Pampa Cheese",
-    "sku": "QUE-GRAN-2K",
-    "category": "pizzeria",
-    "categoryName": "Productos para Pizzería",
-    "subCategory": "Mozzarella",
-    "price": 6690,
-    "originalPrice": 7490,
-    "discountPercent": 11,
-    "stock": 140,
-    "stockStatus": "in_stock",
-    "unit": "Kilo (Bolsa de 2 kg a $13.380)",
-    "weight": "2 kg",
-    "origin": "Chile / Argentina",
-    "rating": 5.0,
-    "reviewCount": 96,
-    "image": "assets/products/clean/prod-queso-granulado-2k.jpg",
-    "shortDescription": "Precio por kilo: $6.690/kg | Bolsa completa 2 kg: $13.380. Por bolsa 2 kg: $6.690/kg | Caja 20 kg: $5.990/kg | Desde 80 kg: $5.690/kg. Más sabor y mejor rendimiento para hornos.",
-    "description": "Queso granulado suelto IQF. Ahorra mano de obra y tiempo en cocina: se esparce de forma pareja sobre pizzas, lasañas y gratinados sin aglomerarse.",
-    "storage": "Mantener refrigerado o congelado.",
-    "wholesaleTiers": [
-      {
-        "minQty": 2,
-        "price": 6690,
-        "label": "Bolsa 2 kg ($6.690/kg)"
-      },
-      {
-        "minQty": 20,
-        "price": 5990,
-        "label": "Caja 20 kg (10 bolsas a $5.990/kg)"
-      },
-      {
-        "minQty": 80,
-        "price": 5690,
-        "label": "Desde 4 cajas / 80 kg ($5.690/kg)"
-      }
-    ],
-    "isFeatured": true,
-    "isBestSeller": true,
-    "isOffer": true,
-    "tags": [
-      "quesos",
-      "granulado",
-      "rallado",
-      "pizzas",
-      "pampa cheese"
-    ],
-    "pricePerUnitLabel": "/ kg",
-    "pieceWeightKg": 2,
-    "pieceWeight": "Bolsa 2 kg",
-    "piecePrice": 13380,
-    "pieceLabel": "Bolsa completa (2 kg): $13.380",
-    "categories": [
-      "pizzeria"
-    ]
-  },
-  {
     "id": "prod-queso-gouda-sucedaneo-barra",
     "slug": "queso-gouda-sucedaneo-la-gogaive-barra",
     "name": "Queso Gouda Sucedáneo Económico (La Gogaive Barra 3.2 kg)",
@@ -1580,6 +916,65 @@ const PRODUCTS_DATA = [
     ],
     "categories": [
       "quesos"
+    ]
+  },
+  {
+    "id": "prod-queso-granulado-2k",
+    "slug": "queso-granulado-pampa-cheese-bolsa-2kg",
+    "name": "Queso Granulado Hebras Bolsa 2 kg (Pampa Cheese)",
+    "brand": "Pampa Cheese",
+    "sku": "QUE-GRAN-2K",
+    "category": "pizzeria",
+    "categoryName": "Productos para Pizzería",
+    "subCategory": "Mozzarella",
+    "price": 6690,
+    "originalPrice": 7490,
+    "discountPercent": 11,
+    "stock": 140,
+    "stockStatus": "in_stock",
+    "unit": "Kilo (Bolsa de 2 kg a $13.380)",
+    "weight": "2 kg",
+    "origin": "Chile / Argentina",
+    "rating": 5.0,
+    "reviewCount": 96,
+    "image": "assets/products/clean/prod-queso-granulado-2k.jpg",
+    "shortDescription": "Precio por kilo: $6.690/kg | Bolsa completa 2 kg: $13.380. Por bolsa 2 kg: $6.690/kg | Caja 20 kg: $5.990/kg | Desde 80 kg: $5.690/kg. Más sabor y mejor rendimiento para hornos.",
+    "description": "Queso granulado suelto IQF. Ahorra mano de obra y tiempo en cocina: se esparce de forma pareja sobre pizzas, lasañas y gratinados sin aglomerarse.",
+    "storage": "Mantener refrigerado o congelado.",
+    "wholesaleTiers": [
+      {
+        "minQty": 2,
+        "price": 6690,
+        "label": "Bolsa 2 kg ($6.690/kg)"
+      },
+      {
+        "minQty": 20,
+        "price": 5990,
+        "label": "Caja 20 kg (10 bolsas a $5.990/kg)"
+      },
+      {
+        "minQty": 80,
+        "price": 5690,
+        "label": "Desde 4 cajas / 80 kg ($5.690/kg)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": true,
+    "tags": [
+      "quesos",
+      "granulado",
+      "rallado",
+      "pizzas",
+      "pampa cheese"
+    ],
+    "pricePerUnitLabel": "/ kg",
+    "pieceWeightKg": 2,
+    "pieceWeight": "Bolsa 2 kg",
+    "piecePrice": 13380,
+    "pieceLabel": "Bolsa completa (2 kg): $13.380",
+    "categories": [
+      "pizzeria"
     ]
   },
   {
@@ -1979,6 +1374,611 @@ const PRODUCTS_DATA = [
     ],
     "categories": [
       "pizzeria"
+    ]
+  },
+  {
+    "id": "prod-combo-pura-carne",
+    "slug": "combo-pura-carne-valle-lindo",
+    "name": "Combo Pura Carne Vacuno Selección (4 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-PURA-4K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Vacuno",
+    "price": 48990,
+    "originalPrice": 56990,
+    "discountPercent": 14,
+    "stock": 45,
+    "stockStatus": "in_stock",
+    "unit": "Pack 4 kg surtido al vacío",
+    "weight": "4 kg",
+    "origin": "Chile / Selección Premium",
+    "rating": 5.0,
+    "reviewCount": 68,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.07 (3).jpeg",
+    "shortDescription": "Todo por $48.990. Incluye 1 kg Bistec carne magra, 1 kg Carne para mechar, 1 kg Carne para el horno o guisar y 1 kg Carne molida especial.",
+    "description": "La mejor selección de carnes para compartir en familia o con amigos. Carne 100% magra, fresca y garantizada, ideal para todas tus recetas cotidianas. Calidad asegurada con despacho refrigerado.",
+    "storage": "Mantener refrigerado entre 0°C y 4°C o congelado a -18°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 48990,
+        "label": "1 a 2 combos"
+      },
+      {
+        "minQty": 3,
+        "price": 46990,
+        "label": "3+ combos mayorista"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": false,
+    "tags": [
+      "carnes",
+      "combo",
+      "pura carne",
+      "vacuno",
+      "bistec",
+      "molida",
+      "mechar"
+    ],
+    "categories": [
+      "carnes"
+    ]
+  },
+  {
+    "id": "prod-combo-medio-kilates",
+    "slug": "combo-medio-kilates-surtido",
+    "name": "Combo Medio Kilates Surtido Esencial (2.5 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-MEDIO-25K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Surtidos",
+    "price": 26990,
+    "originalPrice": 31990,
+    "discountPercent": 16,
+    "stock": 50,
+    "stockStatus": "in_stock",
+    "unit": "Pack 2.5 kg surtido",
+    "weight": "2.5 kg",
+    "origin": "Chile / Nacional",
+    "rating": 4.9,
+    "reviewCount": 54,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.07 (4).jpeg",
+    "shortDescription": "Todo por $26.990. Incluye 1/2 kg Bistec (Lomo Liso o Asiento), 1/2 kg Carne para mechar, 1/2 kg Carne molida especial, 1/2 kg Pechuga deshuesada y 1/2 kg Bistec de pulpa de cerdo.",
+    "description": "Todo lo que necesitas para disfrutar en familia o con amigos. Porciones perfectas de vacuno, ave y cerdo listas para la semana o una parrillada express con frescura inigualable.",
+    "storage": "Refrigerado 0°C a 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 26990,
+        "label": "Precio unitario"
+      },
+      {
+        "minQty": 4,
+        "price": 24990,
+        "label": "4+ combos"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "carnes",
+      "combo medio kilates",
+      "lomo liso",
+      "pollo",
+      "cerdo"
+    ],
+    "categories": [
+      "carnes"
+    ]
+  },
+  {
+    "id": "prod-super-combo-parrillero",
+    "slug": "super-combo-parrillero-valle-lindo",
+    "name": "Súper Combo Parrillero Premium (6 kg + Prietas)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-PARR-SUP",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Parrilleros",
+    "price": 53990,
+    "originalPrice": 62990,
+    "discountPercent": 14,
+    "stock": 40,
+    "stockStatus": "in_stock",
+    "unit": "Pack parrillero familiar 6 kg aprox.",
+    "weight": "6 kg",
+    "origin": "Chile / Selección Parrillera",
+    "rating": 5.0,
+    "reviewCount": 92,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (1).jpeg",
+    "shortDescription": "Todo por $53.990. Incluye 2 kg Lomo Liso o Vetado, 1 kg Trutro de pollo, 1 kg Costillar de cerdo, 1 kg Chorizo de la casa y 1 paquete Morcilla / Prieta.",
+    "description": "El combo definitivo para los amantes del asado. Cortes nobles seleccionados para lograr la máxima terneza y jugosidad al carbón o leña. Calidad, frescura y sabor incomparables.",
+    "storage": "Refrigerado 0°C a 4°C o congelado -18°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 53990,
+        "label": "Por combo"
+      },
+      {
+        "minQty": 3,
+        "price": 50990,
+        "label": "3+ combos asado"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": false,
+    "tags": [
+      "carnes",
+      "combo parrillero",
+      "lomo vetado",
+      "costillar",
+      "chorizo",
+      "prietas"
+    ],
+    "categories": [
+      "carnes"
+    ]
+  },
+  {
+    "id": "prod-combo-fitness",
+    "slug": "combo-fitness-proteina-limpia",
+    "name": "Combo Fitness Proteico Saludable (5.5 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-FIT-55K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Saludables",
+    "price": 34990,
+    "originalPrice": 41990,
+    "discountPercent": 17,
+    "stock": 35,
+    "stockStatus": "in_stock",
+    "unit": "Pack 5.5 kg magro al vacío",
+    "weight": "5.5 kg",
+    "origin": "Chile / Selección Magra",
+    "rating": 4.9,
+    "reviewCount": 47,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (2).jpeg",
+    "shortDescription": "Todo por $34.990. Incluye 1/2 kg Carne molida especial magra, 2 kg Trutro entero sin piel, 2 kg Pechuga deshuesada y 1 kg Pollo molido.",
+    "description": "Todo lo que necesitas para tu mejor versión. Máxima proteína magra con bajo contenido graso, ideal para atletas, deportistas y alimentación balanceada familiar.",
+    "storage": "Refrigerado 0°C a 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 34990,
+        "label": "Precio normal"
+      },
+      {
+        "minQty": 3,
+        "price": 32990,
+        "label": "3+ unidades"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "carnes",
+      "combo fitness",
+      "pechuga deshuesada",
+      "trutro",
+      "proteina"
+    ],
+    "categories": [
+      "carnes"
+    ]
+  },
+  {
+    "id": "prod-combo-familiar-mega",
+    "slug": "combo-familiar-mega-seleccion",
+    "name": "Combo Familiar Mega Selección Completa (7 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-FAM-7K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Familiares",
+    "price": 62990,
+    "originalPrice": 72990,
+    "discountPercent": 14,
+    "stock": 30,
+    "stockStatus": "in_stock",
+    "unit": "Mega Pack 7 kg surtido",
+    "weight": "7 kg",
+    "origin": "Chile",
+    "rating": 5.0,
+    "reviewCount": 61,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (3).jpeg",
+    "shortDescription": "Todo por $62.990. Incluye 1 kg Molida especial, 1 kg Bistec, 1 kg Carne picada o para mechar, 1 kg Chuleta centro, 1 kg Chuleta ahumada, 1 kg Truto entero y 1 kg Pechuga deshuesada.",
+    "description": "El pack más completo para toda la familia. 7 kilos de carnes seleccionadas que resuelven los almuerzos y cenas de todo el mes con cortes premium y frescura absoluta.",
+    "storage": "Mantener refrigerado entre 0°C y 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 62990,
+        "label": "Por combo"
+      },
+      {
+        "minQty": 2,
+        "price": 59990,
+        "label": "2+ combos familiares"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": false,
+    "tags": [
+      "carnes",
+      "combo familiar",
+      "chuleta centro",
+      "bistec",
+      "pechuga"
+    ],
+    "categories": [
+      "carnes"
+    ]
+  },
+  {
+    "id": "prod-combo-familiar-20",
+    "slug": "combo-familiar-2-0-economico",
+    "name": "Combo Familiar 2.0 Ahorro Inteligente (5.5 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-FAM2-55K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Familiares",
+    "price": 54990,
+    "originalPrice": 61990,
+    "discountPercent": 11,
+    "stock": 38,
+    "stockStatus": "in_stock",
+    "unit": "Pack 5.5 kg cortes nobles",
+    "weight": "5.5 kg",
+    "origin": "Chile",
+    "rating": 4.9,
+    "reviewCount": 39,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (4).jpeg",
+    "shortDescription": "Todo por $54.990. Incluye 1 kg Molida especial, 1/2 kg Carne picada, 1/2 kg Carne para mechar, 1 kg Lomo liso bistec, 1.5 kg Pechuga deshuesada y 1 kg Truto entero.",
+    "description": "Excelente balance entre carnes rojas y blancas de primera calidad. Variedad para guisar, asar a la plancha o preparar al horno con rendimiento superior.",
+    "storage": "Refrigerado 0°C a 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 54990,
+        "label": "Precio normal"
+      },
+      {
+        "minQty": 3,
+        "price": 51990,
+        "label": "3+ combos"
+      }
+    ],
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "carnes",
+      "combo familiar 2.0",
+      "lomo liso",
+      "mechar",
+      "pechuga"
+    ],
+    "categories": [
+      "carnes"
+    ]
+  },
+  {
+    "id": "prod-combo-parrillero-clasico",
+    "slug": "combo-parrillero-clasico-4-5kg",
+    "name": "Combo Parrillero Clásico Fin de Semana (4.5 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-PARR-45K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Parrilleros",
+    "price": 39990,
+    "originalPrice": 46990,
+    "discountPercent": 15,
+    "stock": 42,
+    "stockStatus": "in_stock",
+    "unit": "Pack 4.5 kg para asado",
+    "weight": "4.5 kg",
+    "origin": "Chile",
+    "rating": 4.8,
+    "reviewCount": 41,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08 (5).jpeg",
+    "shortDescription": "Todo por $39.990. Incluye 1.5 kg Lomo liso, 1 kg Chuleta parrillera de cerdo, 1 kg Truto entero y 1 kg Chorizo artesanal de la casa.",
+    "description": "El asado perfecto en un solo paquete. Cortes seleccionados listos para la parrilla con sabor criollo tradicional.",
+    "storage": "Refrigerado 0°C a 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 39990,
+        "label": "Precio normal"
+      },
+      {
+        "minQty": 3,
+        "price": 37990,
+        "label": "3+ combos"
+      }
+    ],
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "carnes",
+      "combo parrillero",
+      "lomo liso",
+      "chuleta",
+      "chorizo"
+    ],
+    "categories": [
+      "carnes"
+    ]
+  },
+  {
+    "id": "prod-combo-kilate-completo",
+    "slug": "combo-kilate-completo-5kg",
+    "name": "Combo Kilate Completo Multicortes (5 kg)",
+    "brand": "Valle Lindo Carnes",
+    "sku": "CAR-COMBO-KIL-5K",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Surtidos",
+    "price": 52990,
+    "originalPrice": 59990,
+    "discountPercent": 12,
+    "stock": 35,
+    "stockStatus": "in_stock",
+    "unit": "Pack 5 kg surtido al vacío",
+    "weight": "5 kg",
+    "origin": "Chile",
+    "rating": 4.9,
+    "reviewCount": 58,
+    "image": "productos/WhatsApp Image 2026-11-18 at 10.42.08.jpeg",
+    "shortDescription": "Todo por $52.990. Incluye 1 kg Bistec (Lomo Liso o Asiento), 1 kg Carne para mechar, 1 kg Carne molida especial, 1 kg Pechuga deshuesada y 1 kg Bistec de pulpa de cerdo.",
+    "description": "5 kilos de carne de primera calidad. Todo lo necesario para disfrutar en familia o abastecer el menú semanal con terneza y rendimiento garantizados.",
+    "storage": "Refrigerado 0°C a 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 52990,
+        "label": "Precio normal"
+      },
+      {
+        "minQty": 3,
+        "price": 49990,
+        "label": "3+ combos mayorista"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "carnes",
+      "combo kilate",
+      "bistec",
+      "asiento",
+      "pulpa de cerdo"
+    ],
+    "categories": [
+      "carnes"
+    ]
+  },
+  {
+    "id": "prod-chuleta-ahumada-premium",
+    "slug": "chuleta-ahumada-premium-cerdo",
+    "name": "Chuleta Ahumada Premium de Cerdo Seleccionada (Por Kilo)",
+    "brand": "Valle Lindo Ahumados",
+    "sku": "CAR-CHUL-AHUM-KG",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Ahumados",
+    "price": 5990,
+    "originalPrice": 6990,
+    "discountPercent": 14,
+    "stock": 120,
+    "stockStatus": "in_stock",
+    "unit": "Kilo (Con Hueso $5.990 / Sin Hueso $6.390)",
+    "weight": "1 kg",
+    "origin": "Chile",
+    "rating": 4.9,
+    "reviewCount": 73,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.16.39.jpeg",
+    "shortDescription": "Ahumado natural a leña. Con hueso $5.990 el kilo | Sin hueso $6.390 el kilo. 100% carne de cerdo seleccionada con sabor único que realza cada momento.",
+    "description": "Chuletas de cerdo seleccionadas ahumadas lentamente al calor de maderas nobles. Jugosas, tiernas y con el punto justo de sal, ideales para asar, hornear o sellar a la plancha.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 5990,
+        "label": "Con Hueso ($5.990/kg)"
+      },
+      {
+        "minQty": 10,
+        "price": 5690,
+        "label": "10+ kg Con Hueso ($5.690/kg)"
+      },
+      {
+        "minQty": 1,
+        "price": 6390,
+        "label": "Sin Hueso ($6.390/kg)"
+      },
+      {
+        "minQty": 10,
+        "price": 5990,
+        "label": "10+ kg Sin Hueso ($5.990/kg)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": true,
+    "isOffer": false,
+    "tags": [
+      "carnes",
+      "chuleta ahumada",
+      "cerdo",
+      "ahumados",
+      "parrilla"
+    ],
+    "categories": [
+      "carnes"
+    ]
+  },
+  {
+    "id": "prod-tocino-ahumado-laminado",
+    "slug": "tocino-ahumado-laminado-premium",
+    "name": "Tocino Ahumado Laminado Selección Premium (Por Kilo)",
+    "brand": "Santa Bárbara / Valle Lindo",
+    "sku": "CAR-TOC-LAM-KG",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Ahumados",
+    "price": 8990,
+    "originalPrice": 9990,
+    "discountPercent": 10,
+    "stock": 80,
+    "stockStatus": "in_stock",
+    "unit": "Kilo laminado al vacío",
+    "weight": "1 kg",
+    "origin": "Chile / Venezuela",
+    "rating": 5.0,
+    "reviewCount": 65,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.17.15.jpeg",
+    "shortDescription": "Ahumado lentamente para un sabor único e irresistible. $8.990 el kilo. 100% carne de cerdo premium seleccionada.",
+    "description": "Tocino de panceta curada y ahumada con maderas seleccionadas. Láminas homogéneas de dorado crujiente y aroma inconfundible, indispensables en hamburguesas, desayunos y platos gourmet.",
+    "storage": "Mantener refrigerado entre 2°C y 5°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 8990,
+        "label": "1 a 4 kg ($8.990)"
+      },
+      {
+        "minQty": 5,
+        "price": 8490,
+        "label": "5+ kg ($8.490)"
+      }
+    ],
+    "isFeatured": true,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "carnes",
+      "tocino ahumado",
+      "panceta",
+      "bacon",
+      "ahumados"
+    ],
+    "categories": [
+      "carnes"
+    ]
+  },
+  {
+    "id": "prod-tocino-ahumado-tipo-molde-kg",
+    "slug": "tocino-ahumado-tipo-molde-barra",
+    "name": "Tocino Ahumado Tipo Molde en Bloque / Barra (Por Kilo)",
+    "brand": "Santa Bárbara R&C",
+    "sku": "CAR-TOC-MOLDE-KG",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Ahumados",
+    "price": 6990,
+    "originalPrice": 7990,
+    "discountPercent": 13,
+    "stock": 95,
+    "stockStatus": "in_stock",
+    "unit": "Bloque / Kilo ($6.990 el kilo)",
+    "weight": "1 kg",
+    "origin": "Chile / Venezuela",
+    "rating": 4.9,
+    "reviewCount": 42,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.18.28.jpeg",
+    "shortDescription": "Precio por kilo $6.990 | A partir de 20 kilos $6.390 el kilo. Ahumado natural lentamente para un sabor único y rendimiento profesional.",
+    "description": "Tocino tipo molde con alto rendimiento en máquina rebanadora o para corte en cubos. Perfecto para restaurantes, locales de comida rápida y cecinas.",
+    "storage": "Mantener refrigerado entre 2°C y 6°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 6990,
+        "label": "1 a 19 kg ($6.990/kg)"
+      },
+      {
+        "minQty": 20,
+        "price": 6390,
+        "label": "Desde 20 kg ($6.390/kg)"
+      }
+    ],
+    "isFeatured": false,
+    "isBestSeller": true,
+    "isOffer": true,
+    "tags": [
+      "pizzeria",
+      "ahumado",
+      "tipo molde",
+      "pizza",
+      "tocino",
+      "carnes",
+      "tocino pizza",
+      "mayorista"
+    ],
+    "categories": [
+      "carnes",
+      "pizzeria"
+    ]
+  },
+  {
+    "id": "prod-combos-familia-personalizado",
+    "slug": "pack-combos-familia-carnes-seleccionadas",
+    "name": "Pack Selección Carnes Familiares & Asesoría a Medida",
+    "brand": "Valle Lindo Especial",
+    "sku": "CAR-PACK-CUSTOM",
+    "category": "carnes",
+    "categoryName": "Carnes",
+    "subCategory": "Combos Especiales",
+    "price": 45990,
+    "originalPrice": 52990,
+    "discountPercent": 13,
+    "stock": 25,
+    "stockStatus": "in_stock",
+    "unit": "Pack personalizado según requerimiento",
+    "weight": "4 a 6 kg",
+    "origin": "Chile",
+    "rating": 5.0,
+    "reviewCount": 33,
+    "image": "productos/WhatsApp Image 2026-11-19 at 09.22.26.jpeg",
+    "shortDescription": "Prácticos, completos y económicos. Combos de carne pensados para tu familia con calidad premium y compras por volumen garantizadas.",
+    "description": "Arma el combo a la medida de tu hogar o negocio con nuestros maestros carniceros. Cotiza vacuno, cerdo y ave con el mejor precio por kilo y despacho a domicilio.",
+    "storage": "Refrigerado 0°C a 4°C.",
+    "wholesaleTiers": [
+      {
+        "minQty": 1,
+        "price": 45990,
+        "label": "Pack estándar sugerido"
+      },
+      {
+        "minQty": 5,
+        "price": 42990,
+        "label": "5+ packs a medida"
+      }
+    ],
+    "isFeatured": false,
+    "isBestSeller": false,
+    "isOffer": false,
+    "tags": [
+      "carnes",
+      "combos de carne",
+      "familia",
+      "ahorro",
+      "personalizado"
+    ],
+    "categories": [
+      "carnes"
     ]
   }
 ];

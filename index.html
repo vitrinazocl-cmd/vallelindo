@@ -469,9 +469,9 @@
         <span class="text-neutral-900 font-extrabold text-[11px] uppercase tracking-wider mr-1 shrink-0">Filtrar:</span>
         <button onclick="filterSlider('todos', this)" class="slider-cat-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-[#B71C1C] text-white shadow-md transition-all cursor-pointer">Todos los Productos (38)</button>
         <button onclick="filterSlider('ofertas', this)" class="slider-cat-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-white/90 hover:bg-white text-emerald-800 font-extrabold border border-emerald-400 shadow-xs transition-all cursor-pointer">🔥 Ofertas Más Vendidas (5)</button>
-        <button onclick="filterSlider('carnes', this)" class="slider-cat-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-white/90 hover:bg-white text-neutral-900 border border-amber-300 shadow-xs transition-all cursor-pointer">🥩 Carnes (12)</button>
         <button onclick="filterSlider('quesos', this)" class="slider-cat-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-white/90 hover:bg-white text-neutral-900 border border-amber-300 shadow-xs transition-all cursor-pointer">🧀 Quesos (17)</button>
         <button onclick="filterSlider('pizzeria', this)" class="slider-cat-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-white/90 hover:bg-white text-neutral-900 border border-amber-300 shadow-xs transition-all cursor-pointer">🍕 Productos para Pizzería (12)</button>
+        <button onclick="filterSlider('carnes', this)" class="slider-cat-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-white/90 hover:bg-white text-neutral-900 border border-amber-300 shadow-xs transition-all cursor-pointer">🥩 Carnes (12)</button>
       </div>
     </div>
 
@@ -507,25 +507,6 @@
 
     <!-- Grid Tarjetas Grandes de las 3 Secciones Solicitadas -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-      <!-- 🥩 Carnes -->
-      <a href="catalogo.html?cat=carnes" class="group bg-white rounded-3xl border-2 border-neutral-200/90 p-5 sm:p-6 hover:border-[#B71C1C] hover:shadow-[0_20px_40px_-12px_rgba(183,28,28,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
-        <div class="relative aspect-4/3 rounded-2xl bg-neutral-50 overflow-hidden mb-4 border border-neutral-100 flex items-center justify-center p-3">
-          <img src="productos/WhatsApp%20Image%202026-11-18%20at%2010.42.08%20(1).jpeg" alt="Carnes y Combos Parrilleros" class="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500 ease-out" loading="lazy" />
-          <span class="absolute top-3 right-3 text-2xl drop-shadow-xs">🥩</span>
-          <span class="absolute top-3 left-3 bg-[#B71C1C] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full shadow">12 Productos</span>
-        </div>
-        <div>
-          <h3 class="text-lg sm:text-xl font-black text-neutral-900 group-hover:text-[#B71C1C] transition-colors leading-tight">Carnes y Combos</h3>
-          <p class="text-xs text-neutral-500 mt-1.5 leading-relaxed">Vacuno, combos familiares, cortes parrilleros, chuletas ahumadas y tocinos con los mejores precios por volumen.</p>
-        </div>
-        <div class="mt-4 pt-3 border-t border-neutral-100 flex items-center justify-between">
-          <span class="text-xs font-bold text-neutral-400">Ver 12 productos</span>
-          <span class="text-xs font-extrabold text-[#B71C1C] flex items-center group-hover:translate-x-1 transition-transform">
-            Explorar Carnes <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-          </span>
-        </div>
-      </a>
-
       <!-- 🧀 Quesos -->
       <a href="catalogo.html?cat=quesos" class="group bg-white rounded-3xl border-2 border-neutral-200/90 p-5 sm:p-6 hover:border-[#B71C1C] hover:shadow-[0_20px_40px_-12px_rgba(183,28,28,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
         <div class="relative aspect-4/3 rounded-2xl bg-neutral-50 overflow-hidden mb-4 border border-neutral-100 flex items-center justify-center p-3">
@@ -563,6 +544,25 @@
           </span>
         </div>
       </a>
+
+      <!-- 🥩 Carnes -->
+      <a href="catalogo.html?cat=carnes" class="group bg-white rounded-3xl border-2 border-neutral-200/90 p-5 sm:p-6 hover:border-[#B71C1C] hover:shadow-[0_20px_40px_-12px_rgba(183,28,28,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+        <div class="relative aspect-4/3 rounded-2xl bg-neutral-50 overflow-hidden mb-4 border border-neutral-100 flex items-center justify-center p-3">
+          <img src="productos/WhatsApp%20Image%202026-11-18%20at%2010.42.08%20(1).jpeg" alt="Carnes y Combos Parrilleros" class="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500 ease-out" loading="lazy" />
+          <span class="absolute top-3 right-3 text-2xl drop-shadow-xs">🥩</span>
+          <span class="absolute top-3 left-3 bg-[#B71C1C] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full shadow">12 Productos</span>
+        </div>
+        <div>
+          <h3 class="text-lg sm:text-xl font-black text-neutral-900 group-hover:text-[#B71C1C] transition-colors leading-tight">Carnes y Combos</h3>
+          <p class="text-xs text-neutral-500 mt-1.5 leading-relaxed">Vacuno, combos familiares, cortes parrilleros, chuletas ahumadas y tocinos con los mejores precios por volumen.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-xs font-bold text-neutral-400">Ver 12 productos</span>
+          <span class="text-xs font-extrabold text-[#B71C1C] flex items-center group-hover:translate-x-1 transition-transform">
+            Explorar Carnes <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+          </span>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -580,9 +580,9 @@
       <div class="flex overflow-x-auto no-scrollbar scroll-smooth items-center gap-2 pb-2 sm:pb-0 sm:flex-wrap text-xs font-bold whitespace-nowrap">
         <button onclick="renderFeatured('todos', this)" class="tab-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-[#B71C1C] text-white transition-all cursor-pointer">Todos (38)</button>
         <button onclick="renderFeatured('ofertas', this)" class="tab-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-gray-100 text-[#2E7D32] font-extrabold hover:bg-emerald-50 transition-all cursor-pointer">🔥 Ofertas Más Vendidas (5)</button>
-        <button onclick="renderFeatured('carnes', this)" class="tab-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all cursor-pointer">🥩 Carnes (12)</button>
         <button onclick="renderFeatured('quesos', this)" class="tab-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all cursor-pointer">🧀 Quesos (17)</button>
         <button onclick="renderFeatured('pizzeria', this)" class="tab-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all cursor-pointer">🍕 Productos para Pizzería (12)</button>
+        <button onclick="renderFeatured('carnes', this)" class="tab-btn shrink-0 px-3.5 py-1.5 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all cursor-pointer">🥩 Carnes (12)</button>
       </div>
     </div>
 
@@ -994,11 +994,19 @@
       const track = document.getElementById('productSliderTrack');
       if (!track) return;
 
-      const filtered = currentSliderCategory === 'todos'
+      let filtered = currentSliderCategory === 'todos'
         ? PRODUCTS_DATA
         : currentSliderCategory === 'ofertas'
         ? PRODUCTS_DATA.filter(p => p.isOffer)
         : PRODUCTS_DATA.filter(p => (p.categories || [p.category]).includes(currentSliderCategory));
+
+      // Orden estricto del carrusel: 1° Quesos, 2° Pizzería, 3° Carnes
+      const categoryOrder = { 'quesos': 1, 'pizzeria': 2, 'pizza': 2, 'carnes': 3 };
+      filtered = [...filtered].sort((a, b) => {
+        const orderA = categoryOrder[a.category] || 99;
+        const orderB = categoryOrder[b.category] || 99;
+        return orderA - orderB;
+      });
 
       // Duplicamos items para permitir scroll infinito continuo
       const displayItems = filtered.length > 0 ? [...filtered, ...filtered] : PRODUCTS_DATA;
@@ -1069,6 +1077,7 @@
         `;
       }).join("");
 
+      track.scrollLeft = 0;
       if (window.lucide) lucide.createIcons();
       startSliderScroll();
     }

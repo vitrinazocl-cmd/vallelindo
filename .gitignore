@@ -24,6 +24,35 @@ audit_results.json
 audit_full_catalog.json
 extracted_pdf_raw/
 extracted_raw_images/
+pizz_slices/
+test_halves/
+
+# Archivos de prueba y temporales
+*.html
+*.tmp
+preview_*.png
+test_*.jpg
+test_*.png
+valle_lindo_gta6.*
+grid_*.jpg
+page*.jpg
+pampa_*.jpg
+llanero_*.jpg
+oregano_*.jpg
+oregano_*.png
+salsa_*.png
+salsa_*.jpg
+tequenos_*.jpg
+salame-preferida_*.jpg
+queso-gouda-sb_*.jpg
+crop_*.jpg
+full_billboard.png
+vis_text_boxes.jpg
+pizzeria_page_*.jpg
+prod_p*.jpg
+p1_*.jpg
+p2_*.jpg
+palmita_*.jpg
 
 # Archivos de sistema operativo
 .DS_Store
